@@ -1,0 +1,13 @@
+.test {
+  zoom: 1;
+}
+.test:before,
+.test:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.test:after {
+  clear: both;
+}
