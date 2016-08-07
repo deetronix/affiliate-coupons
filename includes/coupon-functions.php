@@ -219,7 +219,7 @@ function affcoups_the_coupon_types( $postid = null ) {
     echo $types;
 }
 
-function affcoups_has_coupon_valid_dates( $postid = null ) {
+function affcoups_coupon_has_valid_dates( $postid = null ) {
 
     if ( empty ( $postid ) )
         $postid = get_the_ID();

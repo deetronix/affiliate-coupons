@@ -45,7 +45,7 @@ if ( ! isset ( $grid ) )
                         </div>
                     <?php } ?>
 
-                    <?php if ( ! empty ( affcoups_has_coupon_valid_dates() ) ) { ?>
+                    <?php if ( affcoups_coupon_has_valid_dates() ) { ?>
                         <div class="affcoups-coupon__valid-dates">
                             <?php affcoups_the_coupon_valid_dates(); ?>
                         </div>
