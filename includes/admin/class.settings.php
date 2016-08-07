@@ -150,10 +150,10 @@ if ( ! class_exists('Affcoups_Settings') ) {
 
                     <p>
                         <strong><?php _e( 'Filtering coupons by category and/or type', 'affiliate-coupons' ); ?></strong><br />
-                        <?php _e( 'By passing the category/type id you can filter the results individually.', 'affiliate-coupons' ); ?>
+                        <?php _e( 'By passing the category/type id or slug you can filter the results individually.', 'affiliate-coupons' ); ?>
                     </p>
                     <p>
-                        <code>[affcoups_coupons category="12" type="8"]</code>
+                        <code>[affcoups_coupons category="12" type="8"]</code> <?php _e( 'or', 'affiliate-coupons' ); ?> <code>[affcoups_coupons category="group-xyz" type="8"]</code> <?php _e( 'etc.', 'affiliate-coupons' ); ?>
                     </p>
 
                     <p>

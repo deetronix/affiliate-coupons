@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: Affiliate Coupons\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/affiliate-"
 "coupons\n"
-"POT-Creation-Date: 2016-07-30 11:06+0200\n"
+"POT-Creation-Date: 2016-08-07 09:30+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -82,7 +82,16 @@ msgstr ""
 
 #: includes/admin/class.settings.php:153
 msgid ""
-"By passing the category/type id you can filter the results individually."
+"By passing the category/type id or slug you can filter the results "
+"individually."
+msgstr ""
+
+#: includes/admin/class.settings.php:156
+msgid "or"
+msgstr ""
+
+#: includes/admin/class.settings.php:156
+msgid "etc."
 msgstr ""
 
 #: includes/admin/class.settings.php:160
