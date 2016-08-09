@@ -22,7 +22,9 @@ jQuery( document ).on( 'click', '.affcoups-clipboard', function(event) {
     var clicked = jQuery(this);
     var current = jQuery(this).html();
 
-    clicked.html('Copied!');
+    var confirmationLabel = jQuery(this).data('affcoups-clipboard-confirmation-text');
+
+    clicked.html(confirmationLabel);
 
     setTimeout(function() {
         clicked.html(current);

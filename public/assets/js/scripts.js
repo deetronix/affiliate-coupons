@@ -359,8 +359,8 @@
         a.clearSelection();
     });
 }), jQuery(document).on("click", ".affcoups-clipboard", function(a) {
-    var b = jQuery(this), c = jQuery(this).html();
-    b.html("Copied!"), setTimeout(function() {
+    var b = jQuery(this), c = jQuery(this).html(), d = jQuery(this).data("affcoups-clipboard-confirmation-text");
+    b.html(d), setTimeout(function() {
         b.html(c);
     }, 2500);
 });
