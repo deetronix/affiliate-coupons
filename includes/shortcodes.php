@@ -18,7 +18,7 @@ function affcoups_add_coupons_shortcode( $atts, $content ) {
     // Default Query Arguments
     $args = array(
         'post_type' => 'affcoups_coupon',
-        'nopaging' => false,
+        'nopaging' => true,
         'orderby' => 'name',
         'order' => 'ASC'
     );
