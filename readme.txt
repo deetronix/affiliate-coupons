@@ -4,7 +4,7 @@ Donate link: https://donate.flowdee.de
 Tags: affiliate, affiliates, coupon, coupons, deals, affiliate coupon, affiliate coupons, affiliate deals, dealz, vendors
 Requires at least: 3.0.1
 Tested up to: 4.5.3
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -75,10 +75,22 @@ Yes of course.
 
 == Changelog ==
 
+= Version 1.0.1 (9th August 2016) =
+* Improvement: Optimized settings quickstart explanation for categories/types
+* Improvement: Made "Copied!" label translatable
+* Fix: Only 5 coupons appearing for a category
+* Fix: Fatal error: Can't use function return value in write context ... coupons-grid.php on line 48
+
 = Version 1.0.0 (30th July 2016) =
 * Initial release
 
 == Upgrade Notice ==
+
+= Version 1.0.1 (9th August 2016) =
+* Improvement: Optimized settings quickstart explanation for categories/types
+* Improvement: Made "Copied!" label translatable
+* Fix: Only 5 coupons appearing for a category
+* Fix: Fatal error: Can't use function return value in write context ... coupons-grid.php on line 48
 
 = Version 1.0.0 (30th July 2016) =
 * Initial release
