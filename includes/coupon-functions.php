@@ -44,7 +44,7 @@ function affcoups_get_coupon_thumbnail( $postid = null, $size = null ) {
 
     $images = rwmb_meta( AFFILIATE_COUPONS_PREFIX . 'coupon_image', 'size=' . $image_size, $postid );
 
-    if ( ! empty ( $images ) ) {
+    if ( ! empty ( $images ) && is_array( $images ) ) {
         return array_shift( $images );
 
     // Get thumbnail from vendor
