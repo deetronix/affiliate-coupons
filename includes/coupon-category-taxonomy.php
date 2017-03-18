@@ -39,7 +39,7 @@ function affcoups_register_coupon_category_taxonomy() {
         'items_list_navigation'      => __( 'Categories list navigation', 'affiliate-coupons' ),
     );
     $rewrite = array(
-        'slug'                       => 'coupons/category',
+        'slug'                       => AFFCOUPS_COUPON_CPT_SLUG . '/category',
         'with_front'                 => true,
         'hierarchical'               => true,
     );
