@@ -87,12 +87,12 @@ if( ! class_exists( 'Affcoups_Plugin' ) ) {
          */
         private function includes() {
 
+            // Dependencies
+            require_once AFFILIATE_COUPONS_DIR . 'vendor/bootstrap.php';
+
             // Basic
             require_once AFFILIATE_COUPONS_DIR . 'includes/helper.php';
             require_once AFFILIATE_COUPONS_DIR . 'includes/scripts.php';
-
-            // Dependencies
-            require_once AFFILIATE_COUPONS_DIR . 'includes/libs.php';
 
             // Admin only
             if ( is_admin() ) {
