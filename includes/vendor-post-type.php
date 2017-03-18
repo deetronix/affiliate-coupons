@@ -43,30 +43,24 @@ function affcoups_register_vendor_post_type() {
         'items_list_navigation' => __( 'Vendors list navigation', 'affiliate-coupons' ),
         'filter_items_list'     => __( 'Filter vendors list', 'affiliate-coupons' ),
     );
-    $rewrite = array(
-        'slug'                  => 'vendor',
-        'with_front'            => true,
-        'pages'                 => true,
-        'feeds'                 => true,
-    );
     $args = array(
         'label'                 => __( 'Vendor', 'affiliate-coupons' ),
         'description'           => __( 'Vendors', 'affiliate-coupons' ),
         'labels'                => $labels,
-        'supports'              => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'revisions', 'page-attributes', ),
+        'supports'              => array( 'title' ),
         'hierarchical'          => false,
-        'public'                => true,
+        'public'                => false,
         'show_ui'               => true,
         'show_in_menu'          => 'edit.php?post_type=affcoups_coupon',
         'menu_position'         => 25,
         'menu_icon'             => false,
-        'show_in_admin_bar'     => true,
-        'show_in_nav_menus'     => true,
+        'show_in_admin_bar'     => false,
+        'show_in_nav_menus'     => false,
         'can_export'            => true,
-        'has_archive'           => 'vendors',
-        'exclude_from_search'   => false,
+        'has_archive'           => false,
+        'exclude_from_search'   => true,
         'publicly_queryable'    => true,
-        'rewrite'               => $rewrite,
+        'rewrite'               => false,
         'capability_type'       => 'page',
     );
     register_post_type( 'affcoups_vendor', $args );
