@@ -98,20 +98,20 @@ if( ! class_exists( 'Affcoups_Plugin' ) ) {
             if ( is_admin() ) {
                 require_once AFFILIATE_COUPONS_DIR . 'includes/admin/plugins.php';
                 require_once AFFILIATE_COUPONS_DIR . 'includes/admin/class.settings.php';
+                require_once AFFILIATE_COUPONS_DIR . 'includes/admin/manage-coupons.php';
+                require_once AFFILIATE_COUPONS_DIR . 'includes/admin/coupon-metaboxes.php';
+                require_once AFFILIATE_COUPONS_DIR . 'includes/admin/manage-vendors.php';
+                require_once AFFILIATE_COUPONS_DIR . 'includes/admin/vendor-metaboxes.php';
             }
 
             // Coupons
-            require_once AFFILIATE_COUPONS_DIR . 'includes/coupons/post-type.php';
-            require_once AFFILIATE_COUPONS_DIR . 'includes/coupons/type-taxonomy.php';
-            require_once AFFILIATE_COUPONS_DIR . 'includes/coupons/category-taxonomy.php';
-            require_once AFFILIATE_COUPONS_DIR . 'includes/coupons/manage-coupons.php';
-            require_once AFFILIATE_COUPONS_DIR . 'includes/coupons/metaboxes.php';
+            require_once AFFILIATE_COUPONS_DIR . 'includes/coupon-post-type.php';
+            require_once AFFILIATE_COUPONS_DIR . 'includes/coupon-type-taxonomy.php';
+            require_once AFFILIATE_COUPONS_DIR . 'includes/coupon-category-taxonomy.php';
             require_once AFFILIATE_COUPONS_DIR . 'includes/coupon-functions.php';
 
             // Vendors
-            require_once AFFILIATE_COUPONS_DIR . 'includes/vendors/post-type.php';
-            require_once AFFILIATE_COUPONS_DIR . 'includes/vendors/manage-vendors.php';
-            require_once AFFILIATE_COUPONS_DIR . 'includes/vendors/metaboxes.php';
+            require_once AFFILIATE_COUPONS_DIR . 'includes/vendor-post-type.php';
             require_once AFFILIATE_COUPONS_DIR . 'includes/vendor-functions.php';
 
             // Anything else
