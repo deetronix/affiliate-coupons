@@ -12,6 +12,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Convert separated strings to array
+ *
+ * @param $string
+ * @return array
+ */
+function affcoups_convert_separated_strings_to_array( $string ) {
+
+    // Remove spaces
+    $string = str_replace( ' ', '', $string);
+
+    // Convert to array
+    $array = explode( ',', $string );
+
+    return $array;
+}
+
+/**
  * Get options
  *
  * return array options or empty when not available

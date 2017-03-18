@@ -94,7 +94,7 @@ function affcoups_add_coupons_shortcode( $atts, $content ) {
     //affcoups_debug($args);
 
     // The Query
-    $posts = new WP_Query( $args );
+    $posts = new WP_Query( $args ); // TODO: Move query building to "get_coupons" function
 
     ob_start();
 
@@ -127,3 +127,64 @@ function affcoups_add_coupons_shortcode( $atts, $content ) {
     return $str;
 }
 add_shortcode('affcoups_coupons', 'affcoups_add_coupons_shortcode');
+
+/*
+ * Post lists
+ */
+function affcoups_add_coupon_shortcode( $atts, $content )
+{
+    extract(shortcode_atts(array(
+        'id' => null,
+        'hide_expired' => null,
+    ), $atts));
+
+    if ( empty( $atts['id'] ) )
+        return '<p>' . __( 'Coupon ID missing.', 'affiliate-coupons' ) . '</p>';
+
+    if ( ! is_numeric( $atts['id'] ) )
+        return '<p>' . __( 'Coupon ID invalid.', 'affiliate-coupons' ) . '</p>';
+
+    // Default Query Arguments
+    $args = array(
+        'affcoups_coupon_id' => $atts['id']
+    );
+
+    $coupons = affcoups_get_coupons( $args );
+
+    affcoups_debug( $coupons );
+
+    ob_start();
+
+    if ( isset( $coupons[0] ) ) {
+
+        setup_postdata( $coupons[0] );
+
+        // Loading template including wrapper
+        affcoups_get_template( 'coupon', true );
+
+        wp_reset_postdata();
+
+    } else {
+        echo '<p>' . __( 'Coupon ID invalid.', 'affiliate-coupons' ) . '</p>';
+    }
+
+    $str = ob_get_clean();
+
+    // Return output
+    return $str;
+}
+add_shortcode('affcoups_coupon', 'affcoups_add_coupon_shortcode');
+
+/*
+ * Debug
+ */
+add_shortcode('affcoups_debug', function( $atts ) {
+
+    $args = array(
+        'affcoups_coupon_id' => array( 312, 314 )
+    );
+
+    $posts = affcoups_get_coupons( $args );
+
+    affcoups_debug( $posts );
+});

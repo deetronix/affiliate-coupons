@@ -11,6 +11,49 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
+/**
+ * Get coupons
+ */
+function affcoups_get_coupons( $args = array() ) {
+
+    $defaults = array(
+        'post_type' => 'affcoups_coupon',
+        'post_status' => 'publish',
+        'posts_per_page' => -1
+    );
+
+    if ( isset( $args['affcoups_coupon_id'] ) ) {
+
+        $coupon_ids = ( is_array( $args['affcoups_coupon_id'] ) ) ? $args['affcoups_coupon_id'] : array( $args['affcoups_coupon_id'] );
+
+        if ( sizeof( $coupon_ids ) > 0 )
+            $args['post__in'] = $coupon_ids;
+    }
+
+    /*
+    // Handle listing status
+    if ( isset( $args['listing_status'] ) ) {
+
+        $args['meta_query'] = array(
+            array(
+                'key' => '_nsm_listing_status',
+                'value' => $args['listing_status'],
+            )
+        );
+
+        unset( $args['listing_status'] );
+    }
+    */
+
+    // Parse args
+    $args = wp_parse_args( $args, $defaults );
+
+    // Fetch posts
+    $posts = get_posts( $args );
+
+    return $posts;
+}
+
 /*
  * Coupon Template classes
  */
