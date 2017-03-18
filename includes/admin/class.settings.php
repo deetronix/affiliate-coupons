@@ -52,7 +52,9 @@ if ( ! class_exists('Affcoups_Settings') ) {
                 array( &$this, 'validate_input_callback' )
             );
 
-            // SECTION: Quickstart
+            /*
+             * Section: Quickstart
+             */
             add_settings_section(
                 'affcoups_settings_section_quickstart',
                 __('Quickstart Guide', 'affiliate-coupons'),
@@ -97,20 +99,42 @@ if ( ! class_exists('Affcoups_Settings') ) {
             );
             */
 
-            // SECTION TWO
+            /*
+             * Section: Output
+             */
             add_settings_section(
-                'affcoups_settings_section_coupons',
-                __('Coupons', 'affiliate-coupons'),
-                array( &$this, 'section_two_render' ), // Optional you can output a description for each section
+                'affcoups_settings_section_general',
+                __('General', 'affiliate-coupons'),
+                false,
+                'affcoups_settings'
+            );
+
+            /*
+             * Section: Output
+             */
+            add_settings_section(
+                'affcoups_settings_section_output',
+                __('Output', 'affiliate-coupons'),
+                false,
                 'affcoups_settings'
             );
 
             add_settings_field(
-                'affcoups_settings_coupon_lifetime',
+                'affcoups_settings_coupon_expiration',
                 __('Expiration', 'affiliate-coupons'),
-                array(&$this, 'coupon_lifetime_render'),
+                array(&$this, 'coupon_expiration_render'),
                 'affcoups_settings',
-                'affcoups_settings_section_coupons'
+                'affcoups_settings_section_output',
+                array('label_for' => 'affcoups_hide_expired_coupons')
+            );
+
+            add_settings_field(
+                'affcoups_settings_custom_css',
+                __('Custom CSS', 'affiliate-coupons'),
+                array(&$this, 'custom_css_render'),
+                'affcoups_settings',
+                'affcoups_settings_section_output',
+                array('label_for' => 'affcoups_custom_css')
             );
 
         }
@@ -181,13 +205,32 @@ if ( ! class_exists('Affcoups_Settings') ) {
             <?php
         }
 
-        function coupon_lifetime_render() {
+        function coupon_expiration_render() {
 
             $hide_expired_coupons = ( isset ( $this->options['hide_expired_coupons'] ) && $this->options['hide_expired_coupons'] == '1' ) ? 1 : 0;
             ?>
 
-            <input type="checkbox" id="affcoups_settings_hide_expired_coupons" name="affcoups_settings[hide_expired_coupons]" value="1" <?php echo($hide_expired_coupons == 1 ? 'checked' : ''); ?> />
-            <label for="affcoups_settings_hide_expired_coupons"><?php _e('Hide coupons after they expired', 'affiliate-coupons'); ?></label>
+            <input type="checkbox" id="affcoups_hide_expired_coupons" name="affcoups_settings[hide_expired_coupons]" value="1" <?php echo( $hide_expired_coupons == 1 ? 'checked' : '' ); ?> />
+            <label for="affcoups_hide_expired_coupons"><?php _e('Hide coupons after they expired', 'affiliate-coupons'); ?></label>
+            <?php
+        }
+
+        function custom_css_render() {
+
+            $custom_css_activated = ( isset ( $this->options['custom_css_activated'] ) && $this->options['custom_css_activated'] == '1' ) ? 1 : 0;
+            $custom_css = ( !empty ( $this->options['custom_css'] ) ) ? $this->options['custom_css'] : '';
+            ?>
+
+            <p>
+                <input type="checkbox" id="affcoups_custom_css_activated" name="affcoups_settings[custom_css_activated]" value="1" <?php echo( $custom_css_activated == 1 ? 'checked' : '' ); ?>>
+                <label for="affcoups_custom_css_activated"><?php _e('Output custom CSS styles', 'affiliate-coupons'); ?></label>
+            </p>
+            <br />
+            <textarea id="affcoups_custom_css" name="affcoups_settings[custom_css]" rows="10" cols="80" style="width: 100%;"><?php echo stripslashes( $custom_css ); ?></textarea>
+            <p>
+                <small><?php _e("Please don't use the <code>style</code> tag. Simply paste you CSS classes/definitions e.g. <code>.affcoups .affcoups-coupon { background-color: #333; }</code>", 'affiliate-coupons' ) ?></small>
+            </p>
+
             <?php
         }
 

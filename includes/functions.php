@@ -41,3 +41,17 @@ function affcoups_get_template_file( $template, $type ) {
 
     return ( 'widget' === $type ) ? AFFCOUPS_DIR . 'templates/widget.php' : AFFCOUPS_DIR . 'templates/standard.php';
 }
+
+/**
+ * Check content if scripts must be loaded
+ */
+function affcoups_has_plugin_content() {
+
+    global $post;
+
+    if( ( is_a( $post, 'WP_Post' ) && ( has_shortcode( $post->post_content, 'affcoups_coupons') || is_singular( 'affcoups_coupon' ) ) ) ) {
+        return true;
+    }
+
+    return false;
+}
