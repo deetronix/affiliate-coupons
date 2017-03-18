@@ -24,7 +24,7 @@ function affcoups_get_options() {
  * Public assets folder
  */
 function affcoups_the_assets() {
-    echo AFFILIATE_COUPONS_URL . 'public/assets';
+    echo AFFCOUPS_URL . 'public/assets';
 }
 
 /*

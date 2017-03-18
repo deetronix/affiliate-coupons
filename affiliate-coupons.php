@@ -63,19 +63,19 @@ if( ! class_exists( 'Affcoups_Plugin' ) ) {
         private function setup_constants() {
 
             // Plugin name
-            define( 'AFFILIATE_COUPONS_NAME', 'Affiliate Coupons' );
+            define( 'AFFCOUPS_NAME', 'Affiliate Coupons' );
 
             // Plugin version
-            define( 'AFFILIATE_COUPONS_VER', '1.0.1' );
+            define( 'AFFCOUPS_VER', '1.0.1' );
 
             // Plugin path
-            define( 'AFFILIATE_COUPONS_DIR', plugin_dir_path( __FILE__ ) );
+            define( 'AFFCOUPS_DIR', plugin_dir_path( __FILE__ ) );
 
             // Plugin URL
-            define( 'AFFILIATE_COUPONS_URL', plugin_dir_url( __FILE__ ) );
+            define( 'AFFCOUPS_URL', plugin_dir_url( __FILE__ ) );
 
             // Plugin prefix
-            define( 'AFFILIATE_COUPONS_PREFIX', 'affcoups_' );
+            define( 'AFFCOUPS_PREFIX', 'affcoups_' );
         }
         
         /**
@@ -88,36 +88,36 @@ if( ! class_exists( 'Affcoups_Plugin' ) ) {
         private function includes() {
 
             // Dependencies
-            require_once AFFILIATE_COUPONS_DIR . 'vendor/bootstrap.php';
+            require_once AFFCOUPS_DIR . 'vendor/bootstrap.php';
 
             // Basic
-            require_once AFFILIATE_COUPONS_DIR . 'includes/helper.php';
-            require_once AFFILIATE_COUPONS_DIR . 'includes/scripts.php';
+            require_once AFFCOUPS_DIR . 'includes/helper.php';
+            require_once AFFCOUPS_DIR . 'includes/scripts.php';
 
             // Admin only
             if ( is_admin() ) {
-                require_once AFFILIATE_COUPONS_DIR . 'includes/admin/plugins.php';
-                require_once AFFILIATE_COUPONS_DIR . 'includes/admin/class.settings.php';
-                require_once AFFILIATE_COUPONS_DIR . 'includes/admin/manage-coupons.php';
-                require_once AFFILIATE_COUPONS_DIR . 'includes/admin/coupon-metaboxes.php';
-                require_once AFFILIATE_COUPONS_DIR . 'includes/admin/manage-vendors.php';
-                require_once AFFILIATE_COUPONS_DIR . 'includes/admin/vendor-metaboxes.php';
+                require_once AFFCOUPS_DIR . 'includes/admin/plugins.php';
+                require_once AFFCOUPS_DIR . 'includes/admin/class.settings.php';
+                require_once AFFCOUPS_DIR . 'includes/admin/manage-coupons.php';
+                require_once AFFCOUPS_DIR . 'includes/admin/coupon-metaboxes.php';
+                require_once AFFCOUPS_DIR . 'includes/admin/manage-vendors.php';
+                require_once AFFCOUPS_DIR . 'includes/admin/vendor-metaboxes.php';
             }
 
             // Coupons
-            require_once AFFILIATE_COUPONS_DIR . 'includes/coupon-post-type.php';
-            require_once AFFILIATE_COUPONS_DIR . 'includes/coupon-type-taxonomy.php';
-            require_once AFFILIATE_COUPONS_DIR . 'includes/coupon-category-taxonomy.php';
-            require_once AFFILIATE_COUPONS_DIR . 'includes/coupon-functions.php';
+            require_once AFFCOUPS_DIR . 'includes/coupon-post-type.php';
+            require_once AFFCOUPS_DIR . 'includes/coupon-type-taxonomy.php';
+            require_once AFFCOUPS_DIR . 'includes/coupon-category-taxonomy.php';
+            require_once AFFCOUPS_DIR . 'includes/coupon-functions.php';
 
             // Vendors
-            require_once AFFILIATE_COUPONS_DIR . 'includes/vendor-post-type.php';
-            require_once AFFILIATE_COUPONS_DIR . 'includes/vendor-functions.php';
+            require_once AFFCOUPS_DIR . 'includes/vendor-post-type.php';
+            require_once AFFCOUPS_DIR . 'includes/vendor-functions.php';
 
             // Anything else
-            require_once AFFILIATE_COUPONS_DIR . 'includes/hooks.php';
-            require_once AFFILIATE_COUPONS_DIR . 'includes/functions.php';
-            require_once AFFILIATE_COUPONS_DIR . 'includes/shortcodes.php';
+            require_once AFFCOUPS_DIR . 'includes/hooks.php';
+            require_once AFFCOUPS_DIR . 'includes/functions.php';
+            require_once AFFCOUPS_DIR . 'includes/shortcodes.php';
         }
 
         /**
@@ -129,7 +129,7 @@ if( ! class_exists( 'Affcoups_Plugin' ) ) {
          */
         public function load_textdomain() {
             // Set filter for language directory
-            $lang_dir = AFFILIATE_COUPONS_DIR . '/languages/';
+            $lang_dir = AFFCOUPS_DIR . '/languages/';
             $lang_dir = apply_filters( 'affiliate_coupons_languages_directory', $lang_dir );
 
             // Traditional WordPress plugin locale filter

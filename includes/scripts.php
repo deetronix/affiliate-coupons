@@ -28,8 +28,8 @@ function affcoups_admin_scripts( $hook ) {
 
     if ( ! empty( $screen->base ) && ( $screen->base == 'settings_page_affiliate_coupons' || $screen->base == 'widgets' ) ) {
 
-        wp_enqueue_script( 'affcoups_admin_js', AFFILIATE_COUPONS_URL . 'public/assets/js/admin' . $suffix . '.js', array( 'jquery' ), AFFILIATE_COUPONS_VER );
-        wp_enqueue_style( 'affcoups_admin_css', AFFILIATE_COUPONS_URL . 'public/assets/css/admin' . $suffix . '.css', false, AFFILIATE_COUPONS_VER );
+        wp_enqueue_script( 'affcoups_admin_js', AFFCOUPS_URL . 'public/assets/js/admin' . $suffix . '.js', array( 'jquery' ), AFFCOUPS_VER );
+        wp_enqueue_style( 'affcoups_admin_css', AFFCOUPS_URL . 'public/assets/css/admin' . $suffix . '.css', false, AFFCOUPS_VER );
     }
 }
 add_action( 'admin_enqueue_scripts', 'affcoups_admin_scripts', 100 );
@@ -49,8 +49,8 @@ function affcoups_scripts( $hook ) {
         // Use minified libraries if SCRIPT_DEBUG is turned off
         $suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
-        wp_enqueue_script( 'affcoups_scripts', AFFILIATE_COUPONS_URL . 'public/assets/js/scripts' . $suffix . '.js', array( 'jquery' ), AFFILIATE_COUPONS_VER, true );
-        wp_enqueue_style( 'affcoups_styles', AFFILIATE_COUPONS_URL . 'public/assets/css/styles' . $suffix . '.css', false, AFFILIATE_COUPONS_VER );
+        wp_enqueue_script( 'affcoups_scripts', AFFCOUPS_URL . 'public/assets/js/scripts' . $suffix . '.js', array( 'jquery' ), AFFCOUPS_VER, true );
+        wp_enqueue_style( 'affcoups_styles', AFFCOUPS_URL . 'public/assets/css/styles' . $suffix . '.css', false, AFFCOUPS_VER );
 
     }
 }

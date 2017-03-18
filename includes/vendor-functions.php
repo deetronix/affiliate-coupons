@@ -16,7 +16,7 @@ function affcoups_get_vendor_url( $postid = null ) {
     if ( empty ( $postid ) )
         $postid = get_the_ID();
 
-    $url = get_post_meta( $postid, AFFILIATE_COUPONS_PREFIX . 'vendor_url', true );
+    $url = get_post_meta( $postid, AFFCOUPS_PREFIX . 'vendor_url', true );
 
     return ( ! empty ( $url ) ) ? $url : false;
 }
@@ -29,7 +29,7 @@ function affcoups_get_vendor_thumbnail( $postid = null, $size = null ) {
     // Get thumbnail from coupon
     $image_size = ( 'small' === $size ) ? 'affcoups-thumb-small' : 'affcoups-thumb';
 
-    $images = rwmb_meta( AFFILIATE_COUPONS_PREFIX . 'vendor_image', 'size=' . $image_size, $postid );
+    $images = rwmb_meta( AFFCOUPS_PREFIX . 'vendor_image', 'size=' . $image_size, $postid );
 
     if( ! empty ( $images ) && is_array( $images ) )
         return array_shift( $images );

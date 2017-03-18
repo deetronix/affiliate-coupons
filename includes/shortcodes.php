@@ -35,14 +35,14 @@ function affcoups_add_coupons_shortcode( $atts, $content ) {
             'relation' => 'OR',
             // Until date not set yet
             array(
-                'key' => AFFILIATE_COUPONS_PREFIX . 'coupon_valid_until',
+                'key' => AFFCOUPS_PREFIX . 'coupon_valid_until',
                 'value'   => '',
                 'compare' => 'NOT EXISTS',
                 'type' => 'NUMERIC'
             ),
             // Already expired
             array(
-                'key' => AFFILIATE_COUPONS_PREFIX . 'coupon_valid_until',
+                'key' => AFFCOUPS_PREFIX . 'coupon_valid_until',
                 'value' => time(),
                 'compare' => '>=',
                 'type' => 'NUMERIC'

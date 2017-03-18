@@ -32,12 +32,12 @@ function affcoups_get_post_content( $postid = null ) {
  */
 function affcoups_get_template_file( $template, $type ) {
 
-    $template_file = AFFILIATE_COUPONS_DIR . 'templates/' . $template . '.php';
+    $template_file = AFFCOUPS_DIR . 'templates/' . $template . '.php';
 
     $template_file = apply_filters( 'affcoups_template_file', $template_file, $template, $type );
 
     if ( file_exists( $template_file ) )
         return $template_file;
 
-    return ( 'widget' === $type ) ? AFFILIATE_COUPONS_DIR . 'templates/widget.php' : AFFILIATE_COUPONS_DIR . 'templates/standard.php';
+    return ( 'widget' === $type ) ? AFFCOUPS_DIR . 'templates/widget.php' : AFFCOUPS_DIR . 'templates/standard.php';
 }

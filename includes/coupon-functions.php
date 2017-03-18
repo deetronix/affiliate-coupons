@@ -26,7 +26,7 @@ function affcoups_get_coupon_vendor_id( $postid = null ) {
     if ( empty ( $postid ) )
         $postid = get_the_ID();
 
-    $vendor_id = get_post_meta( $postid, AFFILIATE_COUPONS_PREFIX . 'coupon_vendor', true );
+    $vendor_id = get_post_meta( $postid, AFFCOUPS_PREFIX . 'coupon_vendor', true );
 
     return ( ! empty ( $vendor_id ) ) ? $vendor_id : false;
 }
@@ -42,7 +42,7 @@ function affcoups_get_coupon_thumbnail( $postid = null, $size = null ) {
     // Get thumbnail from coupon
     $image_size = ( 'small' === $size ) ? 'affcoups-thumb-small' : 'affcoups-thumb';
 
-    $images = rwmb_meta( AFFILIATE_COUPONS_PREFIX . 'coupon_image', 'size=' . $image_size, $postid );
+    $images = rwmb_meta( AFFCOUPS_PREFIX . 'coupon_image', 'size=' . $image_size, $postid );
 
     if ( ! empty ( $images ) && is_array( $images ) ) {
         return array_shift( $images );
@@ -71,7 +71,7 @@ function affcoups_the_coupon_thumbnail( $postid = null ) {
     $thumbnail = affcoups_get_coupon_thumbnail( $postid );
 
     // Prepare attributes
-    $thumb_url = ( ! empty ( $thumbnail['url'] ) ) ? $thumbnail['url'] : AFFILIATE_COUPONS_URL . '/public/assets/img/thumb.png';
+    $thumb_url = ( ! empty ( $thumbnail['url'] ) ) ? $thumbnail['url'] : AFFCOUPS_URL . '/public/assets/img/thumb.png';
     $thumb_alt = ( ! empty ( $thumbnail['alt'] ) ) ? $thumbnail['alt'] : affcoups_get_coupon_title( $postid );
 
     // Build thumbnail
@@ -86,7 +86,7 @@ function affcoups_get_coupon_discount( $postid = null ) {
     if ( empty ( $postid ) )
         $postid = get_the_ID();
 
-    $discount = get_post_meta( $postid, AFFILIATE_COUPONS_PREFIX . 'coupon_discount', true );
+    $discount = get_post_meta( $postid, AFFCOUPS_PREFIX . 'coupon_discount', true );
 
     return ( ! empty ( $discount ) ) ? $discount : false;
 }
@@ -97,7 +97,7 @@ function affcoups_get_coupon_title( $postid = null ) {
         $postid = get_the_ID();
 
     // Coupon
-    $title = get_post_meta( $postid, AFFILIATE_COUPONS_PREFIX . 'coupon_title', true );
+    $title = get_post_meta( $postid, AFFCOUPS_PREFIX . 'coupon_title', true );
 
     if ( ! empty ( $title ) )
         return $title;
@@ -121,14 +121,14 @@ function affcoups_get_coupon_description( $postid = null ) {
         $postid = get_the_ID();
 
     // Coupon
-    $description = get_post_meta( $postid, AFFILIATE_COUPONS_PREFIX . 'coupon_description', true );
+    $description = get_post_meta( $postid, AFFCOUPS_PREFIX . 'coupon_description', true );
 
     // Vendor
     if ( empty ( $description ) ) {
         $vendor_id = affcoups_get_coupon_vendor_id( $postid );
 
         if ( ! empty ( $vendor_id ) )
-            $description = get_post_meta( $vendor_id, AFFILIATE_COUPONS_PREFIX . 'vendor_description', true );
+            $description = get_post_meta( $vendor_id, AFFCOUPS_PREFIX . 'vendor_description', true );
     }
 
     // Fallback
@@ -143,7 +143,7 @@ function affcoups_get_coupon_code( $postid = null ) {
     if ( empty ( $postid ) )
         $postid = get_the_ID();
 
-    $code = get_post_meta( $postid, AFFILIATE_COUPONS_PREFIX . 'coupon_code', true );
+    $code = get_post_meta( $postid, AFFCOUPS_PREFIX . 'coupon_code', true );
 
     return ( ! empty ( $code ) ) ? $code : false;
 }
@@ -172,7 +172,7 @@ function affcoups_get_coupon_url( $postid = null ) {
     if ( empty ( $postid ) )
         $postid = get_the_ID();
 
-    $url = get_post_meta( $postid, AFFILIATE_COUPONS_PREFIX . 'coupon_url', true );
+    $url = get_post_meta( $postid, AFFCOUPS_PREFIX . 'coupon_url', true );
 
     if ( empty ( $url ) ) {
         $vendor_id = affcoups_get_coupon_vendor_id( $postid );
@@ -224,8 +224,8 @@ function affcoups_coupon_has_valid_dates( $postid = null ) {
     if ( empty ( $postid ) )
         $postid = get_the_ID();
 
-    $valid_from = get_post_meta( $postid, AFFILIATE_COUPONS_PREFIX . 'coupon_valid_from', true );
-    $valid_until = get_post_meta( $postid, AFFILIATE_COUPONS_PREFIX . 'coupon_valid_until', true );
+    $valid_from = get_post_meta( $postid, AFFCOUPS_PREFIX . 'coupon_valid_from', true );
+    $valid_until = get_post_meta( $postid, AFFCOUPS_PREFIX . 'coupon_valid_until', true );
 
     return ( ! empty ( $valid_from ) || ! empty ( $valid_until ) ) ? true : false;
 }
@@ -240,8 +240,8 @@ function affcoups_the_coupon_valid_dates( $postid = null ) {
 
     $dates = '';
 
-    $valid_from = get_post_meta( $postid, AFFILIATE_COUPONS_PREFIX . 'coupon_valid_from', true );
-    $valid_until = get_post_meta( $postid, AFFILIATE_COUPONS_PREFIX . 'coupon_valid_until', true );
+    $valid_from = get_post_meta( $postid, AFFCOUPS_PREFIX . 'coupon_valid_from', true );
+    $valid_until = get_post_meta( $postid, AFFCOUPS_PREFIX . 'coupon_valid_until', true );
 
     if ( ! empty ( $valid_from ) && time() < $valid_from ) {
         $dates .= __('Valid from', 'affiliate-coupons') . ' ' . date_i18n( $date_format, $valid_from );
