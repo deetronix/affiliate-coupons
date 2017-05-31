@@ -16,8 +16,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function affcoups_register_coupon_post_type() {
 
-    define( 'AFFCOUPS_COUPON_CPT_SLUG', 'coupons' );
-
     $labels = array(
         'name'                  => _x( 'Coupons', 'Post Type General Name', 'affiliate-coupons' ),
         'singular_name'         => _x( 'Coupon', 'Post Type Singular Name', 'affiliate-coupons' ),
@@ -45,32 +43,29 @@ function affcoups_register_coupon_post_type() {
         'items_list_navigation' => __( 'Coupons list navigation', 'affiliate-coupons' ),
         'filter_items_list'     => __( 'Filter coupons list', 'affiliate-coupons' ),
     );
-    $rewrite = array(
-        'slug'                  => AFFCOUPS_COUPON_CPT_SLUG,
-        'with_front'            => true,
-        'pages'                 => true,
-        'feeds'                 => true,
-    );
     $args = array(
         'label'                 => __( 'Coupon', 'affiliate-coupons' ),
         'description'           => __( 'Coupons', 'affiliate-coupons' ),
         'labels'                => $labels,
         'supports'              => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'revisions', 'page-attributes', ),
         'hierarchical'          => false,
-        'public'                => true,
+        'public'                => false,
         'show_ui'               => true,
         'show_in_menu'          => true,
         'menu_position'         => 25,
         'menu_icon'             => 'dashicons-tickets-alt',
         'show_in_admin_bar'     => true,
-        'show_in_nav_menus'     => true,
+        'show_in_nav_menus'     => false,
         'can_export'            => true,
-        'has_archive'           => AFFCOUPS_COUPON_CPT_SLUG,
-        'exclude_from_search'   => false,
-        'publicly_queryable'    => true,
-        'rewrite'               => $rewrite,
+        'has_archive'           => false,
+        'exclude_from_search'   => true,
+        'publicly_queryable'    => false,
+        'rewrite'               => false,
         'capability_type'       => 'page',
     );
+
+    $args = apply_filters( 'affcoups_coupon_post_type_args', $args );
+
     register_post_type( 'affcoups_coupon', $args );
 
 }

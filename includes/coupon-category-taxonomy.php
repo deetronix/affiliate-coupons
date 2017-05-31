@@ -38,21 +38,20 @@ function affcoups_register_coupon_category_taxonomy() {
         'items_list'                 => __( 'Categories list', 'affiliate-coupons' ),
         'items_list_navigation'      => __( 'Categories list navigation', 'affiliate-coupons' ),
     );
-    $rewrite = array(
-        'slug'                       => AFFCOUPS_COUPON_CPT_SLUG . '/category',
-        'with_front'                 => true,
-        'hierarchical'               => true,
-    );
+
     $args = array(
         'labels'                     => $labels,
         'hierarchical'               => true,
-        'public'                     => true,
+        'public'                     => false,
         'show_ui'                    => true,
         'show_admin_column'          => true,
-        'show_in_nav_menus'          => true,
+        'show_in_nav_menus'          => false,
         'show_tagcloud'              => false,
-        'rewrite'                    => $rewrite,
+        'rewrite'                    => false,
     );
+
+    $args = apply_filters( 'affcoups_coupon_type_taxonomy_args', $args );
+
     register_taxonomy( 'affcoups_coupon_category', array( 'affcoups_coupon' ), $args );
 
 }

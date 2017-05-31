@@ -80,3 +80,12 @@ function affcoups_has_plugin_content() {
 
     return false;
 }
+
+/**
+ * Get coupon post type slug
+ *
+ * @return string
+ */
+function affcoups_get_coupon_post_type_slug() {
+    return apply_filters( 'affcoups_coupon_post_type_slug', 'coupons' );
+}
