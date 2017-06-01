@@ -27,7 +27,7 @@ function affcoups_coupon_extend_columns_content( $column_name, $postid ) {
 
     if ( $column_name == 'affcoups_coupon_thumb' ) {
 
-        $image = affcoups_get_coupon_thumbnail( $postid, 'small' );
+        $image = affcoups_get_coupon_image( $postid, 'small' );
 
         if ( ! empty ( $image['url'] ) ) {
             ?>

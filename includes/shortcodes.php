@@ -1,171 +1,112 @@
 <?php
-/*
- * Post lists
+/**
+ * Basic shortcode
+ *
+ * @param $atts
+ * @param $content
+ * @return string*
  */
-function affcoups_add_coupons_shortcode( $atts, $content ) {
-    extract( shortcode_atts( array(
+function affcoups_add_shortcode( $atts, $content ) {
+    extract( shortcode_atts(array(
+        'id' => null,
         'category' => null,
         'type' => null,
+        'vendor' => null,
         'max' => null,
-        'orderby' => null,
         'grid' => null,
         'hide_expired' => null,
+        'template' => null,
+        'order' => null,
+        'orderby' => null
     ), $atts ) );
 
     // Prepare options
     $options = affcoups_get_options();
 
-    // Default Query Arguments
+    // Defaults
     $args = array(
-        'post_type' => 'affcoups_coupon',
-        'nopaging' => true,
+        'posts_per_page' => -1,
         'orderby' => 'name',
         'order' => 'ASC'
     );
 
-    // Hide expired coupons
-    $hide_expired_coupons = ( isset ( $options['hide_expired_coupons'] ) ) ? true : false;
+    //-- Max
+    $args['posts_per_page'] = ( ! empty ( $max ) && is_numeric( $max ) ) ? intval( $max ) : '-1';
 
-    if ( ! empty ( $hide_expired ) ) // Maybe overwrite by shortcode
-        $hide_expired_coupons = ( 'true' == $hide_expired ) ? true : false;
+    //-- Order
+    if ( ! empty ( $order ) )
+        $args['affcoups_order'] = esc_html( $order );
 
-    if ( $hide_expired_coupons ) {
+    if ( ! empty ( $orderby ) )
+        $args['affcoups_orderby'] = esc_attr( $orderby );
 
-        $args['meta_query'] = array(
-            'relation' => 'OR',
-            // Until date not set yet
-            array(
-                'key' => AFFCOUPS_PREFIX . 'coupon_valid_until',
-                'value'   => '',
-                'compare' => 'NOT EXISTS',
-                'type' => 'NUMERIC'
-            ),
-            // Already expired
-            array(
-                'key' => AFFCOUPS_PREFIX . 'coupon_valid_until',
-                'value' => time(),
-                'compare' => '>=',
-                'type' => 'NUMERIC'
-            )
-        );
+    //-- ID
+    if ( ! empty( $id ) ) {
+        $args['affcoups_coupon_id'] = esc_html( $id );
     }
 
-    // Tax Queries
-    $tax_queries = array(
-        'relation' => 'AND'
-    );
-
-    // Categories
+    //-- Category
     if ( ! empty ( $category ) ) {
-
-        $tax_queries[] = array(
-            'taxonomy' => 'affcoups_coupon_category',
-            'field' => ( is_numeric( $category ) ) ? 'term_taxonomy_id' : 'slug',
-            'terms' => esc_attr( $category ), // array( $category )
-            'operator' => 'IN'
-        );
+        $args['affcoups_coupon_category'] = esc_html( $category );
     }
 
-    // Types
+    //-- Type
     if ( ! empty ( $type ) ) {
-
-        $tax_queries[] = array(
-            'taxonomy' => 'affcoups_coupon_type',
-            'field' => ( is_numeric( $type ) ) ? 'term_taxonomy_id' : 'slug',
-            'terms' => esc_attr( $type ), // array( $category )
-            'operator' => 'IN'
-        );
+        $args['affcoups_coupon_type'] = esc_html( $type );
     }
 
-    if ( sizeof( $tax_queries ) > 1 ) {
-        $args['tax_query'] = $tax_queries;
+    //-- Vendor
+    if ( ! empty ( $vendor ) ) {
+        $args['affcoups_coupon_vendor'] = esc_html( $vendor );
     }
 
-    // Max
-    $args['numberposts'] = ( ! empty ( $max ) ) ? esc_attr( $max ) : '-1';
+    //-- Expiration
+    if ( ! empty( $hide_expired ) ) {
+        $args['affcoups_coupon_hide_expired'] = ( 'true' == $hide_expired ) ? true : false;
+    } else {
+        $args['affcoups_coupon_hide_expired'] = ( isset ( $options['hide_expired_coupons'] ) && $options['hide_expired_coupons'] == '1' ) ? true : false;
+    }
 
-    // Orderby
-    if ( !empty ( $orderby ) )
-        $args['orderby'] = esc_attr( $orderby );
+    //affcoups_debug( $args );
 
-    // Grid
-    $grid = ( ! empty ( $grid ) && is_numeric( $grid ) ) ? esc_attr( $grid ) : 3;
+    //-- Get coupons
+    $coupons = affcoups_get_coupons( $args );
 
-    //affcoups_debug($args);
-
-    // The Query
-    $posts = new WP_Query( $args ); // TODO: Move query building to "get_coupons" function
+    //affcoups_debug( $coupons );
 
     ob_start();
 
-    if ( $posts->have_posts() ) {
+    if ( $coupons->have_posts() ) {
+
+        echo 'Coupons found: ' . $coupons->post_count . '<br>';
+
+        // Template: Setup
+        if ( ! empty( $grid ) && is_numeric( $grid ) && empty( $template ) )
+            $template = 'grid';
+
+        // Template: Variables
+        if ( ! empty( $template ) && 'grid' === $template && ( empty( $grid ) || ! is_numeric( $grid ) ) )
+            $grid = 3; // TODO: Add new setting for default value
+
+        // Template: Fallback
+        if ( empty( $template ) )
+            $template = 'standard';
+
+        //echo 'Grid: ' . $grid . '<br>';
+        //echo 'Template: ' . $template . '<br>';
 
         // Get template file
-        $file = affcoups_get_template_file( 'coupons-grid', 'coupons' );
+        $file = affcoups_get_template_file( $template, 'coupons' );
 
-        echo '<div class="affcoups">';
-
+        // Load template
         if ( file_exists( $file ) ) {
             include( $file );
         } else {
             _e('Template not found.', 'affiliate-coupons');
         }
 
-        echo '</div>';
-
-        ?>
-        <?php
     } else {
-        echo '<p>' . __('No coupons found.', 'affiliate-coupons') . '</p>';
-    }
-
-    $str = ob_get_clean();
-
-    // Restore original Post Data
-    wp_reset_postdata();
-
-    return $str;
-}
-add_shortcode('affcoups_coupons', 'affcoups_add_coupons_shortcode');
-
-/*
- * Post lists
- */
-function affcoups_add_coupon_shortcode( $atts, $content )
-{
-    extract(shortcode_atts(array(
-        'id' => null,
-        'hide_expired' => null,
-    ), $atts));
-
-    if ( empty( $atts['id'] ) )
-        return '<p>' . __( 'Coupon ID missing.', 'affiliate-coupons' ) . '</p>';
-
-    if ( ! is_numeric( $atts['id'] ) )
-        return '<p>' . __( 'Coupon ID invalid.', 'affiliate-coupons' ) . '</p>';
-
-    // Default Query Arguments
-    $args = array(
-        'affcoups_coupon_id' => $atts['id']
-    );
-
-    $coupons = affcoups_get_coupons( $args );
-
-    affcoups_debug( $coupons );
-
-    ob_start();
-
-    if ( isset( $coupons[0] ) ) {
-
-        setup_postdata( $coupons[0] );
-
-        // Loading template including wrapper
-        affcoups_get_template( 'coupon', true );
-
-        wp_reset_postdata();
-
-    } else {
-        echo '<p>' . __( 'Coupon ID invalid.', 'affiliate-coupons' ) . '</p>';
+        _e('No coupons found.', 'affiliate-coupons');
     }
 
     $str = ob_get_clean();
@@ -173,7 +114,12 @@ function affcoups_add_coupon_shortcode( $atts, $content )
     // Return output
     return $str;
 }
-add_shortcode('affcoups_coupon', 'affcoups_add_coupon_shortcode');
+add_shortcode('affcoups', 'affcoups_add_shortcode');
+
+/**
+ * Fallback for old shortcode
+ */
+add_shortcode('affcoups_coupons', 'affcoups_add_shortcode');
 
 /*
  * Debug

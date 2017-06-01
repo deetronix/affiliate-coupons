@@ -13,49 +13,175 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /**
  * Get coupons
+ *
+ * @param array $args
+ * @return WP_Query
  */
 function affcoups_get_coupons( $args = array() ) {
 
     $defaults = array(
         'post_type' => 'affcoups_coupon',
         'post_status' => 'publish',
-        'posts_per_page' => -1
+        'posts_per_page' => -1,
+        //'nopaging' => true,
+        'orderby' => 'name',
+        'order' => 'ASC'
     );
 
-    if ( isset( $args['affcoups_coupon_id'] ) ) {
+    // Parse args
+    $args = wp_parse_args( $args, $defaults );
 
-        $coupon_ids = ( is_array( $args['affcoups_coupon_id'] ) ) ? $args['affcoups_coupon_id'] : array( $args['affcoups_coupon_id'] );
+    // Prepare additional queries
+    $meta_queries = array(
+        'relation' => 'AND'
+    );
+
+    $tax_queries = array(
+        'relation' => 'AND'
+    );
+
+    //-- Order
+    if ( ! empty( $args['affcoups_order'] ) ) {
+
+        $order_options = array( 'ASC', 'DESC' );
+
+        $order = strtoupper( $args['affcoups_order'] );
+
+        if ( in_array( $order, $order_options ) )
+            $args['order'] = $order;
+    }
+
+    if ( ! empty( $args['affcoups_orderby'] ) ) {
+
+        $orderby = strtolower( $args['affcoups_orderby'] );
+
+        if ( 'name' === $orderby ) {
+            $args['orderby'] = 'name';
+
+        } elseif ( 'date' === $orderby ) {
+            $args['orderby'] = 'date';
+
+        } elseif ( 'random' === $orderby ) {
+            $args['orderby'] = 'rand';
+
+        } elseif ( 'title' === $orderby ) {
+            $args['orderby'] = 'meta_value';
+            $args['meta_key'] = AFFCOUPS_PREFIX . 'coupon_title';
+
+        } elseif ( 'description' === $orderby ) {
+            $args['orderby'] = 'meta_value';
+            $args['meta_key'] = AFFCOUPS_PREFIX . 'coupon_description';
+
+        } elseif ( 'discount' === $orderby ) {
+            $args['orderby'] = 'meta_value_num';
+            $args['meta_key'] = AFFCOUPS_PREFIX . 'coupon_discount';
+
+        } elseif ( 'valid_from' === $orderby ) {
+            $args['orderby'] = 'meta_value_num';
+            $args['meta_key'] = AFFCOUPS_PREFIX . 'coupon_valid_from';
+
+        } elseif ( 'valid_until' === $orderby ) {
+            $args['orderby'] = 'meta_value_num';
+            $args['meta_key'] = AFFCOUPS_PREFIX . 'coupon_valid_until';
+        }
+
+    }
+
+    //-- ID
+    if ( ! empty( $args['affcoups_coupon_id'] ) ) {
+
+        $coupon_ids = explode(',', esc_html( $args['affcoups_coupon_id'] ) );
 
         if ( sizeof( $coupon_ids ) > 0 )
             $args['post__in'] = $coupon_ids;
     }
 
-    /*
-    // Handle listing status
-    if ( isset( $args['listing_status'] ) ) {
+    //-- Category
+    if ( ! empty( $args['affcoups_coupon_category'] ) ) {
 
-        $args['meta_query'] = array(
+        $coupon_categories = explode(',', esc_html( $args['affcoups_coupon_category'] ) );
+
+        $coupon_category_tax_field = ( isset( $coupon_categories[0] ) && is_numeric( $coupon_categories[0] ) ) ? 'term_taxonomy_id' : 'slug';
+
+        $tax_queries[] = array(
+            'taxonomy' => 'affcoups_coupon_category',
+            'field' => $coupon_category_tax_field,
+            'terms' => $coupon_categories,
+            'operator' => 'IN'
+        );
+    }
+
+    //-- Type
+    if ( ! empty( $args['affcoups_coupon_type'] ) ) {
+
+        $coupon_types = explode(',', esc_html( $args['affcoups_coupon_type'] ) );
+
+        $coupon_type_tax_field = ( isset( $coupon_types[0] ) && is_numeric( $coupon_types[0] ) ) ? 'term_taxonomy_id' : 'slug';
+
+        $tax_queries[] = array(
+            'taxonomy' => 'affcoups_coupon_type',
+            'field' => $coupon_type_tax_field,
+            'terms' => $coupon_types,
+            'operator' => 'IN'
+        );
+    }
+
+    //-- Vendor
+    if ( ! empty( $args['affcoups_coupon_vendor'] ) ) {
+
+        $coupon_vendors = explode(',', esc_html( $args['affcoups_coupon_vendor'] ) );
+
+        $meta_queries[] = array(
+            'key'     => AFFCOUPS_PREFIX . 'coupon_vendor',
+            'value'   => $coupon_vendors,
+            'compare' => 'IN',
+        );
+    }
+
+    //-- Expiration
+    if ( isset( $args['affcoups_coupon_hide_expired'] ) && true === $args['affcoups_coupon_hide_expired'] ) {
+
+        $meta_queries[] = array(
+            'relation' => 'OR',
+            // Until date not set yet
             array(
-                'key' => '_nsm_listing_status',
-                'value' => $args['listing_status'],
+                'key' => AFFCOUPS_PREFIX . 'coupon_valid_until',
+                'value'   => '',
+                'compare' => 'NOT EXISTS',
+                'type' => 'NUMERIC'
+            ),
+            // Already expired
+            array(
+                'key' => AFFCOUPS_PREFIX . 'coupon_valid_until',
+                'value' => time(),
+                'compare' => '>=',
+                'type' => 'NUMERIC'
             )
         );
-
-        unset( $args['listing_status'] );
     }
-    */
 
-    // Parse args
-    $args = wp_parse_args( $args, $defaults );
+    // Set meta queries
+    if ( sizeof( $meta_queries ) > 1 ) {
+        $args['meta_query'] = $meta_queries;
+    }
+
+    // Set tax queries
+    if ( sizeof( $tax_queries ) > 1 ) {
+        $args['tax_query'] = $tax_queries;
+    }
+
+    //affcoups_debug( $args, 'affcoups_get_coupons $args' );
 
     // Fetch posts
-    $posts = get_posts( $args );
+    $posts = new WP_Query( $args );
 
     return $posts;
 }
 
-/*
+/**
  * Coupon Template classes
+ *
+ * @param $classes
  */
 function affcoups_the_coupon_classes( $classes ) {
 
@@ -64,6 +190,12 @@ function affcoups_the_coupon_classes( $classes ) {
     echo $classes;
 }
 
+/**
+ * Get coupon vendor id
+ *
+ * @param null $postid
+ * @return bool|mixed
+ */
 function affcoups_get_coupon_vendor_id( $postid = null ) {
 
     if ( empty ( $postid ) )
@@ -74,10 +206,14 @@ function affcoups_get_coupon_vendor_id( $postid = null ) {
     return ( ! empty ( $vendor_id ) ) ? $vendor_id : false;
 }
 
-/*
- * Coupons
+/**
+ * Get coupon thumbnail image
+ *
+ * @param null $postid
+ * @param null $size
+ * @return bool|mixed
  */
-function affcoups_get_coupon_thumbnail( $postid = null, $size = null ) {
+function affcoups_get_coupon_image( $postid = null, $size = null ) {
 
     if ( empty ( $postid ) )
         $postid = get_the_ID();
@@ -106,15 +242,20 @@ function affcoups_get_coupon_thumbnail( $postid = null, $size = null ) {
     return false;
 }
 
+/**
+ * Display the coupon thumbnail
+ *
+ * @param null $postid
+ */
 function affcoups_the_coupon_thumbnail( $postid = null ) {
 
     if ( empty ( $postid ) )
         $postid = get_the_ID();
 
-    $thumbnail = affcoups_get_coupon_thumbnail( $postid );
+    $thumbnail = affcoups_get_coupon_image( $postid );
 
     // Prepare attributes
-    $thumb_url = ( ! empty ( $thumbnail['url'] ) ) ? $thumbnail['url'] : AFFCOUPS_URL . '/public/assets/img/thumb.png';
+    $thumb_url = ( ! empty ( $thumbnail['url'] ) ) ? $thumbnail['url'] : AFFCOUPS_URL . '/public/img/thumb.png';
     $thumb_alt = ( ! empty ( $thumbnail['alt'] ) ) ? $thumbnail['alt'] : affcoups_get_coupon_title( $postid );
 
     // Build thumbnail
@@ -124,6 +265,12 @@ function affcoups_the_coupon_thumbnail( $postid = null ) {
     echo $thumbnail;
 }
 
+/**
+ * Get coupon discount
+ *
+ * @param null $postid
+ * @return bool|mixed
+ */
 function affcoups_get_coupon_discount( $postid = null ) {
 
     if ( empty ( $postid ) )
@@ -134,6 +281,12 @@ function affcoups_get_coupon_discount( $postid = null ) {
     return ( ! empty ( $discount ) ) ? $discount : false;
 }
 
+/**
+ * Get coupon title
+ *
+ * @param null $postid
+ * @return mixed|string
+ */
 function affcoups_get_coupon_title( $postid = null ) {
 
     if ( empty ( $postid ) )
@@ -158,6 +311,12 @@ function affcoups_get_coupon_title( $postid = null ) {
     return $title;
 }
 
+/**
+ * Get coupon description
+ *
+ * @param null $postid
+ * @return string
+ */
 function affcoups_get_coupon_description( $postid = null ) {
 
     if ( empty ( $postid ) )
@@ -181,6 +340,12 @@ function affcoups_get_coupon_description( $postid = null ) {
     return $description;
 }
 
+/**
+ * Get coupon code
+ *
+ * @param null $postid
+ * @return bool|mixed
+ */
 function affcoups_get_coupon_code( $postid = null ) {
 
     if ( empty ( $postid ) )
@@ -191,6 +356,11 @@ function affcoups_get_coupon_code( $postid = null ) {
     return ( ! empty ( $code ) ) ? $code : false;
 }
 
+/**
+ * Display the coupon code
+ *
+ * @param null $postid
+ */
 function affcoups_the_coupon_code( $postid = null ) {
 
     if ( empty ( $postid ) )
@@ -210,6 +380,12 @@ function affcoups_the_coupon_code( $postid = null ) {
     <?php
 }
 
+/**
+ * Get coupon url
+ *
+ * @param null $postid
+ * @return bool|mixed
+ */
 function affcoups_get_coupon_url( $postid = null ) {
 
     if ( empty ( $postid ) )
@@ -227,6 +403,12 @@ function affcoups_get_coupon_url( $postid = null ) {
     return $url;
 }
 
+/**
+ * Get coupon types
+ *
+ * @param null $postid
+ * @return array|bool|WP_Error
+ */
 function affcoups_get_coupon_types( $postid = null ) {
 
     if ( empty ( $postid ) )
@@ -241,6 +423,11 @@ function affcoups_get_coupon_types( $postid = null ) {
     return false;
 }
 
+/**
+ * Display coupon types
+ *
+ * @param null $postid
+ */
 function affcoups_the_coupon_types( $postid = null ) {
 
     if ( empty ( $postid ) )
@@ -262,6 +449,12 @@ function affcoups_the_coupon_types( $postid = null ) {
     echo $types;
 }
 
+/**
+ * Check if coupon has valid dates
+ *
+ * @param null $postid
+ * @return bool
+ */
 function affcoups_coupon_has_valid_dates( $postid = null ) {
 
     if ( empty ( $postid ) )
@@ -273,6 +466,11 @@ function affcoups_coupon_has_valid_dates( $postid = null ) {
     return ( ! empty ( $valid_from ) || ! empty ( $valid_until ) ) ? true : false;
 }
 
+/**
+ * Display coupon valid dates
+ *
+ * @param null $postid
+ */
 function affcoups_the_coupon_valid_dates( $postid = null ) {
 
     if ( empty ( $postid ) )

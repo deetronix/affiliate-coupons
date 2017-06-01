@@ -8,7 +8,6 @@
   -ms-flex-flow: row wrap;
   -ms-align-content: flex-start;
   -webkit-align-content: flex-start;
-  -ms-flex-line-pack: start;
   align-content: flex-start;
   width: 103%;
   margin-left: -3%;
@@ -19,12 +18,8 @@
 }
 @media (min-width: 481px) {
   .affcoups .affcoups-coupons-grid {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     display: -webkit-flex;
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
   }
 }
@@ -38,12 +33,9 @@
   font-family: sans-serif;
   width: 97%;
   margin-left: 3%;
-  margin-bottom: 30px;
 }
 @media (min-width: 481px) {
   .affcoups .affcoups-coupons-grid__item {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     display: -webkit-flex;
   }
@@ -78,6 +70,8 @@
 }
 .affcoups .affcoups-coupon {
   position: relative;
+  max-width: 400px;
+  margin: 0 auto 30px auto;
   padding-bottom: 40px;
   background: #F7F7F7;
   border: 1px solid #F7F7F7;
@@ -168,8 +162,6 @@
   font-weight: 700;
   text-align: center;
   text-transform: uppercase;
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 .affcoups .affcoups-coupon__button:hover,

@@ -12,8 +12,6 @@
 .affcoups-coupons-grid__item {
     .gee-unit(12, 12, @gutter);
 
-    margin-bottom: 30px;
-
     @media (min-width: (@breakpoint-mobile + 1px)) {
         .dotsunited-equal-height-blocks-item-wrapper();
     }
@@ -74,6 +72,8 @@
 .affcoups-coupon {
     position: relative;
 
+    max-width: 400px;
+    margin: 0 auto 30px auto;
     padding-bottom: 40px;
 
     background: @coupon-bg-color;
