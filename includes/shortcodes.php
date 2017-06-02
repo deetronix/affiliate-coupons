@@ -88,7 +88,7 @@ function affcoups_add_shortcode( $atts, $content ) {
 
     if ( $coupons->have_posts() ) {
 
-        echo 'Coupons found: ' . $coupons->post_count . '<br>';
+        //echo 'Coupons found: ' . $coupons->post_count . '<br>';
 
         // Template: Setup
         if ( ! empty( $grid ) && is_numeric( $grid ) && empty( $template ) )
