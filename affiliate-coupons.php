@@ -3,7 +3,7 @@
  * Plugin Name:     Affiliate Coupons
  * Plugin URI:      https://wordpress.org/plugins/affiliate-coupons/
  * Description:     Promote coupons and deals of products and earn money with affiliate referrals.
- * Version:         1.0.1
+ * Version:         1.1.0
  * Author:          flowdee
  * Author URI:      https://flowdee.de
  * Text Domain:     affiliate-coupons
@@ -12,7 +12,7 @@
  * @author          flowdee
  * @copyright       Copyright (c) flowdee
  *
- * Copyright (c) 2016 - flowdee ( https://twitter.com/flowdee )
+ * Copyright (c) 2017 - flowdee ( https://twitter.com/flowdee )
  */
 
 // Exit if accessed directly
@@ -66,7 +66,7 @@ if( ! class_exists( 'Affcoups_Plugin' ) ) {
             define( 'AFFCOUPS_NAME', 'Affiliate Coupons' );
 
             // Plugin version
-            define( 'AFFCOUPS_VER', '1.0.1' );
+            define( 'AFFCOUPS_VER', '1.1.0' );
 
             // Plugin path
             define( 'AFFCOUPS_DIR', plugin_dir_path( __FILE__ ) );

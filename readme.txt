@@ -1,10 +1,10 @@
 === Affiliate Coupons ===
-Contributors: flowdee
+Contributors: flowdee, dojowp
 Donate link: https://donate.flowdee.de
-Tags: affiliate, affiliates, coupon, coupons, deals, affiliate coupon, affiliate coupons, affiliate deals, dealz, vendors
+Tags: affiliate, affiliates, coupon, coupons, deals, affiliate coupon, affiliate coupons, affiliate deals, dealz, vendors, affiliate marketing
 Requires at least: 3.0.1
-Tested up to: 4.5.3
-Stable tag: 1.0.1
+Tested up to: 4.7.5
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -19,6 +19,7 @@ Promote coupons and deals of products and earn money with affiliate referrals.
 *   Create vendors and predefine affiliate links
 *   Create coupons and link them to vendors
 *   Display coupons via shortcode on the frontend
+*   Multiple options in order to filter/sort your coupon presentations
 *   Configuration page for more options
 *   Try out the **[online demo](https://wp-deals.com/4th-of-july-independence-day-wordpress-deals-2016/)**
 *   Regular updates and improvements: Go though the [changelog](https://wordpress.org/plugins/affiliate-coupons/changelog/)
@@ -75,6 +76,18 @@ Yes of course.
 
 == Changelog ==
 
+= Version 1.1.0 (2nd June 2017) =
+* New: Display single coupons by id
+* New: Display coupons from a specific vendor
+* New: Sort coupons on a shortcode basis
+* New: Added more setting options (template, grid size, order, orderby, button text, button icon)
+* New: Button text can be overwritten via shortcode attribute "button_text"
+* Improvement: Added links to coupon thumbnails
+* Improvement: Optimized CSS styles
+* Improvement: Optimized scripts loading
+* Fix: Post types appeared in sitemaps and search results
+* Changed shortcode from "affcoups_coupons" to "affcoups" (added fallback for previous shortcode)
+
 = Version 1.0.1 (9th August 2016) =
 * Improvement: Optimized settings quickstart explanation for categories/types
 * Improvement: Made "Copied!" label translatable
@@ -85,6 +98,18 @@ Yes of course.
 * Initial release
 
 == Upgrade Notice ==
+
+= Version 1.1.0 (2nd June 2017) =
+* New: Display single coupons by id
+* New: Display coupons from a specific vendor
+* New: Sort coupons on a shortcode basis
+* New: Added more setting options (template, grid size, order, orderby, button text, button icon)
+* New: Button text can be overwritten via shortcode attribute "button_text"
+* Improvement: Added links to coupon thumbnails
+* Improvement: Optimized CSS styles
+* Improvement: Optimized scripts loading
+* Fix: Post types appeared in sitemaps and search results
+* Changed shortcode from "affcoups_coupons" to "affcoups" (added fallback for previous shortcode)
 
 = Version 1.0.1 (9th August 2016) =
 * Improvement: Optimized settings quickstart explanation for categories/types
