@@ -1,3 +1,15 @@
+.affcoups {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.affcoups *,
+.affcoups *:before,
+.affcoups *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 .affcoups .affcoups-coupon-code {
   position: relative;
   display: block;
@@ -97,7 +109,7 @@
   padding: 15px 25px 15px;
 }
 .affcoups .affcoups-coupon__title {
-  margin: 0 0 10px;
+  margin: 0;
   font-size: 20px;
   line-height: 26px;
 }
@@ -114,7 +126,11 @@
   margin-left: 10px;
 }
 .affcoups .affcoups-coupon__description {
+  margin: 10px 0 0;
   font-size: 16px;
+}
+.affcoups .affcoups-coupon__description > *:first-child {
+  margin-top: 0;
 }
 .affcoups .affcoups-coupon__description > *:last-child {
   margin-bottom: 0;
@@ -124,6 +140,7 @@
 }
 .affcoups .affcoups-coupon__valid-dates {
   display: block;
+  margin: 5px 0 0;
   color: #6b747a;
   font-size: 13px;
   font-weight: bold;
@@ -142,21 +159,35 @@
   padding: 12px 15px 9px 10px;
   width: 100%;
   background: #33b26e;
+  border: none;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
   color: #fff;
   font-size: 14px;
   font-weight: 700;
+  outline: none;
   text-align: center;
+  text-decoration: none;
   text-transform: uppercase;
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
+.affcoups a.affcoups-coupon__button:visited {
+  color: #fff;
+}
 .affcoups a.affcoups-coupon__button:hover,
 .affcoups a.affcoups-coupon__button:focus,
 .affcoups a.affcoups-coupon__button:active {
-  background-color: #84919E;
+  background-color: #288a56;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #fff;
+  outline: none;
+  text-decoration: none;
 }
 .affcoups .affcoups-coupons-grid {
   letter-spacing: -0.31em;

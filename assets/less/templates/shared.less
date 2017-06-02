@@ -57,7 +57,7 @@
 }
 
 .affcoups-coupon__title {
-    margin: 0 0 10px;
+    margin: 0;
 
     font-size: 20px;
     line-height: 26px;
@@ -79,7 +79,13 @@
 }
 
 .affcoups-coupon__description {
+    margin: 10px 0 0;
+
     font-size: 16px;
+
+    & > *:first-child {
+        margin-top: 0;
+    }
 
     & > *:last-child {
         margin-bottom: 0;
@@ -92,6 +98,7 @@
 
 .affcoups-coupon__valid-dates {
     display: block;
+    margin: 5px 0 0;
 
     color: #6b747a;
     font-size: 13px;
@@ -114,19 +121,32 @@ a.affcoups-coupon__button {
     width: 100%;
 
     background: #33b26e;
+    border: none;
     border-bottom-left-radius: @border-radius;
     border-bottom-right-radius: @border-radius;
+    box-shadow: none;
     color: #fff;
     font-size: 14px;
     font-weight: 700;
+    outline: none;
     text-align: center;
+    text-decoration: none;
     text-transform: uppercase;
     transition: all .3s @animation-ease;
+
+    &:visited {
+        color: #fff;
+    }
 
     &:hover,
     &:focus,
     &:active {
-        background-color: #84919E;
+        background-color: darken(#33b26e, 10%);
+        border: none;
+        box-shadow: none;
+        color: #fff;
+        outline: none;
+        text-decoration: none;
     }
 }
 
