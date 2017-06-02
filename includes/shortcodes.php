@@ -96,7 +96,7 @@ function affcoups_add_shortcode( $atts, $content ) {
 
         // Template: Variables
         if ( ! empty( $template ) && 'grid' === $template && ( empty( $grid ) || ! is_numeric( $grid ) ) )
-            $grid = ( ! empty( $options['grid_size'] ) ) ? esc_html( $options['grid_size'] ) : 2;
+            $grid = ( ! empty( $options['grid_size'] ) ) ? esc_html( $options['grid_size'] ) : 3;
 
         // Template: Fallback
         if ( empty( $template ) )

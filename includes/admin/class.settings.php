@@ -294,7 +294,7 @@ if ( ! class_exists('Affcoups_Settings') ) {
 
             $template = ( isset ( $this->options['template'] ) ) ? $this->options['template'] : 'grid';
 
-            $grid_size = ( ! empty( $this->options['grid_size'] ) && is_numeric( $this->options['grid_size'] ) ) ? intval( $this->options['grid_size'] ) : 2;
+            $grid_size = ( ! empty( $this->options['grid_size'] ) && is_numeric( $this->options['grid_size'] ) ) ? intval( $this->options['grid_size'] ) : 3;
 
             ?>
             <h4><?php _e('Template', 'affiliate-coupons' ); ?></h4>
