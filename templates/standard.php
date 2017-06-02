@@ -43,7 +43,7 @@ if ( ! isset ( $coupons ) )
             </div>
 
             <div class="affcoups-coupon__footer">
-                <a class="affcoups-coupon__button" href="<?php echo affcoups_get_coupon_url(); ?>" title="<?php echo affcoups_get_coupon_title(); ?>" rel="nofollow" target="_blank"><span class="affcoups-coupon__button-icon"></span> <?php _e('Go to the deal', 'affiliate-coupons'); ?></a>
+                <?php affcoups_the_coupon_button(); ?>
             </div>
 
         </div>

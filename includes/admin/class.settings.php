@@ -109,6 +109,15 @@ if ( ! class_exists('Affcoups_Settings') ) {
                 'affcoups_settings'
             );
 
+            add_settings_field(
+                'affcoups_settings_coupon_expiration',
+                __('Expiration', 'affiliate-coupons'),
+                array(&$this, 'coupon_expiration_render'),
+                'affcoups_settings',
+                'affcoups_settings_section_general',
+                array('label_for' => 'affcoups_hide_expired_coupons')
+            );
+
             /*
              * Section: Output
              */
@@ -120,12 +129,12 @@ if ( ! class_exists('Affcoups_Settings') ) {
             );
 
             add_settings_field(
-                'affcoups_settings_coupon_expiration',
-                __('Expiration', 'affiliate-coupons'),
-                array(&$this, 'coupon_expiration_render'),
+                'affcoups_settings_button',
+                __('Button', 'affiliate-coupons'),
+                array(&$this, 'button_render'),
                 'affcoups_settings',
                 'affcoups_settings_section_output',
-                array('label_for' => 'affcoups_hide_expired_coupons')
+                array('label_for' => 'affcoups_button_text')
             );
 
             add_settings_field(
@@ -216,6 +225,16 @@ if ( ! class_exists('Affcoups_Settings') ) {
             <?php
         }
 
+        function coupon_expiration_render() {
+
+            $hide_expired_coupons = ( isset ( $this->options['hide_expired_coupons'] ) && $this->options['hide_expired_coupons'] == '1' ) ? 1 : 0;
+            ?>
+
+            <input type="checkbox" id="affcoups_hide_expired_coupons" name="affcoups_settings[hide_expired_coupons]" value="1" <?php echo( $hide_expired_coupons == 1 ? 'checked' : '' ); ?> />
+            <label for="affcoups_hide_expired_coupons"><?php _e('Hide coupons after they expired', 'affiliate-coupons'); ?></label>
+            <?php
+        }
+
         function section_two_render() {
 
             return;
@@ -226,13 +245,33 @@ if ( ! class_exists('Affcoups_Settings') ) {
             <?php
         }
 
-        function coupon_expiration_render() {
+        function button_render() {
 
-            $hide_expired_coupons = ( isset ( $this->options['hide_expired_coupons'] ) && $this->options['hide_expired_coupons'] == '1' ) ? 1 : 0;
+            $button_text = ( ! empty( $this->options['button_text'] ) ) ? esc_attr( trim( $this->options['button_text'] ) ) : __( 'Go to the deal', 'affiliate-coupons' );
+
+            $button_icon_options = array(
+                '' => __( 'None', 'affiliate-coupons' ),
+                'hand-right' => __('Hand right', 'affiliate-coupons'),
+                'gavel' => __('Gavel', 'affiliate-coupons'),
+                'cart' => __('Shopping cart', 'affiliate-coupons')
+            );
+
+            $button_icon = ( isset ( $this->options['button_icon'] ) ) ? $this->options['button_icon'] : '';
+
             ?>
+            <h4><?php _e('Text', 'affiliate-coupons' ); ?></h4>
+            <p>
+                <input type="text" name="affcoups_settings[button_text]" id="affcoups_button_text" value="<?php echo esc_attr( trim( $button_text ) ); ?>" />
+            </p>
 
-            <input type="checkbox" id="affcoups_hide_expired_coupons" name="affcoups_settings[hide_expired_coupons]" value="1" <?php echo( $hide_expired_coupons == 1 ? 'checked' : '' ); ?> />
-            <label for="affcoups_hide_expired_coupons"><?php _e('Hide coupons after they expired', 'affiliate-coupons'); ?></label>
+            <h4><?php _e('Icon', 'affiliate-coupons' ); ?></h4>
+            <p>
+                <select id="affcoups_button_icon" name="affcoups_settings[button_icon]">
+                    <?php foreach ( $button_icon_options as $key => $label ) { ?>
+                        <option value="<?php echo $key; ?>" <?php selected( $button_icon, $key ); ?>><?php echo $label; ?></option>
+                    <?php } ?>
+                </select>
+            </p>
             <?php
         }
 
@@ -255,96 +294,45 @@ if ( ! class_exists('Affcoups_Settings') ) {
             <?php
         }
 
-
-
-        // TODO: Dummies
-
-
-        function text_field_01_render() {
-
-            $text = ( ! empty($this->options['text_01'] ) ) ? esc_attr( trim($this->options['text_01'] ) ) : ''
-
-            ?>
-            <input type="text" name="affcoups_settings[text_01]" id="affcoups_settings_text_field_01" value="<?php echo esc_attr( trim( $text ) ); ?>" />
-            <?php
-        }
-
-        function select_field_01_render() {
-
-            $select_options = array(
-                '0' => __('Please select...', 'affiliate-coupons'),
-                '1' => __('Option One', 'affiliate-coupons'),
-                '2' => __('Option Two', 'affiliate-coupons'),
-                '3' => __('Option Three', 'affiliate-coupons')
-            );
-
-            $selected = ( isset ( $this->options['select_01'] ) ) ? $this->options['select_01'] : '0';
-
-            ?>
-            <select id="affcoups_settings_select_field_01" name="affcoups_settings[select_01]">
-                <?php foreach ( $select_options as $key => $label ) { ?>
-                    <option value="<?php echo $key; ?>" <?php selected( $selected, $key ); ?>><?php echo $label; ?></option>
-                <?php } ?>
-            </select>
-            <?php
-        }
-
-        function checkbox_field_01_render() {
-
-            $checked = ( isset ( $this->options['checkbox_01'] ) && $this->options['checkbox_01'] == '1' ) ? 1 : 0;
-            ?>
-
-                <input type="checkbox" id="affcoups_settings_checkbox_field_01" name="affcoups_settings[checkbox_01]" value="1" <?php echo($checked == 1 ? 'checked' : ''); ?> />
-                <label for="affcoups_settings_checkbox_field_01"><?php _e('Activate in order to do some cool stuff.', 'affiliate-coupons'); ?></label>
-            <?php
-        }
-
-        function text_field_02_render() {
-
-            $text = ( ! empty($this->options['text_02'] ) ) ? esc_attr( trim($this->options['text_02'] ) ) : ''
-
-            ?>
-            <input type="text" name="affcoups_settings[text_02]" id="affcoups_settings_text_field_02" value="<?php echo esc_attr( trim( $text ) ); ?>" />
-            <?php
-        }
-
         function options_page() {
             ?>
 
-            <div class="wrap">
-                <?php screen_icon(); ?>
-                <h2><?php _e('Affiliate Coupons', 'affiliate-coupons'); ?></h2>
+            <div class="affcoups affcoups-settings">
+                <div class="wrap">
+                    <?php screen_icon(); ?>
+                    <h2><?php _e('Affiliate Coupons', 'affiliate-coupons'); ?></h2>
 
-                <div id="poststuff">
-                    <div id="post-body" class="metabox-holder columns-2">
-                        <div id="post-body-content">
-                            <div class="meta-box-sortables ui-sortable">
-                                <form action="options.php" method="post">
+                    <div id="poststuff">
+                        <div id="post-body" class="metabox-holder columns-2">
+                            <div id="post-body-content">
+                                <div class="meta-box-sortables ui-sortable">
+                                    <form action="options.php" method="post">
+                                        <?php
+                                        settings_fields('affcoups_settings');
+                                        affcoups_do_settings_sections('affcoups_settings');
+                                        ?>
+
+                                        <p><?php submit_button('Save Changes', 'button-primary', 'submit', false); ?></p>
+                                    </form>
+                                </div>
+
+                            </div>
+                            <!-- /#post-body-content -->
+                            <div id="postbox-container-1" class="postbox-container">
+                                <div class="meta-box-sortables">
                                     <?php
-                                    settings_fields('affcoups_settings');
-                                    affcoups_do_settings_sections('affcoups_settings');
+                                    /*
+                                     * require_once WP_UDEMY_DIR . 'includes/libs/flowdee_infobox.php';
+                                    $flowdee_infobox = new Flowdee_Infobox();
+                                    $flowdee_infobox->set_plugin_slug('udemy');
+                                    $flowdee_infobox->display();
+                                    */
                                     ?>
-
-                                    <p><?php submit_button('Save Changes', 'button-primary', 'submit', false); ?></p>
-                                </form>
+                                </div>
+                                <!-- /.meta-box-sortables -->
                             </div>
-
+                            <!-- /.postbox-container -->
                         </div>
-                        <!-- /#post-body-content -->
-                        <div id="postbox-container-1" class="postbox-container">
-                            <div class="meta-box-sortables">
-                                <?php
-                                /*
-                                 * require_once WP_UDEMY_DIR . 'includes/libs/flowdee_infobox.php';
-                                $flowdee_infobox = new Flowdee_Infobox();
-                                $flowdee_infobox->set_plugin_slug('udemy');
-                                $flowdee_infobox->display();
-                                */
-                                ?>
-                            </div>
-                            <!-- /.meta-box-sortables -->
-                        </div>
-                        <!-- /.postbox-container -->
                     </div>
                 </div>
             </div>
