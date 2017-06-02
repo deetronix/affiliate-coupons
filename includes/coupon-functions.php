@@ -507,12 +507,22 @@ function affcoups_the_coupon_button( $coupon_id = null ) {
     if ( empty ( $coupon_id ) )
         $coupon_id = get_the_ID();
 
+    global $affcoups_shortcode_atts;
+
     $options = affcoups_get_options();
 
+    // Button text
+    if ( ! empty( $affcoups_shortcode_atts['button_text'] ) ) {
+        $button_text = esc_html( $affcoups_shortcode_atts['button_text'] );
+    } else {
+        $button_text = ( ! empty( $options['button_text'] ) ) ? esc_html( $options['button_text'] ) : __( 'Go to the deal', 'affiliate-coupons' );
+    }
+
+    // Build button settings
     $button = array(
         'url' => affcoups_get_coupon_url( $coupon_id ),
-        'title' => ( ! empty( $options['button_text'] ) ) ? esc_html( $options['button_text'] ) : __( 'Go to the deal', 'affiliate-coupons' ),
-        'text' => ( ! empty( $options['button_text'] ) ) ? esc_html( $options['button_text'] ) : __( 'Go to the deal', 'affiliate-coupons' ),
+        'title' => $button_text,
+        'text' => $button_text,
         'target' => '_blank',
         'rel' => 'nofollow'
     );

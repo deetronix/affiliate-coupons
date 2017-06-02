@@ -11,6 +11,8 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
+global $affcoups_shortcode_atts;
+
 /*
  * Get content from a single post
  */

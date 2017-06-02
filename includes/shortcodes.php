@@ -20,6 +20,10 @@ function affcoups_add_shortcode( $atts, $content ) {
         'orderby' => null
     ), $atts ) );
 
+    global $affcoups_shortcode_atts;
+
+    $affcoups_shortcode_atts = $atts;
+
     // Prepare options
     $options = affcoups_get_options();
 
