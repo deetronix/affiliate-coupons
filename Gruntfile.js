@@ -132,7 +132,7 @@ module.exports = function (grunt) {
                     '**/*.php', // Include all files
                     '!node_modules/**', // Exclude node_modules/
                     '!build/**', // Exclude build folder/
-                    '!includes/libs/**' // Exclude libs folder/
+                    '!vendor/**' // Exclude vendor folder/
                 ]
             }
         },
@@ -195,6 +195,6 @@ module.exports = function (grunt) {
     grunt.registerTask('default', ['less', 'uglify', 'autoprefixer']);
 
     // Build task(s).
-    grunt.registerTask( 'build:translations', [ 'checktextdomain', 'makepot', 'newer:potomo' ] );
+    grunt.registerTask( 'translations', [ 'checktextdomain' ] );
     grunt.registerTask( 'build', [ 'clean', 'copy', 'compress' ] );
 };
