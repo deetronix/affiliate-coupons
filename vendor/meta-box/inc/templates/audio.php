@@ -1,17 +1,14 @@
-<script id="tmpl-rwmb-video-item" type="text/html">
+<script id="tmpl-rwmb-media-item" type="text/html">
 	<input type="hidden" name="{{{ data.controller.fieldName }}}" value="{{{ data.id }}}" class="rwmb-media-input">
 	<div class="rwmb-media-preview">
 		<div class="rwmb-media-content">
 			<div class="centered">
-				<# if( _.indexOf( i18nRwmbVideo.extensions, data.url.substr( data.url.lastIndexOf('.') + 1 ) ) > -1 ) { #>
-				<div class="rwmb-video-wrapper">
-					<video controls="controls" class="rwmb-video-element" preload="metadata"
-						<# if ( data.width ) { #>width="{{ data.width }}"<# } #>
-						<# if ( data.height ) { #>height="{{ data.height }}"<# } #>
-						<# if ( data.image && data.image.src !== data.icon ) { #>poster="{{ data.image.src }}"<# } #>>
-						<source type="{{ data.mime }}" src="{{ data.url }}"/>
-					</video>
-				</div>
+				<# if ( 'image' === data.type && data.sizes ) { #>
+					<# if ( data.sizes.thumbnail ) { #>
+						<img src="{{{ data.sizes.thumbnail.url }}}">
+					<# } else { #>
+						<img src="{{{ data.sizes.full.url }}}">
+					<# } #>
 				<# } else { #>
 					<# if ( data.image && data.image.src && data.image.src !== data.icon ) { #>
 						<img src="{{ data.image.src }}" />

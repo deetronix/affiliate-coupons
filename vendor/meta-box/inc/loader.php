@@ -18,7 +18,7 @@ class RWMB_Loader {
 	 */
 	protected function constants() {
 		// Script version, used to add version for scripts and styles.
-		define( 'RWMB_VER', '4.10.4' );
+		define( 'RWMB_VER', '4.11.3' );
 
 		list( $path, $url ) = self::get_path( dirname( dirname( __FILE__ ) ) );
 
@@ -43,7 +43,7 @@ class RWMB_Loader {
 	public static function get_path( $path = '' ) {
 		// Plugin base path.
 		$path       = wp_normalize_path( untrailingslashit( $path ) );
-		$themes_dir = wp_normalize_path( untrailingslashit( dirname( realpath( get_stylesheet_directory() ) ) ) );
+		$themes_dir = wp_normalize_path( untrailingslashit( dirname( get_stylesheet_directory() ) ) );
 
 		// Default URL.
 		$url = plugins_url( '', $path . '/' . basename( $path ) . '.php' );
@@ -77,21 +77,22 @@ class RWMB_Loader {
 		$autoloader->add( RWMB_INC_DIR, 'RWMB_' );
 		$autoloader->add( RWMB_INC_DIR . 'fields', 'RWMB_', '_Field' );
 		$autoloader->add( RWMB_INC_DIR . 'walkers', 'RWMB_Walker_' );
+		$autoloader->add( RWMB_INC_DIR . 'interfaces', 'RWMB_', '_Interface' );
+		$autoloader->add( RWMB_INC_DIR . 'storages', 'RWMB_', '_Storage' );
 		$autoloader->register();
 
 		// Plugin core.
-		new RWMB_Core;
+		$core = new RWMB_Core;
+		$core->init();
 
-		if ( is_admin() ) {
-			// Validation module.
-			new RWMB_Validation;
+		// Validation module.
+		new RWMB_Validation;
 
-			$sanitize = new RWMB_Sanitizer;
-			$sanitize->init();
+		$sanitize = new RWMB_Sanitizer;
+		$sanitize->init();
 
-			$media_modal = new RWMB_Media_Modal;
-			$media_modal->init();
-		}
+		$media_modal = new RWMB_Media_Modal;
+		$media_modal->init();
 
 		// WPML Compatibility.
 		$wpml = new RWMB_WPML;

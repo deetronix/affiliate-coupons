@@ -14,6 +14,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 /*
  * Meta Box
  */
-if ( ! class_exists( 'RW_Meta_Box' ) ) {
-    require AFFCOUPS_DIR . 'vendor/meta-box/meta-box.php';
-}
+require AFFCOUPS_DIR . 'vendor/meta-box/meta-box.php';
