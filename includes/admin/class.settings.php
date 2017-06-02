@@ -166,26 +166,47 @@ if ( ! class_exists('Affcoups_Settings') ) {
                     </ol>
 
                     <p>
-                        <strong><?php _e( 'Displaying all coupons', 'affiliate-coupons' ); ?></strong>
+                        <strong><?php _e( 'Show all coupons', 'affiliate-coupons' ); ?></strong>
                     </p>
                     <p>
-                        <code>[affcoups_coupons]</code>
+                        <code>[affcoups]</code>
                     </p>
 
                     <p>
-                        <strong><?php _e( 'Filtering coupons by category and/or type', 'affiliate-coupons' ); ?></strong><br />
-                        <?php _e( 'By passing the category/type id or slug you can filter the results individually.', 'affiliate-coupons' ); ?>
+                        <strong><?php _e( 'Show single coupons', 'affiliate-coupons' ); ?></strong>
                     </p>
                     <p>
-                        <code>[affcoups_coupons category="12" type="8"]</code> <?php _e( 'or', 'affiliate-coupons' ); ?> <code>[affcoups_coupons category="group-xyz" type="8"]</code> <?php _e( 'etc.', 'affiliate-coupons' ); ?>
+                        <code>[affcoups id="123"]</code> <?php _e( 'or', 'affiliate-coupons' ); ?> <code>[affcoups id="123,456,789"]</code>
                     </p>
 
+                    <p>
+                        <strong><?php _e( 'Filter coupons', 'affiliate-coupons' ); ?></strong><br />
+                        <?php _e( 'By passing the id or slug (only if specified) you can filter the results individually.', 'affiliate-coupons' ); ?>
+                    </p>
+                    <ul>
+                        <li>
+                            <?php _e( 'Filter by vendor:', 'affiliate-coupons' ); ?>
+                            <code>[affcoups vendor="123"]</code>
+                        </li>
+                        <li>
+                            <?php _e( 'Filter by category:', 'affiliate-coupons' ); ?>
+                            <code>[affcoups category="123"]</code> <?php _e( 'or', 'affiliate-coupons' ); ?> <code>[affcoups category="group-xyz"]</code>
+                        </li>
+                        <li>
+                            <?php _e( 'Filter by type:', 'affiliate-coupons' ); ?>
+                            <code>[affcoups type="123"]</code> <?php _e( 'or', 'affiliate-coupons' ); ?> <code>[affcoups type="type-xyz"]</code>
+                        </li>
+                    </ul>
                     <p>
                         <strong><?php _e( 'Show/hide expired coupons', 'affiliate-coupons' ); ?></strong><br />
                         <?php _e( 'Contrary to the settings below you can show/hide expired for each shortcode individually.', 'affiliate-coupons' ); ?>
                     </p>
                     <p>
-                        <code>[affcoups_coupons hide_expired="true"]</code> <?php _e( 'vs.', 'affiliate-coupons' ); ?> <code>[affcoups_coupons hide_expired="false"]</code>
+                        <code>[affcoups hide_expired="true"]</code> <?php _e( 'vs.', 'affiliate-coupons' ); ?> <code>[affcoups hide_expired="false"]</code>
+                    </p>
+
+                    <p>
+                        <small><?php _e( 'All filter options above can be combined inside the same shortcode.', 'affiliate-coupons' ); ?></small>
                     </p>
 
                     <?php do_action( 'affcoups_settings_quickstart_render' ); ?>
