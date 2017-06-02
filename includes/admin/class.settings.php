@@ -218,6 +218,21 @@ if ( ! class_exists('Affcoups_Settings') ) {
                         <small><?php _e( 'All filter options above can be combined inside the same shortcode.', 'affiliate-coupons' ); ?></small>
                     </p>
 
+                    <p>
+                        <strong><?php _e( 'Sorting coupons', 'affiliate-coupons' ); ?></strong>
+                    </p>
+                    <ul>
+                        <li>
+                            <?php _e( 'Order:', 'affiliate-coupons' ); ?>
+                            <code>[affcoups order="asc"]</code> (asc, desc)
+                        </li>
+                        <li>
+                            <?php _e( 'Order by:', 'affiliate-coupons' ); ?>
+                            <code>[affcoups orderby="title"]</code> (name, date, random, title, description, discount, valid_from, valid_to)
+                        </li>
+                    </ul>
+                    </p>
+
                     <?php do_action( 'affcoups_settings_quickstart_render' ); ?>
                 </div>
             </div>
