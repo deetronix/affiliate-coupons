@@ -252,14 +252,24 @@ function affcoups_the_coupon_thumbnail( $coupon_id = null ) {
     if ( empty ( $coupon_id ) )
         $coupon_id = get_the_ID();
 
-    $thumbnail = affcoups_get_coupon_image( $coupon_id );
+    // Prepare image
+    $image = affcoups_get_coupon_image( $coupon_id );
+    $image_url = ( ! empty ( $image['url'] ) ) ? $image['url'] : AFFCOUPS_URL . '/public/img/thumb.png';
+    $image_alt = ( ! empty ( $image['alt'] ) ) ? $image['alt'] : affcoups_get_coupon_title( $coupon_id );
 
-    // Prepare attributes
-    $thumb_url = ( ! empty ( $thumbnail['url'] ) ) ? $thumbnail['url'] : AFFCOUPS_URL . '/public/img/thumb.png';
-    $thumb_alt = ( ! empty ( $thumbnail['alt'] ) ) ? $thumbnail['alt'] : affcoups_get_coupon_title( $coupon_id );
+    // Build image
+    $image = "<img src='" . $image_url . "' alt='" . $image_alt . "' />";
 
     // Build thumbnail
-    $thumbnail = "<img src='" . $thumb_url . "' alt='" . $thumb_alt . "' />";
+    $coupon_url = affcoups_get_coupon_url();
+
+    if ( ! empty( $coupon_url ) ) {
+        $thumbnail = '<a href="' . $coupon_url . '" title="' . affcoups_get_coupon_title( $coupon_id ) . '" target="_blank" rel="nofollow">';
+        $thumbnail .= $image;
+        $thumbnail .= '</a>';
+    } else {
+        $thumbnail = $image;
+    }
 
     // Output
     echo $thumbnail;
