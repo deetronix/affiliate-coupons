@@ -38,11 +38,17 @@ function affcoups_add_shortcode( $atts, $content ) {
     $args['posts_per_page'] = ( ! empty ( $max ) && is_numeric( $max ) ) ? intval( $max ) : '-1';
 
     //-- Order
-    if ( ! empty ( $order ) )
+    if ( ! empty ( $order ) ) {
         $args['affcoups_order'] = esc_html( $order );
+    } else {
+        $args['affcoups_order'] = ( ! empty( $options['order'] ) ) ? esc_html( $options['order'] ) : 'desc';
+    }
 
-    if ( ! empty ( $orderby ) )
-        $args['affcoups_orderby'] = esc_attr( $orderby );
+    if ( ! empty ( $orderby ) ) {
+        $args['affcoups_orderby'] = esc_attr($orderby);
+    } else {
+        $args['affcoups_orderby'] = ( ! empty( $options['orderby'] ) ) ? esc_html( $options['orderby'] ) : 'date';
+    }
 
     //-- ID
     if ( ! empty( $id ) ) {

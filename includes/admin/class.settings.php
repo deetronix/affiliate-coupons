@@ -63,44 +63,7 @@ if ( ! class_exists('Affcoups_Settings') ) {
             );
 
             /*
-            // SECTION ONE
-            add_settings_section(
-                'affcoups_settings_section_general',
-                __('General', 'affiliate-coupons'),
-               false,
-                'affcoups_settings'
-            );
-
-            add_settings_field(
-                'affcoups_settings_text_field_01',
-                __('Text Field', 'affiliate-coupons'),
-                array(&$this, 'text_field_01_render'),
-                'affcoups_settings',
-                'affcoups_settings_section_general',
-                array('label_for' => 'affcoups_settings_text_field_01')
-            );
-
-            add_settings_field(
-                'affcoups_settings_select_field_01',
-                __('Select Field', 'affiliate-coupons'),
-                array(&$this, 'select_field_01_render'),
-                'affcoups_settings',
-                'affcoups_settings_section_general',
-                array('label_for' => 'affcoups_settings_select_field_01')
-            );
-
-            add_settings_field(
-                'affcoups_settings_checkbox_field_01',
-                __('Checkbox Field', 'affiliate-coupons'),
-                array(&$this, 'checkbox_field_01_render'),
-                'affcoups_settings',
-                'affcoups_settings_section_general',
-                array('label_for' => 'affcoups_settings_checkbox_field_01')
-            );
-            */
-
-            /*
-             * Section: Output
+             * Section: General
              */
             add_settings_section(
                 'affcoups_settings_section_general',
@@ -116,6 +79,15 @@ if ( ! class_exists('Affcoups_Settings') ) {
                 'affcoups_settings',
                 'affcoups_settings_section_general',
                 array('label_for' => 'affcoups_hide_expired_coupons')
+            );
+
+            add_settings_field(
+                'affcoups_settings_order',
+                __('Sorting', 'affiliate-coupons'),
+                array(&$this, 'order_render'),
+                'affcoups_settings',
+                'affcoups_settings_section_general',
+                array('label_for' => 'affcoups_order')
             );
 
             /*
@@ -247,6 +219,50 @@ if ( ! class_exists('Affcoups_Settings') ) {
 
             <input type="checkbox" id="affcoups_hide_expired_coupons" name="affcoups_settings[hide_expired_coupons]" value="1" <?php echo( $hide_expired_coupons == 1 ? 'checked' : '' ); ?> />
             <label for="affcoups_hide_expired_coupons"><?php _e('Hide coupons after they expired', 'affiliate-coupons'); ?></label>
+            <?php
+        }
+
+        function order_render() {
+
+            $order_options = array(
+                'asc' => __( 'Ascending ', 'affiliate-coupons' ),
+                'desc' => __('Descending', 'affiliate-coupons')
+            );
+
+            $order = ( isset ( $this->options['order'] ) ) ? $this->options['order'] : 'desc';
+
+            $orderby_options = array(
+                'name' => __('Name (Post)', 'affiliate-coupons' ),
+                'date' => __('Date published (Post)', 'affiliate-coupons'),
+                'random' => __('Random', 'affiliate-coupons'),
+                'title' => __('Title (Coupon)', 'affiliate-coupons'),
+                'description' => __('Description (Coupon)', 'affiliate-coupons'),
+                'discount' => __('Discount (Coupon)', 'affiliate-coupons'),
+                'valid_from' => __('Valid from date (Coupon)', 'affiliate-coupons'),
+                'valid_to' => __('Valid to date (Coupon)', 'affiliate-coupons')
+            );
+
+            $orderby = ( isset ( $this->options['orderby'] ) ) ? $this->options['orderby'] : 'date';
+
+            ?>
+            <h4><?php _e('Order', 'affiliate-coupons' ); ?></h4>
+            <p>
+                <select id="affcoups_order" name="affcoups_settings[order]">
+                    <?php foreach ( $order_options as $key => $label ) { ?>
+                        <option value="<?php echo $key; ?>" <?php selected( $order, $key ); ?>><?php echo $label; ?></option>
+                    <?php } ?>
+                </select>
+            </p>
+
+            <h4><?php _e('Order by', 'affiliate-coupons' ); ?></h4>
+            <p>
+                <select id="affcoups_orderby" name="affcoups_settings[orderby]">
+                    <?php foreach ( $orderby_options as $key => $label ) { ?>
+                        <option value="<?php echo $key; ?>" <?php selected( $orderby, $key ); ?>><?php echo $label; ?></option>
+                    <?php } ?>
+                </select>
+            </p>
+
             <?php
         }
 
