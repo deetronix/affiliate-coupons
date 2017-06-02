@@ -24,7 +24,6 @@ if ( ! isset ( $grid ) )
                     </div>
 
                     <div class="affcoups-coupon__content">
-                        <?php the_title(); ?>
                         <h3 class="affcoups-coupon__title"><?php echo affcoups_get_coupon_title(); ?></h3>
 
                         <?php if ( affcoups_get_coupon_types() ) { ?>
