@@ -101,6 +101,15 @@ if ( ! class_exists('Affcoups_Settings') ) {
             );
 
             add_settings_field(
+                'affcoups_settings_templates',
+                __('Templates', 'affiliate-coupons'),
+                array(&$this, 'templates_render'),
+                'affcoups_settings',
+                'affcoups_settings_section_output',
+                array('label_for' => 'affcoups_template')
+            );
+
+            add_settings_field(
                 'affcoups_settings_button',
                 __('Button', 'affiliate-coupons'),
                 array(&$this, 'button_render'),
@@ -273,6 +282,34 @@ if ( ! class_exists('Affcoups_Settings') ) {
 
             <p>Section two description...</p>
 
+            <?php
+        }
+
+        function templates_render() {
+
+            $template_options = array(
+                'standard' => __( 'Standard', 'affiliate-coupons' ),
+                'grid' => __('Grid', 'affiliate-coupons')
+            );
+
+            $template = ( isset ( $this->options['template'] ) ) ? $this->options['template'] : 'grid';
+
+            $grid_size = ( ! empty( $this->options['grid_size'] ) && is_numeric( $this->options['grid_size'] ) ) ? intval( $this->options['grid_size'] ) : 2;
+
+            ?>
+            <h4><?php _e('Template', 'affiliate-coupons' ); ?></h4>
+            <p>
+                <select id="affcoups_template" name="affcoups_settings[template]">
+                    <?php foreach ( $template_options as $key => $label ) { ?>
+                        <option value="<?php echo $key; ?>" <?php selected( $template, $key ); ?>><?php echo $label; ?></option>
+                    <?php } ?>
+                </select>
+            </p>
+
+            <h4><?php _e('Grid size', 'affiliate-coupons' ); ?></h4>
+            <p>
+                <input type="number" name="affcoups_settings[grid_size]" id="affcoups_grid_size" value="<?php echo esc_attr( trim( $grid_size ) ); ?>" />
+            </p>
             <?php
         }
 

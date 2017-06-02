@@ -96,11 +96,14 @@ function affcoups_add_shortcode( $atts, $content ) {
 
         // Template: Variables
         if ( ! empty( $template ) && 'grid' === $template && ( empty( $grid ) || ! is_numeric( $grid ) ) )
-            $grid = 3; // TODO: Add new setting for default value
+            $grid = ( ! empty( $options['grid_size'] ) ) ? esc_html( $options['grid_size'] ) : 2;
 
         // Template: Fallback
         if ( empty( $template ) )
-            $template = 'standard';
+            $template = ( ! empty( $options['template'] ) ) ? esc_html( $options['template'] ) : 'grid';
+
+        if ( 'grid' === $template && ( empty( $grid ) || ! is_numeric( $grid ) ) )
+            $grid = ( ! empty( $options['grid_size'] ) ) ? esc_html( $options['grid_size'] ) : 2;
 
         //echo 'Grid: ' . $grid . '<br>';
         //echo 'Template: ' . $template . '<br>';
