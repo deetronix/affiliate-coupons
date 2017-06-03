@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: Affiliate Coupons\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/affiliate-"
 "coupons\n"
-"POT-Creation-Date: 2017-06-02 16:21+0200\n"
+"POT-Creation-Date: 2017-06-03 12:24+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -347,12 +347,14 @@ msgstr ""
 msgid "Coupon: Details"
 msgstr ""
 
-#: includes/admin/manage-coupons.php:17 includes/admin/manage-vendors.php:17
-msgid "Thumbnail"
-msgstr ""
-
+#: includes/admin/manage-categories.php:20
+#: includes/admin/manage-coupons.php:18 includes/admin/manage-types.php:20
 #: includes/admin/manage-vendors.php:18
 msgid "Shortcodes"
+msgstr ""
+
+#: includes/admin/manage-coupons.php:17 includes/admin/manage-vendors.php:17
+msgid "Thumbnail"
 msgstr ""
 
 #: includes/admin/plugins.php:50

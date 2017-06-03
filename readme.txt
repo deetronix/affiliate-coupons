@@ -4,7 +4,7 @@ Donate link: https://donate.flowdee.de
 Tags: affiliate, affiliates, coupon, coupons, deals, affiliate coupon, affiliate coupons, affiliate deals, dealz, vendors, affiliate marketing
 Requires at least: 3.0.1
 Tested up to: 4.7.5
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -76,6 +76,13 @@ Yes of course.
 
 == Changelog ==
 
+= Version 1.1.2 (3rd June 2017) =
+* New: Added shortcode preview to admin coupons overview page
+* New: Added shortcode preview to admin categories overview page
+* New: Added shortcode preview to admin types overview page
+* Fix: Since the latest update, thumbnail images didn't show up correctly
+* Fix: Admin vendors overview page showed incorrect shortcode preview
+
 = Version 1.1.1 (2nd June 2017) =
 * Improvement: Set default grid size back to 3
 * Fix: Removed shortcode debugging :)
@@ -102,6 +109,13 @@ Yes of course.
 * Initial release
 
 == Upgrade Notice ==
+
+= Version 1.1.2 (3rd June 2017) =
+* New: Added shortcode preview to admin coupons overview page
+* New: Added shortcode preview to admin categories overview page
+* New: Added shortcode preview to admin types overview page
+* Fix: Since the latest update, thumbnail images didn't show up correctly
+* Fix: Admin vendors overview page showed incorrect shortcode preview
 
 = Version 1.1.1 (2nd June 2017) =
 * Improvement: Set default grid size back to 3
