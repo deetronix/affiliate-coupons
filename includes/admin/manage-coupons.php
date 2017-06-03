@@ -15,6 +15,7 @@ if (!defined('ABSPATH')) exit;
 function affcoups_coupon_extend_columns( $defaults ) {
 
     $defaults['affcoups_coupon_thumb'] = __( 'Thumbnail', 'affiliate-coupons' );
+    $defaults['affcoups_coupon_shortcodes'] = __( 'Shortcodes', 'affiliate-coupons' );
 
     return $defaults;
 }
@@ -35,6 +36,9 @@ function affcoups_coupon_extend_columns_content( $column_name, $postid ) {
             <?php
         }
 
+    } else if ( $column_name == 'affcoups_coupon_shortcodes' ) {
+
+        echo '[affcoups id="' . $postid . '"]';
     }
 }
 add_action('manage_affcoups_coupon_posts_custom_column', 'affcoups_coupon_extend_columns_content', 10, 2);
