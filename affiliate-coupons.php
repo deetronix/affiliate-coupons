@@ -102,6 +102,8 @@ if( ! class_exists( 'Affcoups_Plugin' ) ) {
                 require_once AFFCOUPS_DIR . 'includes/admin/coupon-metaboxes.php';
                 require_once AFFCOUPS_DIR . 'includes/admin/manage-vendors.php';
                 require_once AFFCOUPS_DIR . 'includes/admin/vendor-metaboxes.php';
+                require_once AFFCOUPS_DIR . 'includes/admin/manage-categories.php';
+                require_once AFFCOUPS_DIR . 'includes/admin/manage-types.php';
             }
 
             // Coupons
