@@ -221,20 +221,20 @@ function affcoups_get_coupon_image( $coupon_id = null, $size = null ) {
     // Get thumbnail from coupon
     $image_size = ( 'small' === $size ) ? 'affcoups-thumb-small' : 'affcoups-thumb';
 
-    $images = rwmb_meta( AFFCOUPS_PREFIX . 'coupon_image', 'size=' . $image_size, $coupon_id );
+    $coupon_images = rwmb_meta( AFFCOUPS_PREFIX . 'coupon_image', 'type=image&size=' . $image_size, $coupon_id );
 
-    if ( ! empty ( $images ) && is_array( $images ) ) {
-        return array_shift( $images );
+    if ( ! empty ( $coupon_images ) && is_array( $coupon_images ) ) {
+        return array_shift( $coupon_images );
 
     // Get thumbnail from vendor
     } else {
         $vendor_id = affcoups_get_coupon_vendor_id( $coupon_id );
 
         if ( ! empty ( $vendor_id ) ) {
-            $vendor_image = affcoups_get_vendor_thumbnail( $vendor_id, $size );
+            $vendor_images = affcoups_get_vendor_thumbnail( $vendor_id, $size );
 
-            if ( ! empty ( $vendor_image ) )
-                return $vendor_image;
+            if ( ! empty ( $vendor_images ) && is_array( $vendor_images ) )
+                return $vendor_images;
         }
     }
 

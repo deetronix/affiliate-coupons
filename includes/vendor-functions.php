@@ -29,9 +29,9 @@ function affcoups_get_vendor_thumbnail( $postid = null, $size = null ) {
     // Get thumbnail from coupon
     $image_size = ( 'small' === $size ) ? 'affcoups-thumb-small' : 'affcoups-thumb';
 
-    $images = rwmb_meta( AFFCOUPS_PREFIX . 'vendor_image', 'size=' . $image_size, $postid );
+    $images = rwmb_meta( AFFCOUPS_PREFIX . 'vendor_image', 'type=image&size=' . $image_size, $postid );
 
-    if( ! empty ( $images ) && is_array( $images ) )
+    if ( ! empty ( $images ) && is_array( $images ) )
         return array_shift( $images );
 
     // No thumbnail found

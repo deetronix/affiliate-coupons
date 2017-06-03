@@ -139,6 +139,7 @@ add_shortcode('affcoups_coupons', 'affcoups_add_shortcode');
  */
 add_shortcode('affcoups_debug', function( $atts ) {
 
+    /*
     $args = array(
         'affcoups_coupon_id' => array( 312, 314 )
     );
@@ -146,4 +147,12 @@ add_shortcode('affcoups_debug', function( $atts ) {
     $posts = affcoups_get_coupons( $args );
 
     affcoups_debug( $posts );
+    */
+
+    affcoups_the_coupon_thumbnail( 310 );
+
+    $image = rwmb_meta( AFFCOUPS_PREFIX . 'vendor_image', 'type=image&size=affcoups-thumb&limit=1', 278 );
+
+    affcoups_debug($image);
+
 });
