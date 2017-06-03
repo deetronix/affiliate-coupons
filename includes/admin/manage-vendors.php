@@ -38,7 +38,7 @@ function affcoups_vendor_extend_columns_content( $column_name, $postid ) {
 
     } else if ( $column_name == 'affcoups_vendor_shortcodes' ) {
 
-        echo '[affcoups id=' . $postid . ']';
+        echo '[affcoups vendor="' . $postid . '"]';
     }
 }
 add_action('manage_affcoups_vendor_posts_custom_column', 'affcoups_vendor_extend_columns_content', 10, 2);
