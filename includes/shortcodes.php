@@ -118,6 +118,8 @@ function affcoups_add_shortcode( $atts, $content ) {
             _e('Template not found.', 'affiliate-coupons');
         }
 
+        wp_reset_postdata();
+
     } else {
         _e('No coupons found.', 'affiliate-coupons');
     }
