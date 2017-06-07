@@ -8,9 +8,7 @@ if ( ! isset ( $coupons ) )
 
         <div class="<?php affcoups_the_coupon_classes('affcoups-coupon'); ?>">
             <div class="affcoups-coupon__header">
-                <div class="affcoups-coupon__thumbnail">
-                    <?php affcoups_the_coupon_thumbnail(); ?>
-                </div>
+                <?php affcoups_the_coupon_thumbnail(); ?>
 
                 <?php if ( affcoups_get_coupon_discount() ) { ?>
                     <span class="affcoups-coupon__discount"><?php echo affcoups_get_coupon_discount(); ?></span>

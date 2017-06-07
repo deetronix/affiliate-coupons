@@ -258,17 +258,19 @@ function affcoups_the_coupon_thumbnail( $coupon_id = null ) {
     $image_alt = ( ! empty ( $image['alt'] ) ) ? $image['alt'] : affcoups_get_coupon_title( $coupon_id );
 
     // Build image
-    $image = "<img src='" . $image_url . "' alt='" . $image_alt . "' />";
+    $image = '<img class="affcoups-coupon__image" src="' . $image_url . '" alt="' . $image_alt . '" />';
 
     // Build thumbnail
     $coupon_url = affcoups_get_coupon_url();
 
     if ( ! empty( $coupon_url ) ) {
-        $thumbnail = '<a href="' . $coupon_url . '" title="' . affcoups_get_coupon_title( $coupon_id ) . '" target="_blank" rel="nofollow">';
+        $thumbnail = '<a class="affcoups-coupon__thumbnail" href="' . $coupon_url . '" title="' . affcoups_get_coupon_title( $coupon_id ) . '" target="_blank" rel="nofollow">';
         $thumbnail .= $image;
         $thumbnail .= '</a>';
     } else {
-        $thumbnail = $image;
+        $thumbnail = '<span class="affcoups-coupon__thumbnail">';
+        $thumbnail .= $image;
+        $thumbnail .= '</a>';
     }
 
     // Output

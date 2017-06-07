@@ -21,13 +21,22 @@
 
 .affcoups-coupon__thumbnail {
     display: block;
+    margin: 0;
+    padding: 0;
 
-    img {
-        .img-responsive();
+    font-size: 0;
+    vertical-align: top;
+}
 
-        border-top-left-radius: @border-radius;
-        border-top-right-radius: @border-radius;
-    }
+img.affcoups-coupon__image {
+    .img-responsive();
+
+    margin: 0;
+    padding: 0;
+
+    border-top-left-radius: @border-radius;
+    border-top-right-radius: @border-radius;
+    vertical-align: top;
 }
 
 .affcoups-coupon--image-border {
@@ -58,6 +67,7 @@
 
 .affcoups-coupon__title {
     margin: 0;
+    padding: 0;
 
     font-size: 20px;
     line-height: 26px;

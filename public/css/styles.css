@@ -81,13 +81,20 @@
 }
 .affcoups .affcoups-coupon__thumbnail {
   display: block;
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+  vertical-align: top;
 }
-.affcoups .affcoups-coupon__thumbnail img {
-  display: block !important;
+.affcoups img.affcoups-coupon__image {
+  display: block;
   max-width: 100%;
   height: auto;
+  margin: 0;
+  padding: 0;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
+  vertical-align: top;
 }
 .affcoups .affcoups-coupon--image-border .affcoups-coupon__thumbnail {
   border: 1px solid #F7F7F7;
@@ -110,6 +117,7 @@
 }
 .affcoups .affcoups-coupon__title {
   margin: 0;
+  padding: 0;
   font-size: 20px;
   line-height: 26px;
 }

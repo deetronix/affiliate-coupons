@@ -41,7 +41,7 @@ add_action( 'admin_enqueue_scripts', 'affcoups_admin_scripts', 100 );
  * @return      void
  */
 function affcoups_scripts( $hook ) {
-    
+
     // Use minified libraries if SCRIPT_DEBUG is turned off
     $suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
