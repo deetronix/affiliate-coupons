@@ -99,9 +99,7 @@ if( ! class_exists( 'Affcoups_Plugin' ) ) {
                 require_once AFFCOUPS_DIR . 'includes/admin/plugins.php';
                 require_once AFFCOUPS_DIR . 'includes/admin/class.settings.php';
                 require_once AFFCOUPS_DIR . 'includes/admin/manage-coupons.php';
-                require_once AFFCOUPS_DIR . 'includes/admin/coupon-metaboxes.php';
                 require_once AFFCOUPS_DIR . 'includes/admin/manage-vendors.php';
-                require_once AFFCOUPS_DIR . 'includes/admin/vendor-metaboxes.php';
                 require_once AFFCOUPS_DIR . 'includes/admin/manage-categories.php';
                 require_once AFFCOUPS_DIR . 'includes/admin/manage-types.php';
             }
@@ -111,10 +109,12 @@ if( ! class_exists( 'Affcoups_Plugin' ) ) {
             require_once AFFCOUPS_DIR . 'includes/coupon-type-taxonomy.php';
             require_once AFFCOUPS_DIR . 'includes/coupon-category-taxonomy.php';
             require_once AFFCOUPS_DIR . 'includes/coupon-functions.php';
+            require_once AFFCOUPS_DIR . 'includes/coupon-metaboxes.php';
 
             // Vendors
             require_once AFFCOUPS_DIR . 'includes/vendor-post-type.php';
             require_once AFFCOUPS_DIR . 'includes/vendor-functions.php';
+            require_once AFFCOUPS_DIR . 'includes/vendor-metaboxes.php';
 
             // Anything else
             require_once AFFCOUPS_DIR . 'includes/hooks.php';
