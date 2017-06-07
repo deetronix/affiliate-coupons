@@ -34,3 +34,25 @@ function affcoups_insert_custom_css() {
     }
 }
 add_action( 'wp_head','affcoups_insert_custom_css' );
+
+/**
+ * Maybe cleanup shortcode output in order to remove empy p/br tags
+ *
+ * @param $content
+ *
+ * @return string
+ */
+function affcoups_maybe_cleanup_shortcode_output( $content ) {
+
+    // array of custom shortcodes requiring the fix
+    $block = join("|",array( 'affcoups', 'affcoups_coupons' ) );
+
+    // opening tag
+    $rep = preg_replace("/(<p>)?\[($block)(\s[^\]]+)?\](<\/p>|<br \/>)?/","[$2$3]",$content);
+
+    // closing tag
+    $rep = preg_replace("/(<p>)?\[\/($block)](<\/p>|<br \/>)?/","[/$2]",$rep);
+
+    return $rep;
+}
+//add_filter('the_content', 'affcoups_maybe_cleanup_shortcode_output' );
