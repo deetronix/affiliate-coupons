@@ -54,15 +54,25 @@ function affcoups_get_options() {
     return get_option( 'affcoups_settings', array() );
 }
 
-/*
+/**
  * Public assets folder
  */
 function affcoups_the_assets() {
     echo AFFCOUPS_URL . 'public/assets';
 }
 
-/*
- * Better debugging
+/**
+ * Check whether it's development environment or not
+ */
+function affcoups_is_development() {
+    return ( strpos( get_bloginfo('url'), 'affcoups.dev' ) !== false ) ? true : false;
+}
+
+/**
+ * Debug
+ *
+ * @param $args
+ * @param bool $title
  */
 function affcoups_debug( $args, $title = false ) {
 
@@ -74,5 +84,22 @@ function affcoups_debug( $args, $title = false ) {
         echo '<pre>';
         print_r($args);
         echo '</pre>';
+    }
+}
+
+/**
+ * Debug log
+ *
+ * @param $log
+ */
+function affcoups_debug_log ( $log )  {
+
+    if ( ! affcoups_is_development() )
+        return;
+
+    if ( is_array( $log ) || is_object( $log ) ) {
+        error_log( print_r( $log, true ) );
+    } else {
+        error_log( $log );
     }
 }

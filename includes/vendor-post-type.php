@@ -43,6 +43,11 @@ function affcoups_register_vendor_post_type() {
         'items_list_navigation' => __( 'Vendors list navigation', 'affiliate-coupons' ),
         'filter_items_list'     => __( 'Filter vendors list', 'affiliate-coupons' ),
     );
+
+    if ( is_admin() && isset( $_SERVER['REQUEST_URI'] ) && strpos( $_SERVER['REQUEST_URI'], '/wp-admin/export.php' ) !== false ) {
+        $labels['name'] = _x( 'Affiliate Coupons - Vendors', 'Post Type General Name (Export)', 'affiliate-coupons' );
+    }
+
     $args = array(
         'label'                 => __( 'Vendor', 'affiliate-coupons' ),
         'description'           => __( 'Vendors', 'affiliate-coupons' ),
