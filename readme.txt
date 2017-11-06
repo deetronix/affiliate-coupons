@@ -1,5 +1,5 @@
 === Affiliate Coupons ===
-Contributors: flowdee, dojowp
+Contributors: flowdee
 Donate link: https://donate.flowdee.de
 Tags: affiliate, affiliates, coupon, coupons, deals, affiliate coupon, affiliate coupons, affiliate deals, dealz, vendors, affiliate marketing
 Requires at least: 3.0.1
@@ -21,7 +21,7 @@ Promote coupons and deals of products and earn money with affiliate referrals.
 *   Display coupons via shortcode on the frontend
 *   Multiple options in order to filter/sort your coupon presentations
 *   Configuration page for more options
-*   Try out the **[online demo](https://wp-deals.com/wordpress-deals-discounts-services/)**
+*   Try out the **[online demo](https://affcoups.com/demo/?utm_source=wordpress.org&utm_medium=textlink&utm_campaign=Affiliate%20Coupons&utm_content=demo-link)**
 *   Regular updates and improvements: Go though the [changelog](https://wordpress.org/plugins/affiliate-coupons/#developers)
 
 = Quickstart Examples =
@@ -35,7 +35,11 @@ Promote coupons and deals of products and earn money with affiliate referrals.
 = Support =
 
 * Browse [issue tracker](https://github.com/flowdee/affiliate-coupons/issues) on GitHub
-* [Follow me on Twitter](https://twitter.com/flowdee) to stay in contact and informed about updates
+* [Follow us on Twitter](https://twitter.com/affcoups) to stay in contact and informed about updates
+
+= Sites using Affiliate Coupons =
+
+*   [WP Deals](https://wp-deals.com/wordpress-deals-discounts-plugins/)
 
 == Installation ==
 

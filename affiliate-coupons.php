@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:     Affiliate Coupons
- * Plugin URI:      https://wordpress.org/plugins/affiliate-coupons/
+ * Plugin URI:      https://affcoups.com
  * Description:     Promote coupons and deals of products and earn money with affiliate referrals.
  * Version:         1.1.3
  * Author:          flowdee
