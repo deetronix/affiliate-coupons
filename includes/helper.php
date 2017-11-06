@@ -69,6 +69,20 @@ function affcoups_is_development() {
 }
 
 /**
+ * Check if AMP endpoint
+ */
+function affcoups_is_amp() {
+
+    if ( function_exists( 'is_amp_endpoint' ) && is_amp_endpoint() )
+        return true;
+
+    if ( function_exists( 'is_wp_amp' ) && is_wp_amp() )
+        return true;
+
+    return false;
+}
+
+/**
  * Get website url
  *
  * @param $path
