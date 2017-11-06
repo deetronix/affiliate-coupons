@@ -21,21 +21,21 @@
     .affcoups-coupons-grid--col-2 {
 
         .affcoups-coupons-grid__item {
-            .gee-unit-width(6, 12, @gutter);
+            .gee-unit-width(12/2, 12, @gutter);
         }
     }
 
     .affcoups-coupons-grid--col-3 {
 
         .affcoups-coupons-grid__item {
-            .gee-unit-width(4, 12, @gutter);
+            .gee-unit-width(12/3, 12, @gutter);
         }
     }
 
     .affcoups-coupons-grid--col-4 {
 
         .affcoups-coupons-grid__item {
-            .gee-unit-width(3, 12, @gutter);
+            .gee-unit-width(12/4, 12, @gutter);
         }
     }
 
@@ -49,7 +49,63 @@
     .affcoups-coupons-grid--col-6 {
 
         .affcoups-coupons-grid__item {
-            .gee-unit-width(2, 12, @gutter);
+            .gee-unit-width(12/6, 12, @gutter);
+        }
+    }
+    
+    .affcoups-coupons-grid--col-7 {
+        
+        .affcoups-coupons-grid__item {
+            .gee-unit-width(12/7, 12, @gutter);
+        }
+    }
+    
+    .affcoups-coupons-grid--col-8 {
+        
+        .affcoups-coupons-grid__item {
+            .gee-unit-width(12/8, 12, @gutter);
+        }
+    }
+    
+    .affcoups-coupons-grid--col-9 {
+        
+        .affcoups-coupons-grid__item {
+            .gee-unit-width(12/9, 12, @gutter);
+        }
+    }
+    
+    .affcoups-coupons-grid--col-10 {
+        
+        .affcoups-coupons-grid__item {
+            .gee-unit-width(12/10, 12, @gutter);
+        }
+    }
+}
+
+@media (min-width: (@breakpoint-default + 1px)) and (max-width: @breakpoint-large) {
+    .affcoups-coupons-grid--col-7,
+    .affcoups-coupons-grid--col-9{
+        
+        .affcoups-coupons-grid__item {
+            .gee-unit-width(12/3, 12, @gutter);
+        }
+    }
+}
+
+@media (min-width: (@breakpoint-default + 1px)) and (max-width: @breakpoint-large) {
+    .affcoups-coupons-grid--col-8 {
+        
+        .affcoups-coupons-grid__item {
+            .gee-unit-width(12/4, 12, @gutter);
+        }
+    }
+}
+
+@media (min-width: (@breakpoint-default + 1px)) and (max-width: @breakpoint-large) {
+    .affcoups-coupons-grid--col-10 {
+        
+        .affcoups-coupons-grid__item {
+            .gee-unit-width(12/5, 12, @gutter);
         }
     }
 }
@@ -58,10 +114,14 @@
     .affcoups-coupons-grid--col-3,
     .affcoups-coupons-grid--col-4,
     .affcoups-coupons-grid--col-5,
-    .affcoups-coupons-grid--col-6 {
+    .affcoups-coupons-grid--col-6,
+    .affcoups-coupons-grid--col-7,
+    .affcoups-coupons-grid--col-8,
+    .affcoups-coupons-grid--col-9,
+    .affcoups-coupons-grid--col-10 {
 
         .affcoups-coupons-grid__item {
-            .gee-unit-width(6, 12, @gutter);
+            .gee-unit-width(12/2, 12, @gutter);
         }
     }
 }
