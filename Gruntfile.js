@@ -44,6 +44,25 @@ module.exports = function (grunt) {
                     'assets/less/style.less'
                 ],
                 dest: 'public/css/styles.min.css'
+            },
+            styles_amp: {
+                options: {
+                    cleancss: false
+                },
+                src: [
+                    'assets/less/style-amp.less'
+                ],
+                dest: 'public/css/amp.css'
+            },
+            styles_amp_min: {
+                options: {
+                    cleancss: true,
+                    compress: true
+                },
+                src: [
+                    'assets/less/style-amp.less'
+                ],
+                dest: 'public/css/amp.min.css'
             }
         },
         uglify: {

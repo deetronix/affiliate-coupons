@@ -90,20 +90,25 @@ function affcoups_add_shortcode( $atts, $content ) {
 
         //echo 'Coupons found: ' . $coupons->post_count . '<br>';
 
-        // Template: Setup
-        if ( ! empty( $grid ) && is_numeric( $grid ) && empty( $template ) )
-            $template = 'grid';
+        if ( affcoups_is_amp() ) {
+            $template = 'amp';
+        } else {
 
-        // Template: Variables
-        if ( ! empty( $template ) && 'grid' === $template && ( empty( $grid ) || ! is_numeric( $grid ) ) )
-            $grid = ( ! empty( $options['grid_size'] ) ) ? esc_html( $options['grid_size'] ) : 3;
+            // Template: Setup
+            if ( ! empty( $grid ) && is_numeric( $grid ) && empty( $template ) )
+                $template = 'grid';
 
-        // Template: Fallback
-        if ( empty( $template ) )
-            $template = ( ! empty( $options['template'] ) ) ? esc_html( $options['template'] ) : 'grid';
+            // Template: Variables
+            if ( ! empty( $template ) && 'grid' === $template && ( empty( $grid ) || ! is_numeric( $grid ) ) )
+                $grid = ( ! empty( $options['grid_size'] ) ) ? esc_html( $options['grid_size'] ) : 3;
 
-        if ( 'grid' === $template && ( empty( $grid ) || ! is_numeric( $grid ) ) )
-            $grid = ( ! empty( $options['grid_size'] ) ) ? esc_html( $options['grid_size'] ) : 2;
+            // Template: Fallback
+            if ( empty( $template ) )
+                $template = ( ! empty( $options['template'] ) ) ? esc_html( $options['template'] ) : 'grid';
+
+            if ( 'grid' === $template && ( empty( $grid ) || ! is_numeric( $grid ) ) )
+                $grid = ( ! empty( $options['grid_size'] ) ) ? esc_html( $options['grid_size'] ) : 2;
+        }
 
         //echo 'Grid: ' . $grid . '<br>';
         //echo 'Template: ' . $template . '<br>';
