@@ -39,19 +39,19 @@ function affcoups_row_meta( $input, $file ) {
     if ( $file != 'affiliate-coupons/affiliate-coupons.php' )
         return $input;
 
-    $custom_link = esc_url( add_query_arg( array(
+    $website_link = esc_url( add_query_arg( array(
             'utm_source'   => 'plugins-page',
             'utm_medium'   => 'plugin-row',
             'utm_campaign' => 'Affiliate Coupons',
-        ), 'https://wordpress.org/plugins/affiliate-coupons/' )
+        ), 'https://affcoups.com/' )
     );
 
     $links = array(
-        '<a href="' . $custom_link . '">' . esc_html__( 'Example Link', 'affiliate-coupons' ) . '</a>',
+        '<a href="' . $website_link . '" target="_blank">' . esc_html__( 'Plugin Website', 'affiliate-coupons' ) . '</a>',
     );
 
     $input = array_merge( $input, $links );
 
     return $input;
 }
-//add_filter( 'plugin_row_meta', 'affcoups_row_meta', 10, 2 );
+add_filter( 'plugin_row_meta', 'affcoups_row_meta', 10, 2 );
