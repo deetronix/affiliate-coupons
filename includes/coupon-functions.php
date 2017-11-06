@@ -264,7 +264,11 @@ function affcoups_the_coupon_thumbnail( $coupon_id = null ) {
     $coupon_url = affcoups_get_coupon_url();
 
     if ( ! empty( $coupon_url ) ) {
-        $thumbnail = '<a class="affcoups-coupon__thumbnail" href="' . $coupon_url . '" title="' . affcoups_get_coupon_title( $coupon_id ) . '" target="_blank" rel="nofollow">';
+
+        $coupon_title = affcoups_get_coupon_title( $coupon_id );
+        $coupon_title = affcoups_cleanup_html_attribute( $coupon_title );
+
+        $thumbnail = '<a class="affcoups-coupon__thumbnail" href="' . $coupon_url . '" title="' . $coupon_title . '" target="_blank" rel="nofollow">';
         $thumbnail .= $image;
         $thumbnail .= '</a>';
     } else {
@@ -533,7 +537,7 @@ function affcoups_the_coupon_button( $coupon_id = null ) {
     // Build button settings
     $button = array(
         'url' => affcoups_get_coupon_url( $coupon_id ),
-        'title' => $button_text,
+        'title' => affcoups_cleanup_html_attribute( $button_text ),
         'text' => $button_text,
         'target' => '_blank',
         'rel' => 'nofollow'

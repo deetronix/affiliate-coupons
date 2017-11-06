@@ -12,6 +12,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Cleanup string in order to be used inside html attributes (title, alt etc.) without breaking the markup
+ *
+ * @param $str
+ * @return mixed
+ */
+function affcoups_cleanup_html_attribute( $str ) {
+
+    // Remove html
+    $str = strip_tags( $str );
+
+    // Remove apostrophes
+    $str = str_replace( array( '"', "'" ), '', $str );
+
+    return $str;
+}
+
+/**
  * Convert separated strings to array
  *
  * @param $string
