@@ -408,7 +408,7 @@ if ( ! class_exists('Affcoups_Settings') ) {
                                     global $current_user;
 
                                     $user_email = ( isset( $current_user->user_email ) ) ? $current_user->user_email : '';
-                                    $form_group_name = apply_filters( 'affcoups_sidebar_subscribe_form_group_name', 'group[12789][16]' );
+                                    $form_group_name = apply_filters( 'affcoups_sidebar_subscribe_form_group_name', 'group[12785][2]' );
                                     ?>
                                     <div class="postbox">
                                         <h3><span><?php _e('Latest News & Updates', 'affiliate-coupons' ); ?></span></h3>
@@ -428,7 +428,7 @@ if ( ! class_exists('Affcoups_Settings') ) {
                                                             <div class="response" id="mce-success-response" style="display:none"></div>
                                                         </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
                                                         <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_cc9fc194eb9ba7a4d8616c2cb_a4798350bf" tabindex="-1" value=""></div>
-                                                        <input type="checkbox" id="group_16" name="<?php echo $form_group_name; ?>" value="1" checked="checked" style="display:none">
+                                                        <input type="checkbox" id="group_cr" name="<?php echo $form_group_name; ?>" value="1" checked="checked" style="display:none">
                                                         <div class="clear">
                                                             <p>
                                                                 <input type="submit" value="<?php _e('Subscribe', 'affiliate-coupons' ); ?>" name="subscribe" id="mc-embedded-subscribe" class="button">
