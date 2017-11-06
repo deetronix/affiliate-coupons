@@ -101,7 +101,7 @@ function affcoups_get_coupons( $args = array() ) {
 
         $coupon_categories = explode(',', esc_html( $args['affcoups_coupon_category'] ) );
 
-        $coupon_category_tax_field = ( isset( $coupon_categories[0] ) && is_numeric( $coupon_categories[0] ) ) ? 'term_taxonomy_id' : 'slug';
+        $coupon_category_tax_field = ( isset( $coupon_categories[0] ) && is_numeric( $coupon_categories[0] ) ) ? 'term_id' : 'slug';
 
         $tax_queries[] = array(
             'taxonomy' => 'affcoups_coupon_category',
@@ -116,7 +116,7 @@ function affcoups_get_coupons( $args = array() ) {
 
         $coupon_types = explode(',', esc_html( $args['affcoups_coupon_type'] ) );
 
-        $coupon_type_tax_field = ( isset( $coupon_types[0] ) && is_numeric( $coupon_types[0] ) ) ? 'term_taxonomy_id' : 'slug';
+        $coupon_type_tax_field = ( isset( $coupon_types[0] ) && is_numeric( $coupon_types[0] ) ) ? 'term_id' : 'slug';
 
         $tax_queries[] = array(
             'taxonomy' => 'affcoups_coupon_type',
