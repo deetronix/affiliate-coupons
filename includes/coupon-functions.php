@@ -254,7 +254,7 @@ function affcoups_the_coupon_thumbnail( $coupon_id = null ) {
 
     // Prepare image
     $image = affcoups_get_coupon_image( $coupon_id );
-    $image_url = ( ! empty ( $image['url'] ) ) ? $image['url'] : AFFCOUPS_URL . '/public/img/thumb.png';
+    $image_url = ( ! empty ( $image['url'] ) ) ? $image['url'] : AFFCOUPS_URL . '/public/img/placeholder-thumb.png';
     $image_alt = ( ! empty ( $image['alt'] ) ) ? $image['alt'] : affcoups_get_coupon_title( $coupon_id );
 
     // Build image
