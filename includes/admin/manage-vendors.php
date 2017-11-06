@@ -32,7 +32,7 @@ function affcoups_vendor_extend_columns_content( $column_name, $postid ) {
 
         if ( ! empty ( $image['url'] ) ) {
             ?>
-            <img src="<?php echo $image['url'];?>" alt="thumbnail" />
+            <img src="<?php echo $image['url'];?>" alt="thumbnail" style="display: inline-block; max-width: 144px; height: auto;" />
             <?php
         }
 
