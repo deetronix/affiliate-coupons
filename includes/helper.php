@@ -69,6 +69,28 @@ function affcoups_is_development() {
 }
 
 /**
+ * Get website url
+ *
+ * @param $path
+ * @param string $source
+ * @return string
+ */
+function affcoups_get_website_url( $path = '', $source = 'plugin-settings' ) {
+
+    $url = 'https://affcoups.com/';
+
+    if ( ! empty( $path ) )
+        $url .= trim( $path,'/') . '/';
+
+    return esc_url( add_query_arg( array(
+            'utm_source'   => $source,
+            'utm_medium'   => 'plugin-row',
+            'utm_campaign' => 'Affiliate Coupons',
+        ), $url )
+    );
+}
+
+/**
  * Debug
  *
  * @param $args
@@ -86,6 +108,8 @@ function affcoups_debug( $args, $title = false ) {
         echo '</pre>';
     }
 }
+
+
 
 /**
  * Debug log

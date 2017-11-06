@@ -388,14 +388,59 @@ if ( ! class_exists('Affcoups_Settings') ) {
                             <!-- /#post-body-content -->
                             <div id="postbox-container-1" class="postbox-container">
                                 <div class="meta-box-sortables">
+                                    <!-- Resources & Support -->
+                                    <div class="postbox">
+                                        <h3><span>Resources &amp; Support</span></h3>
+                                        <div class="inside">
+                                            <p><?php _e('Here you can find a brief overview of the most important resources in order use our plugin.', 'affiliate-coupons' ); ?></p>
+                                            <ul>
+                                                <li><a href="<?php echo affcoups_get_website_url(); ?>" target="_blank">Website</a></li>
+                                                <li><a href="<?php echo affcoups_get_website_url( 'support' ); ?>" target="_blank">Support</a></li>
+                                                <li><a href="https://wordpress.org/plugins/affiliate-coupons/#developers" target="_blank">Changelog</a></li>
+                                                <li><a href="https://twitter.com/affcoups" target="_blank">Follow us on Twitter</a></li>
+                                            </ul>
+                                            <p>Created & Maintained by <a href="https://twitter.com/flowdee">flowdee</a></p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Newsletter -->
                                     <?php
-                                    /*
-                                     * require_once WP_UDEMY_DIR . 'includes/libs/flowdee_infobox.php';
-                                    $flowdee_infobox = new Flowdee_Infobox();
-                                    $flowdee_infobox->set_plugin_slug('udemy');
-                                    $flowdee_infobox->display();
-                                    */
+                                    global $current_user;
+
+                                    $user_email = ( isset( $current_user->user_email ) ) ? $current_user->user_email : '';
+                                    $form_group_name = apply_filters( 'affcoups_sidebar_subscribe_form_group_name', 'group[12789][16]' );
                                     ?>
+                                    <div class="postbox">
+                                        <h3><span><?php _e('Latest News & Updates', 'affiliate-coupons' ); ?></span></h3>
+                                        <div class="inside">
+                                            <p><?php _e('Join our newsletter and we let you know about new releases, as well as important updates and upcoming deals.', 'affiliate-coupons' ); ?></p>
+                                            <!-- Begin MailChimp Signup Form -->
+                                            <div id="mc_embed_signup">
+                                                <form action="https://flowdee.us10.list-manage.com/subscribe/post?u=cc9fc194eb9ba7a4d8616c2cb&amp;id=a4798350bf" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                                                    <div id="mc_embed_signup_scroll">
+
+                                                        <div class="mc-field-group">
+                                                            <label for="mce-EMAIL"><?php _e('Email Address', 'affiliate-coupons' ); ?></label>
+                                                            <input type="email" value="<?php echo $user_email; ?>" name="EMAIL" class="required email" id="mce-EMAIL">
+                                                        </div>
+                                                        <div id="mce-responses" class="clear">
+                                                            <div class="response" id="mce-error-response" style="display:none"></div>
+                                                            <div class="response" id="mce-success-response" style="display:none"></div>
+                                                        </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                                                        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_cc9fc194eb9ba7a4d8616c2cb_a4798350bf" tabindex="-1" value=""></div>
+                                                        <input type="checkbox" id="group_16" name="<?php echo $form_group_name; ?>" value="1" checked="checked" style="display:none">
+                                                        <div class="clear">
+                                                            <p>
+                                                                <input type="submit" value="<?php _e('Subscribe', 'affiliate-coupons' ); ?>" name="subscribe" id="mc-embedded-subscribe" class="button">
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+
+                                            <!--End mc_embed_signup-->
+                                        </div>
+                                    </div>
                                 </div>
                                 <!-- /.meta-box-sortables -->
                             </div>
