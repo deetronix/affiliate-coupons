@@ -3,8 +3,8 @@ Contributors: flowdee
 Donate link: https://donate.flowdee.de
 Tags: affiliate, affiliates, coupon, coupons, deals, affiliate coupon, affiliate coupons, affiliate deals, dealz, vendors, affiliate marketing
 Requires at least: 3.0.1
-Tested up to: 4.7.5
-Stable tag: 1.1.3
+Tested up to: 4.8.3
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -80,6 +80,17 @@ Yes of course.
 
 == Changelog ==
 
+= Version 1.2.0 (7th November 2017) =
+* New: Added support for Google Accelerated Mobile (AMP)
+* Improvement: Enhanced CSS styles in order to display a grid with up to 10 columns
+* Improvement: Added prefixes to plugin related post types on admin export page
+* Fix: HTML and apostrophes inside link/image titles and alt tags lead into markup issues
+* Fix: Issue which was related to "term_taxonomy_id" while executing our coupon query
+* Fix: Thumbnail previews on manage coupons/vendors pages might be shown too big
+* Fix: Registering custom image sizes was accidentally loaded in admin area only
+* Updated plugin branding and links
+* Updated Meta Box dependency to latest version 4.12.4
+
 = Version 1.1.3 (7th June 2017) =
 * Improvement: Optimize scripts loading
 * Improvement: Optimized CSS styles
@@ -120,6 +131,17 @@ Yes of course.
 * Initial release
 
 == Upgrade Notice ==
+
+= Version 1.2.0 (7th November 2017) =
+* New: Added support for Google Accelerated Mobile (AMP)
+* Improvement: Enhanced CSS styles in order to display a grid with up to 10 columns
+* Improvement: Added prefixes to plugin related post types on admin export page
+* Fix: HTML and apostrophes inside link/image titles and alt tags lead into markup issues
+* Fix: Issue which was related to "term_taxonomy_id" while executing our coupon query
+* Fix: Thumbnail previews on manage coupons/vendors pages might be shown too big
+* Fix: Registering custom image sizes was accidentally loaded in admin area only
+* Updated plugin branding and links
+* Updated Meta Box dependency to latest version 4.12.4
 
 = Version 1.1.3 (7th June 2017) =
 * Improvement: Optimize scripts loading
