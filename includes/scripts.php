@@ -26,7 +26,7 @@ function affcoups_admin_scripts( $hook ) {
      */
     $screen = get_current_screen();
 
-    if ( ! empty( $screen->base ) && ( strpos( $screen->base, 'affcoups') !== false || $screen->base == 'widgets' ) ) {
+    if ( affcoups_is_plugin_admin_area() || ( isset( $screen->base ) && $screen->base == 'widgets' ) ) {
 
         wp_enqueue_script( 'affcoups-admin-script', AFFCOUPS_URL . 'public/js/admin' . $suffix . '.js', array( 'jquery' ), AFFCOUPS_VER );
         wp_enqueue_style( 'affcoups-admin-style', AFFCOUPS_URL . 'public/css/admin' . $suffix . '.css', false, AFFCOUPS_VER );

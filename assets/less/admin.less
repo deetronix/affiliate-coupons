@@ -1,9 +1,8 @@
 @import "common";
-
 @import "elements/icons";
 
+//== Settings Page
 .affcoups-settings {
-
 
     .form-table {
 
@@ -20,4 +19,17 @@
             }
         }
     }
+}
+
+// Elements
+@notice-border-width: 4px;
+@notice-icon-size: 20px;
+
+.affcoups-notice {
+    padding-left: (@notice-icon-size * 2) + @notice-border-width;
+    
+    background-repeat: no-repeat;
+    background-image: url('../img/icon-notice.png');
+    background-size: @notice-icon-size @notice-icon-size;
+    background-position: ((@notice-icon-size / 2) + 4px) center;
 }
