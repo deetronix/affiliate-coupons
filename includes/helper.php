@@ -91,8 +91,6 @@ function affcoups_is_plugin_admin_area() {
 
     $screen = get_current_screen();
 
-    affcoups_debug_log( $screen );
-
     return ( strpos( $screen->id, 'affcoups') !== false ) ? true : false;
 }
 
