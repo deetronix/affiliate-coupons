@@ -368,7 +368,7 @@ if ( ! class_exists('Affcoups_Settings') ) {
             <div class="affcoups affcoups-settings">
                 <div class="wrap">
                     <?php screen_icon(); ?>
-                    <h2><?php _e('Affiliate Coupons', 'affiliate-coupons'); ?></h2>
+                    <h2 class="affcoups-settings-headline"><?php _e('Affiliate Coupons', 'affiliate-coupons'); ?></h2>
 
                     <div id="poststuff">
                         <div id="post-body" class="metabox-holder columns-2">

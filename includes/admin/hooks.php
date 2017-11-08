@@ -1,5 +1,22 @@
 <?php
 /**
+ * Admin body classes
+ *
+ * @param $classes
+ * @return string
+ */
+function affcoups_admin_body_classes( $classes ) {
+
+    if ( affcoups_is_plugin_admin_area() ) {
+        $classes .= 'affcoups-admin';
+    }
+
+    return $classes;
+}
+add_filter( 'admin_body_class', 'affcoups_admin_body_classes' );
+
+
+/**
  * Maybe show admin notices
  */
 function affcoups_admin_notices() {

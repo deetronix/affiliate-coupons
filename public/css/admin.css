@@ -46,6 +46,15 @@
   vertical-align: -8%;
   background-image: url('../img/icon-shopping-cart.svg');
 }
+body.affcoups-admin h1.wp-heading-inline,
+body.affcoups-admin h2.affcoups-settings-headline {
+  padding-left: 30px;
+  background-repeat: no-repeat;
+  background-image: url('../img/icon-admin-headlines.png');
+  -webkit-background-size: 20px 20px;
+  background-size: 20px 20px;
+  background-position: left 60%;
+}
 .affcoups-settings .form-table td > h4:first-child {
   margin-top: 7px;
 }

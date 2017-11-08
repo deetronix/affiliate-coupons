@@ -1,6 +1,22 @@
 @import "common";
 @import "elements/icons";
 
+//== Admin Area Pages
+@admin-icon-headlines-size: 20px;
+
+body.affcoups-admin {
+    
+    h1.wp-heading-inline,
+    h2.affcoups-settings-headline {
+        padding-left: (@admin-icon-headlines-size + (@admin-icon-headlines-size / 2));
+    
+        background-repeat: no-repeat;
+        background-image: url('../img/icon-admin-headlines.png');
+        background-size: @admin-icon-headlines-size @admin-icon-headlines-size;
+        background-position: left 60%;
+    }
+}
+
 //== Settings Page
 .affcoups-settings {
 
