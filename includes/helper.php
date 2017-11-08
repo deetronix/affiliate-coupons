@@ -55,10 +55,19 @@ function affcoups_get_options() {
 }
 
 /**
- * Public assets folder
+ * Output public assets folder url
  */
 function affcoups_the_assets() {
-    echo AFFCOUPS_URL . 'public/assets';
+    echo affcoups_get_assets_url();
+}
+
+/**
+ * Get public assets folder url
+ *
+ * @return string
+ */
+function affcoups_get_assets_url() {
+    return AFFCOUPS_URL . 'public/';
 }
 
 /**
