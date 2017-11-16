@@ -29,7 +29,7 @@ function affcoups_insert_custom_css() {
 
     $custom_css_activated = ( isset( $options['custom_css_activated'] ) && $options['custom_css_activated'] == '1' ) ? true : false;
 
-    if ( affcoups_has_plugin_content() && $custom_css_activated && ! empty ( $options['custom_css'] ) ) {
+    if ( $custom_css_activated && ! empty ( $options['custom_css'] ) ) {
         echo '<style type="text/css">' . $options['custom_css'] . '</style>';
     }
 }
