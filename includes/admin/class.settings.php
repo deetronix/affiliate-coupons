@@ -367,7 +367,6 @@ if ( ! class_exists('Affcoups_Settings') ) {
 
             <div class="affcoups affcoups-settings">
                 <div class="wrap">
-                    <?php screen_icon(); ?>
                     <h2 class="affcoups-settings-headline"><?php _e('Affiliate Coupons', 'affiliate-coupons'); ?></h2>
 
                     <div id="poststuff">
