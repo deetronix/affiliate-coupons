@@ -30,6 +30,8 @@ function affcoups_admin_scripts( $hook ) {
 
         wp_enqueue_script( 'affcoups-admin-script', AFFCOUPS_URL . 'public/js/admin' . $suffix . '.js', array( 'jquery' ), AFFCOUPS_VER );
         wp_enqueue_style( 'affcoups-admin-style', AFFCOUPS_URL . 'public/css/admin' . $suffix . '.css', false, AFFCOUPS_VER );
+
+        do_action ('affcoups_enqueue_admin_scripts' );
     }
 }
 add_action( 'admin_enqueue_scripts', 'affcoups_admin_scripts', 100 );
@@ -47,5 +49,7 @@ function affcoups_scripts( $hook ) {
 
     wp_enqueue_script( 'affcoups-script', AFFCOUPS_URL . 'public/js/scripts' . $suffix . '.js', array( 'jquery' ), AFFCOUPS_VER, true );
     wp_enqueue_style( 'affcoups-style', AFFCOUPS_URL . 'public/css/styles' . $suffix . '.css', false, AFFCOUPS_VER );
+
+    do_action ('affcoups_enqueue_scripts' );
 }
 add_action( 'wp_enqueue_scripts', 'affcoups_scripts' );
