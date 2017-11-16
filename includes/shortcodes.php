@@ -1,5 +1,25 @@
 <?php
 /**
+ * Maybe cleanup content in order to remove empty p and br tags for our shortcodes
+ */
+function affcoups_maybe_cleanup_content_shortcode_output( $content ) {
+
+    // array of custom shortcodes requiring the fix
+    $block = join("|",array(
+        'affcoups', 'affcoups_coupons'
+    ) );
+
+    // opening tag
+    $rep = preg_replace("/(<p>)?\[($block)(\s[^\]]+)?\](<\/p>|<br \/>)?/","[$2$3]",$content);
+
+    // closing tag
+    $rep = preg_replace("/(<p>)?\[\/($block)](<\/p>|<br \/>)?/","[/$2]",$rep);
+
+    return $rep;
+}
+add_filter( 'the_content', 'affcoups_maybe_cleanup_content_shortcode_output' );
+
+/**
  * Basic shortcode
  *
  * @param $atts
