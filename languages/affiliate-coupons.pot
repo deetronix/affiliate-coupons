@@ -6,14 +6,14 @@ msgstr ""
 "Project-Id-Version: Affiliate Coupons\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/affiliate-"
 "coupons\n"
-"POT-Creation-Date: 2017-06-03 12:24+0200\n"
+"POT-Creation-Date: 2017-11-16 18:41+0100\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
 "Last-Translator: flowdee <coder@flowdee.de>\n"
 "Language-Team: flowdee <coder@flowdee.de>\n"
-"X-Generator: Poedit 1.8.7\n"
+"X-Generator: Poedit 2.0.4\n"
 "X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;"
 "_n_noop:1,2;_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;"
 "esc_attr_x:1,2c;esc_html_x:1,2c\n"
@@ -227,7 +227,7 @@ msgstr ""
 msgid "Grid size"
 msgstr ""
 
-#: includes/admin/class.settings.php:318 includes/coupon-functions.php:528
+#: includes/admin/class.settings.php:318 includes/coupon-functions.php:534
 msgid "Go to the deal"
 msgstr ""
 
@@ -270,81 +270,28 @@ msgstr ""
 msgid "Affiliate Coupons"
 msgstr ""
 
-#: includes/admin/coupon-metaboxes.php:21 includes/vendor-post-type.php:23
-#: includes/vendor-post-type.php:47
-msgid "Vendor"
+#: includes/admin/class.settings.php:395
+msgid ""
+"Here you can find a brief overview of the most important resources in "
+"order use our plugin."
 msgstr ""
 
-#: includes/admin/coupon-metaboxes.php:26
-msgid "Please select..."
+#: includes/admin/class.settings.php:414
+msgid "Latest News & Updates"
 msgstr ""
 
-#: includes/admin/coupon-metaboxes.php:35
-#: includes/admin/vendor-metaboxes.php:21
-msgid "Image"
+#: includes/admin/class.settings.php:416
+msgid ""
+"Join our newsletter and we let you know about new releases, as well as "
+"important updates and upcoming deals."
 msgstr ""
 
-#: includes/admin/coupon-metaboxes.php:37
-msgid "By default the vendor image will be taken."
+#: includes/admin/class.settings.php:423
+msgid "Email Address"
 msgstr ""
 
-#: includes/admin/coupon-metaboxes.php:42
-msgid "Discount"
-msgstr ""
-
-#: includes/admin/coupon-metaboxes.php:45
-msgid "e.g. 50% OFF"
-msgstr ""
-
-#: includes/admin/coupon-metaboxes.php:48
-msgid "Discount Code"
-msgstr ""
-
-#: includes/admin/coupon-metaboxes.php:51
-msgid "e.g. SUMMERTIME50OFF"
-msgstr ""
-
-#: includes/admin/coupon-metaboxes.php:54 includes/coupon-functions.php:498
-msgid "Valid from"
-msgstr ""
-
-#: includes/admin/coupon-metaboxes.php:60
-#: includes/admin/coupon-metaboxes.php:73
-msgid "yy-mm-dd"
-msgstr ""
-
-#: includes/admin/coupon-metaboxes.php:67 includes/coupon-functions.php:503
-msgid "Valid until"
-msgstr ""
-
-#: includes/admin/coupon-metaboxes.php:80
-#: includes/admin/vendor-metaboxes.php:27
-msgid "URL"
-msgstr ""
-
-#: includes/admin/coupon-metaboxes.php:82
-msgid "By default the vendor url will be taken."
-msgstr ""
-
-#: includes/admin/coupon-metaboxes.php:86
-msgid "Title"
-msgstr ""
-
-#: includes/admin/coupon-metaboxes.php:89
-msgid "By default the vendor title will be taken."
-msgstr ""
-
-#: includes/admin/coupon-metaboxes.php:92
-#: includes/admin/vendor-metaboxes.php:33
-msgid "Description"
-msgstr ""
-
-#: includes/admin/coupon-metaboxes.php:95
-msgid "By default the vendor description will be taken."
-msgstr ""
-
-#: includes/admin/coupon-metaboxes.php:105
-msgid "Coupon: Details"
+#: includes/admin/class.settings.php:434
+msgid "Subscribe"
 msgstr ""
 
 #: includes/admin/manage-categories.php:20
@@ -358,15 +305,7 @@ msgid "Thumbnail"
 msgstr ""
 
 #: includes/admin/plugins.php:50
-msgid "Example Link"
-msgstr ""
-
-#: includes/admin/vendor-metaboxes.php:29
-msgid "This will be the default url of the selected vendor or its coupons."
-msgstr ""
-
-#: includes/admin/vendor-metaboxes.php:45
-msgid "Vendor: Details"
+msgid "Plugin Website"
 msgstr ""
 
 #: includes/coupon-category-taxonomy.php:20
@@ -453,16 +392,89 @@ msgstr ""
 msgid "Categories list navigation"
 msgstr ""
 
-#: includes/coupon-functions.php:386
+#: includes/coupon-functions.php:392
 msgid "Copied!"
 msgstr ""
 
-#: includes/coupon-functions.php:387
+#: includes/coupon-functions.php:393
 msgid "Copy"
 msgstr ""
 
-#: includes/coupon-functions.php:503
+#: includes/coupon-functions.php:504 includes/coupon-metaboxes.php:54
+msgid "Valid from"
+msgstr ""
+
+#: includes/coupon-functions.php:509 includes/coupon-metaboxes.php:67
+msgid "Valid until"
+msgstr ""
+
+#: includes/coupon-functions.php:509
 msgid "until"
+msgstr ""
+
+#: includes/coupon-metaboxes.php:21 includes/vendor-post-type.php:23
+#: includes/vendor-post-type.php:52
+msgid "Vendor"
+msgstr ""
+
+#: includes/coupon-metaboxes.php:26
+msgid "Please select..."
+msgstr ""
+
+#: includes/coupon-metaboxes.php:35 includes/vendor-metaboxes.php:21
+msgid "Image"
+msgstr ""
+
+#: includes/coupon-metaboxes.php:37
+msgid "By default the vendor image will be taken."
+msgstr ""
+
+#: includes/coupon-metaboxes.php:42
+msgid "Discount"
+msgstr ""
+
+#: includes/coupon-metaboxes.php:45
+msgid "e.g. 50% OFF"
+msgstr ""
+
+#: includes/coupon-metaboxes.php:48
+msgid "Discount Code"
+msgstr ""
+
+#: includes/coupon-metaboxes.php:51
+msgid "e.g. SUMMERTIME50OFF"
+msgstr ""
+
+#: includes/coupon-metaboxes.php:60 includes/coupon-metaboxes.php:73
+msgid "yy-mm-dd"
+msgstr ""
+
+#: includes/coupon-metaboxes.php:80 includes/vendor-metaboxes.php:27
+msgid "URL"
+msgstr ""
+
+#: includes/coupon-metaboxes.php:82
+msgid "By default the vendor url will be taken."
+msgstr ""
+
+#: includes/coupon-metaboxes.php:86
+msgid "Title"
+msgstr ""
+
+#: includes/coupon-metaboxes.php:89
+msgid "By default the vendor title will be taken."
+msgstr ""
+
+#: includes/coupon-metaboxes.php:92 includes/vendor-metaboxes.php:33
+msgid "Description"
+msgstr ""
+
+#: includes/coupon-metaboxes.php:95
+msgid "By default the vendor description will be taken."
+msgstr ""
+
+#: includes/coupon-metaboxes.php:105
+msgid "Coupon: Details"
 msgstr ""
 
 #: includes/coupon-post-type.php:20
@@ -475,7 +487,7 @@ msgctxt "Post Type Singular Name"
 msgid "Coupon"
 msgstr ""
 
-#: includes/coupon-post-type.php:23 includes/coupon-post-type.php:47
+#: includes/coupon-post-type.php:23 includes/coupon-post-type.php:52
 msgid "Coupon"
 msgstr ""
 
@@ -564,6 +576,11 @@ msgid "Filter coupons list"
 msgstr ""
 
 #: includes/coupon-post-type.php:48
+msgctxt "Post Type General Name (Export)"
+msgid "Affiliate Coupons - Coupons"
+msgstr ""
+
+#: includes/coupon-post-type.php:53
 msgid "Coupons"
 msgstr ""
 
@@ -641,12 +658,20 @@ msgstr ""
 msgid "Types list navigation"
 msgstr ""
 
-#: includes/shortcodes.php:118 includes/template-functions.php:42
+#: includes/shortcodes.php:143 includes/template-functions.php:42
 msgid "Template not found."
 msgstr ""
 
-#: includes/shortcodes.php:122
+#: includes/shortcodes.php:149
 msgid "No coupons found."
+msgstr ""
+
+#: includes/vendor-metaboxes.php:29
+msgid "This will be the default url of the selected vendor or its coupons."
+msgstr ""
+
+#: includes/vendor-metaboxes.php:45
+msgid "Vendor: Details"
 msgstr ""
 
 #: includes/vendor-post-type.php:20
@@ -660,7 +685,7 @@ msgid "Vendor"
 msgstr ""
 
 #: includes/vendor-post-type.php:22 includes/vendor-post-type.php:26
-#: includes/vendor-post-type.php:48
+#: includes/vendor-post-type.php:53
 msgid "Vendors"
 msgstr ""
 
@@ -718,4 +743,9 @@ msgstr ""
 
 #: includes/vendor-post-type.php:44
 msgid "Filter vendors list"
+msgstr ""
+
+#: includes/vendor-post-type.php:48
+msgctxt "Post Type General Name (Export)"
+msgid "Affiliate Coupons - Vendors"
 msgstr ""
