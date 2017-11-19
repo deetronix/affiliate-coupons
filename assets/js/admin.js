@@ -1,3 +1,8 @@
 jQuery(document).ready(function ($) {
-    // Do something
+
+    /**
+     * Controls
+     */
+    $('.affcoups-input-colorpicker').wpColorPicker();
+
 });

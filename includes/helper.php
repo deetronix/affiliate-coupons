@@ -144,8 +144,6 @@ function affcoups_debug( $args, $title = false ) {
     }
 }
 
-
-
 /**
  * Debug log
  *

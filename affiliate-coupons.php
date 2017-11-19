@@ -120,6 +120,7 @@ if( ! class_exists( 'Affcoups_Plugin' ) ) {
             // Anything else
             require_once AFFCOUPS_DIR . 'includes/hooks.php';
             require_once AFFCOUPS_DIR . 'includes/functions.php';
+            require_once AFFCOUPS_DIR . 'includes/assets.php';
             require_once AFFCOUPS_DIR . 'includes/shortcodes.php';
             require_once AFFCOUPS_DIR . 'includes/template-functions.php';
         }

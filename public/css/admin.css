@@ -62,6 +62,15 @@ body.affcoups-admin h2.affcoups-settings-headline {
   margin: 10px 0 4px;
   color: #666;
 }
+.affcoups-settings .wp-picker-container {
+  position: relative;
+}
+.affcoups-settings .wp-picker-container .wp-picker-holder {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 10;
+}
 .affcoups-notice {
   padding-left: 44px;
   background-repeat: no-repeat;

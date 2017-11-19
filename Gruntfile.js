@@ -77,7 +77,7 @@ module.exports = function (grunt) {
             },
             admin_min: {
                 src: [
-                    'public/assets/js/admin.js'
+                    'public/js/admin.js'
                 ],
                 dest: 'public/js/admin.min.js'
             },

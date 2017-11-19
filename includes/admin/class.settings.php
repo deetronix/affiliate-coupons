@@ -325,7 +325,8 @@ if ( ! class_exists('Affcoups_Settings') ) {
             );
 
             $button_icon = ( isset ( $this->options['button_icon'] ) ) ? $this->options['button_icon'] : '';
-
+            $button_bg_color = ( isset ( $this->options['button_bg_color'] ) ) ? $this->options['button_bg_color'] : '#33b26e';
+            $button_color = ( isset ( $this->options['button_color'] ) ) ? $this->options['button_color'] : '#fff';
             ?>
             <h4><?php _e('Text', 'affiliate-coupons' ); ?></h4>
             <p>
@@ -339,6 +340,15 @@ if ( ! class_exists('Affcoups_Settings') ) {
                         <option value="<?php echo $key; ?>" <?php selected( $button_icon, $key ); ?>><?php echo $label; ?></option>
                     <?php } ?>
                 </select>
+            </p>
+
+            <h4><?php _e('Background Color', 'affiliate-coupons' ); ?></h4>
+            <p>
+                <input type="text" class="affcoups-input-colorpicker" name="affcoups_settings[button_bg_color]" value="<?php echo $button_bg_color; ?>" />
+            </p>
+            <h4><?php _e('Text Color', 'affiliate-coupons' ); ?></h4>
+            <p>
+                <input type="text" class="affcoups-input-colorpicker" name="affcoups_settings[button_color]" value="<?php echo $button_color; ?>" />
             </p>
             <?php
         }

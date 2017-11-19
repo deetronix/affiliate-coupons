@@ -28,7 +28,9 @@ function affcoups_admin_scripts( $hook ) {
 
     if ( affcoups_is_plugin_admin_area() || ( isset( $screen->base ) && $screen->base == 'widgets' ) ) {
 
-        wp_enqueue_script( 'affcoups-admin-script', AFFCOUPS_URL . 'public/js/admin' . $suffix . '.js', array( 'jquery' ), AFFCOUPS_VER );
+        wp_enqueue_style( 'wp-color-picker' );
+
+        wp_enqueue_script( 'affcoups-admin-script', AFFCOUPS_URL . 'public/js/admin' . $suffix . '.js', array( 'jquery', 'wp-color-picker' ), AFFCOUPS_VER );
         wp_enqueue_style( 'affcoups-admin-style', AFFCOUPS_URL . 'public/css/admin' . $suffix . '.css', false, AFFCOUPS_VER );
 
         do_action ('affcoups_enqueue_admin_scripts' );
