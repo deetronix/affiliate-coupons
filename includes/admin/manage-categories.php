@@ -34,7 +34,11 @@ add_filter('manage_edit-affcoups_coupon_category_columns', 'affcoups_coupon_cate
 function affcoups_coupon_category_extend_columns_content( $content, $column_name, $term_id ){
 
     if ( 'affcoups_coupon_category_shortcodes' == $column_name ) {
-        $content = '[affcoups category="' . $term_id . '"]';
+        ?>
+        <p>
+            <input type='text' onClick="this.select();" value='[affcoups category="<?php echo $term_id; ?>"]' readonly='readonly' />
+        </p>
+        <?php
     }
 
     return $content;

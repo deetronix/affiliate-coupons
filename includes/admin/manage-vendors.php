@@ -9,8 +9,11 @@
 // Exit if accessed directly
 if (!defined('ABSPATH')) exit;
 
-/*
+/**
  * Add new columns
+ *
+ * @param $defaults
+ * @return mixed
  */
 function affcoups_vendor_extend_columns( $defaults ) {
 
@@ -21,8 +24,11 @@ function affcoups_vendor_extend_columns( $defaults ) {
 }
 add_filter('manage_affcoups_vendor_posts_columns', 'affcoups_vendor_extend_columns', 10);
 
-/*
+/**
  * Add columns content
+ *
+ * @param $column_name
+ * @param $postid
  */
 function affcoups_vendor_extend_columns_content( $column_name, $postid ) {
 
@@ -37,8 +43,11 @@ function affcoups_vendor_extend_columns_content( $column_name, $postid ) {
         }
 
     } else if ( $column_name == 'affcoups_vendor_shortcodes' ) {
-
-        echo '[affcoups vendor="' . $postid . '"]';
+        ?>
+        <p>
+            <input type='text' onClick="this.select();" value='[affcoups vendor="<?php echo $postid; ?>"]' readonly='readonly' />
+        </p>
+        <?php
     }
 }
 add_action('manage_affcoups_vendor_posts_custom_column', 'affcoups_vendor_extend_columns_content', 10, 2);
