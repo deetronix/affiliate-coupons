@@ -219,3 +219,6 @@ a.affcoups-coupon__button {
   display: block;
   width: 100%;
 }
+a.affcoups-coupon__button {
+  width: auto;
+}
