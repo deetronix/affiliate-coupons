@@ -85,6 +85,12 @@
 .affcoups-coupon__header {
   position: relative;
 }
+a.affcoups-coupon__thumbnail {
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  outline: none;
+}
 img.affcoups-coupon__image {
   display: block;
   max-width: 100%;
