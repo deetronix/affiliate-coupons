@@ -121,6 +121,11 @@ function affcoups_get_settings_css( $apply_prefix = true ) {
     $prefix = ( $apply_prefix ) ? '.affcoups ' : '';
     $settings_css = '';
 
+    // Discount colors
+    if ( ! empty( $options['discount_bg_color'] ) && ! empty( $options['discount_color'] ) ) {
+        $settings_css .= $prefix . '.affcoups-coupon__discount { background-color: ' . $options['discount_bg_color'] . '; color: ' . $options['discount_color'] . '; }';
+    }
+
     // Button Colors
     if ( ! empty( $options['button_bg_color'] ) && ! empty( $options['button_color'] ) ) {
         $settings_css .= affcoups_get_assets_button_styles( $options['button_bg_color'], $options['button_color'], $prefix );

@@ -110,6 +110,15 @@ if ( ! class_exists('Affcoups_Settings') ) {
             );
 
             add_settings_field(
+                'affcoups_settings_discount',
+                __('Discount', 'affiliate-coupons'),
+                array(&$this, 'discount_render'),
+                'affcoups_settings',
+                'affcoups_settings_section_output',
+                false
+            );
+
+            add_settings_field(
                 'affcoups_settings_button',
                 __('Button', 'affiliate-coupons'),
                 array(&$this, 'button_render'),
@@ -313,6 +322,24 @@ if ( ! class_exists('Affcoups_Settings') ) {
             <?php
         }
 
+        function discount_render() {
+
+            $discount_bg_color = ( isset ( $this->options['discount_bg_color'] ) ) ? $this->options['discount_bg_color'] : '';
+            $discount_color = ( isset ( $this->options['discount_color'] ) ) ? $this->options['discount_color'] : '';
+
+            ?>
+            <h4><?php _e('Background Color', 'affiliate-coupons' ); ?></h4>
+            <p>
+                <input type="text" class="affcoups-input-colorpicker" name="affcoups_settings[discount_bg_color]" value="<?php echo $discount_bg_color; ?>" />
+            </p>
+            <h4><?php _e('Text Color', 'affiliate-coupons' ); ?></h4>
+            <p>
+                <input type="text" class="affcoups-input-colorpicker" name="affcoups_settings[discount_color]" value="<?php echo $discount_color; ?>" />
+            </p>
+            <?php $this->the_color_picker_note(); ?>
+            <?php
+        }
+
         function button_render() {
 
             $button_text = ( ! empty( $this->options['button_text'] ) ) ? esc_attr( trim( $this->options['button_text'] ) ) : __( 'Go to the deal', 'affiliate-coupons' );
@@ -350,6 +377,7 @@ if ( ! class_exists('Affcoups_Settings') ) {
             <p>
                 <input type="text" class="affcoups-input-colorpicker" name="affcoups_settings[button_color]" value="<?php echo $button_color; ?>" />
             </p>
+            <?php $this->the_color_picker_note(); ?>
             <?php
         }
 
@@ -369,6 +397,14 @@ if ( ! class_exists('Affcoups_Settings') ) {
                 <small><?php _e("Please don't use the <code>style</code> tag. Simply paste you CSS classes/definitions e.g. <code>.affcoups .affcoups-coupon { background-color: #333; }</code>", 'affiliate-coupons' ) ?></small>
             </p>
 
+            <?php
+        }
+
+        function the_color_picker_note() {
+            ?>
+            <p class="desc">
+                <?php _e('In case you want to change the colors, you must pick a new color for all fields above.', 'affiliate-coupons' ); ?>
+            </p>
             <?php
         }
 
