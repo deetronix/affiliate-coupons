@@ -325,8 +325,8 @@ if ( ! class_exists('Affcoups_Settings') ) {
             );
 
             $button_icon = ( isset ( $this->options['button_icon'] ) ) ? $this->options['button_icon'] : '';
-            $button_bg_color = ( isset ( $this->options['button_bg_color'] ) ) ? $this->options['button_bg_color'] : '#33b26e';
-            $button_color = ( isset ( $this->options['button_color'] ) ) ? $this->options['button_color'] : '#fff';
+            $button_bg_color = ( isset ( $this->options['button_bg_color'] ) ) ? $this->options['button_bg_color'] : '';
+            $button_color = ( isset ( $this->options['button_color'] ) ) ? $this->options['button_color'] : '';
             ?>
             <h4><?php _e('Text', 'affiliate-coupons' ); ?></h4>
             <p>
