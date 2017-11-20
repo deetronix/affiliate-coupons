@@ -21,6 +21,7 @@ function affcoups_register_vendor_meta_boxes( $meta_boxes ) {
             'name'             => esc_html__( 'Image', 'affiliate-coupons' ),
             'id'               => AFFCOUPS_PREFIX . 'vendor_image',
             'type'             => 'image_advanced',
+            'desc'             => sprintf( esc_html__( 'Recommended size: %1$d * %2$d px', 'affiliate-coupons' ), 480, 250 ),
             'max_file_uploads' => 1,
         ),
         array(

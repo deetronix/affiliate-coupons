@@ -34,7 +34,7 @@ function affcoups_register_coupon_meta_boxes( $meta_boxes ) {
         array(
             'name'             => esc_html__( 'Image', 'affiliate-coupons' ),
             'id'               => AFFCOUPS_PREFIX . 'coupon_image',
-            'desc'             => __("By default the vendor image will be taken.", 'affiliate-coupons'),
+            'desc'             => __("By default the vendor image will be taken.", 'affiliate-coupons') . ' ' . sprintf( esc_html__( 'Recommended size: %1$d * %2$d px', 'affiliate-coupons' ), 480, 250 ),
             'type'             => 'image_advanced',
             'max_file_uploads' => 1,
         ),
