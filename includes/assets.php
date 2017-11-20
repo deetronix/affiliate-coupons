@@ -1,41 +1,5 @@
 <?php
 /**
- * Button colors
- *
- * @param null $background
- * @param null $color
- * @return string
- */
-function affcoups_assets_button_colors( $background = null, $color = null ) {
-
-    $styles = '';
-
-    $wrappers = array('.site-content', '.site-footer');
-    $selectors = array('.button', 'button', 'input[type="button"]', 'input[type="submit"]' );
-
-    foreach ($wrappers as $wrapper) {
-
-        // Background
-        if ( !empty ( $background ) ) {
-            foreach ($selectors as $selector) {
-                $styles .= $wrapper . ' ' . $selector . ' { background-color: ' . $background . '; }';
-                $styles .= $wrapper . ' ' . $selector . ':hover, ' . $wrapper . ' ' . $selector . ':focus { background-color: ' . affcoups_assets_color_darken($background, 10) . '; }';
-            }
-        }
-
-        // Font color
-        if ( !empty ( $color ) ) {
-            foreach ($selectors as $selector) {
-                $styles .= $wrapper . ' ' . $selector . ' { color: ' . $color . '; }';
-                $styles .= $wrapper . ' ' . $selector . ':hover, ' . $wrapper . ' ' . $selector . ':focus { color: ' . $color . '; }';
-            }
-        }
-    }
-
-    return $styles;
-}
-
-/**
  * Darken color
  *
  * @param $color
@@ -147,26 +111,41 @@ function affcoups_cleanup_css_for_amp( $css = '' ) {
 /**
  * Get settings css
  *
- * @param bool $prefix
+ * @param bool $apply_prefix
  * @return string
  */
-function affcoups_get_settings_css( $prefix = true ) {
+function affcoups_get_settings_css( $apply_prefix = true ) {
 
     $options = affcoups_get_options();
 
-    $prefix = ( $prefix ) ? '.affcoups ' : '';
+    $prefix = ( $apply_prefix ) ? '.affcoups ' : '';
     $settings_css = '';
 
     // Button Colors
     if ( ! empty( $options['button_bg_color'] ) && ! empty( $options['button_color'] ) ) {
-
-        $button_bg_color = $options['button_bg_color'];
-        $button_color = $options['button_color'];
-
-        $settings_css .= $prefix . 'a.affcoups-coupon__button { background-color: ' . $button_bg_color . '; color: ' . $button_color . '; }';
-        $settings_css .= $prefix . 'a.affcoups-coupon__button:visited { color: ' . $button_color . '; }';
-        $settings_css .= $prefix . 'a.affcoups-coupon__button:hover, ' . $prefix . 'a.affcoups-coupon__button:focus, ' . $prefix . 'a.affcoups-coupon__button:active { background-color: ' . affcoups_assets_color_darken( $button_bg_color, 10 ) . '; color: ' . $button_color . '; }';
+        $settings_css .= affcoups_get_assets_button_styles( $options['button_bg_color'], $options['button_color'], $prefix );
     }
 
     return $settings_css;
+}
+
+/**
+ * Generate button styles
+ *
+ * @param null $bg_color
+ * @param null $color
+ * @param string $prefix
+ * @return string
+ */
+function affcoups_get_assets_button_styles( $bg_color, $color, $prefix = '' ) {
+
+    $styles = '';
+
+    $selector = 'a.affcoups-coupon__button';
+
+    $styles .= $prefix . $selector . ' { background-color: ' . $bg_color . '; color: ' . $color . '; }';
+    $styles .= $prefix . $selector . ':visited { color: ' . $color . '; }';
+    $styles .= $prefix . $selector . ':hover, ' . $prefix . $selector . ':focus, ' . $prefix . $selector . ':active { background-color: ' . affcoups_assets_color_darken( $bg_color, 10 ) . '; color: ' . $color . '; }';
+
+    return $styles;
 }
