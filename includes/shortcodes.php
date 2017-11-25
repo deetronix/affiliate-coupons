@@ -176,10 +176,12 @@ add_shortcode('affcoups_debug', function( $atts ) {
     affcoups_debug( $posts );
     */
 
-    affcoups_the_coupon_thumbnail( 310 );
+    //affcoups_the_coupon_thumbnail( 310 );
+    //$image = rwmb_meta( AFFCOUPS_PREFIX . 'vendor_image', 'type=image&size=affcoups-thumb&limit=1', 278 );
+    //affcoups_debug($image);
 
-    $image = rwmb_meta( AFFCOUPS_PREFIX . 'vendor_image', 'type=image&size=affcoups-thumb&limit=1', 278 );
+    $expiration = get_post_meta( 556, AFFCOUPS_PREFIX . 'coupon_valid_until', true );
 
-    affcoups_debug($image);
+    var_dump( $expiration );
 
 });

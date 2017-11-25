@@ -53,7 +53,7 @@ function affcoups_register_coupon_meta_boxes( $meta_boxes ) {
         array(
             'name'       => esc_html__( 'Valid from', 'affiliate-coupons' ),
             'id'         => AFFCOUPS_PREFIX . 'coupon_valid_from',
-            'type'       => 'date',
+            'type'       => 'datetime',
             'timestamp'  => true,
             // jQuery date picker options. See here http://api.jqueryui.com/datepicker
             'js_options' => array(
@@ -61,12 +61,13 @@ function affcoups_register_coupon_meta_boxes( $meta_boxes ) {
                 'changeMonth'     => true,
                 'changeYear'      => true,
                 'showButtonPanel' => true,
+                'showTimepicker'  => true
             ),
         ),
         array(
             'name'       => esc_html__( 'Valid until', 'affiliate-coupons' ),
             'id'         => AFFCOUPS_PREFIX . 'coupon_valid_until',
-            'type'       => 'date',
+            'type'       => 'datetime',
             'timestamp'  => true,
             // jQuery date picker options. See here http://api.jqueryui.com/datepicker
             'js_options' => array(
@@ -74,6 +75,7 @@ function affcoups_register_coupon_meta_boxes( $meta_boxes ) {
                 'changeMonth'     => true,
                 'changeYear'      => true,
                 'showButtonPanel' => true,
+                'showTimepicker'  => true
             ),
         ),
         array(
