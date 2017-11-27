@@ -456,7 +456,7 @@ function affcoups_the_coupon_types( $coupon_id = null ) {
     if ( is_array( $term_list ) && sizeof( $term_list ) > 0 ) {
 
         foreach($term_list as $term_single) {
-            echo '<span>';
+            echo '<span class="affcoups-type affcoups-type--' . esc_html( $term_single->slug ) . '">';
             echo $term_single->name;
             echo '</span>';
         }
