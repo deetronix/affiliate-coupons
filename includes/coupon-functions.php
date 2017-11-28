@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @param array $args
  * @return WP_Query
  */
-function affcoups_get_coupons( $args = array() ) {
+function affcoups_get_coupons( $args = array(), $query = true ) {
 
     $defaults = array(
         'post_type' => 'affcoups_coupon',
@@ -173,9 +173,41 @@ function affcoups_get_coupons( $args = array() ) {
     //affcoups_debug( $args, 'affcoups_get_coupons $args' );
 
     // Fetch posts
-    $posts = new WP_Query( $args );
+    $posts = ( $query ) ? new WP_Query( $args ) : get_posts( $args );
 
     return $posts;
+}
+
+/**
+ * Get coupon options
+ *
+ * @param array $args
+ * @return array
+ */
+function affcoups_get_coupon_options( $args = array() ) {
+
+    $defaults = array(
+        'orderby' => 'date',
+        'order' => 'DESC'
+    );
+
+    // Parse args
+    $args = wp_parse_args( $args, $defaults );
+
+    $coupons = affcoups_get_coupons( $args, false );
+
+    $options = array(
+        0 => __('Please select...', 'affiliate-coupons' )
+    );
+
+    if ( is_array( $coupons ) && sizeof( $coupons ) > 0 ) {
+
+        foreach ( $coupons as $coupon ) {
+            $options[$coupon->ID] = $coupon->post_title;
+        }
+    }
+
+    return $options;
 }
 
 /**

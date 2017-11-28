@@ -123,6 +123,7 @@ if( ! class_exists( 'Affcoups_Plugin' ) ) {
             require_once AFFCOUPS_DIR . 'includes/assets.php';
             require_once AFFCOUPS_DIR . 'includes/shortcodes.php';
             require_once AFFCOUPS_DIR . 'includes/template-functions.php';
+            require_once AFFCOUPS_DIR . 'includes/widgets.php';
         }
 
         /**

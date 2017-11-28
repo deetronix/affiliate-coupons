@@ -2,7 +2,7 @@
 /**
  * Maybe cleanup content in order to remove empty p and br tags for our shortcodes
  */
-function affcoups_maybe_cleanup_content_shortcode_output( $content ) {
+function affcoups_maybe_cleanup_shortcode_output( $content ) {
 
     // array of custom shortcodes requiring the fix
     $block = join("|",array(
@@ -17,7 +17,7 @@ function affcoups_maybe_cleanup_content_shortcode_output( $content ) {
 
     return $rep;
 }
-add_filter( 'the_content', 'affcoups_maybe_cleanup_content_shortcode_output' );
+add_filter( 'the_content', 'affcoups_maybe_cleanup_shortcode_output' );
 
 /**
  * Basic shortcode
