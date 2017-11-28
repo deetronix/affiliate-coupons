@@ -3,8 +3,8 @@ Contributors: flowdee
 Donate link: https://donate.flowdee.de
 Tags: affiliate, affiliates, coupon, coupons, deals, affiliate coupon, affiliate coupons, affiliate deals, dealz, vendors, affiliate marketing
 Requires at least: 3.0.1
-Tested up to: 4.8.3
-Stable tag: 1.2.0
+Tested up to: 4.9.0
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -80,6 +80,23 @@ Yes of course.
 
 == Changelog ==
 
+= Version 1.2.1 (28th November 2017) =
+* New: Added a brand new list template
+* New: Added a new widget for displaying a single coupon in your sidebar
+* New: Added new setting in order to customize button colors
+* New: Added new setting in order to customize discount ribbon colors
+* Improvement: When setting up a valid from/to date you are now able to choose as time as well
+* Improvement: Added type slug as class in templates in order to make it customizable
+* Improvement: Display recommended image size besides the image upload fields
+* Improvement: Tweaked shortcode previews inside admin area
+* Improvement: Adjusted default thumbnail size to 480*270px
+* Improvement: Optimized CSS in order to remove border from thumbnail link
+* Improvement: Updated plugin icons inside admin area
+* Fix: Expiring on the same day leads into now showing coupon
+* Fix: Custom CSS was not being outputted correctly on special pages (e.g. front page)
+* WordPress v4.9 compatibility
+* Updated Meta Box dependency to latest version 4.12.5
+
 = Version 1.2.0 (7th November 2017) =
 * New: Added support for Google Accelerated Mobile (AMP)
 * Improvement: Enhanced CSS styles in order to display a grid with up to 10 columns
@@ -131,6 +148,23 @@ Yes of course.
 * Initial release
 
 == Upgrade Notice ==
+
+= Version 1.2.1 (28th November 2017) =
+* New: Added a brand new list template
+* New: Added a new widget for displaying a single coupon in your sidebar
+* New: Added new setting in order to customize button colors
+* New: Added new setting in order to customize discount ribbon colors
+* Improvement: When setting up a valid from/to date you are now able to choose as time as well
+* Improvement: Added type slug as class in templates in order to make it customizable
+* Improvement: Display recommended image size besides the image upload fields
+* Improvement: Tweaked shortcode previews inside admin area
+* Improvement: Adjusted default thumbnail size to 480*270px
+* Improvement: Optimized CSS in order to remove border from thumbnail link
+* Improvement: Updated plugin icons inside admin area
+* Fix: Expiring on the same day leads into now showing coupon
+* Fix: Custom CSS was not being outputted correctly on special pages (e.g. front page)
+* WordPress v4.9 compatibility
+* Updated Meta Box dependency to latest version 4.12.5
 
 = Version 1.2.0 (7th November 2017) =
 * New: Added support for Google Accelerated Mobile (AMP)
