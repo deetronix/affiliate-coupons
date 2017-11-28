@@ -15,8 +15,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Register new image sizes
  */
 function affcoups_add_image_sizes() {
-    add_image_size( 'affcoups-thumb', 480, 250, array( 'center', 'center' ) );
-    add_image_size( 'affcoups-thumb-small', 144, 75, array( 'center', 'center' ) );
+    add_image_size( 'affcoups-thumb', 480, 270, array( 'center', 'center' ) );
+    add_image_size( 'affcoups-thumb-small', 133, 75, array( 'center', 'center' ) );
 }
 add_action( 'init', 'affcoups_add_image_sizes' );
 
