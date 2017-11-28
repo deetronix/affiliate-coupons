@@ -7,6 +7,8 @@ Promote coupons and deals of products and earn money with affiliate referrals.
 
 [Official WordPress.org Plugin](https://wordpress.org/plugins/affiliate-coupons/)
 
+[Live-Demonstration](https://affcoups.com/demo/)
+
 ### Credits
 
 Affiliate Coupons was developed by [flowdee](http://flowdee.de/). 
