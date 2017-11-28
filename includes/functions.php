@@ -11,7 +11,8 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-global $affcoups_shortcode_atts;
+global $affcoups_shortcode_atts; // User input
+global $affcoups_template_args; // Template variables
 
 /*
  * Get content from a single post

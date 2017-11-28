@@ -114,21 +114,26 @@ function affcoups_add_shortcode( $atts, $content ) {
             $template = 'amp';
         } else {
 
-            // Template: Setup
-            if ( ! empty( $grid ) && is_numeric( $grid ) && empty( $template ) )
+            // Defaults
+            $template_default = ( ! empty( $options['template'] ) ) ? esc_html( $options['template'] ) : 'standard';
+            $grid_size_default = ( ! empty( $options['grid_size'] ) && is_numeric( $options['grid_size'] ) ) ? esc_html( $options['grid_size'] ) : 2;
+
+            // Collect template settings
+            $template = ( ! empty( $template ) ) ? esc_html( $template ) : $template_default;
+            $grid_size = $grid_size_default;
+
+            // Grid Layout?
+            if ( ! empty( $grid ) && is_numeric( $grid ) ) {
                 $template = 'grid';
-
-            // Template: Variables
-            if ( ! empty( $template ) && 'grid' === $template && ( empty( $grid ) || ! is_numeric( $grid ) ) )
-                $grid = ( ! empty( $options['grid_size'] ) ) ? esc_html( $options['grid_size'] ) : 3;
-
-            // Template: Fallback
-            if ( empty( $template ) )
-                $template = ( ! empty( $options['template'] ) ) ? esc_html( $options['template'] ) : 'grid';
-
-            if ( 'grid' === $template && ( empty( $grid ) || ! is_numeric( $grid ) ) )
-                $grid = ( ! empty( $options['grid_size'] ) ) ? esc_html( $options['grid_size'] ) : 2;
+                $grid_size = $grid;
+            }
         }
+
+        // Store template variables
+        global $affcoups_template_args;
+
+        $affcoups_template_args['template'] = $template;
+        $affcoups_template_args['grid_size'] = ( ! empty( $grid_size ) ) ? $grid_size : 0;
 
         //echo 'Grid: ' . $grid . '<br>';
         //echo 'Template: ' . $template . '<br>';

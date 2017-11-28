@@ -423,10 +423,14 @@
     var b = new Clipboard(".affcoups-clipboard");
     b.on("success", function(a) {
         a.clearSelection();
+    }), a(document).on("click", ".affcoups-clipboard", function(b) {
+        var c = a(this), d = a(this).html(), e = a(this).data("affcoups-clipboard-confirmation-text");
+        c.html(e), setTimeout(function() {
+            c.html(d);
+        }, 2500);
+    }), a(document).on("click", "[data-affcoups-toggle-desc]", function(b) {
+        b.preventDefault();
+        var c = a(this).parents(".affcoups-coupon__description");
+        c.toggleClass("affcoups-coupon__description--full");
     });
-}), jQuery(document).on("click", ".affcoups-clipboard", function(a) {
-    var b = jQuery(this), c = jQuery(this).html(), d = jQuery(this).data("affcoups-clipboard-confirmation-text");
-    b.html(d), setTimeout(function() {
-        b.html(c);
-    }, 2500);
 });

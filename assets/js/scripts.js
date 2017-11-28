@@ -1,5 +1,8 @@
 jQuery(document).ready(function ($) {
 
+    /**
+     * Copy to clipboard
+     */
     var clipboard = new Clipboard('.affcoups-clipboard');
 
     clipboard.on('success', function(e) {
@@ -15,19 +18,31 @@ jQuery(document).ready(function ($) {
         e.clearSelection();
     });
 
+    $(document).on( 'click', '.affcoups-clipboard', function(event) {
+
+        var clicked = $(this);
+        var current = $(this).html();
+
+        var confirmationLabel = $(this).data('affcoups-clipboard-confirmation-text');
+
+        clicked.html(confirmationLabel);
+
+        setTimeout(function() {
+            clicked.html(current);
+        }, 2500);
+
+    });
+
+    /**
+     * Toggle excerpt/description
+     */
+    $(document).on( 'click', '[data-affcoups-toggle-desc]', function(e) {
+        e.preventDefault();
+
+        var descriptionContainer = $(this).parents('.affcoups-coupon__description');
+
+        descriptionContainer.toggleClass('affcoups-coupon__description--full');
+    });
+
 });
 
-jQuery( document ).on( 'click', '.affcoups-clipboard', function(event) {
-
-    var clicked = jQuery(this);
-    var current = jQuery(this).html();
-
-    var confirmationLabel = jQuery(this).data('affcoups-clipboard-confirmation-text');
-
-    clicked.html(confirmationLabel);
-
-    setTimeout(function() {
-        clicked.html(current);
-    }, 2500);
-
-});

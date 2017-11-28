@@ -126,6 +126,29 @@ function affcoups_get_website_url( $path = '', $source = 'plugin-settings' ) {
 }
 
 /**
+ * Truncate string
+ *
+ * @param $str
+ * @param int $limit
+ * @param string $pad
+ * @return mixed|string
+ */
+function affcoups_truncate_string( $str, $limit = 200, $pad = '...' ) {
+
+    if ( strlen( $str ) > $limit ) {
+        $str = preg_replace('/\s+?(\S+)?$/', '', substr( $str, 0, $limit + 1 ) );
+
+        $str = rtrim( $str, '.' );
+        $str = rtrim( $str, ',' );
+        $str = rtrim( $str, '-' );
+
+        $str .= $pad;
+    }
+
+    return $str;
+}
+
+/**
  * Debug
  *
  * @param $args

@@ -42,3 +42,61 @@ function affcoups_get_template( $template, $wrap = false ) {
         echo '<p>' . __('Template not found.', 'affiliate-coupons') . '</p>';
     }
 }
+
+/**
+ * Output template wrapper start html
+ */
+function affcoups_the_template_wrapper_start() {
+
+    global $affcoups_template_args;
+
+    ?>
+    <div class="affcoups">
+    <?php
+}
+
+/**
+ * Output template wrapper end html
+ */
+function affcoups_the_template_wrapper_end() {
+
+    global $affcoups_template_args;
+
+    ?>
+    </div><!-- /.affcoups -->
+    <?php
+}
+
+/**
+ * Coupon Template classes
+ *
+ * @param $classes
+ */
+function affcoups_the_coupon_classes( $classes ) {
+
+    global $affcoups_shortcode_atts;
+    global $affcoups_template_args;
+
+    $prefix = ' affcoups-coupon--';
+
+    // Templates
+    if ( in_array( $affcoups_template_args['template'], array( 'standard', 'grid' ) ) ) {
+        $classes .= $prefix . 'standard';
+    } else {
+        $classes .= $prefix . $affcoups_template_args['template'];
+    }
+
+    // Contents
+    $coupon_code = affcoups_get_coupon_code();
+
+    if ( $coupon_code )
+        $classes .= $prefix . 'code';
+
+    $coupon_discount = affcoups_get_coupon_discount();
+
+    if ( $coupon_discount )
+        $classes .= $prefix . 'discount';
+
+    // Finally output classes
+    echo $classes;
+}

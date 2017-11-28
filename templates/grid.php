@@ -6,10 +6,13 @@ if ( ! isset ( $coupons ) )
 if ( ! isset ( $grid ) )
     $grid = '3';
 ?>
-<div class="affcoups">
+<?php affcoups_the_template_wrapper_start(); ?>
+
     <div class="affcoups-coupons-grid affcoups-coupons-grid--col-<?php echo $grid; ?>">
+
         <?php while ( $coupons->have_posts() ) { ?>
             <?php $coupons->the_post(); ?>
+
             <div class="affcoups-coupons-grid__item">
 
                 <div class="<?php affcoups_the_coupon_classes('affcoups-coupon'); ?>">
@@ -56,4 +59,5 @@ if ( ! isset ( $grid ) )
             </div>
         <?php } ?>
     </div>
-</div>
+
+<?php affcoups_the_template_wrapper_end(); ?>

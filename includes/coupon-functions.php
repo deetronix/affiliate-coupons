@@ -179,18 +179,6 @@ function affcoups_get_coupons( $args = array() ) {
 }
 
 /**
- * Coupon Template classes
- *
- * @param $classes
- */
-function affcoups_the_coupon_classes( $classes ) {
-
-    // Add classes
-
-    echo $classes;
-}
-
-/**
  * Get coupon vendor id
  *
  * @param null $coupon_id
@@ -354,6 +342,45 @@ function affcoups_get_coupon_description( $coupon_id = null ) {
         $description = affcoups_get_post_content( $coupon_id );
 
     return $description;
+}
+
+/**
+ * Get coupon excerpt
+ *
+ * @param null $coupon_id
+ * @return mixed
+ */
+function affcoups_get_coupon_excerpt( $coupon_id = null ) {
+
+    if ( empty ( $coupon_id ) )
+        $coupon_id = get_the_ID();
+
+    $description = affcoups_get_coupon_description( $coupon_id );
+
+    $description = trim( $description );
+
+    $excerpt = affcoups_truncate_string( $description, 90 );
+
+    return $excerpt;
+}
+
+/**
+ * Output the coupon excerpt
+ *
+ * @param $coupon_id
+ */
+function affcoups_the_coupon_excerpt( $coupon_id = null ) {
+
+    if ( empty ( $coupon_id ) )
+        $coupon_id = get_the_ID();
+
+    $description = affcoups_get_coupon_description( $coupon_id );
+    $excerpt = affcoups_get_coupon_excerpt( $coupon_id );
+
+    echo $excerpt;
+
+    if ( $excerpt != $description )
+        echo '<a href="#" class="affcoups-toggle-desc" data-affcoups-toggle-desc="true">' . __('More', 'affiliate-coupons' ) . '</a>';
 }
 
 /**
