@@ -20,8 +20,11 @@ Promote coupons and deals of products and earn money with affiliate referrals.
 *   Create coupons and link them to vendors
 *   Display coupons via shortcode on the frontend
 *   Multiple options in order to filter/sort your coupon presentations
-*   Configuration page for more options
+*   Configuration page for more options and customizations
+*   Prepared templates: Standard, Grid & List
+*   Widgets for displaying coupons in your sidebar
 *   Try out the **[online demo](https://affcoups.com/demo/?utm_source=wordpress.org&utm_medium=textlink&utm_campaign=Affiliate%20Coupons&utm_content=demo-link)**
+*   Overview of all available **[templates](https://affcoups.com/templates/?utm_source=wordpress.org&utm_medium=textlink&utm_campaign=Affiliate%20Coupons&utm_content=templates-link)**
 *   Regular updates and improvements: Go though the [changelog](https://wordpress.org/plugins/affiliate-coupons/#developers)
 
 = Quickstart Examples =
