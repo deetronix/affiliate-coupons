@@ -50,7 +50,7 @@ if ( ! class_exists( 'Affcoups_Single_Widget' ) ) {
                 );
 
                 // Template
-                $shortcode_atts['template'] = 'standard'; //$instance['template']; // TODO: Replace when separate widget template(s) were added
+                $shortcode_atts['template'] = 'widget'; //$instance['template']; // TODO: Replace when separate widget template(s) were added
 
                 // Execute Shortcode
                 affcoups_widget_do_shortcode( $shortcode_atts );
