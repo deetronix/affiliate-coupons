@@ -159,6 +159,9 @@ function affcoups_add_shortcode( $atts, $content ) {
 
     $str = ob_get_clean();
 
+    // Remove unwanted line breaks from output
+    $str = preg_replace('/^\s+|\n|\r|\s+$/m', '', $str );
+
     // Return output
     return $str;
 }
