@@ -232,6 +232,26 @@ if ( ! class_exists('Affcoups_Settings') ) {
                     </ul>
                     </p>
 
+                    <p>
+                        <strong><?php _e( 'Templates', 'affiliate-coupons' ); ?></strong><br />
+                        <?php _e( 'You can easily select a template on a shortcode basis as follows:', 'affiliate-coupons' ); ?>
+                    </p>
+                    <p>
+                        <code>[affcoups template="standard"]</code>
+                    </p>
+                    <p>
+                        <?php _e( 'The following templates are available right now:', 'affiliate-coupons' ); ?> <code>standard</code>, <code>grid</code>, <code>list</code> & <code>widget</code>
+                    </p>
+                    <p>
+                        <?php _e( 'In order to display multiple coupons side by side, make use of the grid functionality:', 'affiliate-coupons' ); ?>
+                    </p>
+                    <p>
+                        <code>[affcoups grid="2"]</code>, <code>[affcoups grid="3"]</code> etc.
+                    </p>
+                    <p>
+                        <?php _e( 'When passing the grid size parameter, the plugin will automatically choose the grid template.', 'affiliate-coupons' ); ?>
+                    </p>
+
                     <?php do_action( 'affcoups_settings_quickstart_render' ); ?>
                 </div>
             </div>
