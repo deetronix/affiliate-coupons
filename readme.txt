@@ -3,8 +3,8 @@ Contributors: flowdee
 Donate link: https://donate.flowdee.de
 Tags: affiliate, affiliates, coupon, coupons, deals, affiliate coupon, affiliate coupons, affiliate deals, dealz, vendors, affiliate marketing
 Requires at least: 3.0.1
-Tested up to: 4.9.0
-Stable tag: 1.2.1
+Tested up to: 4.9.1
+Stable tag: 1.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -83,6 +83,12 @@ Yes of course.
 
 == Changelog ==
 
+= Version 1.2.2 (30th November 2017) =
+* New: Added setting in order to adjust the default excerpt length
+* Improvement: Remove unwanted line breaks from shortcode output
+* Fix: "PHP Fatal error: Uncaught ArgumentCountError: Too few arguments to function affcoups_widget_text()"
+* WordPress v4.9.1 compatibility
+
 = Version 1.2.1 (28th November 2017) =
 * New: Added a brand new list template
 * New: Added a new widget for displaying a single coupon in your sidebar
@@ -151,6 +157,12 @@ Yes of course.
 * Initial release
 
 == Upgrade Notice ==
+
+= Version 1.2.2 (30th November 2017) =
+* New: Added setting in order to adjust the default excerpt length
+* Improvement: Remove unwanted line breaks from shortcode output
+* Fix: "PHP Fatal error: Uncaught ArgumentCountError: Too few arguments to function affcoups_widget_text()"
+* WordPress v4.9.1 compatibility
 
 = Version 1.2.1 (28th November 2017) =
 * New: Added a brand new list template
