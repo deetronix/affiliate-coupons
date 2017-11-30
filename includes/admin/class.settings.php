@@ -110,6 +110,15 @@ if ( ! class_exists('Affcoups_Settings') ) {
             );
 
             add_settings_field(
+                'affcoups_settings_contents',
+                __('Contents', 'affiliate-coupons'),
+                array(&$this, 'contents_render'),
+                'affcoups_settings',
+                'affcoups_settings_section_output',
+                false
+            );
+
+            add_settings_field(
                 'affcoups_settings_discount',
                 __('Discount', 'affiliate-coupons'),
                 array(&$this, 'discount_render'),
@@ -318,6 +327,21 @@ if ( ! class_exists('Affcoups_Settings') ) {
             <h4><?php _e('Grid size', 'affiliate-coupons' ); ?></h4>
             <p>
                 <input type="number" name="affcoups_settings[grid_size]" id="affcoups_grid_size" value="<?php echo esc_attr( trim( $grid_size ) ); ?>" />
+            </p>
+            <?php
+        }
+
+        function contents_render() {
+
+            $excerpt_length = ( ! empty( $this->options['excerpt_length'] ) && is_numeric( $this->options['excerpt_length'] ) ) ? intval( $this->options['excerpt_length'] ) : 90;
+
+            ?>
+            <h4><?php _e('Excerpt Length', 'affiliate-coupons' ); ?></h4>
+            <p>
+                <input type="number" name="affcoups_settings[excerpt_length]" id="affcoups_excerpt_length" value="<?php echo esc_attr( trim( $excerpt_length ) ); ?>" />
+            </p>
+            <p class="desc">
+                <?php _e('Some templates are displaying an excerpt instead of the whole coupon description.', 'affiliate-coupons' ); ?>
             </p>
             <?php
         }

@@ -391,7 +391,9 @@ function affcoups_get_coupon_excerpt( $coupon_id = null ) {
 
     $description = trim( $description );
 
-    $excerpt = affcoups_truncate_string( $description, 90 );
+    $excerpt_length = affcoups_get_option( 'excerpt_length', 90 );
+
+    $excerpt = affcoups_truncate_string( $description, $excerpt_length );
 
     return $excerpt;
 }

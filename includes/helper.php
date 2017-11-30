@@ -55,6 +55,19 @@ function affcoups_get_options() {
 }
 
 /**
+ * Get single option
+ *
+ * @param $key
+ * @param null $default
+ * @return null
+ */
+function affcoups_get_option( $key, $default = null ) {
+    $options = affcoups_get_options();
+
+    return ( isset( $options[$key] ) ) ? $options[$key] : $default;
+}
+
+/**
  * Output public assets folder url
  */
 function affcoups_the_assets() {
@@ -134,6 +147,8 @@ function affcoups_get_website_url( $path = '', $source = 'plugin-settings' ) {
  * @return mixed|string
  */
 function affcoups_truncate_string( $str, $limit = 200, $pad = '...' ) {
+
+    $limit = intval( $limit );
 
     if ( strlen( $str ) > $limit ) {
         $str = preg_replace('/\s+?(\S+)?$/', '', substr( $str, 0, $limit + 1 ) );
