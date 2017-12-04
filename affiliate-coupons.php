@@ -18,17 +18,17 @@
 // Exit if accessed directly
 if( ! defined( 'ABSPATH' ) ) exit;
 
-if( ! class_exists( 'Affcoups_Plugin' ) ) {
+if( ! class_exists( 'Affiliate_Coupons' ) ) {
 
     /**
      * Main Affiliate_Coupons class
      *
      * @since       1.0.0
      */
-    class Affcoups_Plugin {
+    class Affiliate_Coupons {
 
         /**
-         * @var         Affcoups_Plugin $instance The one true Affcoups_Plugin
+         * @var         Affiliate_Coupons $instance The one true Affiliate_Coupons
          * @since       1.0.0
          */
         private static $instance;
@@ -39,11 +39,11 @@ if( ! class_exists( 'Affcoups_Plugin' ) ) {
          *
          * @access      public
          * @since       1.0.0
-         * @return      object self::$instance The one true Affcoups_Plugin
+         * @return      object self::$instance The one true Affiliate_Coupons
          */
         public static function instance() {
             if( !self::$instance ) {
-                self::$instance = new Affcoups_Plugin();
+                self::$instance = new Affiliate_Coupons();
                 self::$instance->setup_constants();
                 self::$instance->includes();
                 self::$instance->load_textdomain();
@@ -161,15 +161,15 @@ if( ! class_exists( 'Affcoups_Plugin' ) ) {
 } // End if class_exists check
 
 /**
- * The main function responsible for returning the one true Affcoups_Plugin
+ * The main function responsible for returning the one true Affiliate_Coupons
  * instance to functions everywhere
  *
  * @since       1.0.0
- * @return      \Affcoups_Plugin The one true Affcoups_Plugin
+ * @return      \Affiliate_Coupons The one true Affiliate_Coupons
  *
  */
 function affcoups_load() {
-    return Affcoups_Plugin::instance();
+    return Affiliate_Coupons::instance();
 }
 add_action( 'plugins_loaded', 'affcoups_load' );
 
