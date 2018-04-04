@@ -34,3 +34,4 @@ node_modules
 
 # Other
 deploy.sh
+vendor/

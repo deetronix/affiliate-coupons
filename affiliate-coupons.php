@@ -88,7 +88,7 @@ if( ! class_exists( 'Affiliate_Coupons' ) ) {
         private function includes() {
 
             // Dependencies
-            require_once AFFCOUPS_DIR . 'vendor/bootstrap.php';
+            require_once AFFCOUPS_DIR . 'includes/vendor/bootstrap.php';
 
             // Basic
             require_once AFFCOUPS_DIR . 'includes/helper.php';

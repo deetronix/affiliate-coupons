@@ -1,0 +1,12 @@
+{
+  "name": "affiliate-coupons",
+  "description": "Affiliate Coupons WordPress Plugin",
+  "type": "project",
+  "require": {},
+  "require-dev": {
+    "dealerdirect/phpcodesniffer-composer-installer": "*",
+    "object-calisthenics/phpcs-calisthenics-rules": "*",
+    "wimg/php-compatibility": "*",
+    "wp-coding-standards/wpcs": "*"
+  }
+}
