@@ -4,20 +4,22 @@
  */
 
 // Exit if accessed directly
-if( !defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Load Widgets
  */
-include_once AFFCOUPS_DIR . 'includes/widgets/class.widget-single.php';
+require_once AFFCOUPS_DIR . 'includes/widgets/class.widget-single.php';
 
 /**
  * Register Widgets
  */
 function affcoups_register_widgets() {
-    register_widget( 'Affcoups_Single_Widget' );
+	register_widget( 'Affcoups_Single_Widget' );
 
-    do_action('affcoups_register_widgets' );
+	do_action( 'affcoups_register_widgets' );
 }
 add_action( 'widgets_init', 'affcoups_register_widgets' );
 
@@ -28,23 +30,23 @@ add_action( 'widgets_init', 'affcoups_register_widgets' );
  */
 function affcoups_widget_do_shortcode( $atts = array() ) {
 
-    if ( sizeof( $atts ) > 0 ) {
+	if ( count( $atts ) > 0 ) {
 
-        // Build Shortcode
-        $shortcode = '[affcoups';
+		// Build Shortcode
+		$shortcode = '[affcoups';
 
-        foreach ( $atts as $key => $value ) {
-            $shortcode .= ' ' . $key . '="' . $value . '"';
-        }
+		foreach ( $atts as $key => $value ) {
+			$shortcode .= ' ' . $key . '="' . $value . '"';
+		}
 
-        $shortcode .= '/]';
+		$shortcode .= '/]';
 
-        // Execute Shortcode
-        echo do_shortcode( $shortcode );
+		// Execute Shortcode
+		echo do_shortcode( $shortcode );
 
-    } else {
-        _e( 'Shortcode arguments missing.', 'affiliate-coupons' );
-    }
+	} else {
+		esc_html_e( 'Shortcode arguments missing.', 'affiliate-coupons' );
+	}
 }
 
 /**

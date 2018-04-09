@@ -12,8 +12,9 @@ function affcoups_get_template_file( $template, $type = '' ) {
 
     $template_file = apply_filters( 'affcoups_template_file', $template_file, $template, $type );
 
-    if ( file_exists( $template_file ) )
+    if ( file_exists( $template_file ) ) {
         return $template_file;
+    }
 
     return ( 'widget' === $type ) ? AFFCOUPS_DIR . 'templates/widget.php' : AFFCOUPS_DIR . 'templates/standard.php';
 }
