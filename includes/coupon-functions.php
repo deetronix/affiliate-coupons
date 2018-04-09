@@ -414,7 +414,7 @@ function affcoups_the_coupon_excerpt( $coupon_id = null ) {
     echo esc_attr( $excerpt );
 
     if ( $excerpt != $description )
-        echo '<a href="#" class="affcoups-toggle-desc" data-affcoups-toggle-desc="true">' . __('More', 'affiliate-coupons' ) . '</a>';
+        echo esc_attr( '<a href="#" class="affcoups-toggle-desc" data-affcoups-toggle-desc="true">' . __('More', 'affiliate-coupons' ) . '</a>' );
 }
 
 /**
@@ -518,7 +518,7 @@ function affcoups_the_coupon_types( $coupon_id = null ) {
 
         foreach($term_list as $term_single) {
             echo '<span class="affcoups-type affcoups-type--' . esc_html( $term_single->slug ) . '">';
-            echo $term_single->name;
+            echo esc_attr( $term_single->name );
             echo esc_attr( '</span>' );
         }
     }
@@ -571,7 +571,7 @@ function affcoups_the_coupon_valid_dates( $coupon_id = null ) {
         $dates .= ' ' . date_i18n( $date_format, $valid_until );
     }
 
-    echo $dates;
+    echo esc_attr( $dates );
 }
 
 /**
@@ -609,7 +609,7 @@ function affcoups_the_coupon_button( $coupon_id = null ) {
     $button_icon = ( ! empty( $options['button_icon'] ) ) ? esc_html( $options['button_icon'] ) : false;
 
     ?>
-    <a class="affcoups-coupon__button" href="<?php echo $button['url']; ?>" title="<?php echo $button['title']; ?>" rel="<?php echo $button['rel']; ?>" target="<?php echo $button['target']; ?>">
-        <?php if ( ! empty( $button_icon ) ) { ?><span class="affcoups-icon-<?php echo $button_icon; ?> affcoups-coupon__button-icon"></span> <?php } ?><?php echo $button['text']; ?></a>
+    <a class="affcoups-coupon__button" href="<?php echo esc_attr( $button['url'] ); ?>" title="<?php echo esc_attr( $button['title'] ); ?>" rel="<?php echo esc_attr( $button['rel'] ); ?>" target="<?php echo esc_attr( $button['target'] ); ?>">
+        <?php if ( ! empty( $button_icon ) ) { ?><span class="affcoups-icon-<?php echo esc_attr( $button_icon ); ?> affcoups-coupon__button-icon"></span> <?php } ?><?php echo esc_attr( $button['text'] ); ?></a>
     <?php
 }

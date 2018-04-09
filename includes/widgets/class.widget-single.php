@@ -36,7 +36,7 @@ if ( ! class_exists( 'Affcoups_Single_Widget' ) ) {
          */
         public function widget( $args, $instance ) {
 
-            echo $args['before_widget'];
+            echo esc_attr( $args['before_widget'] );
 
             if ( ! empty( $instance['title'] ) ) {
                 echo esc_attr( $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'] );
@@ -90,7 +90,7 @@ if ( ! class_exists( 'Affcoups_Single_Widget' ) ) {
                 <label for="<?php echo esc_attr( $this->get_field_id( 'id' ) ); ?>"><?php esc_attr_e( 'Coupon:', 'affiliate-coupons' ); ?></label>
                 <select class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'id' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'id' ) ); ?>">
                     <?php foreach ( $coupons as $key => $label ) { ?>
-                        <option value="<?php echo $key; ?>" <?php selected( $id, $key ); ?>><?php echo $label; ?></option>
+                        <option value="<?php echo esc_attr( $key ); ?>" <?php selected( $id, $key ); ?>><?php echo esc_attr( $label ); ?></option>
                     <?php } ?>
                 </select>
             </p>

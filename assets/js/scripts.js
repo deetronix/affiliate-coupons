@@ -3,9 +3,9 @@ jQuery(document).ready(function ($) {
     /**
      * Copy to clipboard
      */
-    var clipboard = new Clipboard('.affcoups-clipboard');
+    var clipboard = new Clipboard(".affcoups-clipboard");
 
-    clipboard.on('success', function(e) {
+    clipboard.on("success", function(e) {
 
         /*
         console.info('Action:', e.action);
@@ -18,12 +18,12 @@ jQuery(document).ready(function ($) {
         e.clearSelection();
     });
 
-    $(document).on( 'click', '.affcoups-clipboard', function(event) {
+    $(document).on( "click", ".affcoups-clipboard", function(event) {
 
         var clicked = $(this);
         var current = $(this).html();
 
-        var confirmationLabel = $(this).data('affcoups-clipboard-confirmation-text');
+        var confirmationLabel = $(this).data("affcoups-clipboard-confirmation-text");
 
         clicked.html(confirmationLabel);
 
@@ -36,12 +36,12 @@ jQuery(document).ready(function ($) {
     /**
      * Toggle excerpt/description
      */
-    $(document).on( 'click', '[data-affcoups-toggle-desc]', function(e) {
+    $(document).on( "click", "[data-affcoups-toggle-desc]", function(e) {
         e.preventDefault();
 
         var descriptionContainer = $(this).parents('.affcoups-coupon__description');
 
-        descriptionContainer.toggleClass('affcoups-coupon__description--full');
+        descriptionContainer.toggleClass("affcoups-coupon__description--full");
     });
 
 });

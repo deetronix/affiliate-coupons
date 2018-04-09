@@ -432,7 +432,7 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
                 <label for="affcoups_custom_css_activated"><?php esc_html_e('Output custom CSS styles', 'affiliate-coupons'); ?></label>
             </p>
             <br />
-            <textarea id="affcoups_custom_css" name="affcoups_settings[custom_css]" rows="10" cols="80" style="width: 100%;"><?php echo stripslashes( $custom_css ); ?></textarea>
+            <textarea id="affcoups_custom_css" name="affcoups_settings[custom_css]" rows="10" cols="80" style="width: 100%;"><?php echo esc_attr( stripslashes( $custom_css ) ); ?></textarea>
             <p>
                 <small><?php esc_html_e("Please don't use the <code>style</code> tag. Simply paste you CSS classes/definitions e.g. <code>.affcoups .affcoups-coupon { background-color: #333; }</code>", 'affiliate-coupons' ) ?></small>
             </p>
@@ -571,7 +571,7 @@ function affcoups_do_settings_sections( $page ) {
         }
 
         echo '<div class="postbox">';
-        echo $title;
+        echo esc_attr( $title );
         echo '<div class="inside">';
         echo '<table class="form-table">';
         do_settings_fields($page, $section['id']);
