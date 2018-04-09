@@ -1,6 +1,7 @@
 <?php
-if ( ! isset ( $coupons ) )
+if ( ! isset( $coupons ) ) {
     return;
+}
 ?>
 
 <?php affcoups_the_template_wrapper_start(); ?>
@@ -15,12 +16,12 @@ if ( ! isset ( $coupons ) )
                     <?php affcoups_the_coupon_thumbnail(); ?>
 
                     <?php if ( affcoups_get_coupon_discount() ) { ?>
-                        <span class="affcoups-coupon__discount"><?php echo affcoups_get_coupon_discount(); ?></span>
+                        <span class="affcoups-coupon__discount"><?php echo esc_attr( affcoups_get_coupon_discount() ); ?></span>
                     <?php } ?>
                 </div>
 
                 <div class="affcoups-coupon__content">
-                    <h3 class="affcoups-coupon__title"><?php echo affcoups_get_coupon_title(); ?></h3>
+                    <h3 class="affcoups-coupon__title"><?php echo esc_attr( affcoups_get_coupon_title() ); ?></h3>
                     <?php if ( affcoups_get_coupon_types() ) { ?>
                         <div class="affcoups-coupon__types">
                             <?php affcoups_the_coupon_types(); ?>

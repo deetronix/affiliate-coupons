@@ -1,6 +1,7 @@
 <?php
-if ( ! isset ( $coupons ) )
+if ( ! isset( $coupons ) ) {
     return;
+}
 
 // Default values
 if ( ! isset ( $grid ) )
