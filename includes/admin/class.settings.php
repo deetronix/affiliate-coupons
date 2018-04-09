@@ -47,7 +47,6 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
                 'affcoups_settings',
                 array( &$this, 'validate_input_callback' )
             );
-
             /*
              * Section: Quickstart
              */
@@ -57,7 +56,6 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
                 array( &$this, 'section_quickstart_render' ),
                 'affcoups_settings'
             );
-
             /*
              * Section: General
              */

@@ -3,7 +3,7 @@ jQuery(document).ready(function ($) {
     function replaceWidgetTitleIcon( el ) {
         var widgetTitle = el.html();
 
-        widgetTitle = widgetTitle.replace('Affiliate Coupons - ', '<span class="affcoups-icon"></span>');
+        widgetTitle = widgetTitle.replace("Affiliate Coupons - ", "<span class='affcoups-icon'></span>");
 
         el.html(widgetTitle);
     }
@@ -16,7 +16,7 @@ jQuery(document).ready(function ($) {
     /**
      * Widgets
      */
-    $('.widget-title h3:contains("Affiliate Coupons - ")').each(function() {
+    $(".widget-title h3:contains('Affiliate Coupons - ')").each(function() {
         replaceWidgetTitleIcon( $(this) );
     });
     

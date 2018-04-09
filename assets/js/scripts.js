@@ -39,7 +39,7 @@ jQuery(document).ready(function ($) {
     $(document).on( "click", "[data-affcoups-toggle-desc]", function(e) {
         e.preventDefault();
 
-        var descriptionContainer = $(this).parents('.affcoups-coupon__description');
+        var descriptionContainer = $(this).parents(".affcoups-coupon__description");
 
         descriptionContainer.toggleClass("affcoups-coupon__description--full");
     });
