@@ -14,4 +14,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 /*
  * Meta Box
  */
-require AFFCOUPS_DIR . 'vendor/meta-box/meta-box.php';
+require AFFCOUPS_DIR . 'includes/vendor/meta-box/meta-box.php';
