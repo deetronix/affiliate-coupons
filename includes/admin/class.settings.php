@@ -9,10 +9,12 @@
  */
 
 // Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 
-if ( ! class_exists('Affcoups_Settings') ) {
+if ( ! class_exists( 'Affcoups_Settings' ) ) {
 
     class Affcoups_Settings {
         public $options;

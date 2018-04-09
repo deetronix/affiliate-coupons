@@ -6,6 +6,7 @@
  * @param string $type
  * @return string
  */
+
 function affcoups_get_template_file( $template, $type = '' ) {
 
     $template_file = AFFCOUPS_DIR . 'templates/' . $template . '.php';
@@ -95,9 +96,10 @@ function affcoups_the_coupon_classes( $classes ) {
 
     $coupon_discount = affcoups_get_coupon_discount();
 
-    if ( $coupon_discount )
+    if ( $coupon_discount ) {
         $classes .= $prefix . 'discount';
+    }
 
     // Finally output classes
-    echo $classes;
+    echo esc_attr( $classes );
 }

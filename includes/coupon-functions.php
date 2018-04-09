@@ -20,12 +20,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 function affcoups_get_coupons( $args = array(), $query = true ) {
 
     $defaults = array(
-        'post_type' => 'affcoups_coupon',
-        'post_status' => 'publish',
+        'post_type'      => 'affcoups_coupon',
+        'post_status'    => 'publish',
         'posts_per_page' => -1,
         //'nopaging' => true,
-        'orderby' => 'name',
-        'order' => 'ASC'
+        'orderby'        => 'name',
+        'order'          => 'ASC',
     );
 
     // Parse args

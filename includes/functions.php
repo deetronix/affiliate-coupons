@@ -8,7 +8,7 @@
 
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) {
-    exit;
+	exit;
 }
 
 global $affcoups_shortcode_atts; // User input
@@ -19,15 +19,16 @@ global $affcoups_template_args; // Template variables
  */
 function affcoups_get_post_content( $postid = null ) {
 
-    if ( empty ( $postid ) )
-        $postid = get_the_ID();
+	if ( empty( $postid ) ) {
+		$postid = get_the_ID();
+	}
 
-    $post = get_post( $postid );
-    $content = $post->post_content;
-    $content = apply_filters('the_content', $content);
-    $content = str_replace(']]>', ']]&gt;', $content);
+	$post    = get_post( $postid );
+	$content = $post->post_content;
+	$content = apply_filters( 'the_content', $content );
+	$content = str_replace( ']]>', ']]&gt;', $content );
 
-    return $content;
+	return $content;
 }
 
 /**
@@ -35,13 +36,13 @@ function affcoups_get_post_content( $postid = null ) {
  */
 function affcoups_has_plugin_content() {
 
-    global $post;
+	global $post;
 
-    if( ( is_a( $post, 'WP_Post' ) && ( has_shortcode( $post->post_content, 'affcoups') || has_shortcode( $post->post_content, 'affcoups_coupons') ) ) ) {
-        return true;
-    }
+	if ( ( is_a( $post, 'WP_Post' ) && ( has_shortcode( $post->post_content, 'affcoups' ) || has_shortcode( $post->post_content, 'affcoups_coupons' ) ) ) ) {
+		return true;
+	}
 
-    return false;
+	return false;
 }
 
 /**
@@ -50,5 +51,5 @@ function affcoups_has_plugin_content() {
  * @return string
  */
 function affcoups_get_coupon_post_type_slug() {
-    return apply_filters( 'affcoups_coupon_post_type_slug', 'coupons' );
+	return apply_filters( 'affcoups_coupon_post_type_slug', 'coupons' );
 }
