@@ -32,16 +32,18 @@ function affcoups_get_template( $template, $wrap = false ) {
 
     if ( file_exists( $file ) ) {
 
-        if ( $wrap )
-            echo '<div class="affcoups">';
+        if ( $wrap ) {
+	        echo esc_attr( '<div class="affcoups">' );
+        }
 
-        include( $file );
+        include $file;
 
-        if ( $wrap )
-            echo '</div>';
+        if ( $wrap ) {
+	        echo esc_attr( '</div>' );
+        }
 
     } else {
-        echo '<p>' . __('Template not found.', 'affiliate-coupons') . '</p>';
+        echo esc_attr( '<p>' . __( 'Template not found.', 'affiliate-coupons' ) . '</p>' );
     }
 }
 

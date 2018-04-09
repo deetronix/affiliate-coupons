@@ -9,7 +9,7 @@ if ( ! isset ( $grid ) )
 ?>
 <?php affcoups_the_template_wrapper_start(); ?>
 
-    <div class="affcoups-coupons-grid affcoups-coupons-grid--col-<?php echo $grid; ?>">
+    <div class="affcoups-coupons-grid affcoups-coupons-grid--col-<?php echo esc_attr( $grid ); ?>">
 
         <?php while ( $coupons->have_posts() ) { ?>
             <?php $coupons->the_post(); ?>
@@ -21,12 +21,12 @@ if ( ! isset ( $grid ) )
                         <?php affcoups_the_coupon_thumbnail(); ?>
 
                         <?php if ( affcoups_get_coupon_discount() ) { ?>
-                            <span class="affcoups-coupon__discount"><?php echo affcoups_get_coupon_discount(); ?></span>
+                            <span class="affcoups-coupon__discount"><?php echo esc_attr( affcoups_get_coupon_discount() ); ?></span>
                         <?php } ?>
                     </div>
 
                     <div class="affcoups-coupon__content">
-                        <h3 class="affcoups-coupon__title"><?php echo affcoups_get_coupon_title(); ?></h3>
+                        <h3 class="affcoups-coupon__title"><?php echo esc_attr( affcoups_get_coupon_title() ); ?></h3>
 
                         <?php if ( affcoups_get_coupon_types() ) { ?>
                             <div class="affcoups-coupon__types">
@@ -35,7 +35,7 @@ if ( ! isset ( $grid ) )
                         <?php } ?>
 
                         <div class="affcoups-coupon__description">
-                            <?php echo affcoups_get_coupon_description(); ?>
+                            <?php echo esc_attr( affcoups_get_coupon_description() ); ?>
                         </div>
 
                         <?php if ( affcoups_get_coupon_code() ) { ?>

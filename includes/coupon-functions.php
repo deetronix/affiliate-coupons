@@ -298,7 +298,7 @@ function affcoups_the_coupon_thumbnail( $coupon_id = null ) {
     }
 
     // Output
-    echo $thumbnail;
+    echo esc_attr( $thumbnail );
 }
 
 /**
@@ -411,7 +411,7 @@ function affcoups_the_coupon_excerpt( $coupon_id = null ) {
     $description = affcoups_get_coupon_description( $coupon_id );
     $excerpt = affcoups_get_coupon_excerpt( $coupon_id );
 
-    echo $excerpt;
+    echo esc_attr( $excerpt );
 
     if ( $excerpt != $description )
         echo '<a href="#" class="affcoups-toggle-desc" data-affcoups-toggle-desc="true">' . __('More', 'affiliate-coupons' ) . '</a>';
@@ -450,9 +450,9 @@ function affcoups_the_coupon_code( $coupon_id = null ) {
     $code = affcoups_get_coupon_code( $coupon_id );
     ?>
 
-    <div class="affcoups-clipboard affcoups-coupon-code" data-clipboard-text="<?php echo $code; ?>" data-affcoups-clipboard-confirmation-text="<?php _e('Copied!', 'affiliate-coupons'); ?>">
-        <img class="affcoups-coupon-code__copy" src="<?php echo $copy_img; ?>" alt="<?php _e('Copy', 'affiliate-coupons'); ?>" />
-        <?php echo $code; ?>
+    <div class="affcoups-clipboard affcoups-coupon-code" data-clipboard-text="<?php echo esc_attr( $code ); ?>" data-affcoups-clipboard-confirmation-text="<?php esc_attr_e('Copied!', 'affiliate-coupons'); ?>">
+        <img class="affcoups-coupon-code__copy" src="<?php echo esc_attr( $copy_img ); ?>" alt="<?php esc_attr_e('Copy', 'affiliate-coupons'); ?>" />
+        <?php echo esc_attr( $code ); ?>
     </div>
     <?php
 }
@@ -465,15 +465,15 @@ function affcoups_the_coupon_code( $coupon_id = null ) {
  */
 function affcoups_get_coupon_url( $coupon_id = null ) {
 
-    if ( empty ( $coupon_id ) )
+    if ( empty( $coupon_id ) )
         $coupon_id = get_the_ID();
 
     $url = get_post_meta( $coupon_id, AFFCOUPS_PREFIX . 'coupon_url', true );
 
-    if ( empty ( $url ) ) {
+    if ( empty( $url ) ) {
         $vendor_id = affcoups_get_coupon_vendor_id( $coupon_id );
 
-        if ( ! empty ( $vendor_id ) )
+        if ( ! empty( $vendor_id ) )
             $url = affcoups_get_vendor_url( $vendor_id );
     }
 
@@ -488,7 +488,7 @@ function affcoups_get_coupon_url( $coupon_id = null ) {
  */
 function affcoups_get_coupon_types( $coupon_id = null ) {
 
-    if ( empty ( $coupon_id ) )
+    if ( empty( $coupon_id ) )
         $coupon_id = get_the_ID();
 
     $term_list = wp_get_post_terms( $coupon_id, 'affcoups_coupon_type', array( "fields" => "all" ) );
@@ -507,7 +507,7 @@ function affcoups_get_coupon_types( $coupon_id = null ) {
  */
 function affcoups_the_coupon_types( $coupon_id = null ) {
 
-    if ( empty ( $coupon_id ) )
+    if ( empty( $coupon_id ) )
         $coupon_id = get_the_ID();
 
     $types = '';
@@ -519,11 +519,11 @@ function affcoups_the_coupon_types( $coupon_id = null ) {
         foreach($term_list as $term_single) {
             echo '<span class="affcoups-type affcoups-type--' . esc_html( $term_single->slug ) . '">';
             echo $term_single->name;
-            echo '</span>';
+            echo esc_attr( '</span>' );
         }
     }
 
-    echo $types;
+    echo esc_attr( $types );
 }
 
 /**
