@@ -70,20 +70,20 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 
             add_settings_field(
                 'affcoups_settings_coupon_expiration',
-                __('Expiration', 'affiliate-coupons'),
-                array(&$this, 'coupon_expiration_render'),
+                __( 'Expiration', 'affiliate-coupons' ),
+                array( &$this, 'coupon_expiration_render' ),
                 'affcoups_settings',
                 'affcoups_settings_section_general',
-                array('label_for' => 'affcoups_hide_expired_coupons')
+                array( 'label_for' => 'affcoups_hide_expired_coupons' )
             );
 
             add_settings_field(
                 'affcoups_settings_order',
-                __('Sorting', 'affiliate-coupons'),
-                array(&$this, 'order_render'),
+                __( 'Sorting', 'affiliate-coupons' ),
+                array( &$this, 'order_render' ),
                 'affcoups_settings',
                 'affcoups_settings_section_general',
-                array('label_for' => 'affcoups_order')
+                array( 'label_for' => 'affcoups_order' )
             );
 
             /*
@@ -91,24 +91,24 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
              */
             add_settings_section(
                 'affcoups_settings_section_output',
-                __('Output', 'affiliate-coupons'),
+                __( 'Output', 'affiliate-coupons' ),
                 false,
                 'affcoups_settings'
             );
 
             add_settings_field(
                 'affcoups_settings_templates',
-                __('Templates', 'affiliate-coupons'),
-                array(&$this, 'templates_render'),
+                __( 'Templates', 'affiliate-coupons' ),
+                array( &$this, 'templates_render' ),
                 'affcoups_settings',
                 'affcoups_settings_section_output',
-                array('label_for' => 'affcoups_template')
+                array( 'label_for' => 'affcoups_template' )
             );
 
             add_settings_field(
                 'affcoups_settings_contents',
-                __('Contents', 'affiliate-coupons'),
-                array(&$this, 'contents_render'),
+                __( 'Contents', 'affiliate-coupons' ),
+                array( &$this, 'contents_render' ),
                 'affcoups_settings',
                 'affcoups_settings_section_output',
                 false
@@ -116,8 +116,8 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 
             add_settings_field(
                 'affcoups_settings_discount',
-                __('Discount', 'affiliate-coupons'),
-                array(&$this, 'discount_render'),
+                __( 'Discount', 'affiliate-coupons' ),
+                array( &$this, 'discount_render' ),
                 'affcoups_settings',
                 'affcoups_settings_section_output',
                 false
@@ -125,20 +125,20 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 
             add_settings_field(
                 'affcoups_settings_button',
-                __('Button', 'affiliate-coupons'),
-                array(&$this, 'button_render'),
+                __( 'Button', 'affiliate-coupons' ),
+                array( &$this, 'button_render' ),
                 'affcoups_settings',
                 'affcoups_settings_section_output',
-                array('label_for' => 'affcoups_button_text')
+                array( 'label_for' => 'affcoups_button_text' )
             );
 
             add_settings_field(
                 'affcoups_settings_custom_css',
-                __('Custom CSS', 'affiliate-coupons'),
-                array(&$this, 'custom_css_render'),
+                __( 'Custom CSS', 'affiliate-coupons' ),
+                array( &$this, 'custom_css_render' ),
                 'affcoups_settings',
                 'affcoups_settings_section_output',
-                array('label_for' => 'affcoups_custom_css')
+                array( 'label_for' => 'affcoups_custom_css' )
             );
 
         }
@@ -257,7 +257,7 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 
         function coupon_expiration_render() {
 
-            $hide_expired_coupons = ( isset ( $this->options['hide_expired_coupons'] ) && $this->options['hide_expired_coupons'] == '1' ) ? 1 : 0;
+            $hide_expired_coupons = ( isset( $this->options['hide_expired_coupons'] ) && $this->options['hide_expired_coupons'] == '1' ) ? 1 : 0;
             ?>
 
             <input type="checkbox" id="affcoups_hide_expired_coupons" name="affcoups_settings[hide_expired_coupons]" value="1" <?php echo( $hide_expired_coupons == 1 ? 'checked' : '' ); ?> />
@@ -292,7 +292,7 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
             <p>
                 <select id="affcoups_order" name="affcoups_settings[order]">
                     <?php foreach ( $order_options as $key => $label ) { ?>
-                        <option value="<?php echo $key; ?>" <?php selected( $order, $key ); ?>><?php echo $label; ?></option>
+                        <option value="<?php echo esc_attr( $key ); ?>" <?php selected( $order, $key ); ?>><?php echo esc_attr( $label ); ?></option>
                     <?php } ?>
                 </select>
             </p>
@@ -301,7 +301,7 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
             <p>
                 <select id="affcoups_orderby" name="affcoups_settings[orderby]">
                     <?php foreach ( $orderby_options as $key => $label ) { ?>
-                        <option value="<?php echo $key; ?>" <?php selected( $orderby, $key ); ?>><?php echo $label; ?></option>
+                        <option value="<?php echo esc_attr( $key ); ?>" <?php selected( $orderby, $key ); ?>><?php echo esc_attr( $label ); ?></option>
                     <?php } ?>
                 </select>
             </p>
@@ -326,7 +326,7 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
                 'grid' => __('Grid', 'affiliate-coupons')
             );
 
-            $template = ( isset ( $this->options['template'] ) ) ? $this->options['template'] : 'grid';
+            $template = ( isset( $this->options['template'] ) ) ? $this->options['template'] : 'grid';
 
             $grid_size = ( ! empty( $this->options['grid_size'] ) && is_numeric( $this->options['grid_size'] ) ) ? intval( $this->options['grid_size'] ) : 3;
 
@@ -335,7 +335,7 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
             <p>
                 <select id="affcoups_template" name="affcoups_settings[template]">
                     <?php foreach ( $template_options as $key => $label ) { ?>
-                        <option value="<?php echo $key; ?>" <?php selected( $template, $key ); ?>><?php echo $label; ?></option>
+                        <option value="<?php echo esc_attr( $key ); ?>" <?php selected( $template, $key ); ?>><?php echo esc_attr( $label ); ?></option>
                     <?php } ?>
                 </select>
             </p>
@@ -364,17 +364,17 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 
         function discount_render() {
 
-            $discount_bg_color = ( isset ( $this->options['discount_bg_color'] ) ) ? $this->options['discount_bg_color'] : '';
-            $discount_color = ( isset ( $this->options['discount_color'] ) ) ? $this->options['discount_color'] : '';
+            $discount_bg_color = ( isset( $this->options['discount_bg_color'] ) ) ? $this->options['discount_bg_color'] : '';
+            $discount_color = ( isset( $this->options['discount_color'] ) ) ? $this->options['discount_color'] : '';
 
             ?>
             <h4><?php esc_html_e('Background Color', 'affiliate-coupons' ); ?></h4>
             <p>
-                <input type="text" class="affcoups-input-colorpicker" name="affcoups_settings[discount_bg_color]" value="<?php echo $discount_bg_color; ?>" />
+                <input type="text" class="affcoups-input-colorpicker" name="affcoups_settings[discount_bg_color]" value="<?php echo esc_attr( $discount_bg_color ); ?>" />
             </p>
             <h4><?php esc_html_e('Text Color', 'affiliate-coupons' ); ?></h4>
             <p>
-                <input type="text" class="affcoups-input-colorpicker" name="affcoups_settings[discount_color]" value="<?php echo $discount_color; ?>" />
+                <input type="text" class="affcoups-input-colorpicker" name="affcoups_settings[discount_color]" value="<?php echo esc_attr( $discount_color ); ?>" />
             </p>
             <?php $this->the_color_picker_note(); ?>
             <?php
@@ -391,9 +391,9 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
                 'cart' => __('Shopping cart', 'affiliate-coupons')
             );
 
-            $button_icon = ( isset ( $this->options['button_icon'] ) ) ? $this->options['button_icon'] : '';
-            $button_bg_color = ( isset ( $this->options['button_bg_color'] ) ) ? $this->options['button_bg_color'] : '';
-            $button_color = ( isset ( $this->options['button_color'] ) ) ? $this->options['button_color'] : '';
+            $button_icon = ( isset( $this->options['button_icon'] ) ) ? $this->options['button_icon'] : '';
+            $button_bg_color = ( isset( $this->options['button_bg_color'] ) ) ? $this->options['button_bg_color'] : '';
+            $button_color = ( isset( $this->options['button_color'] ) ) ? $this->options['button_color'] : '';
             ?>
             <h4><?php esc_html_e('Text', 'affiliate-coupons' ); ?></h4>
             <p>
@@ -404,18 +404,18 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
             <p>
                 <select id="affcoups_button_icon" name="affcoups_settings[button_icon]">
                     <?php foreach ( $button_icon_options as $key => $label ) { ?>
-                        <option value="<?php echo $key; ?>" <?php selected( $button_icon, $key ); ?>><?php echo $label; ?></option>
+                        <option value="<?php echo esc_attr( $key ); ?>" <?php selected( $button_icon, $key ); ?>><?php echo esc_attr( $label ); ?></option>
                     <?php } ?>
                 </select>
             </p>
 
             <h4><?php esc_html_e('Background Color', 'affiliate-coupons' ); ?></h4>
             <p>
-                <input type="text" class="affcoups-input-colorpicker" name="affcoups_settings[button_bg_color]" value="<?php echo $button_bg_color; ?>" />
+                <input type="text" class="affcoups-input-colorpicker" name="affcoups_settings[button_bg_color]" value="<?php echo esc_attr( $button_bg_color ); ?>" />
             </p>
             <h4><?php esc_html_e('Text Color', 'affiliate-coupons' ); ?></h4>
             <p>
-                <input type="text" class="affcoups-input-colorpicker" name="affcoups_settings[button_color]" value="<?php echo $button_color; ?>" />
+                <input type="text" class="affcoups-input-colorpicker" name="affcoups_settings[button_color]" value="<?php echo esc_attr( $button_color ); ?>" />
             </p>
             <?php $this->the_color_picker_note(); ?>
             <?php
@@ -423,8 +423,8 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 
         function custom_css_render() {
 
-            $custom_css_activated = ( isset ( $this->options['custom_css_activated'] ) && $this->options['custom_css_activated'] == '1' ) ? 1 : 0;
-            $custom_css = ( !empty ( $this->options['custom_css'] ) ) ? $this->options['custom_css'] : '';
+            $custom_css_activated = ( isset( $this->options['custom_css_activated'] ) && $this->options['custom_css_activated'] == '1' ) ? 1 : 0;
+            $custom_css = ( !empty( $this->options['custom_css'] ) ) ? $this->options['custom_css'] : '';
             ?>
 
             <p>
@@ -479,8 +479,8 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
                                         <div class="inside">
                                             <p><?php esc_html_e('Here you can find a brief overview of the most important resources in order use our plugin.', 'affiliate-coupons' ); ?></p>
                                             <ul>
-                                                <li><a href="<?php echo affcoups_get_website_url(); ?>" target="_blank">Website</a></li>
-                                                <li><a href="<?php echo affcoups_get_website_url( 'support' ); ?>" target="_blank">Support</a></li>
+                                                <li><a href="<?php echo esc_attr( affcoups_get_website_url() ); ?>" target="_blank">Website</a></li>
+                                                <li><a href="<?php echo esc_attr( affcoups_get_website_url( 'support' ) ); ?>" target="_blank">Support</a></li>
                                                 <li><a href="https://wordpress.org/plugins/affiliate-coupons/#developers" target="_blank">Changelog</a></li>
                                                 <li><a href="https://twitter.com/affcoups" target="_blank">Follow us on Twitter</a></li>
                                             </ul>
@@ -506,14 +506,14 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 
                                                         <div class="mc-field-group">
                                                             <label for="mce-EMAIL"><?php esc_html_e('Email Address', 'affiliate-coupons' ); ?></label>
-                                                            <input type="email" value="<?php echo $user_email; ?>" name="EMAIL" class="required email" id="mce-EMAIL">
+                                                            <input type="email" value="<?php echo esc_attr( $user_email ); ?>" name="EMAIL" class="required email" id="mce-EMAIL">
                                                         </div>
                                                         <div id="mce-responses" class="clear">
                                                             <div class="response" id="mce-error-response" style="display:none"></div>
                                                             <div class="response" id="mce-success-response" style="display:none"></div>
                                                         </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
                                                         <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_cc9fc194eb9ba7a4d8616c2cb_a4798350bf" tabindex="-1" value=""></div>
-                                                        <input type="checkbox" id="group_cr" name="<?php echo $form_group_name; ?>" value="1" checked="checked" style="display:none">
+                                                        <input type="checkbox" id="group_cr" name="<?php echo esc_attr( $form_group_name ); ?>" value="1" checked="checked" style="display:none">
                                                         <div class="clear">
                                                             <p>
                                                                 <input type="submit" value="<?php esc_html_e('Subscribe', 'affiliate-coupons' ); ?>" name="subscribe" id="mc-embedded-subscribe" class="button">
@@ -550,21 +550,25 @@ function affcoups_do_settings_sections( $page ) {
 
     global $wp_settings_sections, $wp_settings_fields;
 
-    if (!isset($wp_settings_sections[$page]))
-        return;
+    if ( ! isset($wp_settings_sections[$page]) ) {
+	    return;
+    }
 
-    foreach ((array)$wp_settings_sections[$page] as $section) {
+    foreach ( (array)$wp_settings_sections[$page] as $section ) {
 
         $title = '';
 
-        if ($section['title'])
-            $title = "<h3 class='hndle'>{$section['title']}</h3>\n";
+        if ( $section['title'] ) {
+	        $title = "<h3 class='hndle'>{$section['title']}</h3>\n";
+        }
 
-        if ($section['callback'])
-            call_user_func($section['callback'], $section);
+        if ( $section['callback']) {
+	        call_user_func($section['callback'], $section);
+        }
 
-        if (!isset($wp_settings_fields) || !isset($wp_settings_fields[$page]) || !isset($wp_settings_fields[$page][$section['id']]))
-            continue;
+        if ( ! isset($wp_settings_fields) || ! isset($wp_settings_fields[$page]) || ! isset($wp_settings_fields[$page][$section['id']]) ) {
+	        continue;
+        }
 
         echo '<div class="postbox">';
         echo $title;
