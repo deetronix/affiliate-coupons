@@ -7,7 +7,9 @@
  */
 
 // Exit if accessed directly
-if (!defined('ABSPATH')) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Add new columns
@@ -17,12 +19,12 @@ if (!defined('ABSPATH')) exit;
  */
 function affcoups_vendor_extend_columns( $defaults ) {
 
-    $defaults['affcoups_vendor_thumb'] = __( 'Thumbnail', 'affiliate-coupons' );
+    $defaults['affcoups_vendor_thumb']      = __( 'Thumbnail', 'affiliate-coupons' );
     $defaults['affcoups_vendor_shortcodes'] = __( 'Shortcodes', 'affiliate-coupons' );
 
     return $defaults;
 }
-add_filter('manage_affcoups_vendor_posts_columns', 'affcoups_vendor_extend_columns', 10);
+add_filter( 'manage_affcoups_vendor_posts_columns', 'affcoups_vendor_extend_columns', 10 );
 
 /**
  * Add columns content
@@ -32,22 +34,21 @@ add_filter('manage_affcoups_vendor_posts_columns', 'affcoups_vendor_extend_colum
  */
 function affcoups_vendor_extend_columns_content( $column_name, $postid ) {
 
-    if ( $column_name == 'affcoups_vendor_thumb' ) {
+    if ( 'affcoups_vendor_thumb' === $column_name ) {
 
-        $image = affcoups_get_vendor_thumbnail( $postid, 'small' );
+	    $image = affcoups_get_vendor_thumbnail( $postid, 'small' );
 
-        if ( ! empty ( $image['url'] ) ) {
-            ?>
-            <img src="<?php echo $image['url'];?>" alt="thumbnail" style="display: inline-block; max-width: 144px; height: auto;" />
-            <?php
-        }
-
-    } else if ( $column_name == 'affcoups_vendor_shortcodes' ) {
+	    if ( ! empty( $image['url'] ) ) {
         ?>
-        <p>
-            <input type='text' onClick="this.select();" value='[affcoups vendor="<?php echo $postid; ?>"]' readonly='readonly' />
-        </p>
+            <img src="<?php echo esc_attr( $image['url'] ); ?>" alt="thumbnail" style="display: inline-block; max-width: 144px; height: auto;"/>
+        <?php
+	    }
+    } elseif ( 'affcoups_vendor_shortcodes' === $column_name ) {
+        ?>
+            <p>
+            <input type='text' onClick="this.select();" value='[affcoups vendor="<?php echo esc_attr( $postid ); ?>"]' readonly='readonly' />
+            </p>
         <?php
     }
 }
-add_action('manage_affcoups_vendor_posts_custom_column', 'affcoups_vendor_extend_columns_content', 10, 2);
+add_action( 'manage_affcoups_vendor_posts_custom_column', 'affcoups_vendor_extend_columns_content', 10, 2 );

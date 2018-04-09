@@ -13,7 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-
 if ( ! class_exists( 'Affcoups_Settings' ) ) {
 
     class Affcoups_Settings {

@@ -7,7 +7,9 @@
  */
 
 // Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Plugins row action links
@@ -18,12 +20,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  */
 function affcoups_action_links( $links, $file ) {
 
-    $settings_link = '<a href="' . admin_url( 'edit.php?post_type=affcoups_coupon&page=affcoups_settings' ) . '">' . esc_html__( 'Settings', 'affiliate-coupons' ) . '</a>';
+	$settings_link = '<a href="' . admin_url( 'edit.php?post_type=affcoups_coupon&page=affcoups_settings' ) . '">' . esc_html__( 'Settings', 'affiliate-coupons' ) . '</a>';
 
-    if ( $file == 'affiliate-coupons/affiliate-coupons.php' )
-        array_unshift( $links, $settings_link );
+	if ( 'affiliate-coupons/affiliate-coupons.php' === $file ) {
+		array_unshift( $links, $settings_link );
+	}
 
-    return $links;
+	return $links;
 }
 add_filter( 'plugin_action_links', 'affcoups_action_links', 10, 2 );
 
@@ -36,22 +39,25 @@ add_filter( 'plugin_action_links', 'affcoups_action_links', 10, 2 );
  */
 function affcoups_row_meta( $input, $file ) {
 
-    if ( $file != 'affiliate-coupons/affiliate-coupons.php' )
-        return $input;
+	if ( 'affiliate-coupons/affiliate-coupons.php' !== $file ) {
+		return $input;
+	}
 
-    $website_link = esc_url( add_query_arg( array(
-            'utm_source'   => 'plugins-page',
-            'utm_medium'   => 'plugin-row',
-            'utm_campaign' => 'Affiliate Coupons',
-        ), 'https://affcoups.com/' )
-    );
+	$website_link = esc_url( add_query_arg(
+		array(
+			'utm_source'   => 'plugins-page',
+			'utm_medium'   => 'plugin-row',
+			'utm_campaign' => 'Affiliate Coupons',
+		),
+		'https://affcoups.com/'
+	) );
 
-    $links = array(
-        '<a href="' . $website_link . '" target="_blank">' . esc_html__( 'Plugin Website', 'affiliate-coupons' ) . '</a>',
-    );
+	$links = array(
+		'<a href="' . $website_link . '" target="_blank">' . esc_html__( 'Plugin Website', 'affiliate-coupons' ) . '</a>',
+	);
 
-    $input = array_merge( $input, $links );
+	$input = array_merge( $input, $links );
 
-    return $input;
+	return $input;
 }
 add_filter( 'plugin_row_meta', 'affcoups_row_meta', 10, 2 );
