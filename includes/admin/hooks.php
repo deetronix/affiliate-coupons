@@ -87,11 +87,11 @@ function affcoups_admin_notices() {
                 $classes .= ' is-dismissible';
 
             ?>
-            <div id="affcoups-notice-<?php echo ( ! empty( $notice['id'] ) ) ? $notice['id'] : $notice_id; ?>" class="<?php echo $classes; ?>">
+            <div id="affcoups-notice-<?php echo esc_attr( ! empty( $notice['id'] ) ? $notice['id'] : $notice_id ); ?>" class="<?php echo esc_attr( $classes ); ?>">
                 <?php if ( strpos( $notice['message'], '<p>') === false ) { ?>
-                    <p><?php echo $notice['message']; ?></p>
+                    <p><?php echo esc_attr( $notice['message'] ); ?></p>
                 <?php } else { ?>
-                    <?php echo $notice['message']; ?>
+                    <?php echo esc_attr( $notice['message'] ); ?>
                 <?php } ?>
             </div>
             <?php
@@ -110,8 +110,8 @@ add_action( 'admin_notices', 'affcoups_admin_notices' );
 function affcoups_admin_footer_text( $text ) {
 
     if ( affcoups_is_plugin_admin_area() ) {
-        $text = sprintf( 'If you enjoy using <strong>Affiliate Coupons</strong>, please <a href="%s" target="_blank">leave us a ★★★★★ rating</a>. A <strong style="text-decoration: underline;">huge</strong> thank you in advance, this helps a lot!', 'https://wordpress.org/support/view/plugin-reviews/affiliate-coupons?rate=5#postform' );;
-    }
+        $text = sprintf( 'If you enjoy using <strong>Affiliate Coupons</strong>, please <a href="%s" target="_blank">leave us a ★★★★★ rating</a>. A <strong style="text-decoration: underline;">huge</strong> thank you in advance, this helps a lot!', 'https://wordpress.org/support/view/plugin-reviews/affiliate-coupons?rate=5#postform' );
+    };
 
     return $text;
 }

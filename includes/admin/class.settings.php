@@ -9,27 +9,23 @@
  */
 
 // Exit if accessed directly
-if (!defined('ABSPATH')) exit;
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 
 if ( ! class_exists('Affcoups_Settings') ) {
 
-    class Affcoups_Settings
-    {
+    class Affcoups_Settings {
         public $options;
 
-        public function __construct()
-        {
+        public function __construct() {
             // Options
             $this->options = affcoups_get_options();
 
-            // Initialize
-            add_action('admin_menu', array( &$this, 'add_admin_menu') );
-            add_action('admin_init', array( &$this, 'init_settings') );
+            add_action( 'admin_menu', array( &$this, 'add_admin_menu' ) );
+            add_action( 'admin_init', array( &$this, 'init_settings' ) );
         }
 
-        function add_admin_menu()
-        {
+        function add_admin_menu() {
             /*
              * Source: https://codex.wordpress.org/Function_Reference/add_options_page
              */
@@ -44,8 +40,7 @@ if ( ! class_exists('Affcoups_Settings') ) {
 
         }
 
-        function init_settings()
-        {
+        function init_settings() {
             register_setting(
                 'affcoups_settings',
                 'affcoups_settings',
@@ -160,96 +155,96 @@ if ( ! class_exists('Affcoups_Settings') ) {
             ?>
 
             <div class="postbox">
-                <h3 class='hndle'><?php _e('Quickstart Guide', 'affiliate-coupons'); ?></h3>
+                <h3 class='hndle'><?php esc_html_e('Quickstart Guide', 'affiliate-coupons'); ?></h3>
                 <div class="inside">
                     <p>
-                        <strong><?php _e( 'First Steps', 'affiliate-coupons' ); ?></strong>
+                        <strong><?php esc_html_e( 'First Steps', 'affiliate-coupons' ); ?></strong>
                     </p>
                     <ol>
-                        <li><?php _e( 'Create vendors', 'affiliate-coupons' ); ?></li>
-                        <li><?php _e( 'Create coupons', 'affiliate-coupons' ); ?></li>
-                        <li><?php _e( 'Link coupons to vendors', 'affiliate-coupons' ); ?></li>
-                        <li><?php _e( 'Assign categories and/or types to coupons if needed', 'affiliate-coupons' ); ?></li>
-                        <li><?php _e( 'Display coupons inside your posts/pages by using shortcodes', 'affiliate-coupons' ); ?></li>
+                        <li><?php esc_html_e( 'Create vendors', 'affiliate-coupons' ); ?></li>
+                        <li><?php esc_html_e( 'Create coupons', 'affiliate-coupons' ); ?></li>
+                        <li><?php esc_html_e( 'Link coupons to vendors', 'affiliate-coupons' ); ?></li>
+                        <li><?php esc_html_e( 'Assign categories and/or types to coupons if needed', 'affiliate-coupons' ); ?></li>
+                        <li><?php esc_html_e( 'Display coupons inside your posts/pages by using shortcodes', 'affiliate-coupons' ); ?></li>
                     </ol>
 
                     <p>
-                        <strong><?php _e( 'Show all coupons', 'affiliate-coupons' ); ?></strong>
+                        <strong><?php esc_html_e( 'Show all coupons', 'affiliate-coupons' ); ?></strong>
                     </p>
                     <p>
                         <code>[affcoups]</code>
                     </p>
 
                     <p>
-                        <strong><?php _e( 'Show single coupons', 'affiliate-coupons' ); ?></strong>
+                        <strong><?php esc_html_e( 'Show single coupons', 'affiliate-coupons' ); ?></strong>
                     </p>
                     <p>
-                        <code>[affcoups id="123"]</code> <?php _e( 'or', 'affiliate-coupons' ); ?> <code>[affcoups id="123,456,789"]</code>
+                        <code>[affcoups id="123"]</code> <?php esc_html_e( 'or', 'affiliate-coupons' ); ?> <code>[affcoups id="123,456,789"]</code>
                     </p>
 
                     <p>
-                        <strong><?php _e( 'Filter coupons', 'affiliate-coupons' ); ?></strong><br />
-                        <?php _e( 'By passing the id or slug (only if specified) you can filter the results individually.', 'affiliate-coupons' ); ?>
+                        <strong><?php esc_html_e( 'Filter coupons', 'affiliate-coupons' ); ?></strong><br />
+                        <?php esc_html_e( 'By passing the id or slug (only if specified) you can filter the results individually.', 'affiliate-coupons' ); ?>
                     </p>
                     <ul>
                         <li>
-                            <?php _e( 'Filter by vendor:', 'affiliate-coupons' ); ?>
+                            <?php esc_html_e( 'Filter by vendor:', 'affiliate-coupons' ); ?>
                             <code>[affcoups vendor="123"]</code>
                         </li>
                         <li>
-                            <?php _e( 'Filter by category:', 'affiliate-coupons' ); ?>
-                            <code>[affcoups category="123"]</code> <?php _e( 'or', 'affiliate-coupons' ); ?> <code>[affcoups category="group-xyz"]</code>
+                            <?php esc_html_e( 'Filter by category:', 'affiliate-coupons' ); ?>
+                            <code>[affcoups category="123"]</code> <?php esc_html_e( 'or', 'affiliate-coupons' ); ?> <code>[affcoups category="group-xyz"]</code>
                         </li>
                         <li>
-                            <?php _e( 'Filter by type:', 'affiliate-coupons' ); ?>
-                            <code>[affcoups type="123"]</code> <?php _e( 'or', 'affiliate-coupons' ); ?> <code>[affcoups type="type-xyz"]</code>
+                            <?php esc_html_e( 'Filter by type:', 'affiliate-coupons' ); ?>
+                            <code>[affcoups type="123"]</code> <?php esc_html_e( 'or', 'affiliate-coupons' ); ?> <code>[affcoups type="type-xyz"]</code>
                         </li>
                     </ul>
                     <p>
-                        <strong><?php _e( 'Show/hide expired coupons', 'affiliate-coupons' ); ?></strong><br />
-                        <?php _e( 'Contrary to the settings below you can show/hide expired for each shortcode individually.', 'affiliate-coupons' ); ?>
+                        <strong><?php esc_html_e( 'Show/hide expired coupons', 'affiliate-coupons' ); ?></strong><br />
+                        <?php esc_html_e( 'Contrary to the settings below you can show/hide expired for each shortcode individually.', 'affiliate-coupons' ); ?>
                     </p>
                     <p>
-                        <code>[affcoups hide_expired="true"]</code> <?php _e( 'vs.', 'affiliate-coupons' ); ?> <code>[affcoups hide_expired="false"]</code>
-                    </p>
-
-                    <p>
-                        <small><?php _e( 'All filter options above can be combined inside the same shortcode.', 'affiliate-coupons' ); ?></small>
+                        <code>[affcoups hideesc_html_expired="true"]</code> <?php esc_html_e( 'vs.', 'affiliate-coupons' ); ?> <code>[affcoups hide_expired="false"]</code>
                     </p>
 
                     <p>
-                        <strong><?php _e( 'Sorting coupons', 'affiliate-coupons' ); ?></strong>
+                        <small><?php esc_html_e( 'All filter options above can be combined inside the same shortcode.', 'affiliate-coupons' ); ?></small>
+                    </p>
+
+                    <p>
+                        <strong><?php esc_html_e( 'Sorting coupons', 'affiliate-coupons' ); ?></strong>
                     </p>
                     <ul>
                         <li>
-                            <?php _e( 'Order:', 'affiliate-coupons' ); ?>
+                            <?php esc_html_e( 'Order:', 'affiliate-coupons' ); ?>
                             <code>[affcoups order="asc"]</code> (asc, desc)
                         </li>
                         <li>
-                            <?php _e( 'Order by:', 'affiliate-coupons' ); ?>
+                            <?php esc_html_e( 'Order by:', 'affiliate-coupons' ); ?>
                             <code>[affcoups orderby="title"]</code> (name, date, random, title, description, discount, valid_from, valid_to)
                         </li>
                     </ul>
                     </p>
 
                     <p>
-                        <strong><?php _e( 'Templates', 'affiliate-coupons' ); ?></strong><br />
-                        <?php _e( 'You can easily select a template on a shortcode basis as follows:', 'affiliate-coupons' ); ?>
+                        <strong><?php esc_html_e( 'Templates', 'affiliate-coupons' ); ?></strong><br />
+                        <?php esc_html_e( 'You can easily select a template on a shortcode basis as follows:', 'affiliate-coupons' ); ?>
                     </p>
                     <p>
                         <code>[affcoups template="standard"]</code>
                     </p>
                     <p>
-                        <?php _e( 'The following templates are available right now:', 'affiliate-coupons' ); ?> <code>standard</code>, <code>grid</code>, <code>list</code> & <code>widget</code>
+                        <?php esc_html_e( 'The following templates are available right now:', 'affiliate-coupons' ); ?> <code>standard</code>, <code>grid</code>, <code>list</code> & <code>widget</code>
                     </p>
                     <p>
-                        <?php _e( 'In order to display multiple coupons side by side, make use of the grid functionality:', 'affiliate-coupons' ); ?>
+                        <?php esc_html_e( 'In order to display multiple coupons side by side, make use of the grid functionality:', 'affiliate-coupons' ); ?>
                     </p>
                     <p>
                         <code>[affcoups grid="2"]</code>, <code>[affcoups grid="3"]</code> etc.
                     </p>
                     <p>
-                        <?php _e( 'When passing the grid size parameter, the plugin will automatically choose the grid template.', 'affiliate-coupons' ); ?>
+                        <?php esc_html_e( 'When passing the grid size parameter, the plugin will automatically choose the grid template.', 'affiliate-coupons' ); ?>
                     </p>
 
                     <?php do_action( 'affcoups_settings_quickstart_render' ); ?>
@@ -265,7 +260,7 @@ if ( ! class_exists('Affcoups_Settings') ) {
             ?>
 
             <input type="checkbox" id="affcoups_hide_expired_coupons" name="affcoups_settings[hide_expired_coupons]" value="1" <?php echo( $hide_expired_coupons == 1 ? 'checked' : '' ); ?> />
-            <label for="affcoups_hide_expired_coupons"><?php _e('Hide coupons after they expired', 'affiliate-coupons'); ?></label>
+            <label for="affcoups_hide_expired_coupons"><?php esc_html_e('Hide coupons after they expired', 'affiliate-coupons'); ?></label>
             <?php
         }
 
@@ -292,7 +287,7 @@ if ( ! class_exists('Affcoups_Settings') ) {
             $orderby = ( isset ( $this->options['orderby'] ) ) ? $this->options['orderby'] : 'date';
 
             ?>
-            <h4><?php _e('Order', 'affiliate-coupons' ); ?></h4>
+            <h4><?php esc_html_e('Order', 'affiliate-coupons' ); ?></h4>
             <p>
                 <select id="affcoups_order" name="affcoups_settings[order]">
                     <?php foreach ( $order_options as $key => $label ) { ?>
@@ -301,7 +296,7 @@ if ( ! class_exists('Affcoups_Settings') ) {
                 </select>
             </p>
 
-            <h4><?php _e('Order by', 'affiliate-coupons' ); ?></h4>
+            <h4><?php esc_html_e('Order by', 'affiliate-coupons' ); ?></h4>
             <p>
                 <select id="affcoups_orderby" name="affcoups_settings[orderby]">
                     <?php foreach ( $orderby_options as $key => $label ) { ?>
@@ -335,7 +330,7 @@ if ( ! class_exists('Affcoups_Settings') ) {
             $grid_size = ( ! empty( $this->options['grid_size'] ) && is_numeric( $this->options['grid_size'] ) ) ? intval( $this->options['grid_size'] ) : 3;
 
             ?>
-            <h4><?php _e('Template', 'affiliate-coupons' ); ?></h4>
+            <h4><?php esc_html_e('Template', 'affiliate-coupons' ); ?></h4>
             <p>
                 <select id="affcoups_template" name="affcoups_settings[template]">
                     <?php foreach ( $template_options as $key => $label ) { ?>
@@ -344,7 +339,7 @@ if ( ! class_exists('Affcoups_Settings') ) {
                 </select>
             </p>
 
-            <h4><?php _e('Grid size', 'affiliate-coupons' ); ?></h4>
+            <h4><?php esc_html_e('Grid size', 'affiliate-coupons' ); ?></h4>
             <p>
                 <input type="number" name="affcoups_settings[grid_size]" id="affcoups_grid_size" value="<?php echo esc_attr( trim( $grid_size ) ); ?>" />
             </p>
@@ -356,12 +351,12 @@ if ( ! class_exists('Affcoups_Settings') ) {
             $excerpt_length = ( ! empty( $this->options['excerpt_length'] ) && is_numeric( $this->options['excerpt_length'] ) ) ? intval( $this->options['excerpt_length'] ) : 90;
 
             ?>
-            <h4><?php _e('Excerpt Length', 'affiliate-coupons' ); ?></h4>
+            <h4><?php esc_html_e('Excerpt Length', 'affiliate-coupons' ); ?></h4>
             <p>
                 <input type="number" name="affcoups_settings[excerpt_length]" id="affcoups_excerpt_length" value="<?php echo esc_attr( trim( $excerpt_length ) ); ?>" />
             </p>
             <p class="desc">
-                <?php _e('Some templates are displaying an excerpt instead of the whole coupon description.', 'affiliate-coupons' ); ?>
+                <?php esc_html_e('Some templates are displaying an excerpt instead of the whole coupon description.', 'affiliate-coupons' ); ?>
             </p>
             <?php
         }
@@ -372,11 +367,11 @@ if ( ! class_exists('Affcoups_Settings') ) {
             $discount_color = ( isset ( $this->options['discount_color'] ) ) ? $this->options['discount_color'] : '';
 
             ?>
-            <h4><?php _e('Background Color', 'affiliate-coupons' ); ?></h4>
+            <h4><?php esc_html_e('Background Color', 'affiliate-coupons' ); ?></h4>
             <p>
                 <input type="text" class="affcoups-input-colorpicker" name="affcoups_settings[discount_bg_color]" value="<?php echo $discount_bg_color; ?>" />
             </p>
-            <h4><?php _e('Text Color', 'affiliate-coupons' ); ?></h4>
+            <h4><?php esc_html_e('Text Color', 'affiliate-coupons' ); ?></h4>
             <p>
                 <input type="text" class="affcoups-input-colorpicker" name="affcoups_settings[discount_color]" value="<?php echo $discount_color; ?>" />
             </p>
@@ -399,12 +394,12 @@ if ( ! class_exists('Affcoups_Settings') ) {
             $button_bg_color = ( isset ( $this->options['button_bg_color'] ) ) ? $this->options['button_bg_color'] : '';
             $button_color = ( isset ( $this->options['button_color'] ) ) ? $this->options['button_color'] : '';
             ?>
-            <h4><?php _e('Text', 'affiliate-coupons' ); ?></h4>
+            <h4><?php esc_html_e('Text', 'affiliate-coupons' ); ?></h4>
             <p>
                 <input type="text" name="affcoups_settings[button_text]" id="affcoups_button_text" value="<?php echo esc_attr( trim( $button_text ) ); ?>" />
             </p>
 
-            <h4><?php _e('Icon', 'affiliate-coupons' ); ?></h4>
+            <h4><?php esc_html_e('Icon', 'affiliate-coupons' ); ?></h4>
             <p>
                 <select id="affcoups_button_icon" name="affcoups_settings[button_icon]">
                     <?php foreach ( $button_icon_options as $key => $label ) { ?>
@@ -413,11 +408,11 @@ if ( ! class_exists('Affcoups_Settings') ) {
                 </select>
             </p>
 
-            <h4><?php _e('Background Color', 'affiliate-coupons' ); ?></h4>
+            <h4><?php esc_html_e('Background Color', 'affiliate-coupons' ); ?></h4>
             <p>
                 <input type="text" class="affcoups-input-colorpicker" name="affcoups_settings[button_bg_color]" value="<?php echo $button_bg_color; ?>" />
             </p>
-            <h4><?php _e('Text Color', 'affiliate-coupons' ); ?></h4>
+            <h4><?php esc_html_e('Text Color', 'affiliate-coupons' ); ?></h4>
             <p>
                 <input type="text" class="affcoups-input-colorpicker" name="affcoups_settings[button_color]" value="<?php echo $button_color; ?>" />
             </p>
@@ -433,12 +428,12 @@ if ( ! class_exists('Affcoups_Settings') ) {
 
             <p>
                 <input type="checkbox" id="affcoups_custom_css_activated" name="affcoups_settings[custom_css_activated]" value="1" <?php echo( $custom_css_activated == 1 ? 'checked' : '' ); ?>>
-                <label for="affcoups_custom_css_activated"><?php _e('Output custom CSS styles', 'affiliate-coupons'); ?></label>
+                <label for="affcoups_custom_css_activated"><?php esc_html_e('Output custom CSS styles', 'affiliate-coupons'); ?></label>
             </p>
             <br />
             <textarea id="affcoups_custom_css" name="affcoups_settings[custom_css]" rows="10" cols="80" style="width: 100%;"><?php echo stripslashes( $custom_css ); ?></textarea>
             <p>
-                <small><?php _e("Please don't use the <code>style</code> tag. Simply paste you CSS classes/definitions e.g. <code>.affcoups .affcoups-coupon { background-color: #333; }</code>", 'affiliate-coupons' ) ?></small>
+                <small><?php esc_html_e("Please don't use the <code>style</code> tag. Simply paste you CSS classes/definitions e.g. <code>.affcoups .affcoups-coupon { background-color: #333; }</code>", 'affiliate-coupons' ) ?></small>
             </p>
 
             <?php
@@ -447,7 +442,7 @@ if ( ! class_exists('Affcoups_Settings') ) {
         function the_color_picker_note() {
             ?>
             <p class="desc">
-                <?php _e('In case you want to change the colors, you must pick a new color for all fields above.', 'affiliate-coupons' ); ?>
+                <?php esc_html_e('In case you want to change the colors, you must pick a new color for all fields above.', 'affiliate-coupons' ); ?>
             </p>
             <?php
         }
@@ -457,7 +452,7 @@ if ( ! class_exists('Affcoups_Settings') ) {
 
             <div class="affcoups affcoups-settings">
                 <div class="wrap">
-                    <h2 class="affcoups-settings-headline"><?php _e('Affiliate Coupons', 'affiliate-coupons'); ?></h2>
+                    <h2 class="affcoups-settings-headline"><?php esc_html_e('Affiliate Coupons', 'affiliate-coupons'); ?></h2>
 
                     <div id="poststuff">
                         <div id="post-body" class="metabox-holder columns-2">
@@ -481,7 +476,7 @@ if ( ! class_exists('Affcoups_Settings') ) {
                                     <div class="postbox">
                                         <h3><span>Resources &amp; Support</span></h3>
                                         <div class="inside">
-                                            <p><?php _e('Here you can find a brief overview of the most important resources in order use our plugin.', 'affiliate-coupons' ); ?></p>
+                                            <p><?php esc_html_e('Here you can find a brief overview of the most important resources in order use our plugin.', 'affiliate-coupons' ); ?></p>
                                             <ul>
                                                 <li><a href="<?php echo affcoups_get_website_url(); ?>" target="_blank">Website</a></li>
                                                 <li><a href="<?php echo affcoups_get_website_url( 'support' ); ?>" target="_blank">Support</a></li>
@@ -500,16 +495,16 @@ if ( ! class_exists('Affcoups_Settings') ) {
                                     $form_group_name = apply_filters( 'affcoups_sidebar_subscribe_form_group_name', 'group[12785][2]' );
                                     ?>
                                     <div class="postbox">
-                                        <h3><span><?php _e('Latest News & Updates', 'affiliate-coupons' ); ?></span></h3>
+                                        <h3><span><?php esc_html_e('Latest News & Updates', 'affiliate-coupons' ); ?></span></h3>
                                         <div class="inside">
-                                            <p><?php _e('Join our newsletter and we let you know about new releases, as well as important updates and upcoming deals.', 'affiliate-coupons' ); ?></p>
+                                            <p><?php esc_html_e('Join our newsletter and we let you know about new releases, as well as important updates and upcoming deals.', 'affiliate-coupons' ); ?></p>
                                             <!-- Begin MailChimp Signup Form -->
                                             <div id="mc_embed_signup">
                                                 <form action="https://flowdee.us10.list-manage.com/subscribe/post?u=cc9fc194eb9ba7a4d8616c2cb&amp;id=a4798350bf" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
                                                     <div id="mc_embed_signup_scroll">
 
                                                         <div class="mc-field-group">
-                                                            <label for="mce-EMAIL"><?php _e('Email Address', 'affiliate-coupons' ); ?></label>
+                                                            <label for="mce-EMAIL"><?php esc_html_e('Email Address', 'affiliate-coupons' ); ?></label>
                                                             <input type="email" value="<?php echo $user_email; ?>" name="EMAIL" class="required email" id="mce-EMAIL">
                                                         </div>
                                                         <div id="mce-responses" class="clear">
@@ -520,7 +515,7 @@ if ( ! class_exists('Affcoups_Settings') ) {
                                                         <input type="checkbox" id="group_cr" name="<?php echo $form_group_name; ?>" value="1" checked="checked" style="display:none">
                                                         <div class="clear">
                                                             <p>
-                                                                <input type="submit" value="<?php _e('Subscribe', 'affiliate-coupons' ); ?>" name="subscribe" id="mc-embedded-subscribe" class="button">
+                                                                <input type="submit" value="<?php esc_html_e('Subscribe', 'affiliate-coupons' ); ?>" name="subscribe" id="mc-embedded-subscribe" class="button">
                                                             </p>
                                                         </div>
                                                     </div>
