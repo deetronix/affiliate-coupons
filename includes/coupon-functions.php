@@ -298,7 +298,7 @@ function affcoups_the_coupon_thumbnail( $coupon_id = null ) {
     }
 
     // Output
-    echo esc_attr( $thumbnail );
+    echo wp_kses_post( $thumbnail );
 }
 
 /**
