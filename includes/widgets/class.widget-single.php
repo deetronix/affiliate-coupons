@@ -38,10 +38,10 @@ if ( ! class_exists( 'Affcoups_Single_Widget' ) ) {
          */
         public function widget( $args, $instance ) {
 
-            echo esc_attr( $args['before_widget'] );
+            echo wp_kses_post( $args['before_widget'] );
 
             if ( ! empty( $instance['title'] ) ) {
-                echo esc_attr( $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'] );
+                echo wp_kses_post( $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'] );
             }
 
             if ( ! empty ( $instance['id'] ) ) {
@@ -58,10 +58,10 @@ if ( ! class_exists( 'Affcoups_Single_Widget' ) ) {
                 affcoups_widget_do_shortcode( $shortcode_atts );
 
             } else {
-	            esc_attr_e( 'Please select a coupon.', 'affiliate-coupons' );
+	            wp_kses_post( 'Please select a coupon.', 'affiliate-coupons' );
             }
 
-            echo esc_attr( $args['after_widget'] );
+            echo wp_kses_post( $args['after_widget'] );
         }
 
         /**
