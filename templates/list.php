@@ -40,7 +40,7 @@ if ( ! isset( $coupons ) ) {
                             <?php affcoups_the_coupon_excerpt(); ?>
                         </div>
                         <div class="affcoups-coupon__description-full">
-                            <?php echo esc_attr( affcoups_get_coupon_description() ); ?>
+                            <?php echo wp_kses_post( affcoups_get_coupon_description() ); ?>
                             <a href="#" class="affcoups-toggle-desc" data-affcoups-toggle-desc="true">Less</a>
                         </div>
                     </div>

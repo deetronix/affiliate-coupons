@@ -29,7 +29,7 @@ if ( ! isset( $coupons ) ) {
                     <?php } ?>
 
                     <div class="affcoups-coupon__description">
-                        <?php echo esc_attr( affcoups_get_coupon_description() ); ?>
+                        <?php echo wp_kses_post( affcoups_get_coupon_description() ); ?>
                     </div>
 
                     <?php if ( affcoups_get_coupon_code() ) { ?>

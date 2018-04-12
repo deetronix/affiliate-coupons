@@ -4,7 +4,9 @@
  */
 
 // Exit if accessed directly
-if( !defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+};
 
 if ( ! class_exists( 'Affcoups_Single_Widget' ) ) {
 
