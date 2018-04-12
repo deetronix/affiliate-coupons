@@ -24,7 +24,7 @@ if ( ! class_exists( 'Affcoups_Single_Widget' ) ) {
             parent::__construct(
                 'affcoups_single_widget', // Base ID
                 'Affiliate Coupons - ' . __( 'Single Coupon', 'affiliate-coupons' ), // Name
-                array( 'description' => __( 'Displaying courses by their ids.', 'affiliate-coupons' ), ) // Args
+                array( 'description' => __( 'Display single coupon.', 'affiliate-coupons' ), ) // Args
             );
         }
 
@@ -58,7 +58,7 @@ if ( ! class_exists( 'Affcoups_Single_Widget' ) ) {
                 affcoups_widget_do_shortcode( $shortcode_atts );
 
             } else {
-	            wp_kses_post( 'Please select a coupon.', 'affiliate-coupons' );
+	            echo esc_attr( 'Please select a coupon.', 'affiliate-coupons' );
             }
 
             echo wp_kses_post( $args['after_widget'] );
