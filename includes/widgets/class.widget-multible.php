@@ -62,15 +62,21 @@ if ( ! class_exists( 'Affcoups_Multible_Widget' ) ) {
 	            }
 	            
 	            // Orderby
-	            $shortcode_atts['orderby'] = $instance['orderby'];
+	            if ( ! empty ( $instance['orderby'] ) ) {
+		            $shortcode_atts['orderby'] = $instance['orderby'];
+	            }
 	
 	            // Order
-	            $shortcode_atts['order'] = $instance['order'];
+	            if ( ! empty ( $instance['order'] ) ) {
+		            $shortcode_atts['order'] = $instance['order'];
+	            }
 
                 // Template
-                $shortcode_atts['template'] = $instance['template'];
-
-                // Execute Shortcode
+	            if ( ! empty ( $instance['template'] ) ) {
+		            $shortcode_atts['template'] = $instance['template'];
+	            }
+	            
+	            // Execute Shortcode
                 affcoups_widget_do_shortcode( $shortcode_atts );
 
             } else {
@@ -88,8 +94,6 @@ if ( ! class_exists( 'Affcoups_Multible_Widget' ) ) {
          * @param array $instance Previously saved values from database.
          */
         public function form( $instance ) {
-         
-	        //affcoups_debug($categories);
             
             $title    = ! empty( $instance['title'] ) ? $instance['title'] : '';
             $category = ! empty( $instance['category'] ) ? $instance['category'] : '';
@@ -114,8 +118,7 @@ if ( ! class_exists( 'Affcoups_Multible_Widget' ) ) {
                 <label for="<?php echo esc_attr( $this->get_field_id( 'category' ) ); ?>"><?php esc_attr_e( 'Coupon Category:', 'affiliate-coupons' ); ?></label>
                 <select class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'category' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'category' ) ); ?>">
                     <?php foreach ( $categories as $key => $label ) { ?>
-                        <option value="" disabled selected><?php esc_attr_e( 'Please select...', 'affiliate-coupons' ); ?></option>
-                        <option value="<?php echo esc_attr( $label->name ); ?>" <?php selected( $category, $key ); ?>><?php echo esc_attr( $label->name ); ?></option>
+                        <option value="<?php echo esc_attr( $key ); ?>" <?php selected( $category, $key ); ?>><?php echo esc_attr( $label ); ?></option>
                     <?php } ?>
                 </select>
             </p>
@@ -128,8 +131,7 @@ if ( ! class_exists( 'Affcoups_Multible_Widget' ) ) {
                 <label for="<?php echo esc_attr( $this->get_field_id( 'type' ) ); ?>"><?php esc_attr_e( 'Coupon Type:', 'affiliate-coupons' ); ?></label>
                 <select class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'type' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'type' ) ); ?>">
 			        <?php foreach ( $types as $key => $label ) { ?>
-                        <option value="" disabled selected><?php esc_attr_e( 'Please select...', 'affiliate-coupons' ); ?></option>
-                        <option value="<?php echo esc_attr( $label->name ); ?>" <?php selected( $type, $key ); ?>><?php echo esc_attr( $label->name ); ?></option>
+                        <option value="<?php echo esc_attr( $key ); ?>" <?php selected( $type, $key ); ?>><?php echo esc_attr( $label ); ?></option>
 			        <?php } ?>
                 </select>
             </p>
@@ -137,7 +139,6 @@ if ( ! class_exists( 'Affcoups_Multible_Widget' ) ) {
             <!-- Vendor -->
 	        <?php
 	        $vendors = affcoups_get_vendors_list();
-	        //affcoups_debug($vendors);
 	        ?>
             <p>
                 <label for="<?php echo esc_attr( $this->get_field_id( 'type' ) ); ?>"><?php esc_attr_e( 'Coupon Vendor:', 'affiliate-coupons' ); ?></label>

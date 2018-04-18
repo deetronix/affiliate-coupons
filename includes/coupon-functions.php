@@ -625,23 +625,47 @@ function affcoups_the_coupon_button( $coupon_id = null ) {
  */
 function affcoups_get_category_taxonomy() {
  
+	$options = array(
+		0 => __('Please select...', 'affiliate-coupons' )
+	);
+	
 	$terms = get_terms([
 		'taxonomy' => 'affcoups_coupon_category'
 	]);
 	
-	return $terms;
+	if ( sizeof( $options ) > 0 ) {
+		
+		foreach ( $terms as $term ) {
+			$options[$term->term_id] = $term->name;
+		}
+	 
+	}
+    
+	return $options;
 }
 
 /**
  * Display coupon types
  */
 function affcoups_get_types_taxonomy() {
-    
-    $types = get_terms([
-        'taxonomy' => 'affcoups_coupon_type'
-    ]);
-    
-    return $types;
+	
+	$options = array(
+		0 => __('Please select...', 'affiliate-coupons' )
+	);
+	
+	$types = get_terms([
+		'taxonomy' => 'affcoups_coupon_type'
+	]);
+	
+	if ( sizeof( $options ) > 0 ) {
+	    
+        foreach ( $types as $type ) {
+            $options[$type->term_id] = $type->name;
+        }
+        
+	}
+	
+	return $options;
 }
 
 /**
