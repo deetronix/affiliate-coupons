@@ -54,6 +54,8 @@ function affcoups_add_shortcode( $atts, $content ) {
 		'orderby'        => 'name',
 		'order'          => 'ASC',
 	);
+	
+	var_dump($max);
 
 	//-- Max
 	$args['posts_per_page'] = ( ! empty( $max ) && is_numeric( $max ) ) ? intval( $max ) : '-1';

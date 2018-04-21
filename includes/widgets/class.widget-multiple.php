@@ -1,6 +1,6 @@
 <?php
 /**
- * Widget: Multible Coupons
+ * Widget: Multiple Coupons
  */
 
 // Exit if accessed directly
@@ -8,12 +8,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 };
 
-if ( ! class_exists( 'Affcoups_Multible_Widget' ) ) {
+if ( ! class_exists( 'Affcoups_Multiple_Widget' ) ) {
 
     /**
      * Adds UFWP_Courses widget.
      */
-    class Affcoups_Multible_Widget extends WP_Widget {
+    class Affcoups_Multiple_Widget extends WP_Widget {
 
         protected static $did_script = false;
 
@@ -22,8 +22,8 @@ if ( ! class_exists( 'Affcoups_Multible_Widget' ) ) {
          */
         function __construct() {
             parent::__construct(
-                'affcoups_multible_widget', // Base ID
-                'Affiliate Coupons - ' . __( 'Multible Coupons', 'affiliate-coupons' ), // Name
+                'affcoups_multiple_widget', // Base ID
+                'Affiliate Coupons - ' . __( 'Multiple Coupons', 'affiliate-coupons' ), // Name
                 array( 'description' => __( 'Displaying coupons by their category.', 'affiliate-coupons' ), ) // Args
             );
         }
@@ -43,45 +43,45 @@ if ( ! class_exists( 'Affcoups_Multible_Widget' ) ) {
             if ( ! empty( $instance['title'] ) ) {
                 echo wp_kses_post( $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'] );
             }
-
+            
+            // Category
             if ( ! empty ( $instance['category'] ) ) {
-
-                // Category
-                $shortcode_atts = array(
-                    'category' => $instance['category'],
-                );
-	            
-	            // Type
-	            if ( ! empty ( $instance['type'] ) ) {
-		            $shortcode_atts['type'] = $instance['type'];
-	            }
-	
-	            // Vendor
-	            if ( ! empty ( $instance['vendor'] ) ) {
-		            $shortcode_atts['vendor'] = $instance['vendor'];
-	            }
-	            
-	            // Orderby
-	            if ( ! empty ( $instance['orderby'] ) ) {
-		            $shortcode_atts['orderby'] = $instance['orderby'];
-	            }
-	
-	            // Order
-	            if ( ! empty ( $instance['order'] ) ) {
-		            $shortcode_atts['order'] = $instance['order'];
-	            }
-
-                // Template
-	            if ( ! empty ( $instance['template'] ) ) {
-		            $shortcode_atts['template'] = $instance['template'];
-	            }
-	            
-	            // Execute Shortcode
-                affcoups_widget_do_shortcode( $shortcode_atts );
-
-            } else {
-	            echo esc_attr( 'Please select a category.', 'affiliate-coupons' );
+                $shortcode_atts['category'] = $instance['category'];
             }
+            
+            // Type
+            if ( ! empty ( $instance['type'] ) ) {
+                $shortcode_atts['type'] = $instance['type'];
+            }
+
+            // Vendor
+            if ( ! empty ( $instance['vendor'] ) ) {
+                $shortcode_atts['vendor'] = $instance['vendor'];
+            }
+            
+            // Orderby
+            if ( ! empty ( $instance['orderby'] ) ) {
+                $shortcode_atts['orderby'] = $instance['orderby'];
+            }
+
+            // Order
+            if ( ! empty ( $instance['order'] ) ) {
+                $shortcode_atts['order'] = $instance['order'];
+            }
+	
+	        // Coupons per Page
+	        if ( ! empty ( $instance['max'] ) ) {
+		        $shortcode_atts['max'] = $instance['max'];
+	        }
+
+            // Template
+            if ( ! empty ( $instance['template'] ) ) {
+                $shortcode_atts['template'] = $instance['template'];
+            }
+            
+            // Execute Shortcode
+            affcoups_widget_do_shortcode( $shortcode_atts );
+	           
 
             echo wp_kses_post( $args['after_widget'] );
         }
@@ -95,13 +95,14 @@ if ( ! class_exists( 'Affcoups_Multible_Widget' ) ) {
          */
         public function form( $instance ) {
             
-            $title    = ! empty( $instance['title'] ) ? $instance['title'] : '';
-            $category = ! empty( $instance['category'] ) ? $instance['category'] : '';
-	        $type     = ! empty( $instance['type'] ) ? $instance['type'] : '';
-	        $vendor   = ! empty( $instance['vendor'] ) ? $instance['vendor'] : '';
-	        $orderby  = ! empty( $instance['orderby'] ) ? $instance['orderby'] : 'date';
-	        $order    = ! empty( $instance['order'] ) ? $instance['order'] : '';
-            $template = ! empty( $instance['template'] ) ? $instance['template'] : 'widget';
+            $title     = ! empty( $instance['title'] ) ? $instance['title'] : '';
+            $category  = ! empty( $instance['category'] ) ? $instance['category'] : '';
+	        $type      = ! empty( $instance['type'] ) ? $instance['type'] : '';
+	        $vendor    = ! empty( $instance['vendor'] ) ? $instance['vendor'] : '';
+	        $orderby   = ! empty( $instance['orderby'] ) ? $instance['orderby'] : 'date';
+	        $order     = ! empty( $instance['order'] ) ? $instance['order'] : '';
+	        $max       = ! empty( $instance['max'] ) ? intval( $instance['max'] ) : '';
+            $template  = ! empty( $instance['template'] ) ? $instance['template'] : 'widget';
 
             ?>
             <!-- Title -->
@@ -182,6 +183,12 @@ if ( ! class_exists( 'Affcoups_Multible_Widget' ) ) {
                 </select>
             </p>
 
+            <!-- Number of Coupons -->
+            <p>
+                <label for="<?php echo esc_attr( $this->get_field_id( 'max' ) ); ?>"><?php esc_attr_e( esc_attr( 'Number of Coupons:' ), 'affiliate-coupons' ); ?></label>
+                <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'max' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'max' ) ); ?>" type="number" value="<?php echo esc_attr( $max ); ?>">
+            </p>
+
             <!-- Template -->
             <?php
             $templates = array(
@@ -223,6 +230,7 @@ if ( ! class_exists( 'Affcoups_Multible_Widget' ) ) {
 	        $instance['vendor']   = ( ! empty( $new_instance['vendor'] ) ) ? strip_tags( $new_instance['vendor'] ) : '';
 	        $instance['orderby']  = ( ! empty( $new_instance['orderby'] ) ) ? strip_tags( $new_instance['orderby'] ) : '';
 	        $instance['order']    = ( ! empty( $new_instance['order'] ) ) ? strip_tags( $new_instance['order'] ) : '';
+	        $instance['max']      = ( ! empty( $new_instance['max'] ) ) ? strip_tags( $new_instance['max'] ) : '';
 	        $instance['template'] = ( ! empty( $new_instance['template'] ) ) ? strip_tags( $new_instance['template'] ) : '';
 
             return $instance;

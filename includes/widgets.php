@@ -12,14 +12,14 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Load Widgets
  */
 require_once AFFCOUPS_DIR . 'includes/widgets/class.widget-single.php';
-require_once AFFCOUPS_DIR . 'includes/widgets/class.widget-multible.php';
+require_once AFFCOUPS_DIR . 'includes/widgets/class.widget-multiple.php';
 
 /**
  * Register Widgets
  */
 function affcoups_register_widgets() {
 	register_widget( 'Affcoups_Single_Widget' );
-	register_widget( 'Affcoups_Multible_Widget' );
+	register_widget( 'Affcoups_Multiple_Widget' );
 
 	do_action( 'affcoups_register_widgets' );
 }
