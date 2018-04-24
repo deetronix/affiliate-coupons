@@ -79,7 +79,7 @@ Yes of course.
 
 == Changelog ==
 
-= Version 2.0.0 (24th April 2018) =
+= Version 1.3.0 (24th April 2018) =
 * New: Added multiple coupons plugin
 * Improvement: Security
 * WordPress v4.9.5 compatibility
