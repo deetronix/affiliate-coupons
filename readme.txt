@@ -1,10 +1,10 @@
 === Affiliate Coupons ===
-Contributors: flowdee
+Contributors: flowdee, bentzibentz
 Donate link: https://donate.flowdee.de
 Tags: affiliate, affiliates, coupon, coupons, deals, affiliate coupon, affiliate coupons, affiliate deals, dealz, vendors, affiliate marketing
 Requires at least: 3.0.1
-Tested up to: 4.9.1
-Stable tag: 1.2.2
+Tested up to: 4.9.5
+Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,10 +39,6 @@ Promote coupons and deals of products and earn money with affiliate referrals.
 
 * Browse [issue tracker](https://github.com/flowdee/affiliate-coupons/issues) on GitHub
 * [Follow us on Twitter](https://twitter.com/affcoups) to stay in contact and informed about updates
-
-= Sites using Affiliate Coupons =
-
-*   [WP Deals](https://wp-deals.com/wordpress-deals-discounts-plugins/)
 
 == Installation ==
 
@@ -82,6 +78,11 @@ Yes of course.
 2. Settings
 
 == Changelog ==
+
+= Version 2.0.0 (24th April 2018) =
+* New: Added multiple coupons plugin
+* Improvement: Security
+* WordPress v4.9.5 compatibility
 
 = Version 1.2.2 (30th November 2017) =
 * New: Added setting in order to adjust the default excerpt length
