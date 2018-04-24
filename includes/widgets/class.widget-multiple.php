@@ -100,8 +100,8 @@ if ( ! class_exists( 'Affcoups_Multiple_Widget' ) ) {
 	        $type      = ! empty( $instance['type'] ) ? $instance['type'] : '';
 	        $vendor    = ! empty( $instance['vendor'] ) ? $instance['vendor'] : '';
 	        $orderby   = ! empty( $instance['orderby'] ) ? $instance['orderby'] : 'date';
-	        $order     = ! empty( $instance['order'] ) ? $instance['order'] : '';
-	        $max       = ! empty( $instance['max'] ) ? intval( $instance['max'] ) : '';
+	        $order     = ! empty( $instance['order'] ) ? $instance['order'] : 'rand';
+	        $max       = ! empty( $instance['max'] ) ? intval( $instance['max'] ) : '3';
             $template  = ! empty( $instance['template'] ) ? $instance['template'] : 'widget';
 
             ?>
