@@ -80,7 +80,7 @@ Yes of course.
 == Changelog ==
 
 = Version 1.3.0 (24th April 2018) =
-* New: Added multiple coupons plugin
+* New: Added multiple coupons widget
 * Improvement: Security
 * WordPress v4.9.5 compatibility
 
@@ -158,6 +158,11 @@ Yes of course.
 * Initial release
 
 == Upgrade Notice ==
+
+= Version 1.3.0 (24th April 2018) =
+* New: Added multiple coupons widget
+* Improvement: Security
+* WordPress v4.9.5 compatibility
 
 = Version 1.2.2 (30th November 2017) =
 * New: Added setting in order to adjust the default excerpt length
