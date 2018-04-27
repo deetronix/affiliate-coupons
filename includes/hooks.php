@@ -29,7 +29,7 @@ function affcoups_maybe_output_settings_css() {
 
 	// Finished
 	if ( ! empty( $settings_css ) ) {
-		echo esc_attr( '<style type="text/css">' . $settings_css . '</style>' );
+		echo '<style type="text/css">' . $settings_css . '</style>';
 	};
 
 }
@@ -45,7 +45,7 @@ function affcoups_maybe_output_custom_css() {
 	$custom_css_activated = ( isset( $options['custom_css_activated'] ) && '1' === $options['custom_css_activated'] ) ? true : false;
 
 	if ( $custom_css_activated && ! empty( $options['custom_css'] ) ) {
-		echo esc_attr( '<style type="text/css">' . $options['custom_css'] . '</style>' );
+		echo '<style type="text/css">' . $options['custom_css'] . '</style>';
 	};
 
 }
@@ -71,7 +71,7 @@ function affcoups_print_amp_styles() {
 	$stylesheet_css = affcoups_get_amp_styles();
 
 	if ( ! empty( $stylesheet_css ) ) {
-		echo esc_attr( $stylesheet_css );
+		echo $stylesheet_css;
 	}
 
 	// Settings CSS
@@ -79,17 +79,17 @@ function affcoups_print_amp_styles() {
 	$settings_css = apply_filters( 'affcoups_custom_settings_amp_css', $settings_css );
 
 	if ( ! empty( $settings_css ) ) {
-		echo esc_attr( affcoups_cleanup_css_for_amp( $settings_css ) );
+		echo affcoups_cleanup_css_for_amp( $settings_css );
 	}
 
-	echo esc_attr( affcoups_cleanup_css_for_amp( $settings_css ) );
+	echo affcoups_cleanup_css_for_amp( $settings_css );
 
 	// Custom CSS
 	$custom_css_activated = ( isset( $options['custom_css_activated'] ) && '1' === $options['custom_css_activated'] ) ? true : false;
 	$custom_css           = ( isset( $options['custom_css'] ) ) ? $options['custom_css'] : '';
 
 	if ( $custom_css_activated && ! empty( $custom_css ) ) {
-		echo esc_attr( affcoups_cleanup_css_for_amp( $custom_css ) );
+		echo affcoups_cleanup_css_for_amp( $custom_css );
 	}
 }
 add_action( 'amp_post_template_css', 'affcoups_print_amp_styles' ); // AMP, Accelerated Mobile Pages
