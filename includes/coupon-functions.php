@@ -244,7 +244,7 @@ function affcoups_get_coupon_image( $coupon_id = null, $size = null ) {
 	
 	//affcoups_debug($coupon_feature_image);
 	
-	if ( has_post_thumbnail() ) {
+	if ( has_post_thumbnail( $coupon_id ) ) {
 	 
 		$coupon_thumbnail_id = get_post_thumbnail_id( $coupon_id );
 		$coupon_image_alt = get_post_meta( $coupon_thumbnail_id, '_wp_attachment_image_alt', true );
