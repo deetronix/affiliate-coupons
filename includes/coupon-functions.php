@@ -241,9 +241,6 @@ function affcoups_get_coupon_image( $coupon_id = null, $size = null ) {
     // Get thumbnail from coupon
     $image_size = ( 'small' === $size ) ? 'affcoups-thumb-small' : 'affcoups-thumb';
 	
-	
-	//affcoups_debug($coupon_feature_image);
-	
 	if ( has_post_thumbnail( $coupon_id ) ) {
 	 
 		$coupon_thumbnail_id = get_post_thumbnail_id( $coupon_id );
@@ -254,8 +251,6 @@ function affcoups_get_coupon_image( $coupon_id = null, $size = null ) {
 		  'url' => $coupon_image_url,
           'alt' => $coupon_image_alt
         );
-		
-		//affcoups_debug($coupon_feature_image);
 		
 		return $coupon_feature_image;
 	   
