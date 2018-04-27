@@ -248,7 +248,7 @@ function affcoups_get_coupon_image( $coupon_id = null, $size = null ) {
 	 
 		$coupon_thumbnail_id = get_post_thumbnail_id( $coupon_id );
 		$coupon_image_alt = get_post_meta( $coupon_thumbnail_id, '_wp_attachment_image_alt', true );
-		$coupon_image_url = get_the_post_thumbnail_url( $coupon_id );
+		$coupon_image_url = get_the_post_thumbnail_url( $coupon_id, $image_size );
 		
 		$coupon_feature_image = array(
 		  'url' => $coupon_image_url,
