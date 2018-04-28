@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: Affiliate Coupons\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/affiliate-"
 "coupons\n"
-"POT-Creation-Date: 2018-04-24 17:48+0200\n"
+"POT-Creation-Date: 2018-04-28 09:41+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -279,7 +279,7 @@ msgstr ""
 msgid "Text Color"
 msgstr ""
 
-#: includes/admin/class.settings.php:383 includes/coupon-functions.php:597
+#: includes/admin/class.settings.php:383 includes/coupon-functions.php:616
 msgid "Go to the deal"
 msgstr ""
 
@@ -451,33 +451,33 @@ msgstr ""
 msgid "Categories list navigation"
 msgstr ""
 
-#: includes/coupon-functions.php:200 includes/coupon-functions.php:629
-#: includes/coupon-functions.php:653 includes/coupon-functions.php:679
+#: includes/coupon-functions.php:200 includes/coupon-functions.php:648
+#: includes/coupon-functions.php:672 includes/coupon-functions.php:698
 #: includes/coupon-metaboxes.php:26
 msgid "Please select..."
 msgstr ""
 
-#: includes/coupon-functions.php:417
+#: includes/coupon-functions.php:436
 msgid "More"
 msgstr ""
 
-#: includes/coupon-functions.php:454
+#: includes/coupon-functions.php:473
 msgid "Copied!"
 msgstr ""
 
-#: includes/coupon-functions.php:455
+#: includes/coupon-functions.php:474
 msgid "Copy"
 msgstr ""
 
-#: includes/coupon-functions.php:567 includes/coupon-metaboxes.php:54
+#: includes/coupon-functions.php:586 includes/coupon-metaboxes.php:54
 msgid "Valid from"
 msgstr ""
 
-#: includes/coupon-functions.php:572 includes/coupon-metaboxes.php:68
+#: includes/coupon-functions.php:591 includes/coupon-metaboxes.php:68
 msgid "Valid until"
 msgstr ""
 
-#: includes/coupon-functions.php:572
+#: includes/coupon-functions.php:591
 msgid "until"
 msgstr ""
 
