@@ -92,6 +92,7 @@ class RWMB_Autoloader {
 			'sanitizer',
 			'media-modal',
 			'wpml',
+			'about/about.php',
 
 			// Walkers.
 			'walkers/walker',
@@ -143,7 +144,6 @@ class RWMB_Autoloader {
 			'fields/file',
 			'fields/image',
 			'fields/image-select',
-			'fields/thickbox-image',
 
 			'fields/media',
 			'fields/file-upload',

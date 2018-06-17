@@ -58,6 +58,9 @@ class RW_Meta_Box {
 		}
 
 		$this->meta_box['fields'] = self::normalize_fields( $meta_box['fields'], $storage );
+
+		$this->meta_box = apply_filters( 'rwmb_meta_box_settings', $this->meta_box );
+
 		if ( $this->is_shown() ) {
 			$this->global_hooks();
 			$this->object_hooks();
@@ -141,6 +144,10 @@ class RW_Meta_Box {
 			wp_enqueue_style( 'rwmb-rtl', RWMB_CSS_URL . 'style-rtl.css', array(), RWMB_VER );
 		}
 
+		if ( 'seamless' === $this->style ) {
+			wp_enqueue_script( 'rwmb', RWMB_JS_URL . 'script.js', array( 'jquery' ), RWMB_VER, true );
+		}
+
 		// Load clone script conditionally.
 		foreach ( $this->fields as $field ) {
 			if ( $field['clone'] ) {
@@ -203,12 +210,15 @@ class RW_Meta_Box {
 	 * Callback function to show fields in meta box
 	 */
 	public function show() {
-		$this->set_object_id( $this->get_current_object_id() );
+		if ( null === $this->object_id ) {
+			$this->set_object_id( $this->get_current_object_id() );
+		}
 		$saved = $this->is_saved();
 
 		// Container.
 		printf(
-			'<div class="rwmb-meta-box" data-autosave="%s" data-object-type="%s">',
+			'<div class="rwmb-meta-box%s" data-autosave="%s" data-object-type="%s">',
+			esc_attr( 'seamless' === $this->style ? ' rwmb-meta-box--seamless' : '' ),
 			esc_attr( $this->autosave ? 'true' : 'false' ),
 			esc_attr( $this->object_type )
 		);
@@ -287,8 +297,13 @@ class RW_Meta_Box {
 			}
 			$new = RWMB_Field::filter( 'value', $new, $field, $old );
 
+			// Filter to allow the field to be modified.
+			$field = RWMB_Field::filter( 'field', $field, $field, $new, $old );
+
 			// Call defined method to save meta value, if there's no methods, call common one.
 			RWMB_Field::call( $field, 'save', $new, $old, $post_id );
+
+			RWMB_Field::filter( 'after_save_field', null, $field, $new, $old, $post_id, $field );
 		}
 	}
 
@@ -303,8 +318,7 @@ class RW_Meta_Box {
 	public function validate() {
 		$nonce = filter_input( INPUT_POST, "nonce_{$this->id}", FILTER_SANITIZE_STRING );
 
-		return
-			! $this->saved
+		return ! $this->saved
 			&& ( ! defined( 'DOING_AUTOSAVE' ) || $this->autosave )
 			&& wp_verify_nonce( $nonce, "rwmb-save-{$this->id}" );
 	}
@@ -325,6 +339,7 @@ class RW_Meta_Box {
 			'post_types'     => 'post',
 			'autosave'       => false,
 			'default_hidden' => false,
+			'style'          => 'default',
 		) );
 
 		/**
@@ -382,6 +397,9 @@ class RW_Meta_Box {
 				continue;
 			}
 			$value = RWMB_Field::call( $field, 'raw_meta', $this->object_id );
+			if ( false === $value ) {
+				continue;
+			}
 			if (
 				( ! $field['multiple'] && '' !== $value )
 				|| ( $field['multiple'] && array() !== $value )
@@ -422,12 +440,10 @@ class RW_Meta_Box {
 	/**
 	 * Set the object ID.
 	 *
-	 * @param null|int $id Object ID. null means the current object ID.
+	 * @param mixed $id Object ID.
 	 */
 	public function set_object_id( $id = null ) {
-		if ( null === $this->object_id ) {
-			$this->object_id = $id;
-		}
+		$this->object_id = $id;
 	}
 
 	/**
