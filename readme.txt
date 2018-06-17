@@ -3,8 +3,8 @@ Contributors: flowdee, bentzibentz
 Donate link: https://donate.flowdee.de
 Tags: affiliate, affiliates, coupon, coupons, deals, affiliate coupon, affiliate coupons, affiliate deals, dealz, vendors, affiliate marketing
 Requires at least: 3.0.1
-Tested up to: 4.9.5
-Stable tag: 1.3.1
+Tested up to: 4.9.6
+Stable tag: 1.3.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -78,6 +78,11 @@ Yes of course.
 2. Settings
 
 == Changelog ==
+
+= Version 1.3.2 (17th June 2018) =
+* Fix: Settings section headlines were not output correctly
+* Updated Meta Box dependency to latest v4.14.11
+* WordPress v4.9.6 compatibility
 
 = Version 1.3.1 (28th April 2018) =
 * New: Overwrite coupon image with post thumbnail
@@ -162,6 +167,11 @@ Yes of course.
 * Initial release
 
 == Upgrade Notice ==
+
+= Version 1.3.2 (17th June 2018) =
+* Fix: Settings section headlines were not output correctly
+* Updated Meta Box dependency to latest v4.14.11
+* WordPress v4.9.6 compatibility
 
 = Version 1.3.1 (28th April 2018) =
 * New: Overwrite coupon image with post thumbnail
