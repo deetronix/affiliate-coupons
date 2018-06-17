@@ -24,20 +24,24 @@ function affcoups_admin_scripts( $hook ) {
 	$suffix = ( ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ) ? '' : '.min';
 
 	/**
-	*Settings page only
-	*/
+	 *Settings page only
+	 */
 	$screen = get_current_screen();
 
 	if ( affcoups_is_plugin_admin_area() || ( isset( $screen->base ) && 'widgets' === $screen->base ) ) {
 
 		wp_enqueue_style( 'wp-color-picker' );
 
-		wp_enqueue_script( 'affcoups-admin-script', AFFCOUPS_URL . 'public/js/admin' . $suffix . '.js', array( 'jquery', 'wp-color-picker' ), AFFCOUPS_VER );
+		wp_enqueue_script( 'affcoups-admin-script', AFFCOUPS_URL . 'public/js/admin' . $suffix . '.js', array(
+			'jquery',
+			'wp-color-picker'
+		), AFFCOUPS_VER );
 		wp_enqueue_style( 'affcoups-admin-style', AFFCOUPS_URL . 'public/css/admin' . $suffix . '.css', false, AFFCOUPS_VER );
 
 		do_action( 'affcoups_enqueue_admin_scripts' );
 	}
 }
+
 add_action( 'admin_enqueue_scripts', 'affcoups_admin_scripts', 100 );
 
 /**
@@ -56,4 +60,5 @@ function affcoups_scripts( $hook ) {
 
 	do_action( 'affcoups_enqueue_scripts' );
 }
+
 add_action( 'wp_enqueue_scripts', 'affcoups_scripts' );

@@ -5,7 +5,7 @@
 function affcoups_maybe_cleanup_shortcode_output( $content ) {
 
 	// array of custom shortcodes requiring the fix
-	$block = join('|', array(
+	$block = join( '|', array(
 		'affcoups',
 		'affcoups_coupons',
 	) );
@@ -18,6 +18,7 @@ function affcoups_maybe_cleanup_shortcode_output( $content ) {
 
 	return $rep;
 }
+
 add_filter( 'the_content', 'affcoups_maybe_cleanup_shortcode_output' );
 
 /**
@@ -25,6 +26,7 @@ add_filter( 'the_content', 'affcoups_maybe_cleanup_shortcode_output' );
  *
  * @param $atts
  * @param $content
+ *
  * @return string*
  */
 function affcoups_add_shortcode( $atts, $content ) {
@@ -50,11 +52,11 @@ function affcoups_add_shortcode( $atts, $content ) {
 
 	// Defaults
 	$args = array(
-		'posts_per_page' => -1,
+		'posts_per_page' => - 1,
 		'orderby'        => 'name',
 		'order'          => 'ASC',
 	);
-	
+
 	//-- Max
 	$args['posts_per_page'] = ( ! empty( $max ) && is_numeric( $max ) ) ? intval( $max ) : '-1';
 
@@ -167,6 +169,7 @@ function affcoups_add_shortcode( $atts, $content ) {
 	// Return output
 	return $str;
 }
+
 add_shortcode( 'affcoups', 'affcoups_add_shortcode' );
 
 /**
@@ -177,7 +180,7 @@ add_shortcode( 'affcoups_coupons', 'affcoups_add_shortcode' );
 /*
  * Debug
  */
-add_shortcode('affcoups_debug', function( $atts ) {
+add_shortcode( 'affcoups_debug', function ( $atts ) {
 
 	/*
 	$args = array(
@@ -197,4 +200,4 @@ add_shortcode('affcoups_debug', function( $atts ) {
 
 	//var_dump( $expiration );
 
-});
+} );

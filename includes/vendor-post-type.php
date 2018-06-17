@@ -71,4 +71,5 @@ function affcoups_register_vendor_post_type() {
 	register_post_type( 'affcoups_vendor', $args );
 
 }
+
 add_action( 'init', 'affcoups_register_vendor_post_type', 0 );

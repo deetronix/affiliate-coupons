@@ -52,7 +52,15 @@ function affcoups_register_coupon_post_type() {
 		'label'               => __( 'Coupon', 'affiliate-coupons' ),
 		'description'         => __( 'Coupons', 'affiliate-coupons' ),
 		'labels'              => $labels,
-		'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'revisions', 'page-attributes' ),
+		'supports'            => array(
+			'title',
+			'editor',
+			'excerpt',
+			'author',
+			'thumbnail',
+			'revisions',
+			'page-attributes'
+		),
 		'hierarchical'        => false,
 		'public'              => false,
 		'show_ui'             => true,
@@ -74,5 +82,6 @@ function affcoups_register_coupon_post_type() {
 	register_post_type( 'affcoups_coupon', $args );
 
 }
+
 add_action( 'init', 'affcoups_register_coupon_post_type', 0 );
 

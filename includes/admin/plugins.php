@@ -16,6 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @param array $links already defined action links
  * @param string $file plugin file path and name being processed
+ *
  * @return array $links
  */
 function affcoups_action_links( $links, $file ) {
@@ -28,6 +29,7 @@ function affcoups_action_links( $links, $file ) {
 
 	return $links;
 }
+
 add_filter( 'plugin_action_links', 'affcoups_action_links', 10, 2 );
 
 /**
@@ -35,6 +37,7 @@ add_filter( 'plugin_action_links', 'affcoups_action_links', 10, 2 );
  *
  * @param array $input already defined meta links
  * @param string $file plugin file path and name being processed
+ *
  * @return array $input
  */
 function affcoups_row_meta( $input, $file ) {
@@ -60,4 +63,5 @@ function affcoups_row_meta( $input, $file ) {
 
 	return $input;
 }
+
 add_filter( 'plugin_row_meta', 'affcoups_row_meta', 10, 2 );

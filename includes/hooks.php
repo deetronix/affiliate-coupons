@@ -18,6 +18,7 @@ function affcoups_add_image_sizes() {
 	add_image_size( 'affcoups-thumb', 480, 270, array( 'center', 'center' ) );
 	add_image_size( 'affcoups-thumb-small', 133, 75, array( 'center', 'center' ) );
 }
+
 add_action( 'init', 'affcoups_add_image_sizes' );
 
 /**
@@ -33,6 +34,7 @@ function affcoups_maybe_output_settings_css() {
 	};
 
 }
+
 add_action( 'wp_head', 'affcoups_maybe_output_settings_css' );
 
 /**
@@ -92,5 +94,6 @@ function affcoups_print_amp_styles() {
 		echo affcoups_cleanup_css_for_amp( $custom_css );
 	}
 }
+
 add_action( 'amp_post_template_css', 'affcoups_print_amp_styles' ); // AMP, Accelerated Mobile Pages
 add_action( 'amphtml_template_css', 'affcoups_print_amp_styles' ); // WP AMP

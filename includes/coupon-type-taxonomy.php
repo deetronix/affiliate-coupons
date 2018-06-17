@@ -55,4 +55,5 @@ function affcoups_register_coupon_type_taxonomy() {
 	register_taxonomy( 'affcoups_coupon_type', array( 'affcoups_coupon' ), $args );
 
 }
+
 add_action( 'init', 'affcoups_register_coupon_type_taxonomy', 0 );

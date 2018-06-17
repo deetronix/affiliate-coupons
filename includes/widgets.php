@@ -23,6 +23,7 @@ function affcoups_register_widgets() {
 
 	do_action( 'affcoups_register_widgets' );
 }
+
 add_action( 'widgets_init', 'affcoups_register_widgets' );
 
 /**

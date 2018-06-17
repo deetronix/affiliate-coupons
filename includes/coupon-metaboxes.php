@@ -127,4 +127,5 @@ function affcoups_register_coupon_meta_boxes( $meta_boxes ) {
 
 	return $meta_boxes;
 }
+
 add_filter( 'rwmb_meta_boxes', 'affcoups_register_coupon_meta_boxes' );

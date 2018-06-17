@@ -4,6 +4,7 @@
  *
  * @param $color
  * @param int $dif
+ *
  * @return null|string
  */
 function affcoups_assets_color_darken( $color, $dif = 5 ) {
@@ -18,9 +19,9 @@ function affcoups_assets_color_darken( $color, $dif = 5 ) {
 	}
 	$rgb = '';
 
-	for ( $x = 0; $x < 3; $x++ ) {
-		$c    = hexdec( substr( $color, ( 2 * $x ), 2 ) ) - $dif;
-		$c    = ( $c < 0 ) ? 0 : dechex( $c );
+	for ( $x = 0; $x < 3; $x ++ ) {
+		$c   = hexdec( substr( $color, ( 2 * $x ), 2 ) ) - $dif;
+		$c   = ( $c < 0 ) ? 0 : dechex( $c );
 		$rgb .= ( strlen( $c ) < 2 ) ? '0' . $c : $c;
 	}
 
@@ -31,6 +32,7 @@ function affcoups_assets_color_darken( $color, $dif = 5 ) {
  * Embed AMP styles
  *
  * @param $file
+ *
  * @return mixed|string
  */
 function affcoups_asset_embed( $file ) {
@@ -51,6 +53,7 @@ function affcoups_asset_embed( $file ) {
 		if ( ( isset( $url[0] ) && '/' === $url[0] ) || false !== strpos( $url, '://' ) || 0 === strpos( $url, 'data:' ) ) {
 			return $matches[0];
 		}
+
 		return str_replace( $url, $target_url . '/' . $url, $matches[0] );
 	};
 
@@ -118,6 +121,7 @@ function affcoups_cleanup_css_for_amp( $css = '' ) {
  * Get settings css
  *
  * @param bool $apply_prefix
+ *
  * @return string
  */
 function affcoups_get_settings_css( $apply_prefix = true ) {
@@ -146,6 +150,7 @@ function affcoups_get_settings_css( $apply_prefix = true ) {
  * @param null $bg_color
  * @param null $color
  * @param string $prefix
+ *
  * @return string
  */
 function affcoups_get_assets_button_styles( $bg_color, $color, $prefix = '' ) {
