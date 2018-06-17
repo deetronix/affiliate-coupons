@@ -589,7 +589,7 @@ function affcoups_do_settings_sections( $page ) {
 		}
 
 		echo '<div class="postbox">';
-		echo esc_attr( $title );
+		echo  $title;
 		echo '<div class="inside">';
 		echo '<table class="form-table">';
 		do_settings_fields( $page, $section['id'] );
