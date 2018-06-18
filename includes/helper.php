@@ -208,3 +208,13 @@ function affcoups_debug_log( $log ) {
 	}
 }
 // @codingStandardsIgnoreEnd
+
+/**
+ * Fallback for missing "rwmb_meta" function
+ * Source: https://docs.metabox.io/rwmb-meta/
+ */
+if ( ! function_exists( 'rwmb_meta' ) ) {
+	function rwmb_meta( $key, $args = '', $post_id = null ) {
+		return false;
+	}
+}
