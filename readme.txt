@@ -4,7 +4,7 @@ Donate link: https://donate.flowdee.de
 Tags: affiliate, affiliates, coupon, coupons, deals, affiliate coupon, affiliate coupons, affiliate deals, dealz, vendors, affiliate marketing
 Requires at least: 3.0.1
 Tested up to: 4.9.6
-Stable tag: 1.4.0
+Stable tag: 1.4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -79,7 +79,7 @@ Yes of course.
 
 == Changelog ==
 
-= Version 1.4.0 (18th June 2018) =
+= Version 1.4.1 (18th June 2018) =
 * Improvement: Removed directly included metabox dependency and switched over to "TGM_Plugin_Activation" class instead
 * Improvement: Added fallback for "rwmb_meta" function
 * Fix: "Fatal error: Uncaught Error: Class 'RWMB_About' not found"
@@ -173,7 +173,7 @@ Yes of course.
 
 == Upgrade Notice ==
 
-= Version 1.4.0 (18th June 2018) =
+= Version 1.4.1 (18th June 2018) =
 * Improvement: Removed directly included metabox dependency and switched over to "TGM_Plugin_Activation" class instead
 * Improvement: Added fallback for "rwmb_meta" function
 * Fix: "Fatal error: Uncaught Error: Class 'RWMB_About' not found"

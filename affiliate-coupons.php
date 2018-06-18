@@ -3,7 +3,7 @@
  * Plugin Name:     Affiliate Coupons
  * Plugin URI:      https://affcoups.com
  * Description:     Promote coupons and deals of products and earn money with affiliate referrals.
- * Version:         1.4.0
+ * Version:         1.4.1
  * Author:          fdmedia
  * Author URI:      https://fdmedia.io
  * Text Domain:     affiliate-coupons
@@ -68,7 +68,7 @@ if ( ! class_exists( 'Affiliate_Coupons' ) ) {
 			define( 'AFFCOUPS_NAME', 'Affiliate Coupons' );
 
 			// Plugin version
-			define( 'AFFCOUPS_VER', '1.4.0' );
+			define( 'AFFCOUPS_VER', '1.4.1' );
 
 			// Plugin path
 			define( 'AFFCOUPS_DIR', plugin_dir_path( __FILE__ ) );
