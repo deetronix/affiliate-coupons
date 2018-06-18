@@ -6,14 +6,14 @@ msgstr ""
 "Project-Id-Version: Affiliate Coupons\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/affiliate-"
 "coupons\n"
-"POT-Creation-Date: 2018-04-28 09:41+0200\n"
+"POT-Creation-Date: 2018-06-18 08:30+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
 "Last-Translator: flowdee <coder@flowdee.de>\n"
-"Language-Team: flowdee <coder@flowdee.de>\n"
-"X-Generator: Poedit 2.0.7\n"
+"Language-Team: flowdee <mail@affcoups.com>\n"
+"X-Generator: Poedit 2.0.8\n"
 "X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;"
 "_n_noop:1,2;_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;"
 "esc_attr_x:1,2c;esc_html_x:1,2c\n"
@@ -33,7 +33,7 @@ msgstr ""
 msgid "Affiliate Coupons - Settings"
 msgstr ""
 
-#: includes/admin/class.settings.php:36 includes/admin/plugins.php:23
+#: includes/admin/class.settings.php:36 includes/admin/plugins.php:24
 msgid "Settings"
 msgstr ""
 
@@ -57,7 +57,7 @@ msgstr ""
 msgid "Output"
 msgstr ""
 
-#: includes/admin/class.settings.php:99 includes/admin/class.settings.php:230
+#: includes/admin/class.settings.php:99 includes/admin/class.settings.php:236
 msgid "Templates"
 msgstr ""
 
@@ -110,261 +110,413 @@ msgid "Show single coupons"
 msgstr ""
 
 #: includes/admin/class.settings.php:181
-#: includes/admin/class.settings.php:195
-#: includes/admin/class.settings.php:199
+#: includes/admin/class.settings.php:196
+#: includes/admin/class.settings.php:201
 msgid "or"
 msgstr ""
 
-#: includes/admin/class.settings.php:185
+#: includes/admin/class.settings.php:186
 msgid "Filter coupons"
 msgstr ""
 
-#: includes/admin/class.settings.php:186
+#: includes/admin/class.settings.php:187
 msgid ""
 "By passing the id or slug (only if specified) you can filter the results "
 "individually."
 msgstr ""
 
-#: includes/admin/class.settings.php:190
+#: includes/admin/class.settings.php:191
 msgid "Filter by vendor:"
 msgstr ""
 
-#: includes/admin/class.settings.php:194
+#: includes/admin/class.settings.php:195
 msgid "Filter by category:"
 msgstr ""
 
-#: includes/admin/class.settings.php:198
+#: includes/admin/class.settings.php:200
 msgid "Filter by type:"
 msgstr ""
 
-#: includes/admin/class.settings.php:203
+#: includes/admin/class.settings.php:206
 msgid "Show/hide expired coupons"
 msgstr ""
 
-#: includes/admin/class.settings.php:204
+#: includes/admin/class.settings.php:207
 msgid ""
 "Contrary to the settings below you can show/hide expired for each "
 "shortcode individually."
 msgstr ""
 
-#: includes/admin/class.settings.php:207
+#: includes/admin/class.settings.php:211
 msgid "vs."
 msgstr ""
 
-#: includes/admin/class.settings.php:211
+#: includes/admin/class.settings.php:216
 msgid "All filter options above can be combined inside the same shortcode."
 msgstr ""
 
-#: includes/admin/class.settings.php:215
+#: includes/admin/class.settings.php:220
 msgid "Sorting coupons"
 msgstr ""
 
-#: includes/admin/class.settings.php:219
+#: includes/admin/class.settings.php:224
 #: includes/widgets/class.widget-multiple.php:178
 msgid "Order:"
 msgstr ""
 
-#: includes/admin/class.settings.php:223
+#: includes/admin/class.settings.php:228
 #: includes/widgets/class.widget-multiple.php:162
 msgid "Order by:"
 msgstr ""
 
-#: includes/admin/class.settings.php:231
+#: includes/admin/class.settings.php:237
 msgid "You can easily select a template on a shortcode basis as follows:"
 msgstr ""
 
-#: includes/admin/class.settings.php:237
+#: includes/admin/class.settings.php:243
 msgid "The following templates are available right now:"
 msgstr ""
 
-#: includes/admin/class.settings.php:240
+#: includes/admin/class.settings.php:247
 msgid ""
 "In order to display multiple coupons side by side, make use of the grid "
 "functionality:"
 msgstr ""
 
-#: includes/admin/class.settings.php:246
+#: includes/admin/class.settings.php:253
 msgid ""
 "When passing the grid size parameter, the plugin will automatically choose "
 "the grid template."
 msgstr ""
 
-#: includes/admin/class.settings.php:262
+#: includes/admin/class.settings.php:269
 msgid "Hide coupons after they expired"
 msgstr ""
 
-#: includes/admin/class.settings.php:269
+#: includes/admin/class.settings.php:276
 msgid "Ascending "
 msgstr ""
 
-#: includes/admin/class.settings.php:270
+#: includes/admin/class.settings.php:277
 msgid "Descending"
 msgstr ""
 
-#: includes/admin/class.settings.php:276
+#: includes/admin/class.settings.php:283
 msgid "Name (Post)"
 msgstr ""
 
-#: includes/admin/class.settings.php:277
+#: includes/admin/class.settings.php:284
 msgid "Date published (Post)"
 msgstr ""
 
-#: includes/admin/class.settings.php:278
+#: includes/admin/class.settings.php:285
 msgid "Random"
 msgstr ""
 
-#: includes/admin/class.settings.php:279
+#: includes/admin/class.settings.php:286
 msgid "Title (Coupon)"
 msgstr ""
 
-#: includes/admin/class.settings.php:280
+#: includes/admin/class.settings.php:287
 msgid "Description (Coupon)"
 msgstr ""
 
-#: includes/admin/class.settings.php:281
+#: includes/admin/class.settings.php:288
 msgid "Discount (Coupon)"
 msgstr ""
 
-#: includes/admin/class.settings.php:282
+#: includes/admin/class.settings.php:289
 msgid "Valid from date (Coupon)"
 msgstr ""
 
-#: includes/admin/class.settings.php:283
+#: includes/admin/class.settings.php:290
 msgid "Valid to date (Coupon)"
 msgstr ""
 
-#: includes/admin/class.settings.php:289
+#: includes/admin/class.settings.php:296
 msgid "Order"
 msgstr ""
 
-#: includes/admin/class.settings.php:298
+#: includes/admin/class.settings.php:305
 msgid "Order by"
 msgstr ""
 
-#: includes/admin/class.settings.php:323
+#: includes/admin/class.settings.php:330
 #: includes/widgets/class.widget-multiple.php:195
 #: includes/widgets/class.widget-single.php:103
 msgid "Standard"
 msgstr ""
 
-#: includes/admin/class.settings.php:324
+#: includes/admin/class.settings.php:331
 msgid "Grid"
 msgstr ""
 
-#: includes/admin/class.settings.php:332
+#: includes/admin/class.settings.php:339
 msgid "Template"
 msgstr ""
 
-#: includes/admin/class.settings.php:341
+#: includes/admin/class.settings.php:348
 msgid "Grid size"
 msgstr ""
 
-#: includes/admin/class.settings.php:353
+#: includes/admin/class.settings.php:360
 msgid "Excerpt Length"
 msgstr ""
 
-#: includes/admin/class.settings.php:358
+#: includes/admin/class.settings.php:365
 msgid ""
 "Some templates are displaying an excerpt instead of the whole coupon "
 "description."
 msgstr ""
 
-#: includes/admin/class.settings.php:369
-#: includes/admin/class.settings.php:410
+#: includes/admin/class.settings.php:376
+#: includes/admin/class.settings.php:417
 msgid "Background Color"
 msgstr ""
 
-#: includes/admin/class.settings.php:373
-#: includes/admin/class.settings.php:414
+#: includes/admin/class.settings.php:380
+#: includes/admin/class.settings.php:421
 msgid "Text Color"
 msgstr ""
 
-#: includes/admin/class.settings.php:383 includes/coupon-functions.php:616
+#: includes/admin/class.settings.php:390 includes/coupon-functions.php:652
 msgid "Go to the deal"
 msgstr ""
 
-#: includes/admin/class.settings.php:386
-#: includes/vendor/meta-box/inc/fields/select.php:87
+#: includes/admin/class.settings.php:393
 msgid "None"
 msgstr ""
 
-#: includes/admin/class.settings.php:387
+#: includes/admin/class.settings.php:394
 msgid "Hand right"
 msgstr ""
 
-#: includes/admin/class.settings.php:388
+#: includes/admin/class.settings.php:395
 msgid "Gavel"
 msgstr ""
 
-#: includes/admin/class.settings.php:389
+#: includes/admin/class.settings.php:396
 msgid "Shopping cart"
 msgstr ""
 
-#: includes/admin/class.settings.php:396 includes/vendor/meta-box-demo.php:61
+#: includes/admin/class.settings.php:403 includes/vendor/meta-box-demo.php:61
 msgid "Text"
 msgstr ""
 
-#: includes/admin/class.settings.php:401
+#: includes/admin/class.settings.php:408
 msgid "Icon"
 msgstr ""
 
-#: includes/admin/class.settings.php:430
+#: includes/admin/class.settings.php:437
 msgid "Output custom CSS styles"
 msgstr ""
 
-#: includes/admin/class.settings.php:435
+#: includes/admin/class.settings.php:442
 msgid ""
 "Please don't use the <code>style</code> tag. Simply paste you CSS classes/"
 "definitions e.g. <code>.affcoups .affcoups-coupon { background-color: "
 "#333; }</code>"
 msgstr ""
 
-#: includes/admin/class.settings.php:444
+#: includes/admin/class.settings.php:451
 msgid ""
 "In case you want to change the colors, you must pick a new color for all "
 "fields above."
 msgstr ""
 
-#: includes/admin/class.settings.php:454 includes/coupon-post-type.php:22
+#: includes/admin/class.settings.php:461 includes/coupon-post-type.php:22
 msgid "Affiliate Coupons"
 msgstr ""
 
-#: includes/admin/class.settings.php:478
+#: includes/admin/class.settings.php:485
 msgid ""
 "Here you can find a brief overview of the most important resources in "
 "order use our plugin."
 msgstr ""
 
-#: includes/admin/class.settings.php:497
+#: includes/admin/class.settings.php:513
 msgid "Latest News & Updates"
 msgstr ""
 
-#: includes/admin/class.settings.php:499
+#: includes/admin/class.settings.php:516
 msgid ""
 "Join our newsletter and we let you know about new releases, as well as "
 "important updates and upcoming deals."
 msgstr ""
 
-#: includes/admin/class.settings.php:506
+#: includes/admin/class.settings.php:523
 msgid "Email Address"
 msgstr ""
 
-#: includes/admin/class.settings.php:517
+#: includes/admin/class.settings.php:537
 msgid "Subscribe"
 msgstr ""
 
-#: includes/admin/manage-categories.php:20
-#: includes/admin/manage-coupons.php:21 includes/admin/manage-types.php:20
-#: includes/admin/manage-vendors.php:23
+#: includes/admin/manage-categories.php:23
+#: includes/admin/manage-coupons.php:24 includes/admin/manage-types.php:23
+#: includes/admin/manage-vendors.php:24
 msgid "Shortcodes"
 msgstr ""
 
-#: includes/admin/manage-coupons.php:20 includes/admin/manage-vendors.php:22
+#: includes/admin/manage-coupons.php:23 includes/admin/manage-vendors.php:23
 msgid "Thumbnail"
 msgstr ""
 
-#: includes/admin/plugins.php:56
+#: includes/admin/plugins.php:59
 msgid "Plugin Website"
+msgstr ""
+
+#: includes/bootstrap.php:82
+#: includes/vendor/class-tgm-plugin-activation.php:334
+msgid "Install Required Plugins"
+msgstr ""
+
+#: includes/bootstrap.php:83
+#: includes/vendor/class-tgm-plugin-activation.php:335
+msgid "Install Plugins"
+msgstr ""
+
+#: includes/bootstrap.php:85
+#: includes/vendor/class-tgm-plugin-activation.php:337
+#, php-format
+msgid "Installing Plugin: %s"
+msgstr ""
+
+#: includes/bootstrap.php:87
+#: includes/vendor/class-tgm-plugin-activation.php:339
+#, php-format
+msgid "Updating Plugin: %s"
+msgstr ""
+
+#: includes/bootstrap.php:88
+#: includes/vendor/class-tgm-plugin-activation.php:340
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+#: includes/bootstrap.php:91
+#, php-format
+msgid "Affiliate Coupons requires the following plugin: %1$s."
+msgid_plural "Affiliate Coupons requires the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/bootstrap.php:97
+#, php-format
+msgid "Affiliate Coupons recommends the following plugin: %1$s."
+msgid_plural "Affiliate Coupons recommends the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/bootstrap.php:103
+#, php-format
+msgid ""
+"The following plugin needs to be updated to its latest version to ensure "
+"maximum compatibility with this plugin: %1$s."
+msgid_plural ""
+"The following plugins need to be updated to their latest version to ensure "
+"maximum compatibility with this plugin: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/bootstrap.php:109
+#: includes/vendor/class-tgm-plugin-activation.php:361
+#, php-format
+msgid "There is an update available for: %1$s."
+msgid_plural "There are updates available for the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/bootstrap.php:115
+#: includes/vendor/class-tgm-plugin-activation.php:367
+#, php-format
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/bootstrap.php:121
+#: includes/vendor/class-tgm-plugin-activation.php:373
+#, php-format
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural ""
+"The following recommended plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/bootstrap.php:126
+#: includes/vendor/class-tgm-plugin-activation.php:378
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/bootstrap.php:131
+#: includes/vendor/class-tgm-plugin-activation.php:383
+msgid "Begin updating plugin"
+msgid_plural "Begin updating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/bootstrap.php:136
+#: includes/vendor/class-tgm-plugin-activation.php:388
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/bootstrap.php:140
+#: includes/vendor/class-tgm-plugin-activation.php:392
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: includes/bootstrap.php:141
+#: includes/vendor/class-tgm-plugin-activation.php:394
+#: includes/vendor/class-tgm-plugin-activation.php:3252
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: includes/bootstrap.php:142
+#: includes/vendor/class-tgm-plugin-activation.php:395
+#: includes/vendor/class-tgm-plugin-activation.php:3045
+msgid "The following plugin was activated successfully:"
+msgid_plural "The following plugins were activated successfully:"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/bootstrap.php:144
+#: includes/vendor/class-tgm-plugin-activation.php:397
+#, php-format
+msgid "No action taken. Plugin %1$s was already active."
+msgstr ""
+
+#: includes/bootstrap.php:146
+#, php-format
+msgid ""
+"Plugin not activated. A higher version of %s is needed for this plugin. "
+"Please update the plugin."
+msgstr ""
+
+#: includes/bootstrap.php:148
+#: includes/vendor/class-tgm-plugin-activation.php:401
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr ""
+
+#: includes/bootstrap.php:149
+#: includes/vendor/class-tgm-plugin-activation.php:402
+msgid "Dismiss this notice"
+msgstr ""
+
+#: includes/bootstrap.php:150
+#: includes/vendor/class-tgm-plugin-activation.php:403
+msgid ""
+"There are one or more required or recommended plugins to install, update "
+"or activate."
+msgstr ""
+
+#: includes/bootstrap.php:151
+#: includes/vendor/class-tgm-plugin-activation.php:404
+msgid "Please contact the administrator of this site for help."
 msgstr ""
 
 #: includes/coupon-category-taxonomy.php:20
@@ -451,33 +603,33 @@ msgstr ""
 msgid "Categories list navigation"
 msgstr ""
 
-#: includes/coupon-functions.php:200 includes/coupon-functions.php:648
-#: includes/coupon-functions.php:672 includes/coupon-functions.php:698
+#: includes/coupon-functions.php:204 includes/coupon-functions.php:684
+#: includes/coupon-functions.php:708 includes/coupon-functions.php:734
 #: includes/coupon-metaboxes.php:26
 msgid "Please select..."
 msgstr ""
 
-#: includes/coupon-functions.php:436
+#: includes/coupon-functions.php:460
 msgid "More"
 msgstr ""
 
-#: includes/coupon-functions.php:473
+#: includes/coupon-functions.php:500
 msgid "Copied!"
 msgstr ""
 
-#: includes/coupon-functions.php:474
+#: includes/coupon-functions.php:501
 msgid "Copy"
 msgstr ""
 
-#: includes/coupon-functions.php:586 includes/coupon-metaboxes.php:54
+#: includes/coupon-functions.php:621 includes/coupon-metaboxes.php:54
 msgid "Valid from"
 msgstr ""
 
-#: includes/coupon-functions.php:591 includes/coupon-metaboxes.php:68
+#: includes/coupon-functions.php:626 includes/coupon-metaboxes.php:68
 msgid "Valid until"
 msgstr ""
 
-#: includes/coupon-functions.php:591
+#: includes/coupon-functions.php:626
 msgid "until"
 msgstr ""
 
@@ -726,11 +878,11 @@ msgstr ""
 msgid "Types list navigation"
 msgstr ""
 
-#: includes/shortcodes.php:153 includes/template-functions.php:46
+#: includes/shortcodes.php:155 includes/template-functions.php:47
 msgid "Template not found."
 msgstr ""
 
-#: includes/shortcodes.php:159
+#: includes/shortcodes.php:161
 msgid "No coupons found."
 msgstr ""
 
@@ -818,6 +970,331 @@ msgctxt "Post Type General Name (Export)"
 msgid "Affiliate Coupons - Vendors"
 msgstr ""
 
+#: includes/vendor/class-tgm-plugin-activation.php:343
+#, php-format
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:349
+#, php-format
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:355
+#, php-format
+msgid ""
+"The following plugin needs to be updated to its latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgid_plural ""
+"The following plugins need to be updated to their latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:393
+#: includes/vendor/class-tgm-plugin-activation.php:920
+#: includes/vendor/class-tgm-plugin-activation.php:2626
+#: includes/vendor/class-tgm-plugin-activation.php:3673
+msgid "Return to the Dashboard"
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:399
+#, php-format
+msgid ""
+"Plugin not activated. A higher version of %s is needed for this theme. "
+"Please update the plugin."
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:607
+msgid "This plugin needs to be updated to be compatible with your theme."
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:608
+msgid "Update Required"
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:725
+msgid "Set the parent_slug config variable instead."
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:1027
+msgid ""
+"The remote plugin package does not contain a folder with the desired slug "
+"and renaming did not work."
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:1027
+#: includes/vendor/class-tgm-plugin-activation.php:1030
+msgid ""
+"Please contact the plugin provider and ask them to package their plugin "
+"according to the WordPress guidelines."
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:1030
+msgid ""
+"The remote plugin package consists of more than one file, but the files "
+"are not packaged in a folder."
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:1214
+#: includes/vendor/class-tgm-plugin-activation.php:3041
+msgctxt "plugin A *and* plugin B"
+msgid "and"
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:2075
+#, php-format
+msgid "TGMPA v%s"
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:2366
+msgid "Required"
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:2369
+msgid "Recommended"
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:2385
+msgid "WordPress Repository"
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:2388
+msgid "External Source"
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:2391
+msgid "Pre-Packaged"
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:2408
+msgid "Not Installed"
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:2412
+msgid "Installed But Not Activated"
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:2414
+msgid "Active"
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:2420
+msgid "Required Update not Available"
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:2423
+msgid "Requires Update"
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:2426
+msgid "Update recommended"
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:2435
+#, php-format
+msgctxt "Install/Update Status"
+msgid "%1$s, %2$s"
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:2481
+#, php-format
+msgctxt "plugins"
+msgid "All <span class=\"count\">(%s)</span>"
+msgid_plural "All <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:2485
+#, php-format
+msgid "To Install <span class=\"count\">(%s)</span>"
+msgid_plural "To Install <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:2489
+#, php-format
+msgid "Update Available <span class=\"count\">(%s)</span>"
+msgid_plural "Update Available <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:2493
+#, php-format
+msgid "To Activate <span class=\"count\">(%s)</span>"
+msgid_plural "To Activate <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:2575
+msgctxt "as in: \"version nr unknown\""
+msgid "unknown"
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:2583
+msgid "Installed version:"
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:2591
+msgid "Minimum required version:"
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:2603
+msgid "Available version:"
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:2626
+msgid "No plugins to install, update or activate."
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:2640
+msgid "Plugin"
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:2641
+msgid "Source"
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:2642
+msgid "Type"
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:2646
+msgid "Version"
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:2647
+msgid "Status"
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:2696
+#, php-format
+msgid "Install %2$s"
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:2701
+#, php-format
+msgid "Update %2$s"
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:2707
+#, php-format
+msgid "Activate %2$s"
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:2777
+msgid "Upgrade message from the plugin author:"
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:2810
+msgid "Install"
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:2816
+msgid "Update"
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:2819
+msgid "Activate"
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:2850
+msgid "No plugins were selected to be installed. No action taken."
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:2852
+msgid "No plugins were selected to be updated. No action taken."
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:2893
+msgid "No plugins are available to be installed at this time."
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:2895
+msgid "No plugins are available to be updated at this time."
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:3001
+msgid "No plugins were selected to be activated. No action taken."
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:3027
+msgid "No plugins are available to be activated at this time."
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:3251
+msgid "Plugin activation failed."
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:3591
+#, php-format
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:3594
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:3596
+#, php-format
+msgid "The installation of %1$s failed."
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:3600
+msgid ""
+"The installation and activation process is starting. This process may take "
+"a while on some hosts, so please be patient."
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:3602
+#, php-format
+msgid "%1$s installed and activated successfully."
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:3602
+#: includes/vendor/class-tgm-plugin-activation.php:3610
+msgid "Show Details"
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:3602
+#: includes/vendor/class-tgm-plugin-activation.php:3610
+msgid "Hide Details"
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:3603
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:3605
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:3608
+msgid ""
+"The installation process is starting. This process may take a while on "
+"some hosts, so please be patient."
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:3610
+#, php-format
+msgid "%1$s installed successfully."
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:3611
+msgid "All installations have been completed."
+msgstr ""
+
+#: includes/vendor/class-tgm-plugin-activation.php:3613
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
 #: includes/vendor/meta-box-demo.php:42
 msgid "Standard Fields"
 msgstr ""
@@ -859,8 +1336,6 @@ msgid "Label2"
 msgstr ""
 
 #: includes/vendor/meta-box-demo.php:96 includes/vendor/meta-box-demo.php:301
-#: includes/vendor/meta-box/inc/fields/file-input.php:38
-#: includes/vendor/meta-box/inc/fields/select.php:87
 msgid "Select"
 msgstr ""
 
@@ -1035,179 +1510,7 @@ msgstr ""
 msgid "Label3"
 msgstr ""
 
-#: includes/vendor/meta-box/inc/core.php:35
-msgid "Documentation"
-msgstr ""
-
-#: includes/vendor/meta-box/inc/core.php:36
-msgid "Extensions"
-msgstr ""
-
-#: includes/vendor/meta-box/inc/field.php:356
-msgid "+ Add more"
-msgstr ""
-
-#: includes/vendor/meta-box/inc/fields/autocomplete.php:20
-#: includes/vendor/meta-box/inc/fields/autocomplete.php:81
-#: includes/vendor/meta-box/inc/fields/autocomplete.php:93
-msgid "Delete"
-msgstr ""
-
-#: includes/vendor/meta-box/inc/fields/button.php:32
-msgid "Click me"
-msgstr ""
-
-#: includes/vendor/meta-box/inc/fields/checkbox.php:50
-msgid "Yes"
-msgstr ""
-
-#: includes/vendor/meta-box/inc/fields/checkbox.php:50
-msgid "No"
-msgstr ""
-
-#: includes/vendor/meta-box/inc/fields/file-input.php:19
-msgid "Select File"
-msgstr ""
-
-#: includes/vendor/meta-box/inc/fields/file-input.php:40
-msgid "Remove"
-msgstr ""
-
-#: includes/vendor/meta-box/inc/fields/file.php:21
-#, php-format
-msgid "You may only upload maximum %d file"
-msgstr ""
-
-#: includes/vendor/meta-box/inc/fields/file.php:23
-#, php-format
-msgid "You may only upload maximum %d files"
-msgstr ""
-
-#: includes/vendor/meta-box/inc/fields/file.php:53
-msgid "Error: Cannot delete file"
-msgstr ""
-
-#: includes/vendor/meta-box/inc/fields/file.php:66
-msgctxt "file upload"
-msgid "+ Add new file"
-msgstr ""
-
-#: includes/vendor/meta-box/inc/fields/file.php:121
-msgctxt "file upload"
-msgid "Delete"
-msgstr ""
-
-#: includes/vendor/meta-box/inc/fields/file.php:122
-msgctxt "file upload"
-msgid "Edit"
-msgstr ""
-
-#: includes/vendor/meta-box/inc/fields/input-list.php:90
-msgid "Select All / None"
-msgstr ""
-
-#: includes/vendor/meta-box/inc/fields/key-value.php:126
-msgid "Key"
-msgstr ""
-
-#: includes/vendor/meta-box/inc/fields/key-value.php:127
-msgid "Value"
-msgstr ""
-
-#: includes/vendor/meta-box/inc/fields/map.php:64
-msgid "Find Address"
-msgstr ""
-
-#: includes/vendor/meta-box/inc/fields/media.php:24
-msgctxt "media"
-msgid "+ Add Media"
-msgstr ""
-
-#: includes/vendor/meta-box/inc/fields/media.php:25
-msgctxt "media"
-msgid " file"
-msgstr ""
-
-#: includes/vendor/meta-box/inc/fields/media.php:26
-msgctxt "media"
-msgid " files"
-msgstr ""
-
-#: includes/vendor/meta-box/inc/fields/media.php:27
-msgctxt "media"
-msgid "Remove"
-msgstr ""
-
-#: includes/vendor/meta-box/inc/fields/media.php:28
-msgctxt "media"
-msgid "Edit"
-msgstr ""
-
-#: includes/vendor/meta-box/inc/fields/media.php:29
-msgctxt "media"
-msgid "View"
-msgstr ""
-
-#: includes/vendor/meta-box/inc/fields/media.php:30
-msgctxt "media"
-msgid "No Title"
-msgstr ""
-
-#: includes/vendor/meta-box/inc/fields/media.php:33
-msgctxt "media"
-msgid "Select Files"
-msgstr ""
-
-#: includes/vendor/meta-box/inc/fields/media.php:34
-msgctxt "media"
-msgid "or"
-msgstr ""
-
-#: includes/vendor/meta-box/inc/fields/media.php:35
-msgctxt "media"
-msgid "Drop files here to upload"
-msgstr ""
-
-#: includes/vendor/meta-box/inc/fields/oembed.php:64
-msgid "Embed HTML not available."
-msgstr ""
-
-#: includes/vendor/meta-box/inc/fields/post.php:36
-msgid "Select a post"
-msgstr ""
-
-#: includes/vendor/meta-box/inc/fields/post.php:41
-#: includes/vendor/meta-box/inc/fields/taxonomy.php:52
-#, php-format
-msgid "Select a %s"
-msgstr ""
-
-#: includes/vendor/meta-box/inc/fields/select-advanced.php:45
-msgid "Select an item"
-msgstr ""
-
-#: includes/vendor/meta-box/inc/fields/select.php:87
-msgid "All"
-msgstr ""
-
-#: includes/vendor/meta-box/inc/fields/taxonomy.php:47
-msgid "Select a term"
-msgstr ""
-
-#: includes/vendor/meta-box/inc/fields/thickbox-image.php:55
-msgctxt "image upload"
-msgid "Upload Images"
-msgstr ""
-
-#: includes/vendor/meta-box/inc/fields/user.php:30
-msgid "Select an user"
-msgstr ""
-
-#: includes/vendor/meta-box/inc/validation.php:47
-msgid "Please correct the errors highlighted below and try again."
-msgstr ""
-
-#: includes/widgets.php:50
+#: includes/widgets.php:51
 msgid "Shortcode arguments missing."
 msgstr ""
 
