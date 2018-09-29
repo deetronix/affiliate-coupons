@@ -1,11 +1,57 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d9d3e5cea86e89352c12b3d00eeecbe7",
-    "packages": [],
+    "content-hash": "7ec2094fb2d5f2b238fe6a025f61e9c3",
+    "packages": [
+        {
+            "name": "wpmetabox/meta-box",
+            "version": "4.15.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wpmetabox/meta-box.git",
+                "reference": "1a143ca224dc63da60b9da588360c6ce9b8b8a44"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wpmetabox/meta-box/zipball/1a143ca224dc63da60b9da588360c6ce9b8b8a44",
+                "reference": "1a143ca224dc63da60b9da588360c6ce9b8b8a44",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "meta-box.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Tran Ngoc Tuan Anh",
+                    "email": "anhtnt@elightup.com",
+                    "homepage": "https://deluxeblogtips.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A powerful, professional developer toolkit to create custom meta boxes and custom fields for WordPress websites.",
+            "homepage": "https://metabox.io",
+            "keywords": [
+                "custom-field",
+                "meta-box",
+                "select2",
+                "ui",
+                "wordpress",
+                "wordpress-plugin",
+                "wp-admin"
+            ],
+            "time": "2018-09-08T03:28:13+00:00"
+        }
+    ],
     "packages-dev": [
         {
             "name": "dealerdirect/phpcodesniffer-composer-installer",
