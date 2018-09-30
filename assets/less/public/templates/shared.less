@@ -1,0 +1,76 @@
+@import "../../common";
+
+.affcoups-coupon {
+    position: relative;
+}
+
+.affcoups-coupon__header {
+    position: relative;
+}
+
+a.affcoups-coupon__thumbnail {
+    border: none;
+    box-shadow: none;
+    outline: none;
+}
+
+img.affcoups-coupon__image {
+    .img-responsive();
+    
+    margin: 0;
+    padding: 0;
+}
+
+.affcoups-coupon__discount {
+    background: @color-discount-bg;
+    color: @color-discount;
+}
+
+.affcoups-coupon__valid-dates {
+    
+    color: #6b747a;
+    font-weight: bold;
+    font-style: italic;
+}
+
+a.affcoups-coupon__button {
+    display: inline-block;
+    margin: 0;
+    padding: 12px 15px 9px 10px;
+    
+    background: @color-button-bg;
+    border: none;
+    border-radius: @border-radius;
+    box-shadow: none;
+    color: @color-button;
+    font-size: 14px;
+    font-weight: 700;
+    outline: none;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all .3s @animation-ease;
+    
+    &:visited {
+        color: @color-button;
+    }
+    
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: darken(@color-button-bg, 10%);
+        border: none;
+        box-shadow: none;
+        color: @color-button;
+        outline: none;
+        text-decoration: none;
+    }
+}
+
+.affcoups-coupon__button-icon {
+
+}
+
+.affcoups-toggle-desc {
+    margin-left: 3px;
+}

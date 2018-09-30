@@ -90,8 +90,7 @@ if ( ! class_exists( 'Affiliate_Coupons' ) ) {
 		private function includes() {
 
 			// Dependencies
-			//require_once AFFCOUPS_DIR . 'includes/bootstrap.php';
-            require_once AFFCOUPS_DIR . 'vendor/autoload.php';
+            require_once AFFCOUPS_DIR . 'includes/bootstrap.php';
 
             // Basic
 			require_once AFFCOUPS_DIR . 'includes/helper.php';

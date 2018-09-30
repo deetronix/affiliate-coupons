@@ -11,8 +11,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/*
- * Add Metaboxes
+/**
+ * Register Vendor Meta Boxes
+ *
+ * @param $meta_boxes
+ * @return array|mixed
  */
 function affcoups_register_vendor_meta_boxes( $meta_boxes ) {
 
@@ -54,5 +57,7 @@ function affcoups_register_vendor_meta_boxes( $meta_boxes ) {
 
 	return $meta_boxes;
 }
-
 add_filter( 'rwmb_meta_boxes', 'affcoups_register_vendor_meta_boxes' );
+
+
+

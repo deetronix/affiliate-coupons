@@ -1,0 +1,31 @@
+@import "../common";
+@import (reference) "../public/elements/icons";
+
+//== Admin Area Pages
+@admin-icon-headlines-size: 20px;
+
+body.affcoups-admin {
+
+    h1.wp-heading-inline,
+    h2.affcoups-settings-headline {
+        padding-left: (@admin-icon-headlines-size + (@admin-icon-headlines-size / 2));
+
+        background-repeat: no-repeat;
+        background-image: url('../img/icon-admin-headlines.png');
+        background-size: @admin-icon-headlines-size @admin-icon-headlines-size;
+        background-position: left 60%;
+    }
+}
+
+// Elements
+@notice-border-width: 4px;
+@notice-icon-size: 20px;
+
+.affcoups-notice {
+    padding-left: (@notice-icon-size * 2) + @notice-border-width;
+
+    background-repeat: no-repeat;
+    background-image: url('../img/icon-notice.png');
+    background-size: @notice-icon-size @notice-icon-size;
+    background-position: ((@notice-icon-size / 2) + 4px) center;
+}

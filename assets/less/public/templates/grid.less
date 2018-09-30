@@ -1,0 +1,133 @@
+@import "../../common";
+@import (reference) "standard";
+
+//== Grid
+.affcoups-coupons-grid {
+    .gee-grid(@gutter);
+
+    @media (min-width: (@breakpoint-mobile + 1px)) {
+        .dotsunited-equal-height-blocks-container();
+    }
+}
+
+.affcoups-coupons-grid__item {
+    .gee-unit(12, 12, @gutter);
+
+    @media (min-width: (@breakpoint-mobile + 1px)) {
+        .dotsunited-equal-height-blocks-item-wrapper();
+    }
+}
+
+@media (min-width: (@breakpoint-mobile + 1px)) {
+    .affcoups-coupons-grid--col-2 {
+
+        .affcoups-coupons-grid__item {
+            .gee-unit-width(12/2, 12, @gutter);
+        }
+    }
+
+    .affcoups-coupons-grid--col-3 {
+
+        .affcoups-coupons-grid__item {
+            .gee-unit-width(12/3, 12, @gutter);
+        }
+    }
+
+    .affcoups-coupons-grid--col-4 {
+
+        .affcoups-coupons-grid__item {
+            .gee-unit-width(12/4, 12, @gutter);
+        }
+    }
+
+    .affcoups-coupons-grid--col-5 {
+
+        .affcoups-coupons-grid__item {
+            .gee-unit-width(12/5, 12, @gutter);
+        }
+    }
+
+    .affcoups-coupons-grid--col-6 {
+
+        .affcoups-coupons-grid__item {
+            .gee-unit-width(12/6, 12, @gutter);
+        }
+    }
+    
+    .affcoups-coupons-grid--col-7 {
+        
+        .affcoups-coupons-grid__item {
+            .gee-unit-width(12/7, 12, @gutter);
+        }
+    }
+    
+    .affcoups-coupons-grid--col-8 {
+        
+        .affcoups-coupons-grid__item {
+            .gee-unit-width(12/8, 12, @gutter);
+        }
+    }
+    
+    .affcoups-coupons-grid--col-9 {
+        
+        .affcoups-coupons-grid__item {
+            .gee-unit-width(12/9, 12, @gutter);
+        }
+    }
+    
+    .affcoups-coupons-grid--col-10 {
+        
+        .affcoups-coupons-grid__item {
+            .gee-unit-width(12/10, 12, @gutter);
+        }
+    }
+}
+
+@media (min-width: (@breakpoint-default + 1px)) and (max-width: @breakpoint-large) {
+    .affcoups-coupons-grid--col-7,
+    .affcoups-coupons-grid--col-9{
+        
+        .affcoups-coupons-grid__item {
+            .gee-unit-width(12/3, 12, @gutter);
+        }
+    }
+}
+
+@media (min-width: (@breakpoint-default + 1px)) and (max-width: @breakpoint-large) {
+    .affcoups-coupons-grid--col-8 {
+        
+        .affcoups-coupons-grid__item {
+            .gee-unit-width(12/4, 12, @gutter);
+        }
+    }
+}
+
+@media (min-width: (@breakpoint-default + 1px)) and (max-width: @breakpoint-large) {
+    .affcoups-coupons-grid--col-10 {
+        
+        .affcoups-coupons-grid__item {
+            .gee-unit-width(12/5, 12, @gutter);
+        }
+    }
+}
+
+@media (min-width: (@breakpoint-mobile + 1px)) and (max-width: @breakpoint-default) {
+    .affcoups-coupons-grid--col-3,
+    .affcoups-coupons-grid--col-4,
+    .affcoups-coupons-grid--col-5,
+    .affcoups-coupons-grid--col-6,
+    .affcoups-coupons-grid--col-7,
+    .affcoups-coupons-grid--col-8,
+    .affcoups-coupons-grid--col-9,
+    .affcoups-coupons-grid--col-10 {
+
+        .affcoups-coupons-grid__item {
+            .gee-unit-width(12/2, 12, @gutter);
+        }
+    }
+}
+
+//== Grid Styles
+.affcoups-coupons-grid {
+    .template-standard-styles();
+}
