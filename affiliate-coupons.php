@@ -105,6 +105,7 @@ if ( ! class_exists( 'Affiliate_Coupons' ) ) {
 				require_once AFFCOUPS_DIR . 'includes/admin/manage-categories.php';
 				require_once AFFCOUPS_DIR . 'includes/admin/manage-types.php';
 				require_once AFFCOUPS_DIR . 'includes/admin/hooks.php';
+                require_once AFFCOUPS_DIR . 'includes/admin/upgrades.php';
 			}
 
 			// Coupons
