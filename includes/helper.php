@@ -90,7 +90,7 @@ function affcoups_get_assets_url() {
  * Check whether it's development environment or not
  */
 function affcoups_is_development() {
-	return ( strpos( get_bloginfo( 'url' ), 'affcoups.dev' ) !== false ) ? true : false;
+	return ( strpos( get_bloginfo( 'url' ), 'affcoups.test' ) !== false ) ? true : false;
 }
 
 /**

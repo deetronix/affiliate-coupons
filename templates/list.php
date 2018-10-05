@@ -50,7 +50,7 @@ if ( ! isset( $coupons ) )
                         </div>
                         <div class="affcoups-coupon__description-full">
                             <?php echo wp_kses_post( $coupon->get_description() ); ?>
-                            <a href="#" class="affcoups-toggle-desc" data-affcoups-toggle-desc="true">Less</a>
+                            <a href="#" class="affcoups-toggle-desc" data-blub="true" data-affcoups-toggle-desc="true"><?php _e('Show Less', 'affiliate-coupons' ); ?></a>
                         </div>
                     </div>
 
