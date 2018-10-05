@@ -152,6 +152,16 @@ a.affcoups-coupon__button:active {
   border: 1px solid #F7F7F7;
   border-radius: 3px;
 }
+@media (min-width: 769px) {
+  .affcoups-standard .affcoups-coupon--float-left {
+    float: left;
+    margin: 0 30px 30px 0;
+  }
+  .affcoups-standard .affcoups-coupon--float-right {
+    float: right;
+    margin: 0 0 30px 30px;
+  }
+}
 .affcoups-standard .affcoups-coupon__thumbnail {
   display: block;
   margin: 0;

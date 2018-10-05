@@ -146,6 +146,9 @@ function affcoups_add_shortcode( $atts, $content ) {
 		if ( isset( $atts['hide_dates'] ) && in_array( $atts['hide_dates'], array( 'true', 'false' ) ) )
             $affcoups_template_args['hide_dates'] = $atts['hide_dates'];
 
+        if ( isset( $atts['float'] ) && in_array( $atts['float'], array( 'left', 'right' ) ) )
+            $affcoups_template_args['float'] = $atts['float'];
+
 		//affcoups_debug( $affcoups_template_args, 'shortcode > $affcoups_template_args' );
 
 		//echo 'Grid: ' . $grid . '<br>';
