@@ -99,7 +99,7 @@ if ( ! class_exists( 'Affiliate_Coupons' ) ) {
 			// Admin only
 			if ( is_admin() ) {
 				require_once AFFCOUPS_DIR . 'includes/admin/plugins.php';
-				require_once AFFCOUPS_DIR . 'includes/admin/class.settings.php';
+				require_once AFFCOUPS_DIR . 'includes/admin/class-settings.php';
 				require_once AFFCOUPS_DIR . 'includes/admin/manage-coupons.php';
 				require_once AFFCOUPS_DIR . 'includes/admin/manage-vendors.php';
 				require_once AFFCOUPS_DIR . 'includes/admin/manage-categories.php';
