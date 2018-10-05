@@ -487,7 +487,7 @@ if (!class_exists('Affcoups_Coupon')) {
                     <span class="affcoups-icon-<?php echo esc_attr( $button_icon ); ?> affcoups-coupon__button-icon"></span>
                 <?php } ?>
 
-                <?php echo esc_attr( $button['text'] ); ?></a>
+                <span class="affcoups-coupon__button-text"><?php echo esc_attr( $button['text'] ); ?></span></a>
             <?php
         }
     }
