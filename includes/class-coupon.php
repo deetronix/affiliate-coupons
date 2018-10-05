@@ -356,6 +356,33 @@ if (!class_exists('Affcoups_Coupon')) {
         }
 
         /**
+         * Check whether valid dates should be shown or not
+         */
+        function show_valid_dates() {
+
+            if ( ! $this->has_valid_dates() )
+                return false;
+
+            // Check shortcode atts
+            global $affcoups_template_args;
+
+            if ( isset( $affcoups_template_args['hide_dates'] ) ) {
+
+                if ( 'true' == $affcoups_template_args['hide_dates'] )
+                    return false;
+
+                if ( 'false' == $affcoups_template_args['hide_dates'] )
+                    return true;
+            }
+
+            // Check settings
+            if ( isset( $this->options['hide_dates'] ) && '1' == $this->options['hide_dates'] )
+                return false;
+
+            return true;
+        }
+
+        /**
          * Check if coupon has valid dates
          *
          * @return bool

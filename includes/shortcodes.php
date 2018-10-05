@@ -38,6 +38,7 @@ function affcoups_add_shortcode( $atts, $content ) {
 		'max'          => null,
 		'grid'         => null,
 		'hide_expired' => null,
+		'hide_dates'   => null,
 		'template'     => null,
 		'order'        => null,
 		'orderby'      => null,
@@ -141,6 +142,11 @@ function affcoups_add_shortcode( $atts, $content ) {
 
 		$affcoups_template_args['template']  = $template;
 		$affcoups_template_args['grid_size'] = ( ! empty( $grid_size ) ) ? $grid_size : 0;
+
+		if ( isset( $atts['hide_dates'] ) && in_array( $atts['hide_dates'], array( 'true', 'false' ) ) )
+            $affcoups_template_args['hide_dates'] = $atts['hide_dates'];
+
+		//affcoups_debug( $affcoups_template_args, 'shortcode > $affcoups_template_args' );
 
 		//echo 'Grid: ' . $grid . '<br>';
 		//echo 'Template: ' . $template . '<br>';

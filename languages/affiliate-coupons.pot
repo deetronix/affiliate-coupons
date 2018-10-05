@@ -6,14 +6,14 @@ msgstr ""
 "Project-Id-Version: Affiliate Coupons\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/affiliate-"
 "coupons\n"
-"POT-Creation-Date: 2018-06-18 08:30+0200\n"
+"POT-Creation-Date: 2018-10-05 15:52+0700\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
 "Last-Translator: flowdee <coder@flowdee.de>\n"
-"Language-Team: flowdee <mail@affcoups.com>\n"
-"X-Generator: Poedit 2.0.8\n"
+"Language-Team: Affiliatee Coupons <mail@affcoups.com>\n"
+"X-Generator: Poedit 2.1.1\n"
 "X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;"
 "_n_noop:1,2;_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;"
 "esc_attr_x:1,2c;esc_html_x:1,2c\n"
@@ -28,327 +28,334 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-2: node_modules\n"
 "X-Poedit-SearchPathExcluded-3: vendor\n"
 "X-Poedit-SearchPathExcluded-4: public\n"
+"X-Poedit-SearchPathExcluded-5: assets\n"
 
-#: includes/admin/class.settings.php:35
+#: includes/admin/class-settings.php:35
 msgid "Affiliate Coupons - Settings"
 msgstr ""
 
-#: includes/admin/class.settings.php:36 includes/admin/plugins.php:24
+#: includes/admin/class-settings.php:36 includes/admin/plugins.php:24
 msgid "Settings"
 msgstr ""
 
-#: includes/admin/class.settings.php:55 includes/admin/class.settings.php:157
+#: includes/admin/class-settings.php:55 includes/admin/class-settings.php:157
 msgid "Quickstart Guide"
 msgstr ""
 
-#: includes/admin/class.settings.php:64
+#: includes/admin/class-settings.php:64
 msgid "General"
 msgstr ""
 
-#: includes/admin/class.settings.php:71
-msgid "Expiration"
+#: includes/admin/class-settings.php:71
+msgid "Dates"
 msgstr ""
 
-#: includes/admin/class.settings.php:80
+#: includes/admin/class-settings.php:80
 msgid "Sorting"
 msgstr ""
 
-#: includes/admin/class.settings.php:92
+#: includes/admin/class-settings.php:92
 msgid "Output"
 msgstr ""
 
-#: includes/admin/class.settings.php:99 includes/admin/class.settings.php:236
+#: includes/admin/class-settings.php:99 includes/admin/class-settings.php:236
 msgid "Templates"
 msgstr ""
 
-#: includes/admin/class.settings.php:108
+#: includes/admin/class-settings.php:108
 msgid "Contents"
 msgstr ""
 
-#: includes/admin/class.settings.php:117 includes/coupon-metaboxes.php:42
+#: includes/admin/class-settings.php:117 includes/coupon-metaboxes.php:42
 msgid "Discount"
 msgstr ""
 
-#: includes/admin/class.settings.php:126
+#: includes/admin/class-settings.php:126
 msgid "Button"
 msgstr ""
 
-#: includes/admin/class.settings.php:135
+#: includes/admin/class-settings.php:135
 msgid "Custom CSS"
 msgstr ""
 
-#: includes/admin/class.settings.php:160
+#: includes/admin/class-settings.php:160
 msgid "First Steps"
 msgstr ""
 
-#: includes/admin/class.settings.php:163
+#: includes/admin/class-settings.php:163
 msgid "Create vendors"
 msgstr ""
 
-#: includes/admin/class.settings.php:164
+#: includes/admin/class-settings.php:164
 msgid "Create coupons"
 msgstr ""
 
-#: includes/admin/class.settings.php:165
+#: includes/admin/class-settings.php:165
 msgid "Link coupons to vendors"
 msgstr ""
 
-#: includes/admin/class.settings.php:166
+#: includes/admin/class-settings.php:166
 msgid "Assign categories and/or types to coupons if needed"
 msgstr ""
 
-#: includes/admin/class.settings.php:167
+#: includes/admin/class-settings.php:167
 msgid "Display coupons inside your posts/pages by using shortcodes"
 msgstr ""
 
-#: includes/admin/class.settings.php:171
+#: includes/admin/class-settings.php:171
 msgid "Show all coupons"
 msgstr ""
 
-#: includes/admin/class.settings.php:178
+#: includes/admin/class-settings.php:178
 msgid "Show single coupons"
 msgstr ""
 
-#: includes/admin/class.settings.php:181
-#: includes/admin/class.settings.php:196
-#: includes/admin/class.settings.php:201
+#: includes/admin/class-settings.php:181
+#: includes/admin/class-settings.php:196
+#: includes/admin/class-settings.php:201
 msgid "or"
 msgstr ""
 
-#: includes/admin/class.settings.php:186
+#: includes/admin/class-settings.php:186
 msgid "Filter coupons"
 msgstr ""
 
-#: includes/admin/class.settings.php:187
+#: includes/admin/class-settings.php:187
 msgid ""
 "By passing the id or slug (only if specified) you can filter the results "
 "individually."
 msgstr ""
 
-#: includes/admin/class.settings.php:191
+#: includes/admin/class-settings.php:191
 msgid "Filter by vendor:"
 msgstr ""
 
-#: includes/admin/class.settings.php:195
+#: includes/admin/class-settings.php:195
 msgid "Filter by category:"
 msgstr ""
 
-#: includes/admin/class.settings.php:200
+#: includes/admin/class-settings.php:200
 msgid "Filter by type:"
 msgstr ""
 
-#: includes/admin/class.settings.php:206
+#: includes/admin/class-settings.php:206
 msgid "Show/hide expired coupons"
 msgstr ""
 
-#: includes/admin/class.settings.php:207
+#: includes/admin/class-settings.php:207
 msgid ""
 "Contrary to the settings below you can show/hide expired for each "
 "shortcode individually."
 msgstr ""
 
-#: includes/admin/class.settings.php:211
+#: includes/admin/class-settings.php:211
 msgid "vs."
 msgstr ""
 
-#: includes/admin/class.settings.php:216
+#: includes/admin/class-settings.php:216
 msgid "All filter options above can be combined inside the same shortcode."
 msgstr ""
 
-#: includes/admin/class.settings.php:220
+#: includes/admin/class-settings.php:220
 msgid "Sorting coupons"
 msgstr ""
 
-#: includes/admin/class.settings.php:224
+#: includes/admin/class-settings.php:224
 #: includes/widgets/class.widget-multiple.php:178
 msgid "Order:"
 msgstr ""
 
-#: includes/admin/class.settings.php:228
+#: includes/admin/class-settings.php:228
 #: includes/widgets/class.widget-multiple.php:162
 msgid "Order by:"
 msgstr ""
 
-#: includes/admin/class.settings.php:237
+#: includes/admin/class-settings.php:237
 msgid "You can easily select a template on a shortcode basis as follows:"
 msgstr ""
 
-#: includes/admin/class.settings.php:243
+#: includes/admin/class-settings.php:243
 msgid "The following templates are available right now:"
 msgstr ""
 
-#: includes/admin/class.settings.php:247
+#: includes/admin/class-settings.php:247
 msgid ""
 "In order to display multiple coupons side by side, make use of the grid "
 "functionality:"
 msgstr ""
 
-#: includes/admin/class.settings.php:253
+#: includes/admin/class-settings.php:253
 msgid ""
 "When passing the grid size parameter, the plugin will automatically choose "
 "the grid template."
 msgstr ""
 
-#: includes/admin/class.settings.php:269
+#: includes/admin/class-settings.php:273
+msgid "Hide coupon dates on the front end"
+msgstr ""
+
+#: includes/admin/class-settings.php:277
 msgid "Hide coupons after they expired"
 msgstr ""
 
-#: includes/admin/class.settings.php:276
+#: includes/admin/class-settings.php:285
 msgid "Ascending "
 msgstr ""
 
-#: includes/admin/class.settings.php:277
+#: includes/admin/class-settings.php:286
 msgid "Descending"
 msgstr ""
 
-#: includes/admin/class.settings.php:283
+#: includes/admin/class-settings.php:292
 msgid "Name (Post)"
 msgstr ""
 
-#: includes/admin/class.settings.php:284
+#: includes/admin/class-settings.php:293
 msgid "Date published (Post)"
 msgstr ""
 
-#: includes/admin/class.settings.php:285
+#: includes/admin/class-settings.php:294
 msgid "Random"
 msgstr ""
 
-#: includes/admin/class.settings.php:286
+#: includes/admin/class-settings.php:295
 msgid "Title (Coupon)"
 msgstr ""
 
-#: includes/admin/class.settings.php:287
+#: includes/admin/class-settings.php:296
 msgid "Description (Coupon)"
 msgstr ""
 
-#: includes/admin/class.settings.php:288
+#: includes/admin/class-settings.php:297
 msgid "Discount (Coupon)"
 msgstr ""
 
-#: includes/admin/class.settings.php:289
+#: includes/admin/class-settings.php:298
 msgid "Valid from date (Coupon)"
 msgstr ""
 
-#: includes/admin/class.settings.php:290
+#: includes/admin/class-settings.php:299
 msgid "Valid to date (Coupon)"
 msgstr ""
 
-#: includes/admin/class.settings.php:296
+#: includes/admin/class-settings.php:305
 msgid "Order"
 msgstr ""
 
-#: includes/admin/class.settings.php:305
+#: includes/admin/class-settings.php:314
 msgid "Order by"
 msgstr ""
 
-#: includes/admin/class.settings.php:330
+#: includes/admin/class-settings.php:339
 #: includes/widgets/class.widget-multiple.php:195
 #: includes/widgets/class.widget-single.php:103
 msgid "Standard"
 msgstr ""
 
-#: includes/admin/class.settings.php:331
+#: includes/admin/class-settings.php:340
 msgid "Grid"
 msgstr ""
 
-#: includes/admin/class.settings.php:339
+#: includes/admin/class-settings.php:348
 msgid "Template"
 msgstr ""
 
-#: includes/admin/class.settings.php:348
+#: includes/admin/class-settings.php:357
 msgid "Grid size"
 msgstr ""
 
-#: includes/admin/class.settings.php:360
+#: includes/admin/class-settings.php:369
 msgid "Excerpt Length"
 msgstr ""
 
-#: includes/admin/class.settings.php:365
+#: includes/admin/class-settings.php:374
 msgid ""
 "Some templates are displaying an excerpt instead of the whole coupon "
 "description."
 msgstr ""
 
-#: includes/admin/class.settings.php:376
-#: includes/admin/class.settings.php:417
+#: includes/admin/class-settings.php:385
+#: includes/admin/class-settings.php:426
 msgid "Background Color"
 msgstr ""
 
-#: includes/admin/class.settings.php:380
-#: includes/admin/class.settings.php:421
+#: includes/admin/class-settings.php:389
+#: includes/admin/class-settings.php:430
 msgid "Text Color"
 msgstr ""
 
-#: includes/admin/class.settings.php:390 includes/coupon-functions.php:652
+#: includes/admin/class-settings.php:399 includes/class-coupon.php:468
 msgid "Go to the deal"
 msgstr ""
 
-#: includes/admin/class.settings.php:393
+#: includes/admin/class-settings.php:402
+#: includes/vendor/meta-box/inc/fields/select.php:86
 msgid "None"
 msgstr ""
 
-#: includes/admin/class.settings.php:394
+#: includes/admin/class-settings.php:403
 msgid "Hand right"
 msgstr ""
 
-#: includes/admin/class.settings.php:395
+#: includes/admin/class-settings.php:404
 msgid "Gavel"
 msgstr ""
 
-#: includes/admin/class.settings.php:396
+#: includes/admin/class-settings.php:405
 msgid "Shopping cart"
 msgstr ""
 
-#: includes/admin/class.settings.php:403 includes/vendor/meta-box-demo.php:61
+#: includes/admin/class-settings.php:412 includes/vendor/meta-box-demo.php:61
 msgid "Text"
 msgstr ""
 
-#: includes/admin/class.settings.php:408
+#: includes/admin/class-settings.php:417
 msgid "Icon"
 msgstr ""
 
-#: includes/admin/class.settings.php:437
+#: includes/admin/class-settings.php:446
 msgid "Output custom CSS styles"
 msgstr ""
 
-#: includes/admin/class.settings.php:442
+#: includes/admin/class-settings.php:451
 msgid ""
 "Please don't use the <code>style</code> tag. Simply paste you CSS classes/"
 "definitions e.g. <code>.affcoups .affcoups-coupon { background-color: "
 "#333; }</code>"
 msgstr ""
 
-#: includes/admin/class.settings.php:451
+#: includes/admin/class-settings.php:460
 msgid ""
 "In case you want to change the colors, you must pick a new color for all "
 "fields above."
 msgstr ""
 
-#: includes/admin/class.settings.php:461 includes/coupon-post-type.php:22
+#: includes/admin/class-settings.php:470 includes/coupon-post-type.php:22
 msgid "Affiliate Coupons"
 msgstr ""
 
-#: includes/admin/class.settings.php:485
+#: includes/admin/class-settings.php:494
 msgid ""
 "Here you can find a brief overview of the most important resources in "
 "order use our plugin."
 msgstr ""
 
-#: includes/admin/class.settings.php:513
+#: includes/admin/class-settings.php:522
 msgid "Latest News & Updates"
 msgstr ""
 
-#: includes/admin/class.settings.php:516
+#: includes/admin/class-settings.php:525
 msgid ""
 "Join our newsletter and we let you know about new releases, as well as "
 "important updates and upcoming deals."
 msgstr ""
 
-#: includes/admin/class.settings.php:523
+#: includes/admin/class-settings.php:532
 msgid "Email Address"
 msgstr ""
 
-#: includes/admin/class.settings.php:537
+#: includes/admin/class-settings.php:546
+#: includes/vendor/meta-box/inc/about/sections/newsletter.php:15
 msgid "Subscribe"
 msgstr ""
 
@@ -366,157 +373,36 @@ msgstr ""
 msgid "Plugin Website"
 msgstr ""
 
-#: includes/bootstrap.php:82
-#: includes/vendor/class-tgm-plugin-activation.php:334
-msgid "Install Required Plugins"
-msgstr ""
-
-#: includes/bootstrap.php:83
-#: includes/vendor/class-tgm-plugin-activation.php:335
-msgid "Install Plugins"
-msgstr ""
-
-#: includes/bootstrap.php:85
-#: includes/vendor/class-tgm-plugin-activation.php:337
-#, php-format
-msgid "Installing Plugin: %s"
-msgstr ""
-
-#: includes/bootstrap.php:87
-#: includes/vendor/class-tgm-plugin-activation.php:339
-#, php-format
-msgid "Updating Plugin: %s"
-msgstr ""
-
-#: includes/bootstrap.php:88
-#: includes/vendor/class-tgm-plugin-activation.php:340
-msgid "Something went wrong with the plugin API."
-msgstr ""
-
-#: includes/bootstrap.php:91
-#, php-format
-msgid "Affiliate Coupons requires the following plugin: %1$s."
-msgid_plural "Affiliate Coupons requires the following plugins: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: includes/bootstrap.php:97
-#, php-format
-msgid "Affiliate Coupons recommends the following plugin: %1$s."
-msgid_plural "Affiliate Coupons recommends the following plugins: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: includes/bootstrap.php:103
+#: includes/admin/upgrades.php:56
 #, php-format
 msgid ""
-"The following plugin needs to be updated to its latest version to ensure "
-"maximum compatibility with this plugin: %1$s."
-msgid_plural ""
-"The following plugins need to be updated to their latest version to ensure "
-"maximum compatibility with this plugin: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: includes/bootstrap.php:109
-#: includes/vendor/class-tgm-plugin-activation.php:361
-#, php-format
-msgid "There is an update available for: %1$s."
-msgid_plural "There are updates available for the following plugins: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: includes/bootstrap.php:115
-#: includes/vendor/class-tgm-plugin-activation.php:367
-#, php-format
-msgid "The following required plugin is currently inactive: %1$s."
-msgid_plural "The following required plugins are currently inactive: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: includes/bootstrap.php:121
-#: includes/vendor/class-tgm-plugin-activation.php:373
-#, php-format
-msgid "The following recommended plugin is currently inactive: %1$s."
-msgid_plural ""
-"The following recommended plugins are currently inactive: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: includes/bootstrap.php:126
-#: includes/vendor/class-tgm-plugin-activation.php:378
-msgid "Begin installing plugin"
-msgid_plural "Begin installing plugins"
-msgstr[0] ""
-msgstr[1] ""
-
-#: includes/bootstrap.php:131
-#: includes/vendor/class-tgm-plugin-activation.php:383
-msgid "Begin updating plugin"
-msgid_plural "Begin updating plugins"
-msgstr[0] ""
-msgstr[1] ""
-
-#: includes/bootstrap.php:136
-#: includes/vendor/class-tgm-plugin-activation.php:388
-msgid "Begin activating plugin"
-msgid_plural "Begin activating plugins"
-msgstr[0] ""
-msgstr[1] ""
-
-#: includes/bootstrap.php:140
-#: includes/vendor/class-tgm-plugin-activation.php:392
-msgid "Return to Required Plugins Installer"
+"With the latest update we removed the \"meta box\" dependency again. This "
+"means, you can now <a href=\"%s\">deactivate the meta box plugin</a>. "
+"Thanks!"
 msgstr ""
 
-#: includes/bootstrap.php:141
-#: includes/vendor/class-tgm-plugin-activation.php:394
-#: includes/vendor/class-tgm-plugin-activation.php:3252
-msgid "Plugin activated successfully."
+#: includes/class-coupon.php:305
+msgid "More"
 msgstr ""
 
-#: includes/bootstrap.php:142
-#: includes/vendor/class-tgm-plugin-activation.php:395
-#: includes/vendor/class-tgm-plugin-activation.php:3045
-msgid "The following plugin was activated successfully:"
-msgid_plural "The following plugins were activated successfully:"
-msgstr[0] ""
-msgstr[1] ""
-
-#: includes/bootstrap.php:144
-#: includes/vendor/class-tgm-plugin-activation.php:397
-#, php-format
-msgid "No action taken. Plugin %1$s was already active."
+#: includes/class-coupon.php:412 includes/coupon-metaboxes.php:54
+msgid "Valid from"
 msgstr ""
 
-#: includes/bootstrap.php:146
-#, php-format
-msgid ""
-"Plugin not activated. A higher version of %s is needed for this plugin. "
-"Please update the plugin."
+#: includes/class-coupon.php:416 includes/coupon-metaboxes.php:68
+msgid "Valid until"
 msgstr ""
 
-#: includes/bootstrap.php:148
-#: includes/vendor/class-tgm-plugin-activation.php:401
-#, php-format
-msgid "All plugins installed and activated successfully. %1$s"
+#: includes/class-coupon.php:416
+msgid "until"
 msgstr ""
 
-#: includes/bootstrap.php:149
-#: includes/vendor/class-tgm-plugin-activation.php:402
-msgid "Dismiss this notice"
+#: includes/class-coupon.php:450
+msgid "Copied!"
 msgstr ""
 
-#: includes/bootstrap.php:150
-#: includes/vendor/class-tgm-plugin-activation.php:403
-msgid ""
-"There are one or more required or recommended plugins to install, update "
-"or activate."
-msgstr ""
-
-#: includes/bootstrap.php:151
-#: includes/vendor/class-tgm-plugin-activation.php:404
-msgid "Please contact the administrator of this site for help."
+#: includes/class-coupon.php:451
+msgid "Copy"
 msgstr ""
 
 #: includes/coupon-category-taxonomy.php:20
@@ -603,34 +489,10 @@ msgstr ""
 msgid "Categories list navigation"
 msgstr ""
 
-#: includes/coupon-functions.php:204 includes/coupon-functions.php:684
-#: includes/coupon-functions.php:708 includes/coupon-functions.php:734
+#: includes/coupon-functions.php:213 includes/coupon-functions.php:232
+#: includes/coupon-functions.php:256 includes/coupon-functions.php:282
 #: includes/coupon-metaboxes.php:26
 msgid "Please select..."
-msgstr ""
-
-#: includes/coupon-functions.php:460
-msgid "More"
-msgstr ""
-
-#: includes/coupon-functions.php:500
-msgid "Copied!"
-msgstr ""
-
-#: includes/coupon-functions.php:501
-msgid "Copy"
-msgstr ""
-
-#: includes/coupon-functions.php:621 includes/coupon-metaboxes.php:54
-msgid "Valid from"
-msgstr ""
-
-#: includes/coupon-functions.php:626 includes/coupon-metaboxes.php:68
-msgid "Valid until"
-msgstr ""
-
-#: includes/coupon-functions.php:626
-msgid "until"
 msgstr ""
 
 #: includes/coupon-metaboxes.php:21 includes/vendor-post-type.php:23
@@ -638,7 +500,7 @@ msgstr ""
 msgid "Vendor"
 msgstr ""
 
-#: includes/coupon-metaboxes.php:35 includes/vendor-metaboxes.php:21
+#: includes/coupon-metaboxes.php:35 includes/vendor-metaboxes.php:24
 msgid "Image"
 msgstr ""
 
@@ -646,7 +508,7 @@ msgstr ""
 msgid "By default the vendor image will be taken."
 msgstr ""
 
-#: includes/coupon-metaboxes.php:37 includes/vendor-metaboxes.php:24
+#: includes/coupon-metaboxes.php:37 includes/vendor-metaboxes.php:27
 #, php-format
 msgid "Recommended size: %1$d * %2$d px"
 msgstr ""
@@ -668,7 +530,7 @@ msgstr ""
 msgid "yy-mm-dd"
 msgstr ""
 
-#: includes/coupon-metaboxes.php:82 includes/vendor-metaboxes.php:28
+#: includes/coupon-metaboxes.php:82 includes/vendor-metaboxes.php:31
 #: includes/vendor/meta-box-demo.php:286
 msgid "URL"
 msgstr ""
@@ -685,7 +547,7 @@ msgstr ""
 msgid "By default the vendor title will be taken."
 msgstr ""
 
-#: includes/coupon-metaboxes.php:94 includes/vendor-metaboxes.php:34
+#: includes/coupon-metaboxes.php:94 includes/vendor-metaboxes.php:37
 msgid "Description"
 msgstr ""
 
@@ -878,19 +740,19 @@ msgstr ""
 msgid "Types list navigation"
 msgstr ""
 
-#: includes/shortcodes.php:155 includes/template-functions.php:47
+#: includes/shortcodes.php:161 includes/template-functions.php:47
 msgid "Template not found."
 msgstr ""
 
-#: includes/shortcodes.php:161
+#: includes/shortcodes.php:165
 msgid "No coupons found."
 msgstr ""
 
-#: includes/vendor-metaboxes.php:30
+#: includes/vendor-metaboxes.php:33
 msgid "This will be the default url of the selected vendor or its coupons."
 msgstr ""
 
-#: includes/vendor-metaboxes.php:46
+#: includes/vendor-metaboxes.php:49
 msgid "Vendor: Details"
 msgstr ""
 
@@ -970,331 +832,6 @@ msgctxt "Post Type General Name (Export)"
 msgid "Affiliate Coupons - Vendors"
 msgstr ""
 
-#: includes/vendor/class-tgm-plugin-activation.php:343
-#, php-format
-msgid "This theme requires the following plugin: %1$s."
-msgid_plural "This theme requires the following plugins: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:349
-#, php-format
-msgid "This theme recommends the following plugin: %1$s."
-msgid_plural "This theme recommends the following plugins: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:355
-#, php-format
-msgid ""
-"The following plugin needs to be updated to its latest version to ensure "
-"maximum compatibility with this theme: %1$s."
-msgid_plural ""
-"The following plugins need to be updated to their latest version to ensure "
-"maximum compatibility with this theme: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:393
-#: includes/vendor/class-tgm-plugin-activation.php:920
-#: includes/vendor/class-tgm-plugin-activation.php:2626
-#: includes/vendor/class-tgm-plugin-activation.php:3673
-msgid "Return to the Dashboard"
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:399
-#, php-format
-msgid ""
-"Plugin not activated. A higher version of %s is needed for this theme. "
-"Please update the plugin."
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:607
-msgid "This plugin needs to be updated to be compatible with your theme."
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:608
-msgid "Update Required"
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:725
-msgid "Set the parent_slug config variable instead."
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:1027
-msgid ""
-"The remote plugin package does not contain a folder with the desired slug "
-"and renaming did not work."
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:1027
-#: includes/vendor/class-tgm-plugin-activation.php:1030
-msgid ""
-"Please contact the plugin provider and ask them to package their plugin "
-"according to the WordPress guidelines."
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:1030
-msgid ""
-"The remote plugin package consists of more than one file, but the files "
-"are not packaged in a folder."
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:1214
-#: includes/vendor/class-tgm-plugin-activation.php:3041
-msgctxt "plugin A *and* plugin B"
-msgid "and"
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:2075
-#, php-format
-msgid "TGMPA v%s"
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:2366
-msgid "Required"
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:2369
-msgid "Recommended"
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:2385
-msgid "WordPress Repository"
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:2388
-msgid "External Source"
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:2391
-msgid "Pre-Packaged"
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:2408
-msgid "Not Installed"
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:2412
-msgid "Installed But Not Activated"
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:2414
-msgid "Active"
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:2420
-msgid "Required Update not Available"
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:2423
-msgid "Requires Update"
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:2426
-msgid "Update recommended"
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:2435
-#, php-format
-msgctxt "Install/Update Status"
-msgid "%1$s, %2$s"
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:2481
-#, php-format
-msgctxt "plugins"
-msgid "All <span class=\"count\">(%s)</span>"
-msgid_plural "All <span class=\"count\">(%s)</span>"
-msgstr[0] ""
-msgstr[1] ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:2485
-#, php-format
-msgid "To Install <span class=\"count\">(%s)</span>"
-msgid_plural "To Install <span class=\"count\">(%s)</span>"
-msgstr[0] ""
-msgstr[1] ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:2489
-#, php-format
-msgid "Update Available <span class=\"count\">(%s)</span>"
-msgid_plural "Update Available <span class=\"count\">(%s)</span>"
-msgstr[0] ""
-msgstr[1] ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:2493
-#, php-format
-msgid "To Activate <span class=\"count\">(%s)</span>"
-msgid_plural "To Activate <span class=\"count\">(%s)</span>"
-msgstr[0] ""
-msgstr[1] ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:2575
-msgctxt "as in: \"version nr unknown\""
-msgid "unknown"
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:2583
-msgid "Installed version:"
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:2591
-msgid "Minimum required version:"
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:2603
-msgid "Available version:"
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:2626
-msgid "No plugins to install, update or activate."
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:2640
-msgid "Plugin"
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:2641
-msgid "Source"
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:2642
-msgid "Type"
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:2646
-msgid "Version"
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:2647
-msgid "Status"
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:2696
-#, php-format
-msgid "Install %2$s"
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:2701
-#, php-format
-msgid "Update %2$s"
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:2707
-#, php-format
-msgid "Activate %2$s"
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:2777
-msgid "Upgrade message from the plugin author:"
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:2810
-msgid "Install"
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:2816
-msgid "Update"
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:2819
-msgid "Activate"
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:2850
-msgid "No plugins were selected to be installed. No action taken."
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:2852
-msgid "No plugins were selected to be updated. No action taken."
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:2893
-msgid "No plugins are available to be installed at this time."
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:2895
-msgid "No plugins are available to be updated at this time."
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:3001
-msgid "No plugins were selected to be activated. No action taken."
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:3027
-msgid "No plugins are available to be activated at this time."
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:3251
-msgid "Plugin activation failed."
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:3591
-#, php-format
-msgid "Updating Plugin %1$s (%2$d/%3$d)"
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:3594
-#, php-format
-msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:3596
-#, php-format
-msgid "The installation of %1$s failed."
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:3600
-msgid ""
-"The installation and activation process is starting. This process may take "
-"a while on some hosts, so please be patient."
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:3602
-#, php-format
-msgid "%1$s installed and activated successfully."
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:3602
-#: includes/vendor/class-tgm-plugin-activation.php:3610
-msgid "Show Details"
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:3602
-#: includes/vendor/class-tgm-plugin-activation.php:3610
-msgid "Hide Details"
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:3603
-msgid "All installations and activations have been completed."
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:3605
-#, php-format
-msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:3608
-msgid ""
-"The installation process is starting. This process may take a while on "
-"some hosts, so please be patient."
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:3610
-#, php-format
-msgid "%1$s installed successfully."
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:3611
-msgid "All installations have been completed."
-msgstr ""
-
-#: includes/vendor/class-tgm-plugin-activation.php:3613
-#, php-format
-msgid "Installing Plugin %1$s (%2$d/%3$d)"
-msgstr ""
-
 #: includes/vendor/meta-box-demo.php:42
 msgid "Standard Fields"
 msgstr ""
@@ -1336,6 +873,8 @@ msgid "Label2"
 msgstr ""
 
 #: includes/vendor/meta-box-demo.php:96 includes/vendor/meta-box-demo.php:301
+#: includes/vendor/meta-box/inc/fields/file-input.php:39
+#: includes/vendor/meta-box/inc/fields/select.php:86
 msgid "Select"
 msgstr ""
 
@@ -1510,6 +1049,671 @@ msgstr ""
 msgid "Label3"
 msgstr ""
 
+#: includes/vendor/meta-box/inc/about/about.php:50
+msgid "About"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/about.php:62
+#: includes/vendor/meta-box/inc/about/about.php:63
+msgid "Meta Box"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/about.php:78
+msgid "Welcome to Meta Box"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/about.php:79
+msgid "Dashboard"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/about.php:157
+#, php-format
+msgid ""
+"Please rate <strong>Meta Box</strong> <a href=\"%1$s\" target=\"_blank"
+"\">&#9733;&#9733;&#9733;&#9733;&#9733;</a> on <a href=\"%1$s\" target="
+"\"_blank\">WordPress.org</a> to help us spread the word. Thank you from "
+"the Meta Box team!"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:11
+msgid ""
+"Extend custom fields in WordPress well beyond what others would ever "
+"consider ordinary! Save over 70% with our extensions bundles."
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:11
+msgid "View Bundles"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:19
+msgid ""
+"Drag and drop your custom fields into place without a single line of code."
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:23
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:47
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:59
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:71
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:83
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:95
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:107
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:119
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:131
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:143
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:215
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:227
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:239
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:287
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:299
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:311
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:323
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:335
+#: includes/vendor/meta-box/inc/about/sections/getting-started.php:23
+msgid "Learn More"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:31
+msgid ""
+"Create and manage custom post types easily in WordPress with an easy-to-"
+"use interface."
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:35
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:155
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:167
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:179
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:191
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:203
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:251
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:263
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:275
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:347
+msgid "Free Download"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:43
+msgid ""
+"Create repeatable groups of custom fields for better appearance and "
+"structure."
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:55
+msgid "Create a powerful settings page for your theme, plugin or website."
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:67
+msgid ""
+"Control the visibility of meta boxes and fields or even HTML elements with "
+"ease."
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:79
+msgid "Easily add custom fields to categories, tags or any custom taxonomy."
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:91
+msgid ""
+"Add custom fields to user profile (user meta) quickly with simple syntax."
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:103
+msgid ""
+"Create register, login and edit user profile forms in the frontend. Embed "
+"everywhere with shortcodes."
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:115
+msgid ""
+"Create frontend forms for users to submit custom content. Embed everywhere "
+"with shortcode."
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:127
+msgid "Add as many custom fields as you want and organize them into tabs."
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:139
+msgid ""
+"Save custom fields data to custom table instead of the default meta "
+"tables. Reduce database size and increase performance."
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:151
+msgid "Pull all meta value from posts, terms into the WP REST API responses."
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:163
+msgid ""
+"A lightweight WordPress plugin for creating many-to-many relationships "
+"between posts, terms and users."
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:175
+msgid ""
+"Integrates Meta Box and FacetWP, makes custom fields searchable and "
+"filterable in the frontend."
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:187
+msgid ""
+"Select and show custom fields created by the Meta Box plugin in the Beaver "
+"Themer field connection."
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:199
+msgid ""
+"Add custom fields to comments in WordPress. Support all field types and "
+"options."
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:211
+msgid ""
+"Track changes of custom fields with WordPress revision. Save, compare, "
+"restore the changes easily."
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:223
+msgid ""
+"Automatically and instantly populate location data with the power of "
+"Google Maps Geolocation API."
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:235
+msgid ""
+"Display custom fields in table columns in admin screens for All Posts "
+"(types)."
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:247
+msgid ""
+"Add content of custom fields to Yoast SEO Content Analysis to have better/"
+"correct SEO score."
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:259
+msgid ""
+"Limit the number of characters or words entered for text and textarea "
+"fields."
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:271
+msgid ""
+"Automatically updates all Meta Box extensions within the WordPress Admin "
+"area."
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:283
+msgid "Define custom meta boxes and custom fields easier with templates."
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:295
+msgid "Display help information for fields using beautiful tooltips."
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:307
+msgid "Toggle meta boxes by page template, post format or taxonomy using JS."
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:319
+msgid "Display fields more beautiful by putting them into 12-columns grid."
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:331
+msgid "Show or hide meta boxes whenever and for whomever you choose."
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/extensions.php:343
+msgid ""
+"Create and manage custom taxonomies with an easy-to-use interface in "
+"WordPress."
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/getting-started.php:12
+msgid "Getting Started With Online Generator"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/getting-started.php:13
+msgid ""
+"The fastest way to getting started with Meta Box is use our online "
+"generator to generate meta boxes with custom fields. It provides a "
+"friendly UI for you to create meta boxes and custom fields just by drag "
+"and drop fields."
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/getting-started.php:15
+msgid "online generator"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/getting-started.php:17
+msgid "Go to Online Generator"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/getting-started.php:21
+msgid "Understand The Basics"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/getting-started.php:22
+msgid ""
+"Meta Box doesn't have any admin page for configuration or settings. "
+"Instead of that, it provides a very powerful API to speed up the process "
+"of creating meta boxes and custom fields. It might take you a little time "
+"at first, but then you'll love the way it work because it helps you do and "
+"customize almost everything."
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/getting-started.php:25
+#: includes/vendor/meta-box/inc/about/sections/tabs.php:12
+#: includes/vendor/meta-box/inc/about/sections/welcome.php:20
+#: includes/vendor/meta-box/inc/core.php:39
+msgid "Extensions"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/getting-started.php:26
+msgid ""
+"Wanna see more features that transform your WordPress website into a "
+"powerful CMS? Check out some extensions below:"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/getting-started.php:28
+msgid "Meta Box Group"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/getting-started.php:29
+msgid "Meta Box Conditional Logic"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/getting-started.php:30
+msgid "MB Settings Page"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/getting-started.php:31
+msgid "MB Term Meta"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/getting-started.php:33
+msgid "More Extensions"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/newsletter.php:11
+msgid "Meta Box Newsletter"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/newsletter.php:13
+msgid ""
+"Want to learn how to use Meta Box to its full potential? Sign up to get "
+"valuable tips and resources. We will never spam you."
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/support.php:13
+msgid "Free Support"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/support.php:14
+msgid ""
+"If you have any question about how to use the plugin, please open a new "
+"topic on WordPress.org support forum or open a new issue on Github "
+"(preferable). We will try to answer as soon as we can."
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/support.php:15
+msgid "Go to Github"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/support.php:16
+msgid "Go to WordPress.org"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/support.php:20
+msgid "Premium Support"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/support.php:21
+msgid ""
+"For users that have bought premium extensions, the support is provided in "
+"the Meta Box Support forum. Any question will be answered with technical "
+"details within 24 hours."
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/support.php:22
+msgid "Go to support forum"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/tabs.php:10
+msgid "Getting Started"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/tabs.php:13
+#: includes/vendor/meta-box/inc/about/sections/welcome.php:21
+msgid "Support"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/upgrade.php:10
+msgid "Upgrade to Meta Box PRO"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/upgrade.php:11
+msgid "Please upgrade to the PRO plan to unlock more awesome features."
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/upgrade.php:13
+msgid ""
+"Create custom fields with drag-n-drop interface - no coding knowledge "
+"required!"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/upgrade.php:14
+msgid "Add custom fields to taxonomies or user profile."
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/upgrade.php:15
+msgid "Create custom settings pages."
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/upgrade.php:16
+msgid "Create frontend submission forms."
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/upgrade.php:17
+msgid "Save custom fields in custom tables."
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/upgrade.php:18
+msgid "And much more!"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/upgrade.php:20
+msgid "Get Meta Box PRO now"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/welcome.php:13
+#, php-format
+msgid "Welcome to %s"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/welcome.php:16
+msgid ""
+"Meta Box is a free Gutenberg and GDPR-compatible WordPress custom fields "
+"plugin and framework that makes quick work of customizing a website with—"
+"you guessed it—meta boxes and custom fields in WordPress. Follow the "
+"instruction below to get started!"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/about/sections/welcome.php:19
+#: includes/vendor/meta-box/inc/core.php:38
+msgid "Documentation"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/field.php:396
+msgid "+ Add more"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/autocomplete.php:20
+#: includes/vendor/meta-box/inc/fields/autocomplete.php:81
+#: includes/vendor/meta-box/inc/fields/autocomplete.php:93
+msgid "Delete"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/background.php:58
+msgid "Background Image"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/background.php:70
+msgid "-- Background Repeat --"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/background.php:72
+msgid "No Repeat"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/background.php:73
+msgid "Repeat All"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/background.php:74
+msgid "Repeat Horizontally"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/background.php:75
+msgid "Repeat Vertically"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/background.php:76
+#: includes/vendor/meta-box/inc/fields/background.php:110
+#: includes/vendor/meta-box/inc/fields/background.php:122
+msgid "Inherit"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/background.php:86
+msgid "-- Background Position --"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/background.php:88
+msgid "Top Left"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/background.php:89
+msgid "Top Center"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/background.php:90
+msgid "Top Right"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/background.php:91
+msgid "Center Left"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/background.php:92
+msgid "Center Center"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/background.php:93
+msgid "Center Right"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/background.php:94
+msgid "Bottom Left"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/background.php:95
+msgid "Bottom Center"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/background.php:96
+msgid "Bottom Right"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/background.php:106
+msgid "-- Background Attachment --"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/background.php:108
+msgid "Fixed"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/background.php:109
+msgid "Scroll"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/background.php:120
+msgid "-- Background Size --"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/background.php:123
+msgid "Cover"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/background.php:124
+msgid "Contain"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/button.php:32
+msgid "Click me"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/checkbox.php:53
+msgid "Yes"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/checkbox.php:53
+msgid "No"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/file-input.php:20
+msgid "Select File"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/file-input.php:41
+msgid "Remove"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/file.php:21
+#, php-format
+msgid "You may only upload maximum %d file"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/file.php:23
+#, php-format
+msgid "You may only upload maximum %d files"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/file.php:53
+msgid "Error: Cannot delete file"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/file.php:66
+msgctxt "file upload"
+msgid "+ Add new file"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/file.php:121
+msgctxt "file upload"
+msgid "Delete"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/file.php:122
+msgctxt "file upload"
+msgid "Edit"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/input-list.php:88
+msgid "Select All / None"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/key-value.php:132
+msgid "Key"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/key-value.php:133
+msgid "Value"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/map.php:46
+#: includes/vendor/meta-box/inc/fields/osm.php:24
+msgid "No results found"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/map.php:77
+#: includes/vendor/meta-box/inc/fields/osm.php:56
+msgid "Find Address"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/media.php:24
+msgctxt "media"
+msgid "+ Add Media"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/media.php:25
+msgctxt "media"
+msgid " file"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/media.php:26
+msgctxt "media"
+msgid " files"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/media.php:27
+msgctxt "media"
+msgid "Remove"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/media.php:28
+msgctxt "media"
+msgid "Edit"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/media.php:29
+msgctxt "media"
+msgid "View"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/media.php:30
+msgctxt "media"
+msgid "No Title"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/media.php:33
+msgctxt "media"
+msgid "Select Files"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/media.php:34
+msgctxt "media"
+msgid "or"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/media.php:35
+msgctxt "media"
+msgid "Drop files here to upload"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/oembed.php:22
+msgid "Embed HTML not available."
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/post.php:32
+msgid "Select a post"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/post.php:38
+#: includes/vendor/meta-box/inc/fields/taxonomy.php:50
+#, php-format
+msgid "Select a %s"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/select-advanced.php:45
+msgid "Select an item"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/select.php:86
+msgid "All"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/sidebar.php:21
+msgid "Select a sidebar"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/switch.php:90
+msgid "On"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/switch.php:91
+msgid "Off"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/taxonomy.php:44
+msgid "Select a term"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/fields/user.php:22
+msgid "Select an user"
+msgstr ""
+
+#: includes/vendor/meta-box/inc/validation.php:47
+msgid "Please correct the errors highlighted below and try again."
+msgstr ""
+
 #: includes/widgets.php:51
 msgid "Shortcode arguments missing."
 msgstr ""
@@ -1574,4 +1778,8 @@ msgstr ""
 
 #: includes/widgets/class.widget-single.php:92
 msgid "Coupon:"
+msgstr ""
+
+#: templates/list.php:53
+msgid "Show Less"
 msgstr ""

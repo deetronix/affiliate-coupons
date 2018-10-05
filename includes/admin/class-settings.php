@@ -67,9 +67,9 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 			);
 
 			add_settings_field(
-				'affcoups_settings_coupon_expiration',
-				__( 'Expiration', 'affiliate-coupons' ),
-				array( &$this, 'coupon_expiration_render' ),
+				'affcoups_settings_coupon_dates',
+				__( 'Dates', 'affiliate-coupons' ),
+				array( &$this, 'coupon_dates_render' ),
 				'affcoups_settings',
 				'affcoups_settings_section_general',
 				array( 'label_for' => 'affcoups_hide_expired_coupons' )
@@ -260,13 +260,22 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 			<?php
 		}
 
-		function coupon_expiration_render() {
+        /**
+         * Render date settings
+         */
+		function coupon_dates_render() {
 
+            $hide_dates = ( isset( $this->options['hide_dates'] ) && $this->options['hide_dates'] == '1' ) ? 1 : 0;
 			$hide_expired_coupons = ( isset( $this->options['hide_expired_coupons'] ) && $this->options['hide_expired_coupons'] == '1' ) ? 1 : 0;
 			?>
-
-            <input type="checkbox" id="affcoups_hide_expired_coupons" name="affcoups_settings[hide_expired_coupons]" value="1" <?php echo( $hide_expired_coupons == 1 ? 'checked' : '' ); ?> />
-            <label for="affcoups_hide_expired_coupons"><?php esc_html_e( 'Hide coupons after they expired', 'affiliate-coupons' ); ?></label>
+            <p>
+                <input type="checkbox" id="affcoups_hide_dates" name="affcoups_settings[hide_dates]" value="1" <?php echo( $hide_dates == 1 ? 'checked' : '' ); ?> />
+                <label for="affcoups_hide_dates"><?php esc_html_e( 'Hide coupon dates on the front end', 'affiliate-coupons' ); ?></label>
+            </p>
+            <p>
+                <input type="checkbox" id="affcoups_hide_expired_coupons" name="affcoups_settings[hide_expired_coupons]" value="1" <?php echo( $hide_expired_coupons == 1 ? 'checked' : '' ); ?> />
+                <label for="affcoups_hide_expired_coupons"><?php esc_html_e( 'Hide coupons after they expired', 'affiliate-coupons' ); ?></label>
+            </p>
 			<?php
 		}
 

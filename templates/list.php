@@ -66,7 +66,7 @@ if ( ! isset( $coupons ) )
 
                     <?php $coupon->the_button(); ?>
 
-                    <?php if ( $coupon->has_valid_dates() ) { ?>
+                    <?php if ( $coupon->show_valid_dates() ) { ?>
                         <div class="affcoups-coupon__valid-dates">
                             <?php $coupon->the_valid_dates(); ?>
                         </div>
