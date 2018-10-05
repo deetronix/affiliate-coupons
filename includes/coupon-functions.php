@@ -15,10 +15,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Get coupons
  *
  * @param array $args
- *
- * @return array WP_Post
+ * @param bool $return_posts
+ * @return array
  */
-function affcoups_get_coupons( $args = array() ) {
+function affcoups_get_coupons( $args = array(), $return_posts = false ) {
 
     $coupons = array();
 
@@ -178,7 +178,10 @@ function affcoups_get_coupons( $args = array() ) {
 	//affcoups_debug( $args, 'affcoups_get_coupons $args' );
 
 	// Fetch posts
-	$coupon_posts = get_posts( $args );
+    $coupon_posts = get_posts( $args );
+
+	if ( $return_posts )
+	    return $coupon_posts;
 
 	if ( is_array( $coupon_posts ) && sizeof( $coupon_posts ) > 0 ) {
 
@@ -207,7 +210,7 @@ function affcoups_get_coupon_options( $args = array() ) {
 	// Parse args
 	$args = wp_parse_args( $args, $defaults );
 
-	$coupons = affcoups_get_coupons( $args );
+	$coupons = affcoups_get_coupons( $args, true );
 
 	$options = array(
 		0 => __( 'Please select...', 'affiliate-coupons' )
