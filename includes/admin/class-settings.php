@@ -16,8 +16,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! class_exists( 'Affcoups_Settings' ) ) {
 
 	class Affcoups_Settings {
+
+        /**
+         * Options
+         *
+         * @var array
+         */
 		public $options;
 
+        /**
+         * Affcoups_Settings constructor.
+         */
 		public function __construct() {
 			// Options
 			$this->options = affcoups_get_options();
@@ -26,10 +35,12 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 			add_action( 'admin_init', array( &$this, 'init_settings' ) );
 		}
 
+        /**
+         * Add admin menu
+         */
 		function add_admin_menu() {
-			/*
-			 * Source: https://codex.wordpress.org/Function_Reference/add_options_page
-			 */
+
+		    // Source: https://codex.wordpress.org/Function_Reference/add_options_page
 			add_submenu_page(
 				'edit.php?post_type=affcoups_coupon',
 				__( 'Affiliate Coupons - Settings', 'affiliate-coupons' ), // Page title
@@ -41,12 +52,17 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 
 		}
 
+        /**
+         * Register settings
+         */
 		function init_settings() {
+
 			register_setting(
 				'affcoups_settings',
 				'affcoups_settings',
 				array( &$this, 'validate_input_callback' )
 			);
+
 			/*
 			 * Section: Quickstart
 			 */
@@ -56,6 +72,7 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 				array( &$this, 'section_quickstart_render' ),
 				'affcoups_settings'
 			);
+
 			/*
 			 * Section: General
 			 */
@@ -141,15 +158,22 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 
 		}
 
+        /**
+         * Validate settings input
+         *
+         * @param $input
+         * @return mixed
+         */
 		function validate_input_callback( $input ) {
 
-			/*
-			 * Here you can validate (and manipulate) the user input before saving to the database
-			 */
+            $input = apply_filters( 'affcoups_settings_validate_input', $input );
 
 			return $input;
 		}
 
+        /**
+         * Render quickstart section
+         */
 		function section_quickstart_render() {
 			?>
 
@@ -279,6 +303,9 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 			<?php
 		}
 
+        /**
+         * Render order settings
+         */
 		function order_render() {
 
 			$order_options = array(
@@ -323,16 +350,9 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 			<?php
 		}
 
-		function section_two_render() {
-
-			return;
-			?>
-
-            <p>Section two description...</p>
-
-			<?php
-		}
-
+        /**
+         * Render templates settings
+         */
 		function templates_render() {
 
 			$template_options = array(
@@ -361,6 +381,9 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 			<?php
 		}
 
+        /**
+         * Render contents settings
+         */
 		function contents_render() {
 
 			$excerpt_length = ( ! empty( $this->options['excerpt_length'] ) && is_numeric( $this->options['excerpt_length'] ) ) ? intval( $this->options['excerpt_length'] ) : 90;
@@ -376,6 +399,9 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 			<?php
 		}
 
+        /**
+         * Render discount settings
+         */
 		function discount_render() {
 
 			$discount_bg_color = ( isset( $this->options['discount_bg_color'] ) ) ? $this->options['discount_bg_color'] : '';
@@ -394,6 +420,9 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 			<?php
 		}
 
+        /**
+         * Render button settings
+         */
 		function button_render() {
 
 			$button_text = ( ! empty( $this->options['button_text'] ) ) ? esc_attr( trim( $this->options['button_text'] ) ) : __( 'Go to the deal', 'affiliate-coupons' );
@@ -435,6 +464,9 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 			<?php
 		}
 
+        /**
+         * Render custom CSS settings
+         */
 		function custom_css_render() {
 
 			$custom_css_activated = ( isset( $this->options['custom_css_activated'] ) && $this->options['custom_css_activated'] == '1' ) ? 1 : 0;
@@ -454,6 +486,9 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 			<?php
 		}
 
+        /**
+         * Output the color picker note
+         */
 		function the_color_picker_note() {
 			?>
             <p class="desc">
@@ -462,6 +497,9 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 			<?php
 		}
 
+        /**
+         * Output the options page HTML
+         */
 		function options_page() {
 			?>
 
@@ -568,10 +606,12 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 
 new Affcoups_Settings();
 
-/*
+/**
  * Custom settings section output
  *
  * Replacing: do_settings_sections('affcoups_settings');
+ *
+ * @param $page
  */
 function affcoups_do_settings_sections( $page ) {
 
