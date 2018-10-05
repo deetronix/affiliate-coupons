@@ -308,36 +308,16 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
          */
 		function order_render() {
 
+            $orderby_options = affcoups_get_orderby_options();
 			$order_options = array(
 				'asc'  => __( 'Ascending ', 'affiliate-coupons' ),
 				'desc' => __( 'Descending', 'affiliate-coupons' )
 			);
 
 			$order = ( isset ( $this->options['order'] ) ) ? $this->options['order'] : 'desc';
-
-			$orderby_options = array(
-				'name'        => __( 'Name (Post)', 'affiliate-coupons' ),
-				'date'        => __( 'Date published (Post)', 'affiliate-coupons' ),
-				'random'      => __( 'Random', 'affiliate-coupons' ),
-				'title'       => __( 'Title (Coupon)', 'affiliate-coupons' ),
-				'description' => __( 'Description (Coupon)', 'affiliate-coupons' ),
-				'discount'    => __( 'Discount (Coupon)', 'affiliate-coupons' ),
-				'valid_from'  => __( 'Valid from date (Coupon)', 'affiliate-coupons' ),
-				'valid_to'    => __( 'Valid to date (Coupon)', 'affiliate-coupons' )
-			);
-
 			$orderby = ( isset ( $this->options['orderby'] ) ) ? $this->options['orderby'] : 'date';
-
 			?>
-            <h4><?php esc_html_e( 'Order', 'affiliate-coupons' ); ?></h4>
-            <p>
-                <select id="affcoups_order" name="affcoups_settings[order]">
-					<?php foreach ( $order_options as $key => $label ) { ?>
-                        <option value="<?php echo esc_attr( $key ); ?>" <?php selected( $order, $key ); ?>><?php echo esc_attr( $label ); ?></option>
-					<?php } ?>
-                </select>
-            </p>
-
+            <!-- Order by -->
             <h4><?php esc_html_e( 'Order by', 'affiliate-coupons' ); ?></h4>
             <p>
                 <select id="affcoups_orderby" name="affcoups_settings[orderby]">
@@ -346,7 +326,15 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 					<?php } ?>
                 </select>
             </p>
-
+            <!-- Order -->
+            <h4><?php esc_html_e( 'Order', 'affiliate-coupons' ); ?></h4>
+            <p>
+                <select id="affcoups_order" name="affcoups_settings[order]">
+                    <?php foreach ( $order_options as $key => $label ) { ?>
+                        <option value="<?php echo esc_attr( $key ); ?>" <?php selected( $order, $key ); ?>><?php echo esc_attr( $label ); ?></option>
+                    <?php } ?>
+                </select>
+            </p>
 			<?php
 		}
 

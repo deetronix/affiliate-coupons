@@ -150,11 +150,7 @@ if ( ! class_exists( 'Affcoups_Multiple_Widget' ) ) {
 
             <!-- Orderby -->
 			<?php
-			$ordersby = array(
-				'date'   => __( 'Date', 'affiliate-coupons' ),
-				'name'   => __( 'Name', 'affiliate-coupons' ),
-				'author' => __( 'Author', 'affiliate-coupons' ),
-			);
+			$ordersby = affcoups_get_orderby_options();
 			?>
             <p>
                 <label for="<?php echo esc_attr( $this->get_field_id( 'orderby' ) ); ?>"><?php esc_attr_e( 'Order by:', 'affiliate-coupons' ); ?></label>

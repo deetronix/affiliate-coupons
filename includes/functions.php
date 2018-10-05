@@ -374,3 +374,26 @@ function affcoups_get_widget_template_options() {
 
     return $options;
 }
+
+/**
+ * Get orderby options
+ *
+ * @return array
+ */
+function affcoups_get_orderby_options() {
+
+    $options = array(
+        'title'       => __( 'Title (Coupon)', 'affiliate-coupons' ),
+        'description' => __( 'Description (Coupon)', 'affiliate-coupons' ),
+        'discount'    => __( 'Discount (Coupon)', 'affiliate-coupons' ),
+        'valid_from'  => __( 'Valid from date (Coupon)', 'affiliate-coupons' ),
+        'valid_to'    => __( 'Valid to date (Coupon)', 'affiliate-coupons' ),
+        'random'      => __( 'Random', 'affiliate-coupons' ),
+        'name'        => __( 'Name (Post)', 'affiliate-coupons' ),
+        'date'        => __( 'Date published (Post)', 'affiliate-coupons' ),
+    );
+
+    $options = apply_filters( 'affcoups_orderby_options', $options );
+
+    return $options;
+}
