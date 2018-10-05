@@ -109,7 +109,7 @@ function affcoups_add_shortcode( $atts, $content ) {
 
 	ob_start();
 
-	if ( $coupons->have_posts() ) {
+	if ( $coupons ) {
 
 		//echo 'Coupons found: ' . $coupons->post_count . '<br>';
 
@@ -154,8 +154,6 @@ function affcoups_add_shortcode( $atts, $content ) {
 		} else {
 			esc_html_e( 'Template not found.', 'affiliate-coupons' );
 		}
-
-		wp_reset_postdata();
 
 	} else {
 		esc_html_e( 'No coupons found.', 'affiliate-coupons' );

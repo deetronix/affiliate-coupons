@@ -38,7 +38,8 @@ function affcoups_vendor_extend_columns_content( $column_name, $postid ) {
 
 	if ( 'affcoups_vendor_thumb' === $column_name ) {
 
-		$image = affcoups_get_vendor_thumbnail( $postid, 'small' );
+        $Vendor = new Affcoups_Vendor( $postid );
+        $image = $Vendor->get_image( 'small' );
 
 		if ( ! empty( $image['url'] ) ) {
 			?>

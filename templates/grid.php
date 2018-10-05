@@ -1,7 +1,18 @@
 <?php
-if ( ! isset( $coupons ) ) {
+/**
+ * Grid template
+ *
+ * @package AffiliateCoupons\Templates
+ *
+ * @var Affcoups_Coupon $coupon
+ */
+
+// Exit if accessed directly
+if( !defined( 'ABSPATH' ) ) exit;
+
+// Check if coupons were found
+if ( ! isset( $coupons ) )
     return;
-}
 
 // Default values
 if ( ! isset ( $grid ) )
@@ -11,54 +22,60 @@ if ( ! isset ( $grid ) )
 
     <div class="affcoups-coupons-grid affcoups-coupons-grid--col-<?php echo esc_attr( $grid ); ?>">
 
-        <?php while ( $coupons->have_posts() ) { ?>
-            <?php $coupons->the_post(); ?>
+        <?php foreach( $coupons as $coupon ) { ?>
 
             <div class="affcoups-coupons-grid__item">
 
-                <div class="<?php affcoups_the_coupon_classes('affcoups-coupon'); ?>">
-                    <div class="affcoups-coupon__header">
-                        <?php affcoups_the_coupon_thumbnail(); ?>
+                <div class="<?php $coupon->the_classes('affcoups-coupon' ); ?>"<?php $coupon->the_container(); ?>>
 
-                        <?php if ( affcoups_get_coupon_discount() ) { ?>
-                            <span class="affcoups-coupon__discount"><?php echo esc_attr( affcoups_get_coupon_discount() ); ?></span>
+                    <div class="affcoups-coupon__header">
+
+                        <?php $coupon->the_image(); ?>
+
+                        <?php if ( $coupon->get_discount() ) { ?>
+                            <span class="affcoups-coupon__discount"><?php echo esc_attr( $coupon->get_discount() ); ?></span>
                         <?php } ?>
+
                     </div>
 
                     <div class="affcoups-coupon__content">
-                        <h3 class="affcoups-coupon__title"><?php echo esc_attr( affcoups_get_coupon_title() ); ?></h3>
 
-                        <?php if ( affcoups_get_coupon_types() ) { ?>
+                        <h3 class="affcoups-coupon__title"><?php echo esc_attr( $coupon->get_title() ); ?></h3>
+
+                        <?php if ( $coupon->get_types() ) { ?>
                             <div class="affcoups-coupon__types">
-                                <?php affcoups_the_coupon_types(); ?>
+                                <?php $coupon->the_types(); ?>
                             </div>
                         <?php } ?>
 
                         <div class="affcoups-coupon__description">
-                            <?php echo wp_kses_post( affcoups_get_coupon_description() ); ?>
+                            <?php echo wp_kses_post( $coupon->get_description() ); ?>
                         </div>
 
-                        <?php if ( affcoups_get_coupon_code() ) { ?>
+                        <?php if ( $coupon->get_code() ) { ?>
                             <div class="affcoups-coupon__code">
-                                <?php affcoups_the_coupon_code(); ?>
+                                <?php $coupon->the_code(); ?>
                             </div>
                         <?php } ?>
 
-                        <?php if ( affcoups_coupon_has_valid_dates() ) { ?>
+                        <?php if ( $coupon->has_valid_dates() ) { ?>
                             <div class="affcoups-coupon__valid-dates">
-                                <?php affcoups_the_coupon_valid_dates(); ?>
+                                <?php $coupon->the_valid_dates(); ?>
                             </div>
                         <?php } ?>
+
                     </div>
 
                     <div class="affcoups-coupon__footer">
-                        <?php affcoups_the_coupon_button(); ?>
+                        <?php $coupon->the_button(); ?>
                     </div>
 
                 </div>
 
             </div>
+
         <?php } ?>
+
     </div>
 
 <?php affcoups_the_template_wrapper_end(); ?>

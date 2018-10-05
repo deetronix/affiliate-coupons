@@ -14,23 +14,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 global $affcoups_shortcode_atts; // User input
 global $affcoups_template_args; // Template variables
 
-/*
- * Get content from a single post
- */
-function affcoups_get_post_content( $postid = null ) {
-
-	if ( empty( $postid ) ) {
-		$postid = get_the_ID();
-	}
-
-	$post    = get_post( $postid );
-	$content = $post->post_content;
-	$content = apply_filters( 'the_content', $content );
-	$content = str_replace( ']]>', ']]&gt;', $content );
-
-	return $content;
-}
-
 /**
  * Check content if scripts must be loaded
  */

@@ -38,7 +38,8 @@ function affcoups_coupon_extend_columns_content( $column_name, $postid ) {
 
 	if ( 'affcoups_coupon_thumb' === $column_name ) {
 
-		$image = affcoups_get_coupon_image( $postid, 'small' );
+	    $Coupon = new Affcoups_Coupon( $postid );
+		$image = $Coupon->get_image( 'small' );
 
 		if ( ! empty ( $image['url'] ) ) {
 			?>
