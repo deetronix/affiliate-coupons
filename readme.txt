@@ -8,11 +8,11 @@ Stable tag: 1.4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Promote coupons and deals of products and earn money with affiliate referrals.
+Get more sales & earn more money with the best WordPress plugin for coupon codes & deals.
 
 == Description ==
 
-Promote coupons and deals of products and earn money with affiliate referrals.
+Get more sales & earn more money with the best WordPress plugin for coupon codes & deals.
 
 = Features =
 

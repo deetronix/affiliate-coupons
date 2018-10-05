@@ -2,7 +2,7 @@
 /**
  * Plugin Name:     Affiliate Coupons
  * Plugin URI:      https://affcoups.com
- * Description:     Promote coupons and deals of products and earn money with affiliate referrals.
+ * Description:     Get more sales & earn more money with the best WordPress plugin for coupon codes & deals.
  * Version:         1.4.1
  * Author:          fdmedia
  * Author URI:      https://fdmedia.io
