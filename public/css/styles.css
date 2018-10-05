@@ -560,3 +560,98 @@
   margin: 5px 0 0;
   font-size: 13px;
 }
+.affcoups .affcoups-widget .affcoups-coupon {
+  max-width: 400px;
+  margin: 0 auto 30px auto;
+  padding-bottom: 40px;
+  background: #F7F7F7;
+  border: 1px solid #F7F7F7;
+  border-radius: 3px;
+}
+@media (min-width: 769px) {
+  .affcoups .affcoups-widget .affcoups-coupon--float-left {
+    float: left;
+    margin: 0 30px 30px 0;
+  }
+  .affcoups .affcoups-widget .affcoups-coupon--float-right {
+    float: right;
+    margin: 0 0 30px 30px;
+  }
+}
+.affcoups .affcoups-widget .affcoups-coupon__thumbnail {
+  display: block;
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+  vertical-align: top;
+}
+.affcoups .affcoups-widget img.affcoups-coupon__image {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+.affcoups .affcoups-widget .affcoups-coupon--image-border .affcoups-coupon__thumbnail {
+  border: 1px solid #F7F7F7;
+  border-bottom: none;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+.affcoups .affcoups-widget .affcoups-coupon__discount {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 8px 15px 5px;
+  border-top-left-radius: 3px;
+  font-size: 16px;
+}
+.affcoups .affcoups-widget .affcoups-coupon__content {
+  padding: 15px 25px 15px;
+}
+.affcoups .affcoups-widget .affcoups-coupon__title {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  line-height: 26px;
+}
+.affcoups .affcoups-widget .affcoups-coupon__types {
+  margin-top: -5px;
+  margin-bottom: 5px;
+}
+.affcoups .affcoups-widget .affcoups-coupon__types span {
+  color: #6b747a;
+  font-size: 14px;
+  font-weight: bold;
+}
+.affcoups .affcoups-widget .affcoups-coupon__types span + span {
+  margin-left: 10px;
+}
+.affcoups .affcoups-widget .affcoups-coupon__description {
+  margin: 10px 0 0;
+  font-size: 16px;
+}
+.affcoups .affcoups-widget .affcoups-coupon__description > *:first-child {
+  margin-top: 0;
+}
+.affcoups .affcoups-widget .affcoups-coupon__description > *:last-child {
+  margin-bottom: 0;
+}
+.affcoups .affcoups-widget .affcoups-coupon__code {
+  margin-top: 15px;
+}
+.affcoups .affcoups-widget .affcoups-coupon__valid-dates {
+  display: block;
+  margin: 5px 0 0;
+  font-size: 13px;
+  text-align: center;
+}
+.affcoups .affcoups-widget .affcoups-coupon__footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.affcoups .affcoups-widget a.affcoups-coupon__button {
+  display: block;
+  width: 100%;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}

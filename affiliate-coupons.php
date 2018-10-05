@@ -112,7 +112,6 @@ if ( ! class_exists( 'Affiliate_Coupons' ) ) {
 			require_once AFFCOUPS_DIR . 'includes/coupon-post-type.php';
 			require_once AFFCOUPS_DIR . 'includes/coupon-type-taxonomy.php';
 			require_once AFFCOUPS_DIR . 'includes/coupon-category-taxonomy.php';
-			require_once AFFCOUPS_DIR . 'includes/coupon-functions.php';
 			require_once AFFCOUPS_DIR . 'includes/coupon-metaboxes.php';
             require_once AFFCOUPS_DIR . 'includes/class-coupon.php';
 

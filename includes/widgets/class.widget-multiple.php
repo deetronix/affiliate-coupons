@@ -75,13 +75,11 @@ if ( ! class_exists( 'Affcoups_Multiple_Widget' ) ) {
 			}
 
 			// Template
-			if ( ! empty ( $instance['template'] ) ) {
-				$shortcode_atts['template'] = $instance['template'];
-			}
+            $shortcode_atts['template'] = 'widget'; //$instance['template']; // TODO: Replace when separate widget template(s) were added
 
-			// Execute Shortcode
+
+            // Execute Shortcode
 			affcoups_widget_do_shortcode( $shortcode_atts );
-
 
 			echo wp_kses_post( $args['after_widget'] );
 		}
@@ -191,9 +189,7 @@ if ( ! class_exists( 'Affcoups_Multiple_Widget' ) ) {
 
             <!-- Template -->
 			<?php
-			$templates = array(
-				'widget' => __( 'Standard', 'affiliate-coupons' ),
-			);
+			$templates = affcoups_get_widget_template_options();
 			?>
             <p>
                 <label for="<?php echo esc_attr( $this->get_field_id( 'template' ) ); ?>"><?php esc_attr_e( 'Template:', 'affiliate-coupons' ); ?></label>

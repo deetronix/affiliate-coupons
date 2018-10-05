@@ -133,10 +133,6 @@ function affcoups_add_shortcode( $atts, $content ) {
 			}
 		}
 
-		if ( 'widget' === $template ) {
-			$template = 'standard';
-		} // TODO: Remove when we have a real widget template
-
 		// Store template variables
 		global $affcoups_template_args;
 

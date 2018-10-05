@@ -99,9 +99,7 @@ if ( ! class_exists( 'Affcoups_Single_Widget' ) ) {
 
             <!-- Template -->
 			<?php
-			$templates = array(
-				'widget' => __( 'Standard', 'affiliate-coupons' ),
-			);
+            $templates = affcoups_get_widget_template_options();
 			?>
             <p>
                 <label for="<?php echo esc_attr( $this->get_field_id( 'template' ) ); ?>"><?php esc_attr_e( 'Template:', 'affiliate-coupons' ); ?></label>
