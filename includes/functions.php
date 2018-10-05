@@ -342,6 +342,24 @@ function affcoups_get_vendors() {
 }
 
 /**
+ * Get template options
+ *
+ * @return array
+ */
+function affcoups_get_template_options() {
+
+    $options = array(
+        'standard' => __( 'Standard', 'affiliate-coupons' ),
+        'grid'     => __( 'Grid', 'affiliate-coupons' ),
+        'list' => __( 'List', 'affiliate-coupons' ),
+    );
+
+    $options = apply_filters( 'affcoups_template_options', $options );
+
+    return $options;
+}
+
+/**
  * Get widget template options
  *
  * @return array

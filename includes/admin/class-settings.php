@@ -355,15 +355,10 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
          */
 		function templates_render() {
 
-			$template_options = array(
-				'standard' => __( 'Standard', 'affiliate-coupons' ),
-				'grid'     => __( 'Grid', 'affiliate-coupons' )
-			);
+			$template_options = affcoups_get_template_options();
 
 			$template = ( isset( $this->options['template'] ) ) ? $this->options['template'] : 'grid';
-
 			$grid_size = ( ! empty( $this->options['grid_size'] ) && is_numeric( $this->options['grid_size'] ) ) ? intval( $this->options['grid_size'] ) : 3;
-
 			?>
             <h4><?php esc_html_e( 'Template', 'affiliate-coupons' ); ?></h4>
             <p>
