@@ -148,9 +148,6 @@
   max-width: 400px;
   margin: 0 auto 30px auto;
   padding-bottom: 40px;
-  background: #F7F7F7;
-  border: 1px solid #F7F7F7;
-  border-radius: 3px;
 }
 @media (min-width: 769px) {
   .affcoups .affcoups-standard .affcoups-coupon--float-left {
@@ -169,22 +166,11 @@
   font-size: 0;
   vertical-align: top;
 }
-.affcoups .affcoups-standard img.affcoups-coupon__image {
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-}
-.affcoups .affcoups-standard .affcoups-coupon--image-border .affcoups-coupon__thumbnail {
-  border: 1px solid #F7F7F7;
-  border-bottom: none;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-}
 .affcoups .affcoups-standard .affcoups-coupon__discount {
   position: absolute;
   top: 0;
   left: 0;
   padding: 8px 15px 5px;
-  border-top-left-radius: 3px;
   font-size: 16px;
 }
 .affcoups .affcoups-standard .affcoups-coupon__content {
@@ -201,7 +187,6 @@
   margin-bottom: 5px;
 }
 .affcoups .affcoups-standard .affcoups-coupon__types span {
-  color: #6b747a;
   font-size: 14px;
   font-weight: bold;
 }
@@ -352,9 +337,6 @@
   max-width: 400px;
   margin: 0 auto 30px auto;
   padding-bottom: 40px;
-  background: #F7F7F7;
-  border: 1px solid #F7F7F7;
-  border-radius: 3px;
 }
 @media (min-width: 769px) {
   .affcoups .affcoups-coupons-grid .affcoups-coupon--float-left {
@@ -373,22 +355,11 @@
   font-size: 0;
   vertical-align: top;
 }
-.affcoups .affcoups-coupons-grid img.affcoups-coupon__image {
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-}
-.affcoups .affcoups-coupons-grid .affcoups-coupon--image-border .affcoups-coupon__thumbnail {
-  border: 1px solid #F7F7F7;
-  border-bottom: none;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-}
 .affcoups .affcoups-coupons-grid .affcoups-coupon__discount {
   position: absolute;
   top: 0;
   left: 0;
   padding: 8px 15px 5px;
-  border-top-left-radius: 3px;
   font-size: 16px;
 }
 .affcoups .affcoups-coupons-grid .affcoups-coupon__content {
@@ -405,7 +376,6 @@
   margin-bottom: 5px;
 }
 .affcoups .affcoups-coupons-grid .affcoups-coupon__types span {
-  color: #6b747a;
   font-size: 14px;
   font-weight: bold;
 }
@@ -447,7 +417,6 @@
   zoom: 1;
   margin: 0 0 30px;
   padding: 15px;
-  background-color: #F7F7F7;
 }
 .affcoups .affcoups-coupons-list .affcoups-coupon:before,
 .affcoups .affcoups-coupons-list .affcoups-coupon:after {
@@ -494,7 +463,6 @@
   text-align: left;
 }
 .affcoups .affcoups-coupons-list .affcoups-coupon__types span {
-  color: #6b747a;
   font-size: 13px;
   font-weight: bold;
 }
@@ -654,4 +622,41 @@
   width: 100%;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+.affcoups .affcoups-standard .affcoups-coupon,
+.affcoups .affcoups-coupons-grid .affcoups-coupon {
+  background: #F7F7F7;
+  border: 1px solid #F7F7F7;
+  border-radius: 3px;
+}
+.affcoups .affcoups-standard img.affcoups-coupon__image,
+.affcoups .affcoups-coupons-grid img.affcoups-coupon__image {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+.affcoups .affcoups-standard .affcoups-coupon--image-border .affcoups-coupon__thumbnail,
+.affcoups .affcoups-coupons-grid .affcoups-coupon--image-border .affcoups-coupon__thumbnail {
+  border: 1px solid #F7F7F7;
+  border-bottom: none;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+.affcoups .affcoups-standard .affcoups-coupon__discount,
+.affcoups .affcoups-coupons-grid .affcoups-coupon__discount {
+  border-top-left-radius: 3px;
+}
+.affcoups .affcoups-standard .affcoups-coupon__types span,
+.affcoups .affcoups-coupons-grid .affcoups-coupon__types span {
+  color: #6b747a;
+}
+.affcoups .affcoups-standard a.affcoups-coupon__button,
+.affcoups .affcoups-coupons-grid a.affcoups-coupon__button {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.affcoups .affcoups-coupons-list .affcoups-coupon {
+  background-color: #F7F7F7;
+}
+.affcoups .affcoups-coupons-list .affcoups-coupon__types span {
+  color: #6b747a;
 }

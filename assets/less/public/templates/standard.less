@@ -2,20 +2,16 @@
 
 //== Standard Styles
 .affcoups-standard {
-    .template-standard-styles();
+    .template-standard-layout();
 }
 
-//== Standard Styles Mixin
-.template-standard-styles() {
+//== Standard Template Mixin
+.template-standard-layout() {
     
     .affcoups-coupon {
         max-width: 400px;
         margin: 0 auto 30px auto;
         padding-bottom: 40px;
-        
-        background: @coupon-bg-color;
-        border: 1px solid @coupon-bg-color;
-        border-radius: @border-radius;
     }
 
     @media(min-width: (@breakpoint-default + 1px)) {
@@ -43,19 +39,15 @@
         font-size: 0;
         vertical-align: top;
     }
-    
+
     img.affcoups-coupon__image {
-        
-        border-top-left-radius: @border-radius;
-        border-top-right-radius: @border-radius;
+
     }
-    
+
     .affcoups-coupon--image-border {
+
         .affcoups-coupon__thumbnail {
-            border: 1px solid @coupon-bg-color;
-            border-bottom: none;
-            border-top-left-radius: @border-radius;
-            border-top-right-radius: @border-radius;
+
         }
     }
     
@@ -65,8 +57,7 @@
         left: 0;
         
         padding: 8px 15px 5px;
-        
-        border-top-left-radius: @border-radius;
+
         font-size: 16px;
     }
     
@@ -87,7 +78,6 @@
         margin-bottom: 5px;
         
         span {
-            color: #6b747a;
             font-size: 14px;
             font-weight: bold;
         }

@@ -97,3 +97,29 @@ function affcoups_print_amp_styles() {
 
 add_action( 'amp_post_template_css', 'affcoups_print_amp_styles' ); // AMP, Accelerated Mobile Pages
 add_action( 'amphtml_template_css', 'affcoups_print_amp_styles' ); // WP AMP
+
+/**
+ * Handle coupon additional classes
+ *
+ * @param $add_classes
+ * @param Affcoups_Coupon $Coupon
+ * @return mixed
+ */
+function affcoups_coupon_add_classes( $add_classes, $Coupon ) {
+
+    // Check shortcode atts
+    global $affcoups_template_args;
+
+    // Floats
+    if ( isset( $affcoups_template_args['float'] ) )
+        $add_classes[] = 'float-' . esc_html( $affcoups_template_args['float'] );
+
+    // Styles
+    if ( isset( $affcoups_template_args['style'] ) ) {
+
+    }
+
+    // Return
+    return $add_classes;
+}
+add_filter( 'affcoups_coupon_add_classes', 'affcoups_coupon_add_classes', 10, 3 );

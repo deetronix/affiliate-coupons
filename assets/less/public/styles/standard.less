@@ -1,0 +1,70 @@
+@import "../../common";
+
+//== Standard Styles
+.affcoups-standard,
+.affcoups-coupons-grid {
+    .template-standard-standard-styles();
+}
+
+.affcoups-coupons-list {
+    .template-list-standard-styles();
+}
+
+//== Standard Template
+.template-standard-standard-styles() {
+
+    .affcoups-coupon {
+        background: @coupon-bg-color;
+        border: 1px solid @coupon-bg-color;
+        border-radius: @border-radius;
+    }
+
+    .affcoups-coupon__header {
+
+    }
+
+    img.affcoups-coupon__image {
+        border-top-left-radius: @border-radius;
+        border-top-right-radius: @border-radius;
+    }
+
+    .affcoups-coupon--image-border {
+        .affcoups-coupon__thumbnail {
+            border: 1px solid @coupon-bg-color;
+            border-bottom: none;
+            border-top-left-radius: @border-radius;
+            border-top-right-radius: @border-radius;
+        }
+    }
+
+    .affcoups-coupon__discount {
+        border-top-left-radius: @border-radius;
+    }
+
+    .affcoups-coupon__types {
+
+        span {
+            color: #6b747a;
+        }
+    }
+
+    a.affcoups-coupon__button {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+}
+
+// List Template
+.template-list-standard-styles() {
+
+    .affcoups-coupon {
+        background-color: @coupon-bg-color;
+    }
+
+    .affcoups-coupon__types {
+
+        span {
+            color: #6b747a;
+        }
+    }
+}

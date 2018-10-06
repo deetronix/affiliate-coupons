@@ -62,15 +62,7 @@ if (!class_exists('Affcoups_Coupon')) {
          */
         public function the_classes( $classes ) {
 
-            $add_classes = array();
-
-            // Check shortcode atts
-            global $affcoups_template_args;
-
-            if ( isset( $affcoups_template_args['float'] ) )
-                $add_classes[] = 'float-' . esc_html( $affcoups_template_args['float'] );
-
-            $add_classes = apply_filters( 'affcoups_coupon_add_classes', $add_classes, $this );
+            $add_classes = apply_filters( 'affcoups_coupon_add_classes', array(), $this );
 
             // Maybe add extra classes
             if ( sizeof( $add_classes ) > 0 ) {
