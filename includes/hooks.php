@@ -116,7 +116,7 @@ function affcoups_coupon_add_classes( $add_classes, $Coupon ) {
 
     // Styles
     if ( isset( $affcoups_template_args['style'] ) ) {
-
+        $add_classes[] = 'style-' . esc_html( $affcoups_template_args['style'] );
     }
 
     // Return

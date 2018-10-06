@@ -145,6 +145,9 @@ function affcoups_add_shortcode( $atts, $content ) {
         if ( isset( $atts['float'] ) && in_array( $atts['float'], array( 'left', 'right' ) ) )
             $affcoups_template_args['float'] = $atts['float'];
 
+        if ( isset( $atts['style'] ) )
+            $affcoups_template_args['style'] = $atts['style'];
+
 		//affcoups_debug( $affcoups_template_args, 'shortcode > $affcoups_template_args' );
 
 		//echo 'Grid: ' . $grid . '<br>';
