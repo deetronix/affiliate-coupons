@@ -488,7 +488,7 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 
             <div class="affcoups affcoups-settings">
                 <div class="wrap">
-                    <h2 class="affcoups-settings-headline"><?php esc_html_e( 'Affiliate Coupons', 'affiliate-coupons' ); ?></h2>
+                    <h2 class="affcoups-settings-headline"><?php echo apply_filters( 'affcoups_settings_page_title', __( 'Affiliate Coupons', 'affiliate-coupons' ) ); ?></h2>
 
                     <div id="poststuff">
                         <div id="post-body" class="metabox-holder columns-2">

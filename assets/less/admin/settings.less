@@ -1,8 +1,82 @@
 @import "../common";
 
+@settings-header-icon-size: 25px;
+
 //== Settings Page
 .affcoups-settings {
 
+    .wrap > h2 {
+        position: relative;
+
+        margin: -10px -20px 13px -22px;
+        padding: 1em 1em 1em 2.7em;
+
+        background: @color-primary;
+        color: #fff;
+
+        &:before {
+            position: absolute;
+            top: 50%;
+            left: 22px;
+
+            content: "";
+
+            display: block;
+            height: @settings-header-icon-size;
+            width: @settings-header-icon-size;
+            margin: -(@settings-header-icon-size / 2) 0 0;
+
+            background: url('../img/icon-page-title-inverted.png');
+            background-repeat: no-repeat;
+            background-size: @settings-header-icon-size;
+            background-position: center;
+        }
+
+        small {
+            margin-left: 1em;
+
+            color: fade(#fff, 80%);
+            font-size: .6em;
+        }
+    }
+
+    .dashicons-star-filled {
+        color: @color-secondary;
+    }
+
+    .affcoups-settings-button {
+        display: inline-block;
+        padding: 10px 20px;
+
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+        background-color: @color-secondary;
+        border-radius: 3px;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 700;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: all .5s ease-in-out;
+
+        &:visited {
+            color: #fff;
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: #fff;
+            color: @color-secondary;
+            text-decoration: none;
+        }
+    }
+
+    .tp-twitch-settings-button--block {
+        display: block;
+    }
+
+    //== Table
     .form-table {
 
         td {
