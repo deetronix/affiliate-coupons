@@ -63,98 +63,93 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 				array( &$this, 'validate_input_callback' )
 			);
 
-			/*
-			 * Section: Quickstart
-			 */
 			add_settings_section(
-				'affcoups_settings_section_quickstart',
+				'affcoups_section_quickstart',
 				__( 'Quickstart Guide', 'affiliate-coupons' ),
 				array( &$this, 'section_quickstart_render' ),
 				'affcoups_settings'
 			);
 
-			/*
-			 * Section: General
-			 */
+            do_action( 'affcoups_register_settings_start' );
+
 			add_settings_section(
-				'affcoups_settings_section_general',
+				'affcoups_section_general',
 				__( 'General', 'affiliate-coupons' ),
 				false,
 				'affcoups_settings'
 			);
 
 			add_settings_field(
-				'affcoups_settings_coupon_dates',
+				'affcoups_coupon_dates',
 				__( 'Dates', 'affiliate-coupons' ),
 				array( &$this, 'coupon_dates_render' ),
 				'affcoups_settings',
-				'affcoups_settings_section_general',
+				'affcoups_section_general',
 				array( 'label_for' => 'affcoups_hide_expired_coupons' )
 			);
 
 			add_settings_field(
-				'affcoups_settings_order',
+				'affcoups_order',
 				__( 'Sorting', 'affiliate-coupons' ),
 				array( &$this, 'order_render' ),
 				'affcoups_settings',
-				'affcoups_settings_section_general',
+				'affcoups_section_general',
 				array( 'label_for' => 'affcoups_order' )
 			);
 
-			/*
-			 * Section: Output
-			 */
 			add_settings_section(
-				'affcoups_settings_section_output',
+				'affcoups_section_output',
 				__( 'Output', 'affiliate-coupons' ),
 				false,
 				'affcoups_settings'
 			);
 
 			add_settings_field(
-				'affcoups_settings_templates',
+				'affcoups_templates',
 				__( 'Templates', 'affiliate-coupons' ),
 				array( &$this, 'templates_render' ),
 				'affcoups_settings',
-				'affcoups_settings_section_output',
+				'affcoups_section_output',
 				array( 'label_for' => 'affcoups_template' )
 			);
 
 			add_settings_field(
-				'affcoups_settings_contents',
+				'affcoups_contents',
 				__( 'Contents', 'affiliate-coupons' ),
 				array( &$this, 'contents_render' ),
 				'affcoups_settings',
-				'affcoups_settings_section_output',
+				'affcoups_section_output',
 				false
 			);
 
 			add_settings_field(
-				'affcoups_settings_discount',
+				'affcoups_discount',
 				__( 'Discount', 'affiliate-coupons' ),
 				array( &$this, 'discount_render' ),
 				'affcoups_settings',
-				'affcoups_settings_section_output',
+				'affcoups_section_output',
 				false
 			);
 
 			add_settings_field(
-				'affcoups_settings_button',
+				'affcoups_button',
 				__( 'Button', 'affiliate-coupons' ),
 				array( &$this, 'button_render' ),
 				'affcoups_settings',
-				'affcoups_settings_section_output',
+				'affcoups_section_output',
 				array( 'label_for' => 'affcoups_button_text' )
 			);
 
 			add_settings_field(
-				'affcoups_settings_custom_css',
+				'affcoups_custom_css',
 				__( 'Custom CSS', 'affiliate-coupons' ),
 				array( &$this, 'custom_css_render' ),
 				'affcoups_settings',
-				'affcoups_settings_section_output',
+				'affcoups_section_output',
 				array( 'label_for' => 'affcoups_custom_css' )
 			);
+
+            do_action( 'affcoups_register_settings_end' );
 
 		}
 
