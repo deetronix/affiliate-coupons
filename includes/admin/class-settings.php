@@ -587,8 +587,6 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 	}
 }
 
-new Affcoups_Settings();
-
 /**
  * Custom settings section output
  *

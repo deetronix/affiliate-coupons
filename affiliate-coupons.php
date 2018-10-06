@@ -8,189 +8,302 @@
  * Author URI:      https://fdmedia.io
  * Text Domain:     affiliate-coupons
  *
- * @package         AffiliateCoupons
- * @author          flowdee
- * @copyright       Copyright (c) flowdee
- *
- * Copyright (c) 2018 - flowdee ( https://twitter.com/flowdee )
+ * @author          fdmedia
+ * @copyright       Copyright (c) fdmedia
  */
 
 // Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
+if( ! defined( 'ABSPATH' ) ) exit;
 
-if ( ! class_exists( 'Affiliate_Coupons' ) ) {
+if( ! class_exists( 'Affiliate_Coupons' ) ) :
 
-	/**
-	 * Main Affiliate_Coupons class
-	 *
-	 * @since       1.0.0
-	 */
-	class Affiliate_Coupons {
+    /**
+     * Main Affiliate_Coupons class
+     *
+     * @since       1.0.0
+     */
+    final class Affiliate_Coupons {
+        /** Singleton *************************************************************/
 
-		/**
-		 * @var         Affiliate_Coupons $instance The one true Affiliate_Coupons
-		 * @since       1.0.0
-		 */
-		private static $instance;
+        /**
+         * Affiliate_Coupons instance.
+         *
+         * @access private
+         * @since  1.0.0
+         * @var    Affiliate_Coupons The one true Affiliate_Coupons
+         */
+        private static $instance;
+
+        /**
+         * The settings instance variable.
+         *
+         * @access public
+         * @since  1.0.0
+         * @var    Affcoups_Settings
+         */
+        public $settings;
+
+        /**
+         * The version number of Affiliate_Coupons.
+         *
+         * @access private
+         * @since  1.0.0
+         * @var    string
+         */
+        private $version = '1.4.1';
+
+        /**
+         * Main Affiliate_Coupons Instance
+         *
+         * Insures that only one instance of Affiliate_Coupons exists in memory at any one
+         * time. Also prevents needing to define globals all over the place.
+         *
+         * @since 1.0
+         * @static
+         * @staticvar array $instance
+         * @uses Affiliate_Coupons::setup_globals() Setup the globals needed
+         * @uses Affiliate_Coupons::includes() Include the required files
+         * @uses Affiliate_Coupons::setup_actions() Setup the hooks and actions
+         * @return Affiliate_Coupons
+         */
+        public static function instance() {
+            if ( ! isset( self::$instance ) && ! ( self::$instance instanceof Affiliate_Coupons ) ) {
+                self::$instance = new Affiliate_Coupons;
+
+                if ( version_compare( PHP_VERSION, '5.3', '<' ) ) {
+
+                    add_action( 'admin_notices', array( 'Affiliate_Coupons', 'below_php_version_notice' ) );
+
+                    return self::$instance;
+                }
+
+                self::$instance->setup_constants();
+                self::$instance->includes();
+
+                add_action( 'plugins_loaded', array( self::$instance, 'setup_objects' ), -1 );
+                add_action( 'plugins_loaded', array( self::$instance, 'load_textdomain' ) );
+            }
+
+            return self::$instance;
+        }
+
+        /**
+         * Throw error on object clone
+         *
+         * The whole idea of the singleton design pattern is that there is a single
+         * object therefore, we don't want the object to be cloned.
+         *
+         * @since 1.0.0
+         * @access protected
+         * @return void
+         */
+        public function __clone() {
+            // Cloning instances of the class is forbidden
+            _doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'affiliate-coupons' ), '1.0' );
+        }
+
+        /**
+         * Disable unserializing of the class
+         *
+         * @since 1.0.0
+         * @access protected
+         * @return void
+         */
+        public function __wakeup() {
+            // Unserializing instances of the class is forbidden
+            _doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'affiliate-coupons' ), '1.0' );
+        }
+
+        /**
+         * Show a warning to sites running PHP < 5.3
+         *
+         * @static
+         * @access private
+         * @since 1.5.0
+         * @return void
+         */
+        public static function below_php_version_notice() {
+            ?>
+            <div class="error">
+                <p>
+                    <?php sprintf( esc_html__( 'Your version of PHP is below the minimum version of PHP required by our Twitch plugin. Please contact your hosting company and request that your version will be upgraded to %1$s or later.', 'affiliate-coupons' ), '5.3' ); ?>
+                </p>
+            </div>
+            <?php
+        }
 
 
-		/**
-		 * Get active instance
-		 *
-		 * @access      public
-		 * @since       1.0.0
-		 * @return      object self::$instance The one true Affiliate_Coupons
-		 */
-		public static function instance() {
-			if ( ! self::$instance ) {
-				self::$instance = new Affiliate_Coupons();
-				self::$instance->setup_constants();
-				self::$instance->includes();
-				self::$instance->load_textdomain();
-			}
+        /**
+         * Setup plugin constants
+         *
+         * @access private
+         * @since 1.0.0
+         * @return void
+         */
+        private function setup_constants() {
+            // Plugin version
+            if ( ! defined( 'AFFCOUPS_VERSION' ) ) {
+                define( 'AFFCOUPS_VERSION', $this->version );
+            }
 
-			return self::$instance;
-		}
+            // Plugin Folder Path
+            if ( ! defined( 'AFFCOUPS_PLUGIN_DIR' ) ) {
+                define( 'AFFCOUPS_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+            }
 
+            // Plugin Folder URL
+            if ( ! defined( 'AFFCOUPS_PLUGIN_URL' ) ) {
+                define( 'AFFCOUPS_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+            }
 
-		/**
-		 * Setup plugin constants
-		 *
-		 * @access      private
-		 * @since       1.0.0
-		 * @return      void
-		 */
-		private function setup_constants() {
+            // Plugin Root File
+            if ( ! defined( 'AFFCOUPS_PLUGIN_FILE' ) ) {
+                define( 'AFFCOUPS_PLUGIN_FILE', __FILE__ );
+            }
 
-			// Plugin name
-			define( 'AFFCOUPS_NAME', 'Affiliate Coupons' );
+            // Docs URL
+            if ( ! defined( 'AFFCOUPS_DOCS_URL' ) ) {
+                define( 'AFFCOUPS_DOCS_URL', 'https://affcoups.com/support/knb/' );
+            }
 
-			// Plugin version
-			define( 'AFFCOUPS_VER', '1.4.1' );
+            // Plugin prefix
+            if ( ! defined( 'AFFCOUPS_PREFIX' ) ) {
+                define( 'AFFCOUPS_PREFIX', 'affcoups_' );
+            }
+        }
 
-			// Plugin path
-			define( 'AFFCOUPS_DIR', plugin_dir_path( __FILE__ ) );
+        /**
+         * Include required files
+         *
+         * @access private
+         * @since 1.0
+         * @return void
+         */
+        private function includes() {
 
-			// Plugin URL
-			define( 'AFFCOUPS_URL', plugin_dir_url( __FILE__ ) );
-
-			// Plugin prefix
-			define( 'AFFCOUPS_PREFIX', 'affcoups_' );
-		}
-
-		/**
-		 * Include necessary files
-		 *
-		 * @access      private
-		 * @since       1.0.0
-		 * @return      void
-		 */
-		private function includes() {
-
-			// Dependencies
-            require_once AFFCOUPS_DIR . 'includes/bootstrap.php';
+            // Dependencies
+            require_once AFFCOUPS_PLUGIN_DIR . 'includes/bootstrap.php';
 
             // Basic
-			require_once AFFCOUPS_DIR . 'includes/helper.php';
-			require_once AFFCOUPS_DIR . 'includes/scripts.php';
+            require_once AFFCOUPS_PLUGIN_DIR . 'includes/helper.php';
+            require_once AFFCOUPS_PLUGIN_DIR . 'includes/scripts.php';
 
-			// Admin only
-			if ( is_admin() ) {
-				require_once AFFCOUPS_DIR . 'includes/admin/plugins.php';
-				require_once AFFCOUPS_DIR . 'includes/admin/class-settings.php';
-				require_once AFFCOUPS_DIR . 'includes/admin/manage-coupons.php';
-				require_once AFFCOUPS_DIR . 'includes/admin/manage-vendors.php';
-				require_once AFFCOUPS_DIR . 'includes/admin/manage-categories.php';
-				require_once AFFCOUPS_DIR . 'includes/admin/manage-types.php';
-				require_once AFFCOUPS_DIR . 'includes/admin/hooks.php';
-                require_once AFFCOUPS_DIR . 'includes/admin/upgrades.php';
-			}
+            // Admin only
+            if ( is_admin() || ( defined( 'WP_CLI' ) && WP_CLI ) ) {
+                require_once AFFCOUPS_PLUGIN_DIR . 'includes/admin/plugins.php';
+                require_once AFFCOUPS_PLUGIN_DIR . 'includes/admin/class-settings.php';
+                require_once AFFCOUPS_PLUGIN_DIR . 'includes/admin/manage-coupons.php';
+                require_once AFFCOUPS_PLUGIN_DIR . 'includes/admin/manage-vendors.php';
+                require_once AFFCOUPS_PLUGIN_DIR . 'includes/admin/manage-categories.php';
+                require_once AFFCOUPS_PLUGIN_DIR . 'includes/admin/manage-types.php';
+                require_once AFFCOUPS_PLUGIN_DIR . 'includes/admin/hooks.php';
+                require_once AFFCOUPS_PLUGIN_DIR . 'includes/admin/upgrades.php';
+            }
 
-			// Coupons
-			require_once AFFCOUPS_DIR . 'includes/coupon-post-type.php';
-			require_once AFFCOUPS_DIR . 'includes/coupon-type-taxonomy.php';
-			require_once AFFCOUPS_DIR . 'includes/coupon-category-taxonomy.php';
-			require_once AFFCOUPS_DIR . 'includes/coupon-metaboxes.php';
-            require_once AFFCOUPS_DIR . 'includes/class-coupon.php';
+            // Coupons
+            require_once AFFCOUPS_PLUGIN_DIR . 'includes/coupon-post-type.php';
+            require_once AFFCOUPS_PLUGIN_DIR . 'includes/coupon-type-taxonomy.php';
+            require_once AFFCOUPS_PLUGIN_DIR . 'includes/coupon-category-taxonomy.php';
+            require_once AFFCOUPS_PLUGIN_DIR . 'includes/coupon-metaboxes.php';
+            require_once AFFCOUPS_PLUGIN_DIR . 'includes/class-coupon.php';
 
-			// Vendors
-			require_once AFFCOUPS_DIR . 'includes/vendor-post-type.php';
-			require_once AFFCOUPS_DIR . 'includes/vendor-metaboxes.php';
-            require_once AFFCOUPS_DIR . 'includes/class-vendor.php';
+            // Vendors
+            require_once AFFCOUPS_PLUGIN_DIR . 'includes/vendor-post-type.php';
+            require_once AFFCOUPS_PLUGIN_DIR . 'includes/vendor-metaboxes.php';
+            require_once AFFCOUPS_PLUGIN_DIR . 'includes/class-vendor.php';
 
-			// Anything else
-			require_once AFFCOUPS_DIR . 'includes/hooks.php';
-			require_once AFFCOUPS_DIR . 'includes/functions.php';
-			require_once AFFCOUPS_DIR . 'includes/assets.php';
-			require_once AFFCOUPS_DIR . 'includes/shortcodes.php';
-			require_once AFFCOUPS_DIR . 'includes/template-functions.php';
-			require_once AFFCOUPS_DIR . 'includes/widgets.php';
-		}
+            // Anything else
+            require_once AFFCOUPS_PLUGIN_DIR . 'includes/hooks.php';
+            require_once AFFCOUPS_PLUGIN_DIR . 'includes/functions.php';
+            require_once AFFCOUPS_PLUGIN_DIR . 'includes/assets.php';
+            require_once AFFCOUPS_PLUGIN_DIR . 'includes/shortcodes.php';
+            require_once AFFCOUPS_PLUGIN_DIR . 'includes/template-functions.php';
+            require_once AFFCOUPS_PLUGIN_DIR . 'includes/widgets.php';
+        }
 
-		/**
-		 * Internationalization
-		 *
-		 * @access      public
-		 * @since       1.0.0
-		 * @return      void
-		 */
-		public function load_textdomain() {
-			// Set filter for language directory
-			$lang_dir = AFFCOUPS_DIR . '/languages/';
-			$lang_dir = apply_filters( 'affiliate_coupons_languages_directory', $lang_dir );
+        /**
+         * Setup all objects
+         *
+         * @access public
+         * @since 1.6.2
+         * @return void
+         */
+        public function setup_objects() {
 
-			// Traditional WordPress plugin locale filter
-			$locale = apply_filters( 'plugin_locale', get_locale(), 'affiliate-coupons' );
-			$mofile = sprintf( '%1$s-%2$s.mo', 'affiliate-coupons', $locale );
+            if ( is_admin() || ( defined( 'WP_CLI' ) && WP_CLI ) ) {
+                self::$instance->settings = new Affcoups_Settings();
+            }
+        }
 
-			// Setup paths to current locale file
-			$mofile_local  = $lang_dir . $mofile;
-			$mofile_global = WP_LANG_DIR . '/affiliate-coupons/' . $mofile;
+        /**
+         * Loads the plugin language files
+         *
+         * @access public
+         * @since 1.0
+         * @return void
+         */
+        public function load_textdomain() {
 
-			if ( file_exists( $mofile_global ) ) {
-				// Look in global /wp-content/languages/affiliate-coupons/ folder
-				load_textdomain( 'affiliate-coupons', $mofile_global );
-			} elseif ( file_exists( $mofile_local ) ) {
-				// Look in local /wp-content/plugins/affiliate-coupons/languages/ folder
-				load_textdomain( 'affiliate-coupons', $mofile_local );
-			} else {
-				// Load the default language files
-				load_plugin_textdomain( 'affiliate-coupons', false, $lang_dir );
-			}
-		}
-	}
-} // End if class_exists check
+            // Set filter for plugin's languages directory
+            $lang_dir = dirname( plugin_basename( AFFCOUPS_PLUGIN_FILE ) ) . '/languages/';
+
+            /**
+             * Filters the languages directory path to use for Affiliate_Coupons.
+             *
+             * @param string $lang_dir The languages directory path.
+             */
+            $lang_dir = apply_filters( 'affiliate_coupons_languages_directory', $lang_dir );
+
+            // Traditional WordPress plugin locale filter
+
+            global $wp_version;
+
+            $get_locale = get_locale();
+
+            if ( $wp_version >= 4.7 ) {
+                $get_locale = get_user_locale();
+            }
+
+            /**
+             * Defines the plugin language locale used in Affiliate_Coupons.
+             *
+             * @var $get_locale The locale to use. Uses get_user_locale()` in WordPress 4.7 or greater,
+             *                  otherwise uses `get_locale()`.
+             */
+            $locale = apply_filters( 'plugin_locale', $get_locale, 'affiliate-coupons' );
+            $mofile = sprintf( '%1$s-%2$s.mo', 'affiliate-coupons', $locale );
+
+            // Setup paths to current locale file
+            $mofile_local  = $lang_dir . $mofile;
+            $mofile_global = WP_LANG_DIR . '/affiliate-coupons/' . $mofile;
+
+            if ( file_exists( $mofile_global ) ) {
+                // Look in global /wp-content/languages/affiliate-coupons/ folder
+                load_textdomain( 'affiliate-coupons', $mofile_global );
+            } elseif ( file_exists( $mofile_local ) ) {
+                // Look in local /wp-content/plugins/affiliate-coupons/languages/ folder
+                load_textdomain( 'affiliate-coupons', $mofile_local );
+            } else {
+                // Load the default language files
+                load_plugin_textdomain( 'affiliate-coupons', false, $lang_dir );
+            }
+        }
+    }
+endif; // End if class_exists check
 
 /**
  * The main function responsible for returning the one true Affiliate_Coupons
- * instance to functions everywhere
+ * Instance to functions everywhere.
  *
- * @since       1.0.0
- * @return      \Affiliate_Coupons The one true Affiliate_Coupons
+ * Use this function like you would a global variable, except without needing
+ * to declare the global.
  *
+ * Example: <?php $Affiliate_Coupons = Affiliate_Coupons(); ?>
+ *
+ * @since 1.0
+ * @return Affiliate_Coupons The one true Affiliate_Coupons Instance
  */
-function affcoups_load() {
-	return Affiliate_Coupons::instance();
+function Affiliate_Coupons() {
+    return Affiliate_Coupons::instance();
 }
-
-add_action( 'plugins_loaded', 'affcoups_load' );
-
-/**
- * The activation hook
- */
-function affcoups_activation() {
-	// Create your tables here
-}
-
-register_activation_hook( __FILE__, 'affcoups_activation' );
-
-/**
- * The deactivation hook
- */
-function affcoups_deactivation() {
-	// Cleanup your tables, transients etc. here
-}
-
-register_deactivation_hook( __FILE__, 'affcoups_deactivation' );
+Affiliate_Coupons();

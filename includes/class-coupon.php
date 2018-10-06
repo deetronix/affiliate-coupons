@@ -120,7 +120,7 @@ if (!class_exists('Affcoups_Coupon')) {
 
             // Prepare image
             $image     = $this->get_image();
-            $image_url = ( ! empty ( $image['url'] ) ) ? $image['url'] : AFFCOUPS_URL . '/public/img/placeholder-thumb.png';
+            $image_url = ( ! empty ( $image['url'] ) ) ? $image['url'] : AFFCOUPS_PLUGIN_URL . '/public/img/placeholder-thumb.png';
             $image_alt = ( ! empty ( $image['alt'] ) ) ? $image['alt'] : $this->get_title();
 
             // Build image

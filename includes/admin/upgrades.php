@@ -15,10 +15,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function affcoups_plugin_upgrades() {
 
-    $version_installed = get_option( 'affcoups_version', '' );
+    $version_installed = get_option( 'AFFCOUPS_VERSION', '' );
 
     // Plugin already up2date
-    if ( $version_installed === AFFCOUPS_VER )
+    if ( $version_installed === AFFCOUPS_VERSION )
         return;
 
     /*
@@ -38,7 +38,7 @@ function affcoups_plugin_upgrades() {
     /* ---------------------------------------------------------- */
 
     // Update installed version
-    update_option( 'affcoups_version', AFFCOUPS_VER );
+    update_option( 'AFFCOUPS_VERSION', AFFCOUPS_VERSION );
 }
 add_action( 'admin_init', 'affcoups_plugin_upgrades' );
 

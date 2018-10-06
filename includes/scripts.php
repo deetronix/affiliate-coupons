@@ -32,11 +32,11 @@ function affcoups_admin_scripts( $hook ) {
 
 		wp_enqueue_style( 'wp-color-picker' );
 
-		wp_enqueue_script( 'affcoups-admin-script', AFFCOUPS_URL . 'public/js/admin' . $suffix . '.js', array(
+		wp_enqueue_script( 'affcoups-admin-script', AFFCOUPS_PLUGIN_URL . 'public/js/admin' . $suffix . '.js', array(
 			'jquery',
 			'wp-color-picker'
-		), AFFCOUPS_VER );
-		wp_enqueue_style( 'affcoups-admin-style', AFFCOUPS_URL . 'public/css/admin' . $suffix . '.css', false, AFFCOUPS_VER );
+		), AFFCOUPS_VERSION );
+		wp_enqueue_style( 'affcoups-admin-style', AFFCOUPS_PLUGIN_URL . 'public/css/admin' . $suffix . '.css', false, AFFCOUPS_VERSION );
 
 		do_action( 'affcoups_enqueue_admin_scripts' );
 	}
@@ -55,8 +55,8 @@ function affcoups_scripts( $hook ) {
 	// Use minified libraries if SCRIPT_DEBUG is turned off
 	$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
-	wp_enqueue_script( 'affcoups-script', AFFCOUPS_URL . 'public/js/scripts' . $suffix . '.js', array( 'jquery' ), AFFCOUPS_VER, true );
-	wp_enqueue_style( 'affcoups-style', AFFCOUPS_URL . 'public/css/styles' . $suffix . '.css', false, AFFCOUPS_VER );
+	wp_enqueue_script( 'affcoups-script', AFFCOUPS_PLUGIN_URL . 'public/js/scripts' . $suffix . '.js', array( 'jquery' ), AFFCOUPS_VERSION, true );
+	wp_enqueue_style( 'affcoups-style', AFFCOUPS_PLUGIN_URL . 'public/css/styles' . $suffix . '.css', false, AFFCOUPS_VERSION );
 
 	do_action( 'affcoups_enqueue_scripts' );
 }

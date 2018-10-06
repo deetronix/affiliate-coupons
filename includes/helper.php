@@ -83,7 +83,7 @@ function affcoups_the_assets() {
  * @return string
  */
 function affcoups_get_assets_url() {
-	return AFFCOUPS_URL . 'public/';
+	return AFFCOUPS_PLUGIN_URL . 'public/';
 }
 
 /**

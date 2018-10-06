@@ -45,7 +45,7 @@ function affcoups_asset_embed( $file ) {
 
 	$content = $response['body'];
 
-	$target_url = AFFCOUPS_URL . 'public/';
+	$target_url = AFFCOUPS_PLUGIN_URL . 'public/';
 
 	$rewrite_url = function ( $matches ) use ( $target_url ) {
 		$url = $matches['url'];
@@ -80,7 +80,7 @@ function affcoups_get_amp_styles() {
 	}
 
 	if ( empty( $amp_styles ) ) {
-		$amp_styles = affcoups_asset_embed( AFFCOUPS_URL . 'public/css/amp.min.css' );
+		$amp_styles = affcoups_asset_embed( AFFCOUPS_PLUGIN_URL . 'public/css/amp.min.css' );
 
 		set_transient( 'affcoups_amp_styles', $amp_styles, 60 * 60 * 24 * 7 );
 	}

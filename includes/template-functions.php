@@ -10,7 +10,7 @@
 
 function affcoups_get_template_file( $template, $type = '' ) {
 
-	$template_file = AFFCOUPS_DIR . 'templates/' . $template . '.php';
+	$template_file = AFFCOUPS_PLUGIN_DIR . 'templates/' . $template . '.php';
 
 	$template_file = apply_filters( 'affcoups_template_file', $template_file, $template, $type );
 
@@ -18,7 +18,7 @@ function affcoups_get_template_file( $template, $type = '' ) {
 		return $template_file;
 	}
 
-	return ( 'widget' === $type ) ? AFFCOUPS_DIR . 'templates/widget.php' : AFFCOUPS_DIR . 'templates/standard.php';
+	return ( 'widget' === $type ) ? AFFCOUPS_PLUGIN_DIR . 'templates/widget.php' : AFFCOUPS_PLUGIN_DIR . 'templates/standard.php';
 }
 
 /**
