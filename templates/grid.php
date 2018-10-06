@@ -40,7 +40,7 @@ if ( ! isset ( $grid ) )
 
                     <div class="affcoups-coupon__content">
 
-                        <h3 class="affcoups-coupon__title"><?php echo esc_attr( $coupon->get_title() ); ?></h3>
+                        <span class="affcoups-coupon__title"><?php echo esc_attr( $coupon->get_title() ); ?></span>
 
                         <?php if ( $coupon->get_types() ) { ?>
                             <div class="affcoups-coupon__types">

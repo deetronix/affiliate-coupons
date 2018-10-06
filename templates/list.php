@@ -41,7 +41,7 @@ if ( ! isset( $coupons ) )
 
                 <div class="affcoups-coupon__content">
 
-                    <h3 class="affcoups-coupon__title"><?php echo esc_attr( $coupon->get_title() ); ?></h3>
+                    <span class="affcoups-coupon__title"><?php echo esc_attr( $coupon->get_title() ); ?></span>
 
                     <div class="affcoups-coupon__description">
 

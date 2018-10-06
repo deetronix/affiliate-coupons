@@ -98,6 +98,11 @@ img.affcoups-coupon__image {
   margin: 0;
   padding: 0;
 }
+.affcoups-coupon__title {
+  display: block;
+  color: #222;
+  font-weight: bold;
+}
 .affcoups-coupon__discount {
   background: #27ae60;
   color: #fff;
@@ -226,4 +231,48 @@ a.affcoups-coupon__button:active {
 }
 a.affcoups-coupon__button {
   width: auto;
+}
+.affcoups-coupon__title {
+  color: #222;
+  font-weight: bold;
+}
+.affcoups-coupon__content {
+  color: #444;
+}
+.affcoups-standard .affcoups-coupon,
+.affcoups-coupons-grid .affcoups-coupon {
+  background: #F7F7F7;
+  border: 1px solid #F7F7F7;
+  border-radius: 3px;
+}
+.affcoups-standard img.affcoups-coupon__image,
+.affcoups-coupons-grid img.affcoups-coupon__image {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+.affcoups-standard .affcoups-coupon--image-border .affcoups-coupon__thumbnail,
+.affcoups-coupons-grid .affcoups-coupon--image-border .affcoups-coupon__thumbnail {
+  border: 1px solid #F7F7F7;
+  border-bottom: none;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+.affcoups-standard .affcoups-coupon__discount,
+.affcoups-coupons-grid .affcoups-coupon__discount {
+  border-top-left-radius: 3px;
+}
+.affcoups-standard .affcoups-coupon__types span,
+.affcoups-coupons-grid .affcoups-coupon__types span {
+  color: #6b747a;
+}
+.affcoups-standard a.affcoups-coupon__button,
+.affcoups-coupons-grid a.affcoups-coupon__button {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.affcoups-coupons-list .affcoups-coupon {
+  background-color: #F7F7F7;
+}
+.affcoups-coupons-list .affcoups-coupon__types span {
+  color: #6b747a;
 }

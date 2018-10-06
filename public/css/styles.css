@@ -98,6 +98,11 @@
   margin: 0;
   padding: 0;
 }
+.affcoups .affcoups-coupon__title {
+  display: block;
+  color: #222;
+  font-weight: bold;
+}
 .affcoups .affcoups-coupon__discount {
   background: #27ae60;
   color: #fff;
@@ -622,6 +627,13 @@
   width: 100%;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+.affcoups .affcoups-coupon__title {
+  color: #222;
+  font-weight: bold;
+}
+.affcoups .affcoups-coupon__content {
+  color: #444;
 }
 .affcoups .affcoups-standard .affcoups-coupon,
 .affcoups .affcoups-coupons-grid .affcoups-coupon {
