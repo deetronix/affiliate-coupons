@@ -10,12 +10,47 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+a.affcoups-coupon__button {
+  display: inline-block;
+  margin: 0;
+  padding: 12px 15px 9px 10px;
+  background: #69f0ae;
+  border: none;
+  border-radius: 3px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #000;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 24px;
+  outline: none;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+a.affcoups-coupon__button:visited {
+  color: #000;
+}
+a.affcoups-coupon__button:hover,
+a.affcoups-coupon__button:focus,
+a.affcoups-coupon__button:active {
+  background-color: #3beb95;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #000;
+  outline: none;
+  text-decoration: none;
+}
 .affcoups-coupon-code {
   position: relative;
   display: block;
   margin: 10px;
   padding: 12px 10px 10px 32px;
-  background: #FAF3C4;
+  background: #ffecb3;
   border: 1px dashed #333;
   border-radius: 3px;
   color: #444;
@@ -81,6 +116,7 @@
 }
 .affcoups-coupon {
   position: relative;
+  border-radius: 3px;
 }
 .affcoups-coupon__header {
   position: relative;
@@ -98,53 +134,35 @@ img.affcoups-coupon__image {
   margin: 0;
   padding: 0;
 }
+img.affcoups-coupon__image {
+  border-radius: 3px;
+}
 .affcoups-coupon__title {
   display: block;
-  color: #222;
+  color: rgba(0, 0, 0, 0.87);
   font-weight: bold;
 }
+.affcoups-coupon__content {
+  color: rgba(0, 0, 0, 0.87);
+}
 .affcoups-coupon__discount {
-  background: #27ae60;
-  color: #fff;
+  padding: .5em .8em .4em;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  background: #69f0ae;
+  -webkit-box-shadow: 0 0 1px 1px rgba(20, 23, 28, 0.1), 0 3px 1px 0 rgba(20, 23, 28, 0.1);
+  box-shadow: 0 0 1px 1px rgba(20, 23, 28, 0.1), 0 3px 1px 0 rgba(20, 23, 28, 0.1);
+  color: #000;
+  font-size: 16px;
+  line-height: 1;
 }
 .affcoups-coupon__valid-dates {
-  color: #6b747a;
+  color: rgba(0, 0, 0, 0.54);
   font-weight: bold;
   font-style: italic;
 }
-a.affcoups-coupon__button {
-  display: inline-block;
-  margin: 0;
-  padding: 12px 15px 9px 10px;
-  background: #27ae60;
-  border: none;
-  border-radius: 3px;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 700;
-  outline: none;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-}
-a.affcoups-coupon__button:visited {
-  color: #fff;
-}
-a.affcoups-coupon__button:hover,
-a.affcoups-coupon__button:focus,
-a.affcoups-coupon__button:active {
-  background-color: #1e8449;
-  border: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  color: #fff;
-  outline: none;
-  text-decoration: none;
+.affcoups-coupon__types span {
+  color: rgba(0, 0, 0, 0.54);
 }
 .affcoups-toggle-desc {
   margin-left: 3px;
@@ -152,7 +170,7 @@ a.affcoups-coupon__button:active {
 .affcoups-standard .affcoups-coupon {
   max-width: 400px;
   margin: 0 auto 30px auto;
-  padding-bottom: 40px;
+  padding-bottom: 65px;
 }
 @media (min-width: 769px) {
   .affcoups-standard .affcoups-coupon--float-left {
@@ -171,15 +189,19 @@ a.affcoups-coupon__button:active {
   font-size: 0;
   vertical-align: top;
 }
+.affcoups-standard img.affcoups-coupon__image {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
 .affcoups-standard .affcoups-coupon__discount {
   position: absolute;
-  top: 0;
+  top: 20px;
   left: 0;
-  padding: 8px 15px 5px;
-  font-size: 16px;
 }
 .affcoups-standard .affcoups-coupon__content {
-  padding: 15px 25px 15px;
+  padding: 20px;
+  font-size: 15px;
+  line-height: 1.6;
 }
 .affcoups-standard .affcoups-coupon__title {
   margin: 0;
@@ -219,60 +241,27 @@ a.affcoups-coupon__button:active {
 }
 .affcoups-standard .affcoups-coupon__footer {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
 }
 .affcoups-standard a.affcoups-coupon__button {
   display: block;
   width: 100%;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
 }
 a.affcoups-coupon__button {
   width: auto;
 }
-.affcoups-coupon__title {
-  color: #222;
-  font-weight: bold;
-}
-.affcoups-coupon__content {
-  color: #444;
-}
 .affcoups-standard .affcoups-coupon,
-.affcoups-coupons-grid .affcoups-coupon {
-  background: #F7F7F7;
-  border: 1px solid #F7F7F7;
-  border-radius: 3px;
-}
-.affcoups-standard img.affcoups-coupon__image,
-.affcoups-coupons-grid img.affcoups-coupon__image {
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-}
-.affcoups-standard .affcoups-coupon--image-border .affcoups-coupon__thumbnail,
-.affcoups-coupons-grid .affcoups-coupon--image-border .affcoups-coupon__thumbnail {
-  border: 1px solid #F7F7F7;
-  border-bottom: none;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-}
-.affcoups-standard .affcoups-coupon__discount,
-.affcoups-coupons-grid .affcoups-coupon__discount {
-  border-top-left-radius: 3px;
-}
-.affcoups-standard .affcoups-coupon__types span,
-.affcoups-coupons-grid .affcoups-coupon__types span {
-  color: #6b747a;
-}
-.affcoups-standard a.affcoups-coupon__button,
-.affcoups-coupons-grid a.affcoups-coupon__button {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+.affcoups-coupons-grid .affcoups-coupon,
+.affcoups-widget .affcoups-coupon {
+  background: #fff;
+  border: none;
+  -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
 }
 .affcoups-coupons-list .affcoups-coupon {
-  background-color: #F7F7F7;
-}
-.affcoups-coupons-list .affcoups-coupon__types span {
-  color: #6b747a;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
 }

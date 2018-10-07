@@ -2,6 +2,8 @@
 
 .affcoups-coupon {
     position: relative;
+
+    border-radius: @border-radius;
 }
 
 .affcoups-coupon__header {
@@ -21,56 +23,53 @@ img.affcoups-coupon__image {
     padding: 0;
 }
 
+img.affcoups-coupon__image {
+    border-radius: @border-radius;
+}
+
+.affcoups-coupon--image-border {
+    .affcoups-coupon__thumbnail {
+        //border: 1px solid @coupon-bg-color;
+        //border-bottom: none;
+        //border-top-left-radius: @border-radius;
+        //border-top-right-radius: @border-radius;
+    }
+}
+
 .affcoups-coupon__title {
     display: block;
 
-    color: #222;
+    color: @color-font;
     font-weight: bold;
 }
 
+.affcoups-coupon__content {
+    color: @color-font;
+}
+
 .affcoups-coupon__discount {
+    padding: .5em .8em .4em;
+
+    border-top-right-radius: @border-radius;
+    border-bottom-right-radius: @border-radius;
+
     background: @color-discount-bg;
+    box-shadow: 0 0 1px 1px rgba(20, 23, 28, 0.1), 0 3px 1px 0 rgba(20, 23, 28, 0.1);
     color: @color-discount;
+    font-size: 16px;
+    line-height: 1;
 }
 
 .affcoups-coupon__valid-dates {
-    
-    color: #6b747a;
+    color: @color-font-light;
     font-weight: bold;
     font-style: italic;
 }
 
-a.affcoups-coupon__button {
-    display: inline-block;
-    margin: 0;
-    padding: 12px 15px 9px 10px;
+.affcoups-coupon__types {
 
-    background: @color-button-bg;
-    border: none;
-    border-radius: @border-radius;
-    box-shadow: none;
-    color: @color-button;
-    font-size: 14px;
-    font-weight: 700;
-    outline: none;
-    text-align: center;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: all .3s @animation-ease;
-
-    &:visited {
-        color: @color-button;
-    }
-
-    &:hover,
-    &:focus,
-    &:active {
-        background-color: darken(@color-button-bg, 10%);
-        border: none;
-        box-shadow: none;
-        color: @color-button;
-        outline: none;
-        text-decoration: none;
+    span {
+        color: @color-font-light;
     }
 }
 

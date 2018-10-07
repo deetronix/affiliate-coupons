@@ -3,7 +3,7 @@
 @spacing: 20px;
 @animation-ease: ease;
 @animation-time: .3s;
-@border-radius: 3px;
+@border-radius: 3px; //4px;
 
 // Colors
 @color-primary: #48627D;
@@ -14,18 +14,19 @@
 @color-warning: #f0ad4e;
 @color-error: #d9534f;
 
-@color-font: #1E2C35;
-@color-font-lightened: lighten(@color-font, 10%);
-@color-font-light: #ccc;
+@color-font: rgba(0, 0, 0, 0.87);
+@color-font-light:rgba(0, 0, 0, 0.54);
 
-@color-border: #eee;
+@color-border: #ebebeb;
 
-@color-elements-green: #27ae60;
-@color-button-bg: @color-elements-green;
-@color-button: #fff;
-@color-discount-bg: @color-elements-green;
-@color-discount: #fff;
-@coupon-bg-color: #F7F7F7;
+@color-green-bg: #69f0ae;
+@color-green-font: #000;
+@color-yellow: #ffecb3;
+
+@color-button-bg: @color-green-bg;
+@color-button: @color-green-font;
+@color-discount-bg: @color-green-bg;
+@color-discount: @color-green-font;
 
 // Breakpoints
 @breakpoint-large: 1024px;
@@ -46,6 +47,11 @@
     *:after {
         box-sizing: border-box;
     }
+}
+
+.box-shadow() {
+    //box-shadow: 0 1px 12px -4px rgba(0,0,0,0.2);
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),0px 1px 1px 0px rgba(0, 0, 0, 0.14),0px 2px 1px -1px rgba(0, 0, 0, 0.12);
 }
 
 // Clearfix

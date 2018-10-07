@@ -1,4 +1,7 @@
 @import "../../common";
+@import "../elements/buttons";
+
+@template-standard-inner-padding: 20px;
 
 //== Standard Styles
 .affcoups-standard {
@@ -11,7 +14,7 @@
     .affcoups-coupon {
         max-width: 400px;
         margin: 0 auto 30px auto;
-        padding-bottom: 40px;
+        padding-bottom: (@button-height + @template-standard-inner-padding);
     }
 
     @media(min-width: (@breakpoint-default + 1px)) {
@@ -41,28 +44,21 @@
     }
 
     img.affcoups-coupon__image {
-
-    }
-
-    .affcoups-coupon--image-border {
-
-        .affcoups-coupon__thumbnail {
-
-        }
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
     }
     
     .affcoups-coupon__discount {
         position: absolute;
-        top: 0;
+        top: @template-standard-inner-padding;
         left: 0;
-        
-        padding: 8px 15px 5px;
-
-        font-size: 16px;
     }
     
     .affcoups-coupon__content {
-        padding: 15px 25px 15px;
+        padding: @template-standard-inner-padding;
+
+        font-size: 15px;
+        line-height: 1.6;
     }
     
     .affcoups-coupon__title {
@@ -115,17 +111,14 @@
     
     .affcoups-coupon__footer {
         position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
+        bottom: @template-standard-inner-padding;
+        left: @template-standard-inner-padding;
+        right: @template-standard-inner-padding;
     }
     
     a.affcoups-coupon__button {
         display: block;
         width: 100%;
-        
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
     }
 }
 
