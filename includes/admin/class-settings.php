@@ -249,7 +249,6 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
                             valid_from, valid_to)
                         </li>
                     </ul>
-                    </p>
 
                     <p>
                         <strong><?php esc_html_e( 'Templates', 'affiliate-coupons' ); ?></strong><br/>
@@ -272,7 +271,13 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 						<?php esc_html_e( 'When passing the grid size parameter, the plugin will automatically choose the grid template.', 'affiliate-coupons' ); ?>
                     </p>
 
-					<?php do_action( 'affcoups_settings_quickstart_render' ); ?>
+					<?php do_action( 'affcoups_settings_section_quickstart_render' ); ?>
+
+                    <p><?php printf( wp_kses( __( 'Please take a look into the <a href="%s">documentation</a> for more options.', 'affiliate-coupons' ), array(  'a' => array( 'href' => array() ) ) ), esc_url( add_query_arg( array(
+                            'utm_source'   => 'settings-page',
+                            'utm_medium'   => 'quickstart',
+                            'utm_campaign' => 'Affiliate Coupons',
+                        ), AFFCOUPS_DOCS_URL ) ) ); ?></p>
                 </div>
             </div>
 
@@ -339,10 +344,14 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 		function templates_render() {
 
 			$template_options = affcoups_get_template_options();
-
 			$template = ( isset( $this->options['template'] ) ) ? $this->options['template'] : 'grid';
+
 			$grid_size = ( ! empty( $this->options['grid_size'] ) && is_numeric( $this->options['grid_size'] ) ) ? intval( $this->options['grid_size'] ) : 3;
+
+            $style_options = affcoups_get_style_options();
+            $style = ( isset( $this->options['style'] ) ) ? $this->options['style'] : 'standard';
 			?>
+            <!-- Templates -->
             <h4><?php esc_html_e( 'Template', 'affiliate-coupons' ); ?></h4>
             <p>
                 <select id="affcoups_template" name="affcoups_settings[template]">
@@ -351,10 +360,30 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 					<?php } ?>
                 </select>
             </p>
+            <p class="desc">
+                <?php esc_html_e( 'The default template which will be used for displaying coupons (widgets excepted).', 'affiliate-coupons' ); ?>
+            </p>
 
+            <!-- Grid -->
             <h4><?php esc_html_e( 'Grid size', 'affiliate-coupons' ); ?></h4>
             <p>
                 <input type="number" name="affcoups_settings[grid_size]" id="affcoups_grid_size" value="<?php echo esc_attr( trim( $grid_size ) ); ?>"/>
+            </p>
+            <p class="desc">
+                <?php esc_html_e( 'The default grid size which will be used for displaying coupons (widgets excepted).', 'affiliate-coupons' ); ?>
+            </p>
+
+            <!-- Styles -->
+            <h4><?php esc_html_e( 'Style', 'affiliate-coupons' ); ?></h4>
+            <p>
+                <select id="affcoups_style" name="affcoups_settings[style]">
+                    <?php foreach ( $style_options as $key => $label ) { ?>
+                        <option value="<?php echo esc_attr( $key ); ?>" <?php selected( $style, $key ); ?>><?php echo esc_attr( $label ); ?></option>
+                    <?php } ?>
+                </select>
+            </p>
+            <p class="desc">
+                <?php esc_html_e( 'The default style which will be used for displaying coupons (widgets excepted).', 'affiliate-coupons' ); ?>
             </p>
 			<?php
 		}
@@ -463,7 +492,7 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
             <br/>
             <textarea id="affcoups_custom_css" name="affcoups_settings[custom_css]" rows="10" cols="80" style="width: 100%;"><?php echo esc_attr( stripslashes( $custom_css ) ); ?></textarea>
             <p>
-                <small><?php esc_html_e( "Please don't use the <code>style</code> tag. Simply paste you CSS classes/definitions e.g. <code>.affcoups .affcoups-coupon { background-color: #333; }</code>", 'affiliate-coupons' ) ?></small>
+                <small><?php esc_html_e( "Please don't use the HTML style tag. Simply paste you CSS classes/definitions. For example:", 'affiliate-coupons' ) ?><br /><code>.affcoups .affcoups-coupon { background-color: #333; }</code></small>
             </p>
 
 			<?php

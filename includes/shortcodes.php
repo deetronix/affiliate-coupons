@@ -40,6 +40,7 @@ function affcoups_add_shortcode( $atts, $content ) {
 		'hide_expired' => null,
 		'hide_dates'   => null,
 		'template'     => null,
+        'style'        => null,
 		'order'        => null,
 		'orderby'      => null,
 	), $atts ) );
@@ -116,15 +117,18 @@ function affcoups_add_shortcode( $atts, $content ) {
 
 		if ( affcoups_is_amp() ) {
 			$template = 'amp';
+            $style = 'standard';
 		} else {
 
 			// Defaults
 			$template_default  = ( ! empty( $options['template'] ) ) ? esc_html( $options['template'] ) : 'standard';
 			$grid_size_default = ( ! empty( $options['grid_size'] ) && is_numeric( $options['grid_size'] ) ) ? esc_html( $options['grid_size'] ) : 2;
+            $style_default  = ( ! empty( $options['style'] ) ) ? esc_html( $options['style'] ) : 'standard';
 
 			// Collect template settings
-			$template  = ( ! empty( $template ) ) ? esc_html( $template ) : $template_default;
+			$template = ( ! empty( $template ) ) ? esc_html( $template ) : $template_default;
 			$grid_size = $grid_size_default;
+            $style = ( ! empty( $style ) ) ? esc_html( $style ) : $style_default;
 
 			// Grid Layout?
 			if ( ! empty( $grid ) && is_numeric( $grid ) ) {
@@ -136,8 +140,9 @@ function affcoups_add_shortcode( $atts, $content ) {
 		// Store template variables
 		global $affcoups_template_args;
 
-		$affcoups_template_args['template']  = $template;
+		$affcoups_template_args['template'] = $template;
 		$affcoups_template_args['grid_size'] = ( ! empty( $grid_size ) ) ? $grid_size : 0;
+        $affcoups_template_args['style'] = $style;
 
 		if ( isset( $atts['hide_dates'] ) && in_array( $atts['hide_dates'], array( 'true', 'false' ) ) )
             $affcoups_template_args['hide_dates'] = $atts['hide_dates'];

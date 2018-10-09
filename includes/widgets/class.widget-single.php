@@ -52,7 +52,10 @@ if ( ! class_exists( 'Affcoups_Single_Widget' ) ) {
 				);
 
 				// Template
-				$shortcode_atts['template'] = 'widget'; //$instance['template']; // TODO: Replace when separate widget template(s) were added
+				$shortcode_atts['template'] = ( ! empty( $instance['template'] ) ) ? $instance['template'] : 'widget';
+
+                // Style
+                $shortcode_atts['style'] = ( ! empty( $instance['style'] ) ) ? $instance['style'] : 'standard';
 
 				// Execute Shortcode
 				affcoups_widget_do_shortcode( $shortcode_atts );
@@ -76,7 +79,7 @@ if ( ! class_exists( 'Affcoups_Single_Widget' ) ) {
 			$title    = ! empty( $instance['title'] ) ? $instance['title'] : '';
 			$id       = ! empty( $instance['id'] ) ? $instance['id'] : '';
 			$template = ! empty( $instance['template'] ) ? $instance['template'] : 'widget';
-
+            $style = ! empty( $instance['style'] ) ? $instance['style'] : 'standard';
 			?>
             <!-- Title -->
             <p>
@@ -97,7 +100,7 @@ if ( ! class_exists( 'Affcoups_Single_Widget' ) ) {
                 </select>
             </p>
 
-            <!-- Template -->
+            <!-- Templates -->
 			<?php
             $templates = affcoups_get_widget_template_options();
 			?>
@@ -112,6 +115,19 @@ if ( ! class_exists( 'Affcoups_Single_Widget' ) ) {
                 <small>
 					<?php esc_attr_e( 'The templates listed above are optimized for widgets.', 'affiliate-coupons' ); ?>
                 </small>
+            </p>
+
+            <!-- Styles -->
+            <?php
+            $styles = affcoups_get_style_options();
+            ?>
+            <p>
+                <label for="<?php echo esc_attr( $this->get_field_id( 'style' ) ); ?>"><?php esc_attr_e( 'Style:', 'affiliate-coupons' ); ?></label>
+                <select class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'style' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'style' ) ); ?>">
+                    <?php foreach ( $styles as $key => $label ) { ?>
+                        <option value="<?php echo esc_attr( $key ); ?>" <?php selected( $style, $key ); ?>><?php echo esc_attr( $label ); ?></option>
+                    <?php } ?>
+                </select>
             </p>
 
 			<?php
@@ -133,6 +149,7 @@ if ( ! class_exists( 'Affcoups_Single_Widget' ) ) {
 			$instance['title']    = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
 			$instance['id']       = ( ! empty( $new_instance['id'] ) ) ? strip_tags( $new_instance['id'] ) : '';
 			$instance['template'] = ( ! empty( $new_instance['template'] ) ) ? strip_tags( $new_instance['template'] ) : '';
+            $instance['style'] = ( ! empty( $new_instance['style'] ) ) ? strip_tags( $new_instance['style'] ) : '';
 
 			return $instance;
 		}

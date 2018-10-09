@@ -376,6 +376,22 @@ function affcoups_get_widget_template_options() {
 }
 
 /**
+ * Get style options
+ *
+ * @return array
+ */
+function affcoups_get_style_options() {
+
+    $options = array(
+        'standard' => __( 'Standard', 'affiliate-coupons' )
+    );
+
+    $options = apply_filters( 'affcoups_style_options', $options );
+
+    return $options;
+}
+
+/**
  * Get orderby options
  *
  * @return array
