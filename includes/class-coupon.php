@@ -296,7 +296,7 @@ if (!class_exists('Affcoups_Coupon')) {
             echo wp_kses_post( $excerpt );
 
             if ( $excerpt != $description ) {
-                echo '<a href="#" class="affcoups-toggle-desc" data-affcoups-toggle-desc="true">' . __( 'More', 'affiliate-coupons' ) . '</a>';
+                echo '<a href="#" class="affcoups-toggle-desc" data-affcoups-toggle-desc="true">' . __( 'Show More', 'affiliate-coupons' ) . '</a>';
             }
         }
 
