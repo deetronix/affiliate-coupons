@@ -13,7 +13,7 @@
 a.affcoups-coupon__button {
   display: inline-block;
   margin: 0;
-  padding: 12px 15px 9px 10px;
+  padding: 0;
   background: #69f0ae;
   border: none;
   border-radius: 3px;
@@ -22,7 +22,7 @@ a.affcoups-coupon__button {
   color: #222;
   font-size: 14px;
   font-weight: 700;
-  line-height: 24px;
+  line-height: 45px;
   outline: none;
   text-align: center;
   text-decoration: none;
@@ -45,8 +45,13 @@ a.affcoups-coupon__button:active {
   outline: none;
   text-decoration: none;
 }
-.affcoups-coupon__button-icon {
+a.affcoups-coupon__button .affcoups-coupon__button-icon {
   margin-right: 7px;
+  vertical-align: -2%;
+}
+a.affcoups-coupon__button .affcoups-coupon__button-text {
+  display: inline-block;
+  line-height: 45px;
 }
 .affcoups-coupon-code {
   position: relative;
@@ -69,6 +74,16 @@ a.affcoups-coupon__button:active {
   left: 10px;
   margin-top: -10px;
 }
+span[class^="affcoups-icon-"] {
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  background-repeat: no-repeat;
+  -webkit-background-size: 16px 16px;
+  background-size: 16px 16px;
+  background-position: center;
+  vertical-align: -8%;
+}
 .affcoups-icon {
   display: inline-block;
   height: 16px;
@@ -81,91 +96,27 @@ a.affcoups-coupon__button:active {
   background-image: url('../img/icon-affcoups.png');
 }
 .affcoups-icon-hand-right {
-  display: inline-block;
-  height: 16px;
-  width: 16px;
-  background-repeat: no-repeat;
-  -webkit-background-size: 16px 16px;
-  background-size: 16px 16px;
-  background-position: center;
-  vertical-align: -8%;
   background-image: url('../img/button/icon-hand-o-right.svg');
 }
 .affcoups-icon-hand-right-white {
-  display: inline-block;
-  height: 16px;
-  width: 16px;
-  background-repeat: no-repeat;
-  -webkit-background-size: 16px 16px;
-  background-size: 16px 16px;
-  background-position: center;
-  vertical-align: -8%;
   background-image: url('../img/button/icon-hand-o-right-white.svg');
 }
 .affcoups-icon-gavel {
-  display: inline-block;
-  height: 16px;
-  width: 16px;
-  background-repeat: no-repeat;
-  -webkit-background-size: 16px 16px;
-  background-size: 16px 16px;
-  background-position: center;
-  vertical-align: -8%;
   background-image: url('../img/button/icon-gavel.svg');
 }
 .affcoups-icon-gavel-white {
-  display: inline-block;
-  height: 16px;
-  width: 16px;
-  background-repeat: no-repeat;
-  -webkit-background-size: 16px 16px;
-  background-size: 16px 16px;
-  background-position: center;
-  vertical-align: -8%;
   background-image: url('../img/button/icon-gavel-white.svg');
 }
 .affcoups-icon-cart {
-  display: inline-block;
-  height: 16px;
-  width: 16px;
-  background-repeat: no-repeat;
-  -webkit-background-size: 16px 16px;
-  background-size: 16px 16px;
-  background-position: center;
-  vertical-align: -8%;
   background-image: url('../img/button/icon-shopping-cart.svg');
 }
 .affcoups-icon-cart-white {
-  display: inline-block;
-  height: 16px;
-  width: 16px;
-  background-repeat: no-repeat;
-  -webkit-background-size: 16px 16px;
-  background-size: 16px 16px;
-  background-position: center;
-  vertical-align: -8%;
   background-image: url('../img/button/icon-shopping-cart-white.svg');
 }
 .affcoups-icon-thumbs-up {
-  display: inline-block;
-  height: 16px;
-  width: 16px;
-  background-repeat: no-repeat;
-  -webkit-background-size: 16px 16px;
-  background-size: 16px 16px;
-  background-position: center;
-  vertical-align: -8%;
   background-image: url('../img/button/icon-thumbs-up.svg');
 }
 .affcoups-icon-thumbs-up-white {
-  display: inline-block;
-  height: 16px;
-  width: 16px;
-  background-repeat: no-repeat;
-  -webkit-background-size: 16px 16px;
-  background-size: 16px 16px;
-  background-position: center;
-  vertical-align: -8%;
   background-image: url('../img/button/icon-thumbs-up-white.svg');
 }
 .affcoups-coupon {

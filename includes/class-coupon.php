@@ -436,6 +436,9 @@ if (!class_exists('Affcoups_Coupon')) {
             if ( empty( $code ) )
                 return;
 
+            if ( ! apply_filters( 'affcoups_show_code', true, $this ) )
+                return;
+
             $copy_img = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+0/AAABI1BMVEUAAAAzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzPLD7eUAAAAYHRSTlMAAQIEBQYHCAoLDg8QEhMUFRYXGBocHR4gISIjKy0xMjM2ODo9P0FCRUZJSktMTlFSWFtcYmRma21wcXN3eHt8f4CDho6SmqKlqLC0ucDDx8jT3ODi5Obo6evt7/H1+f2nUYbbAAAAy0lEQVQYGa3BezvCUADA4d/RUCm3mrlMiZAIxVaas9wSucyllPv5/p/C9oznyd+8L3+VvelfmPw2/3kiO+pcEErYY4B0QTRUhUDEWhtyJmD3FhBvD/jydoSFfUDrXSaJv3cFaTcBpWUCcU/5ys1DE0R9km/G1nZOtqIaI0fDDCrYK+vT14v8mG0+dq6WojubG+T2CLmqXW0pr2Sc6hA7HsWXfU0Bz0+AXjMQlgkcSKCozgjozhxyHDIfDede3WmEZqwpfKveSzsv+Edfyg4bpMKWWckAAAAASUVORK5CYII=';
 
             $copy_img = apply_filters( 'affcoups_coupon_copy_img_src', $copy_img );
@@ -471,18 +474,28 @@ if (!class_exists('Affcoups_Coupon')) {
                 'rel'    => 'nofollow'
             );
 
-            $button = apply_filters( 'affcoups_button', $button, $this->id );
+            $button = apply_filters( 'affcoups_button', $button, $this );
 
             $button_icon = ( ! empty( $this->options['button_icon'] ) ) ? $this->options['button_icon'] : false;
 
+            // Build HTML markup
+            ob_start();
             ?>
             <a class="affcoups-coupon__button" href="<?php echo esc_attr( $button['url'] ); ?>" title="<?php echo esc_attr( $button['title'] ); ?>" rel="<?php echo esc_attr( $button['rel'] ); ?>" target="<?php echo esc_attr( $button['target'] ); ?>">
                 <?php if ( ! empty( $button_icon ) ) { ?>
                     <span class="affcoups-icon-<?php echo esc_attr( $button_icon ); ?> affcoups-coupon__button-icon"></span>
                 <?php } ?>
 
-                <span class="affcoups-coupon__button-text"><?php echo esc_attr( $button['text'] ); ?></span></a>
+                <span class="affcoups-coupon__button-text"><?php echo esc_attr( $button['text'] ); ?></span>
+            </a>
             <?php
+            $button_html = ob_get_clean();
+
+            // Maybe apply filters
+            $button_html = apply_filters( 'affcoups_button_html', $button_html, $button, $this );
+
+            // Output HTML
+            echo $button_html;
         }
     }
 }
