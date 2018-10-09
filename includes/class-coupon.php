@@ -473,7 +473,7 @@ if (!class_exists('Affcoups_Coupon')) {
 
             $button = apply_filters( 'affcoups_button', $button, $this->id );
 
-            $button_icon = ( ! empty( $options['button_icon'] ) ) ? esc_html( $options['button_icon'] ) : false;
+            $button_icon = ( ! empty( $this->options['button_icon'] ) ) ? $this->options['button_icon'] : false;
 
             ?>
             <a class="affcoups-coupon__button" href="<?php echo esc_attr( $button['url'] ); ?>" title="<?php echo esc_attr( $button['title'] ); ?>" rel="<?php echo esc_attr( $button['rel'] ); ?>" target="<?php echo esc_attr( $button['target'] ); ?>">

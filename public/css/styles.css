@@ -19,7 +19,7 @@
   border-radius: 3px;
   -webkit-box-shadow: none;
   box-shadow: none;
-  color: #000;
+  color: #222;
   font-size: 14px;
   font-weight: 700;
   line-height: 24px;
@@ -32,18 +32,21 @@
   transition: all 0.3s ease;
 }
 .affcoups a.affcoups-coupon__button:visited {
-  color: #000;
+  color: #222;
 }
 .affcoups a.affcoups-coupon__button:hover,
 .affcoups a.affcoups-coupon__button:focus,
 .affcoups a.affcoups-coupon__button:active {
-  background-color: #3beb95;
+  background-color: #52eea1;
   border: none;
   -webkit-box-shadow: none;
   box-shadow: none;
-  color: #000;
+  color: #222;
   outline: none;
   text-decoration: none;
+}
+.affcoups .affcoups-coupon__button-icon {
+  margin-right: 7px;
 }
 .affcoups .affcoups-coupon-code {
   position: relative;
@@ -53,7 +56,7 @@
   background: #ffecb3;
   border: 2px dashed #bbb;
   border-radius: 3px;
-  color: #444;
+  color: #222;
   cursor: pointer;
   font-size: 16px;
   font-weight: bold;
@@ -70,7 +73,6 @@
   display: inline-block;
   height: 16px;
   width: 16px;
-  margin: 0 5px 0 0;
   background-repeat: no-repeat;
   -webkit-background-size: 16px 16px;
   background-size: 16px 16px;
@@ -82,37 +84,89 @@
   display: inline-block;
   height: 16px;
   width: 16px;
-  margin: 0 5px 0 0;
   background-repeat: no-repeat;
   -webkit-background-size: 16px 16px;
   background-size: 16px 16px;
   background-position: center;
   vertical-align: -8%;
-  background-image: url('../img/icon-hand-o-right.svg');
+  background-image: url('../img/button/icon-hand-o-right.svg');
+}
+.affcoups .affcoups-icon-hand-right-white {
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  background-repeat: no-repeat;
+  -webkit-background-size: 16px 16px;
+  background-size: 16px 16px;
+  background-position: center;
+  vertical-align: -8%;
+  background-image: url('../img/button/icon-hand-o-right-white.svg');
 }
 .affcoups .affcoups-icon-gavel {
   display: inline-block;
   height: 16px;
   width: 16px;
-  margin: 0 5px 0 0;
   background-repeat: no-repeat;
   -webkit-background-size: 16px 16px;
   background-size: 16px 16px;
   background-position: center;
   vertical-align: -8%;
-  background-image: url('../img/icon-gavel.svg');
+  background-image: url('../img/button/icon-gavel.svg');
+}
+.affcoups .affcoups-icon-gavel-white {
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  background-repeat: no-repeat;
+  -webkit-background-size: 16px 16px;
+  background-size: 16px 16px;
+  background-position: center;
+  vertical-align: -8%;
+  background-image: url('../img/button/icon-gavel-white.svg');
 }
 .affcoups .affcoups-icon-cart {
   display: inline-block;
   height: 16px;
   width: 16px;
-  margin: 0 5px 0 0;
   background-repeat: no-repeat;
   -webkit-background-size: 16px 16px;
   background-size: 16px 16px;
   background-position: center;
   vertical-align: -8%;
-  background-image: url('../img/icon-shopping-cart.svg');
+  background-image: url('../img/button/icon-shopping-cart.svg');
+}
+.affcoups .affcoups-icon-cart-white {
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  background-repeat: no-repeat;
+  -webkit-background-size: 16px 16px;
+  background-size: 16px 16px;
+  background-position: center;
+  vertical-align: -8%;
+  background-image: url('../img/button/icon-shopping-cart-white.svg');
+}
+.affcoups .affcoups-icon-thumbs-up {
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  background-repeat: no-repeat;
+  -webkit-background-size: 16px 16px;
+  background-size: 16px 16px;
+  background-position: center;
+  vertical-align: -8%;
+  background-image: url('../img/button/icon-thumbs-up.svg');
+}
+.affcoups .affcoups-icon-thumbs-up-white {
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  background-repeat: no-repeat;
+  -webkit-background-size: 16px 16px;
+  background-size: 16px 16px;
+  background-position: center;
+  vertical-align: -8%;
+  background-image: url('../img/button/icon-thumbs-up-white.svg');
 }
 .affcoups .affcoups-coupon {
   position: relative;
@@ -152,7 +206,7 @@
   background: #69f0ae;
   -webkit-box-shadow: 0 0 1px 1px rgba(20, 23, 28, 0.1), 0 3px 1px 0 rgba(20, 23, 28, 0.1);
   box-shadow: 0 0 1px 1px rgba(20, 23, 28, 0.1), 0 3px 1px 0 rgba(20, 23, 28, 0.1);
-  color: #000;
+  color: #222;
   font-size: 16px;
   line-height: 1;
 }

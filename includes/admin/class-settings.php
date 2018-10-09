@@ -407,9 +407,14 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 
 			$button_icon_options = array(
 				''           => __( 'None', 'affiliate-coupons' ),
+                'thumbs-up' => __( 'Thumbs up', 'affiliate-coupons' ),
+                'thumbs-up-white' => __( 'Thumbs up (White)', 'affiliate-coupons' ),
 				'hand-right' => __( 'Hand right', 'affiliate-coupons' ),
+                'hand-right-white' => __( 'Hand right (White)', 'affiliate-coupons' ),
 				'gavel'      => __( 'Gavel', 'affiliate-coupons' ),
-				'cart'       => __( 'Shopping cart', 'affiliate-coupons' )
+                'gavel-white'      => __( 'Gavel (White)', 'affiliate-coupons' ),
+				'cart'       => __( 'Shopping cart', 'affiliate-coupons' ),
+                'cart-white'       => __( 'Shopping cart (White)', 'affiliate-coupons' )
 			);
 
 			$button_icon     = ( isset( $this->options['button_icon'] ) ) ? $this->options['button_icon'] : '';
