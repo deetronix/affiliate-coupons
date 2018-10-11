@@ -19,6 +19,18 @@ body.affcoups-admin h1.wp-heading-inline:before {
   background-size: 20px 20px;
   background-position: 14px center;
 }
+.affcoups-pro-feature__badge {
+  display: inline-block;
+  margin: 0 5px 0 0;
+  padding: 0 5px;
+  border: 2px solid #F99F1B;
+  border-radius: 3px;
+  color: #48627D;
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 20px;
+  text-transform: uppercase;
+}
 .affcoups-settings .wrap > h2 {
   position: relative;
   margin: -10px -20px 13px -22px;
@@ -48,6 +60,12 @@ body.affcoups-admin h1.wp-heading-inline:before {
 }
 .affcoups-settings .dashicons-star-filled {
   color: #F99F1B;
+}
+.affcoups-settings .dashicons-megaphone {
+  color: #F99F1B;
+}
+.affcoups-settings .affcoups-pro-feature {
+  margin-top: .7em;
 }
 .affcoups-settings .affcoups-settings-button {
   display: inline-block;

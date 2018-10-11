@@ -329,6 +329,7 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
                     <?php } ?>
                 </select>
             </p>
+            <?php affcoups_the_pro_feature_note( __( 'Click to reveal', 'affiliate-coupons' ), true ); ?>
             <?php
         }
 
