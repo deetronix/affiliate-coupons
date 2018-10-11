@@ -170,6 +170,19 @@ function affcoups_truncate_string( $str, $limit = 200, $pad = '...' ) {
 	return $str;
 }
 
+/**
+ * Output data to a log for debugging reasons
+ *
+ * @param $string
+ */
+function affcoups_addlog( $string ) {
+
+    $log = get_option( 'affcoups_log', '' );
+    $string = date( 'd.m.Y H:i:s' ) . " >>> " . $string . "\n";
+    $log .= $string;
+    update_option( 'affcoups_log', $log );
+}
+
 // @codingStandardsIgnoreStart
 /**
  * Debug

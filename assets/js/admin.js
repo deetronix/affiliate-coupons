@@ -19,5 +19,12 @@ jQuery(document).ready(function ($) {
     $(".widget-title h3:contains('Affiliate Coupons - ')").each(function() {
         replaceWidgetTitleIcon( $(this) );
     });
-    
+
+    /**
+     * Settings: Delete Log
+     */
+    jQuery( document ).on( 'click', '#affcoups-delete-log-submit', function(event) {
+        jQuery('#affcoups-delete-log').val('1');
+    });
+
 });

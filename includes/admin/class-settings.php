@@ -162,6 +162,13 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 
             do_action( 'affcoups_register_settings_end' );
 
+            add_settings_section(
+                'affcoups_help',
+                __( 'Help & Support', 'affiliate-coupons' ),
+                array( &$this, 'section_help_render' ),
+                'affcoups_settings'
+            );
+
 		}
 
         /**
@@ -171,6 +178,12 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
          * @return mixed
          */
 		function validate_input_callback( $input ) {
+
+            // Handle Delete Log Action
+            if ( isset ( $input['delete_log'] ) && '1' === $input['delete_log'] ) {
+                delete_option( 'affcoups_log' );
+                $input['delete_log'] = '0';
+            }
 
             $input = apply_filters( 'affcoups_settings_validate_input', $input );
 
@@ -584,6 +597,85 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 		}
 
         /**
+         * Section help render
+         */
+        function section_help_render() {
+
+            global $wp_version;
+
+            $curl = $this->check_curl();
+
+            $enabled = '<span style="color: green;"><strong><span class="dashicons dashicons-yes"></span> ' . __('Enabled', 'affiliate-coupons') . '</strong></span>';
+            $disabled = '<span style="color: red;"><strong><span class="dashicons dashicons-no"></span> ' . __('Disabled', 'affiliate-coupons') . '</strong></span>';
+
+            ?>
+            <p>
+                <?php _e( 'Here you can find additional information which may help in case you experience some issue with our plugin.', 'affiliate-coupons' ); ?>
+            </p>
+
+            <table class="widefat affcoups-settings-table">
+                <thead>
+                <tr>
+                    <th width="300"><?php _e('Setting', 'affiliate-coupons'); ?></th>
+                    <th><?php _e('Values', 'affiliate-coupons'); ?></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>WordPress</th>
+                    <td>Version <?php echo $wp_version; ?></td>
+                </tr>
+                <tr class="alternate">
+                    <th>PHP</th>
+                    <td>Version <strong><?php echo phpversion(); ?></strong></td>
+                </tr>
+                <tr>
+                    <th><?php printf( esc_html__( 'PHP "%1$s" extension', 'affiliate-coupons' ), 'cURL' ); ?></th>
+                    <td>
+                        <?php echo (isset ($curl['enabled']) && $curl['enabled']) ? $enabled : $disabled; ?>
+                        <?php if (isset ($curl['version'])) echo ' (Version ' . $curl['version'] . ')'; ?>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <p>
+                <?php _e('In case one of the values above is <span style="color: red;"><strong>red</strong></span>, please get in contact with your webhoster in order to enable the missing PHP extensions.', 'affiliate-coupons'); ?>
+            </p>
+
+            <p>
+                <strong><?php _e('Log file', 'affiliate-coupons'); ?></strong><br />
+                <textarea rows="5" style="width: 100%;"><?php echo get_option( 'affcoups_log', __( 'No entries yet. ', 'affiliate-coupons' ) ); ?></textarea>
+            </p>
+            <p>
+                <input type="hidden" id="affcoups-delete-log" name="affcoups_settings[delete_log]" value="0" />
+                <?php submit_button( 'Delete log', 'delete button-secondary', 'affcoups-delete-log-submit', false ); ?>
+            </p>
+            <?php
+        }
+
+        /**
+         * Check cURL
+         *
+         * @return array|bool
+         */
+        private function check_curl() {
+
+            if ( ( function_exists('curl_version') ) ) {
+
+                $curl_data = curl_version();
+                $version = ( isset ( $curl_data['version'] ) ) ? $curl_data['version'] : null;
+
+                return array(
+                    'enabled' => true,
+                    'version' => $version
+                );
+            } else {
+                return false;
+            }
+        }
+
+        /**
          * Output the options page HTML
          */
 		function options_page() {
@@ -704,17 +796,17 @@ function affcoups_do_settings_sections( $page ) {
 			$title = "<h3 class='hndle'>{$section['title']}</h3>\n";
 		}
 
-		if ( $section['callback'] ) {
-			call_user_func( $section['callback'], $section );
-		}
-
-		if ( ! isset( $wp_settings_fields ) || ! isset( $wp_settings_fields[ $page ] ) || ! isset( $wp_settings_fields[ $page ][ $section['id'] ] ) ) {
-			continue;
-		}
+        if (!isset($wp_settings_fields) || !isset($wp_settings_fields[$page]) || ( !isset($wp_settings_fields[$page][$section['id']] ) && ! in_array( $section['id'], array( 'affcoups_quickstart', 'affcoups_help' ) ) ) )
+            continue;
 
 		echo '<div class="postbox">';
 		echo  $title;
 		echo '<div class="inside">';
+
+        if ( $section['callback'] ) {
+            call_user_func( $section['callback'], $section );
+        }
+
 		echo '<table class="form-table">';
 		do_settings_fields( $page, $section['id'] );
 		echo '</table>';
