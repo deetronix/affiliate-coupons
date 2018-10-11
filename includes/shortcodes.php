@@ -41,6 +41,7 @@ function affcoups_add_shortcode( $atts, $content ) {
 		'hide_dates'   => null,
 		'template'     => null,
         'style'        => null,
+        'code'         => null,
 		'order'        => null,
 		'orderby'      => null,
 	), $atts ) );
@@ -152,6 +153,9 @@ function affcoups_add_shortcode( $atts, $content ) {
 
         if ( isset( $atts['style'] ) )
             $affcoups_template_args['style'] = $atts['style'];
+
+        if ( isset( $atts['code'] ) )
+            $affcoups_template_args['code'] = $atts['code'];
 
 		//affcoups_debug( $affcoups_template_args, 'shortcode > $affcoups_template_args' );
 

@@ -32,10 +32,8 @@ function affcoups_maybe_output_settings_css() {
 	if ( ! empty( $settings_css ) ) {
 		echo '<style type="text/css">' . $settings_css . '</style>';
 	};
-
 }
-
-add_action( 'wp_head', 'affcoups_maybe_output_settings_css' );
+add_action( 'wp_head', 'affcoups_maybe_output_settings_css', 10 );
 
 /**
  * Maybe output custom css
@@ -49,9 +47,7 @@ function affcoups_maybe_output_custom_css() {
 	if ( $custom_css_activated && ! empty( $options['custom_css'] ) ) {
 		echo '<style type="text/css">' . $options['custom_css'] . '</style>';
 	};
-
 }
-
 add_action( 'wp_head', 'affcoups_maybe_output_custom_css' );
 
 /**

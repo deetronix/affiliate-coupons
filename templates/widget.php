@@ -47,7 +47,7 @@ if ( ! isset( $coupons ) )
                         <?php echo wp_kses_post( $coupon->get_description() ); ?>
                     </div>
 
-                    <?php if ( $coupon->get_code() ) { ?>
+                    <?php if ( $coupon->show_code() ) { ?>
                         <div class="affcoups-coupon__code">
                             <?php $coupon->the_code(); ?>
                         </div>

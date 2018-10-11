@@ -53,26 +53,59 @@ a.affcoups-coupon__button .affcoups-coupon__button-text {
   display: inline-block;
   line-height: 45px;
 }
-.affcoups-coupon-code {
+.affcoups-clipboard {
   position: relative;
   display: block;
   margin: 10px;
-  padding: 12px 10px 10px 32px;
+  padding: 0 10px;
   background: #ffecb3;
   border: 2px dashed #bbb;
   border-radius: 3px;
   color: #222;
   cursor: pointer;
+}
+.affcoups-clipboard--icon {
+  padding-left: 32px;
+}
+.affcoups-clipboard__text {
+  display: block;
   font-size: 16px;
   font-weight: bold;
-  line-height: 20px;
+  line-height: 40px;
   text-align: center;
 }
-.affcoups-coupon-code__copy {
+.affcoups-clipboard__icon {
   position: absolute;
   top: 50%;
   left: 10px;
-  margin-top: -10px;
+  display: block;
+  height: 16px;
+  width: 16px;
+  margin-top: -8px;
+  background-repeat: no-repeat;
+  -webkit-background-size: 16px 16px;
+  background-size: 16px 16px;
+  background-position: center;
+  content: "";
+  vertical-align: -8%;
+}
+.affcoups-clipboard__icon--cut {
+  background-image: url('../img/clipboard/icon-cut.svg');
+}
+.affcoups-clipboard__icon--cut-white {
+  background-image: url('../img/clipboard/icon-cut-white.svg');
+}
+.affcoups-clipboard__icon--copy {
+  background-image: url('../img/clipboard/icon-copy.svg');
+}
+.affcoups-clipboard__icon--copy-white {
+  background-image: url('../img/clipboard/icon-copy-white.svg');
+}
+.affcoups-clipboard__icon--paste {
+  background-image: url('../img/clipboard/icon-paste.svg');
+}
+.affcoups-clipboard__icon--paste-white {
+  background-image: url('../img/clipboard/icon-paste-white.svg');
 }
 span[class^="affcoups-icon-"] {
   display: inline-block;

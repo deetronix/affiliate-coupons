@@ -18,17 +18,17 @@ jQuery(document).ready(function ($) {
         e.clearSelection();
     });
 
-    $(document).on( "click", ".affcoups-clipboard", function(event) {
+    $(document).on( "click", ".affcoups-clipboard", function(e) {
 
-        var clicked = $(this);
-        var current = $(this).html();
+        var textContainer = $(this).find('.affcoups-clipboard__text');
+        var currentText = textContainer.html();
 
         var confirmationLabel = $(this).data("affcoups-clipboard-confirmation-text");
 
-        clicked.html(confirmationLabel);
+        textContainer.html(confirmationLabel);
 
         setTimeout(function() {
-            clicked.html(current);
+            textContainer.html(currentText);
         }, 2500);
 
     });

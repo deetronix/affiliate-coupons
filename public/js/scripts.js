@@ -424,7 +424,7 @@
     b.on("success", function(a) {
         a.clearSelection();
     }), a(document).on("click", ".affcoups-clipboard", function(b) {
-        var c = a(this), d = a(this).html(), e = a(this).data("affcoups-clipboard-confirmation-text");
+        var c = a(this).find(".affcoups-clipboard__text"), d = c.html(), e = a(this).data("affcoups-clipboard-confirmation-text");
         c.html(e), setTimeout(function() {
             c.html(d);
         }, 2500);

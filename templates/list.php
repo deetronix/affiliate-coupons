@@ -58,7 +58,7 @@ if ( ! isset( $coupons ) )
 
                 <div class="affcoups-coupon__footer">
 
-                    <?php if ( $coupon->get_code() ) { ?>
+                    <?php if ( $coupon->show_code() ) { ?>
                         <div class="affcoups-coupon__code">
                             <?php $coupon->the_code(); ?>
                         </div>

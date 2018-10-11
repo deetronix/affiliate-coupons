@@ -415,6 +415,22 @@ if (!class_exists('Affcoups_Coupon')) {
         }
 
         /**
+         * Check whether code should be shown or not
+         *
+         * @return bool
+         */
+        function show_code() {
+
+            if ( ! $this->get_code() )
+                return false;
+
+            if ( isset( $this->options['code'] ) && 'hide' === $this->options['code'] )
+                return false;
+
+            return apply_filters( 'affcoups_show_code', true, $this );
+        }
+
+        /**
          * Get coupon code
          *
          * @return bool|string
@@ -427,26 +443,34 @@ if (!class_exists('Affcoups_Coupon')) {
         }
 
         /**
-         * Display the coupon code
+         * Output the code
          */
         function the_code() {
+            $this->the_clipboard();
+        }
+
+        /**
+         * Output the clipboard
+         */
+        function the_clipboard() {
 
             $code = $this->get_code();
 
             if ( empty( $code ) )
                 return;
 
-            if ( ! apply_filters( 'affcoups_show_code', true, $this ) )
-                return;
+            $icon = ( ! empty( $this->options['clipboard_icon'] ) ) ? $this->options['clipboard_icon'] : '';
 
-            $copy_img = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+0/AAABI1BMVEUAAAAzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzPLD7eUAAAAYHRSTlMAAQIEBQYHCAoLDg8QEhMUFRYXGBocHR4gISIjKy0xMjM2ODo9P0FCRUZJSktMTlFSWFtcYmRma21wcXN3eHt8f4CDho6SmqKlqLC0ucDDx8jT3ODi5Obo6evt7/H1+f2nUYbbAAAAy0lEQVQYGa3BezvCUADA4d/RUCm3mrlMiZAIxVaas9wSucyllPv5/p/C9oznyd+8L3+VvelfmPw2/3kiO+pcEErYY4B0QTRUhUDEWhtyJmD3FhBvD/jydoSFfUDrXSaJv3cFaTcBpWUCcU/5ys1DE0R9km/G1nZOtqIaI0fDDCrYK+vT14v8mG0+dq6WojubG+T2CLmqXW0pr2Sc6hA7HsWXfU0Bz0+AXjMQlgkcSKCozgjozhxyHDIfDede3WmEZqwpfKveSzsv+Edfyg4bpMKWWckAAAAASUVORK5CYII=';
+            $classes = 'affcoups-clipboard';
 
-            $copy_img = apply_filters( 'affcoups_coupon_copy_img_src', $copy_img );
-
+            if ( ! empty( $icon ) )
+                $classes .= ' affcoups-clipboard--icon';
             ?>
-            <div class="affcoups-clipboard affcoups-coupon-code" data-clipboard-text="<?php echo esc_attr( $code ); ?>" data-affcoups-clipboard-confirmation-text="<?php esc_attr_e( 'Copied!', 'affiliate-coupons' ); ?>">
-                <img class="affcoups-coupon-code__copy" src="<?php echo esc_attr( $copy_img ); ?>" alt="<?php esc_attr_e( 'Copy', 'affiliate-coupons' ); ?>"/>
-                <?php echo esc_attr( $code ); ?>
+            <div class="<?php echo esc_attr( $classes ); ?>" data-clipboard-text="<?php echo esc_attr( $code ); ?>" data-affcoups-clipboard-confirmation-text="<?php esc_attr_e( 'Copied!', 'affiliate-coupons' ); ?>">
+                <?php if ( ! empty( $icon ) ) { ?>
+                    <span class="affcoups-clipboard__icon affcoups-clipboard__icon--<?php echo esc_attr( $icon ); ?>"></span>
+                <?php } ?>
+                <span class="affcoups-clipboard__text"><?php echo esc_attr( $code ); ?></span>
             </div>
             <?php
         }

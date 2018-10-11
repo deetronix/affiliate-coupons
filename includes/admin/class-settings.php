@@ -74,18 +74,9 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 
 			add_settings_section(
 				'affcoups_section_general',
-				__( 'General', 'affiliate-coupons' ),
+				__( 'General Settings', 'affiliate-coupons' ),
 				false,
 				'affcoups_settings'
-			);
-
-			add_settings_field(
-				'affcoups_coupon_dates',
-				__( 'Dates', 'affiliate-coupons' ),
-				array( &$this, 'coupon_dates_render' ),
-				'affcoups_settings',
-				'affcoups_section_general',
-				array( 'label_for' => 'affcoups_hide_expired_coupons' )
 			);
 
 			add_settings_field(
@@ -97,28 +88,21 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 				array( 'label_for' => 'affcoups_order' )
 			);
 
-			add_settings_section(
-				'affcoups_section_output',
-				__( 'Output', 'affiliate-coupons' ),
-				false,
-				'affcoups_settings'
-			);
-
 			add_settings_field(
 				'affcoups_templates',
 				__( 'Templates', 'affiliate-coupons' ),
 				array( &$this, 'templates_render' ),
 				'affcoups_settings',
-				'affcoups_section_output',
+				'affcoups_section_general',
 				array( 'label_for' => 'affcoups_template' )
 			);
 
 			add_settings_field(
-				'affcoups_contents',
-				__( 'Contents', 'affiliate-coupons' ),
-				array( &$this, 'contents_render' ),
+				'affcoups_description',
+				__( 'Description', 'affiliate-coupons' ),
+				array( &$this, 'description_render' ),
 				'affcoups_settings',
-				'affcoups_section_output',
+				'affcoups_section_general',
 				false
 			);
 
@@ -127,16 +111,43 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 				__( 'Discount', 'affiliate-coupons' ),
 				array( &$this, 'discount_render' ),
 				'affcoups_settings',
-				'affcoups_section_output',
+				'affcoups_section_general',
 				false
 			);
+
+            add_settings_field(
+                'affcoups_codes',
+                __( 'Codes', 'affiliate-coupons' ),
+                array( &$this, 'code_render' ),
+                'affcoups_settings',
+                'affcoups_section_general',
+                array( 'label_for' => 'affcoups_code' )
+            );
+
+            add_settings_field(
+                'affcoups_clipboard',
+                __( 'Clipboard', 'affiliate-coupons' ),
+                array( &$this, 'clipboard_render' ),
+                'affcoups_settings',
+                'affcoups_section_general',
+                array( 'label_for' => 'affcoups_clipboard_icon' )
+            );
+
+            add_settings_field(
+                'affcoups_coupon_dates',
+                __( 'Dates', 'affiliate-coupons' ),
+                array( &$this, 'dates_render' ),
+                'affcoups_settings',
+                'affcoups_section_general',
+                array( 'label_for' => 'affcoups_hide_expired_coupons' )
+            );
 
 			add_settings_field(
 				'affcoups_button',
 				__( 'Button', 'affiliate-coupons' ),
 				array( &$this, 'button_render' ),
 				'affcoups_settings',
-				'affcoups_section_output',
+				'affcoups_section_general',
 				array( 'label_for' => 'affcoups_button_text' )
 			);
 
@@ -145,7 +156,7 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 				__( 'Custom CSS', 'affiliate-coupons' ),
 				array( &$this, 'custom_css_render' ),
 				'affcoups_settings',
-				'affcoups_section_output',
+				'affcoups_section_general',
 				array( 'label_for' => 'affcoups_custom_css' )
 			);
 
@@ -285,9 +296,72 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 		}
 
         /**
+         * Render code settings
+         */
+        function code_render() {
+
+            $code_options = array(
+                '' => __( 'Show', 'affiliate-coupons' ),
+                'hide' => __( 'Hide', 'affiliate-coupons' )
+            );
+
+            $code_options = apply_filters( 'affcoups_settings_code_options', $code_options );
+
+            $code = ( isset( $this->options['code'] ) ) ? $this->options['code'] : '';
+            ?>
+            <p>
+                <select id="affcoups_code" name="affcoups_settings[code]">
+                    <?php foreach ( $code_options as $key => $label ) { ?>
+                        <option value="<?php echo esc_attr( $key ); ?>" <?php selected( $code, $key ); ?>><?php echo esc_attr( $label ); ?></option>
+                    <?php } ?>
+                </select>
+            </p>
+            <?php
+        }
+
+        /**
+         * Render code settings
+         */
+		function clipboard_render() {
+
+            $clipboard_icon_options = array(
+                ''           => __( 'None', 'affiliate-coupons' ),
+                'cut' => __( 'Cut', 'affiliate-coupons' ),
+                'cut-white' => __( 'Cut (White)', 'affiliate-coupons' ),
+                'copy' => __( 'Copy', 'affiliate-coupons' ),
+                'copy-white' => __( 'Copy (White)', 'affiliate-coupons' ),
+                'paste' => __( 'Paste', 'affiliate-coupons' ),
+                'paste-white' => __( 'Paste (White)', 'affiliate-coupons' )
+            );
+
+            $clipboard_icon     = ( isset( $this->options['clipboard_icon'] ) ) ? $this->options['clipboard_icon'] : '';
+            $clipboard_bg_color = ( isset( $this->options['clipboard_bg_color'] ) ) ? $this->options['clipboard_bg_color'] : '';
+            $clipboard_color    = ( isset( $this->options['clipboard_color'] ) ) ? $this->options['clipboard_color'] : '';
+		    ?>
+            <h4><?php esc_html_e( 'Icon', 'affiliate-coupons' ); ?></h4>
+            <p>
+                <select id="affcoups_clipboard_icon" name="affcoups_settings[clipboard_icon]">
+                    <?php foreach ( $clipboard_icon_options as $key => $label ) { ?>
+                        <option value="<?php echo esc_attr( $key ); ?>" <?php selected( $clipboard_icon, $key ); ?>><?php echo esc_attr( $label ); ?></option>
+                    <?php } ?>
+                </select>
+            </p>
+            <h4><?php esc_html_e( 'Background Color', 'affiliate-coupons' ); ?></h4>
+            <p>
+                <input type="text" class="affcoups-input-colorpicker" name="affcoups_settings[clipboard_bg_color]" value="<?php echo esc_attr( $clipboard_bg_color ); ?>"/>
+            </p>
+            <h4><?php esc_html_e( 'Text Color', 'affiliate-coupons' ); ?></h4>
+            <p>
+                <input type="text" class="affcoups-input-colorpicker" name="affcoups_settings[clipboard_color]" value="<?php echo esc_attr( $clipboard_color ); ?>"/>
+            </p>
+            <?php $this->the_color_picker_note(); ?>
+            <?php
+        }
+
+        /**
          * Render date settings
          */
-		function coupon_dates_render() {
+		function dates_render() {
 
             $hide_dates = ( isset( $this->options['hide_dates'] ) && $this->options['hide_dates'] == '1' ) ? 1 : 0;
 			$hide_expired_coupons = ( isset( $this->options['hide_expired_coupons'] ) && $this->options['hide_expired_coupons'] == '1' ) ? 1 : 0;
@@ -389,9 +463,9 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 		}
 
         /**
-         * Render contents settings
+         * Render description settings
          */
-		function contents_render() {
+		function description_render() {
 
 			$excerpt_length = ( ! empty( $this->options['excerpt_length'] ) && is_numeric( $this->options['excerpt_length'] ) ) ? intval( $this->options['excerpt_length'] ) : 90;
 
