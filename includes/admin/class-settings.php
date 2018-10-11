@@ -97,6 +97,15 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 				array( 'label_for' => 'affcoups_template' )
 			);
 
+            add_settings_field(
+                'affcoups_styles',
+                __( 'Styles', 'affiliate-coupons' ),
+                array( &$this, 'styles_render' ),
+                'affcoups_settings',
+                'affcoups_section_general',
+                array( 'label_for' => 'affcoups_style' )
+            );
+
 			add_settings_field(
 				'affcoups_description',
 				__( 'Description', 'affiliate-coupons' ),
@@ -435,9 +444,6 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 			$template = ( isset( $this->options['template'] ) ) ? $this->options['template'] : 'grid';
 
 			$grid_size = ( ! empty( $this->options['grid_size'] ) && is_numeric( $this->options['grid_size'] ) ) ? intval( $this->options['grid_size'] ) : 3;
-
-            $style_options = affcoups_get_style_options();
-            $style = ( isset( $this->options['style'] ) ) ? $this->options['style'] : 'standard';
 			?>
             <!-- Templates -->
             <h4><?php esc_html_e( 'Template', 'affiliate-coupons' ); ?></h4>
@@ -460,7 +466,17 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
             <p class="desc">
                 <?php esc_html_e( 'The default grid size which will be used for displaying coupons (widgets excepted).', 'affiliate-coupons' ); ?>
             </p>
+			<?php
+		}
 
+        /**
+         * Render styles settings
+         */
+        function styles_render() {
+
+            $style_options = affcoups_get_style_options();
+            $style = ( isset( $this->options['style'] ) ) ? $this->options['style'] : 'standard';
+            ?>
             <!-- Styles -->
             <h4><?php esc_html_e( 'Style', 'affiliate-coupons' ); ?></h4>
             <p>
@@ -473,8 +489,9 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
             <p class="desc">
                 <?php esc_html_e( 'The default style which will be used for displaying coupons (widgets excepted).', 'affiliate-coupons' ); ?>
             </p>
-			<?php
-		}
+            <?php affcoups_the_pro_feature_note( __( 'More styles', 'affiliate-coupons' ), false ); ?>
+            <?php
+        }
 
         /**
          * Render description settings

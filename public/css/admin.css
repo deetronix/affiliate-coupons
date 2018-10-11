@@ -151,3 +151,7 @@ div[id*="affcoups"].widget p.description {
 div[id*="affcoups"].widget p + p.desc {
   margin-top: -7px;
 }
+div[id*="affcoups"].widget .affcoups-pro-feature__text {
+  display: block;
+  margin-top: 5px;
+}

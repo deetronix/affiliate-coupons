@@ -201,7 +201,6 @@ if ( ! class_exists( 'Affcoups_Multiple_Widget' ) ) {
 					<?php esc_attr_e( 'The templates listed above are optimized for widgets.', 'affiliate-coupons' ); ?>
                 </small>
             </p>
-            <?php affcoups_the_pro_feature_note( __( 'More templates', 'affiliate-coupons' ), false ); ?>
 
             <!-- Styles -->
             <?php
@@ -215,7 +214,7 @@ if ( ! class_exists( 'Affcoups_Multiple_Widget' ) ) {
                     <?php } ?>
                 </select>
             </p>
-
+            <?php affcoups_the_pro_feature_note( __( 'More templates & styles', 'affiliate-coupons' ), false ); ?>
 			<?php
 		}
 
