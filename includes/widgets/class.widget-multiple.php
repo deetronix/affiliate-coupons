@@ -23,8 +23,8 @@ if ( ! class_exists( 'Affcoups_Multiple_Widget' ) ) {
 		function __construct() {
 			parent::__construct(
 				'affcoups_multiple_widget', // Base ID
-				'Affiliate Coupons - ' . __( 'Multiple Coupons', 'affiliate-coupons' ), // Name
-				array( 'description' => __( 'Displaying coupons by their category.', 'affiliate-coupons' ), ) // Args
+                __( 'Coupons', 'affiliate-coupons' ), // Name
+				array( 'description' => __( 'Displays multiple coupons based on different criteria.', 'affiliate-coupons' ), ) // Args
 			);
 		}
 

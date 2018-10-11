@@ -23,8 +23,8 @@ if ( ! class_exists( 'Affcoups_Single_Widget' ) ) {
 		function __construct() {
 			parent::__construct(
 				'affcoups_single_widget', // Base ID
-				'Affiliate Coupons - ' . __( 'Single Coupon', 'affiliate-coupons' ), // Name
-				array( 'description' => __( 'Display single coupon.', 'affiliate-coupons' ), ) // Args
+				__( 'Coupon', 'affiliate-coupons' ), // Name
+				array( 'description' => __( 'Displays a single coupon.', 'affiliate-coupons' ), ) // Args
 			);
 		}
 
