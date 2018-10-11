@@ -76,7 +76,7 @@ body.affcoups-admin h1.wp-heading-inline:before {
   color: #F99F1B;
   text-decoration: none;
 }
-.affcoups-settings .tp-twitch-settings-button--block {
+.affcoups-settings .affcoups-settings-button--block {
   display: block;
 }
 .affcoups-settings .form-table td > h4:first-child {

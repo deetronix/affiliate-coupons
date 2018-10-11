@@ -615,68 +615,59 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
                                     <div class="postbox">
                                         <h3><span>Resources &amp; Support</span></h3>
                                         <div class="inside">
-                                            <p><?php esc_html_e( 'Here you can find a brief overview of the most important resources in order use our plugin.', 'affiliate-coupons' ); ?></p>
+                                            <p><?php esc_html_e( 'In order to make it as simple as possible for you, we created a detailed online documentation.', 'affiliate-coupons' ); ?></p>
                                             <ul>
                                                 <li>
-                                                    <a href="<?php echo esc_attr( affcoups_get_website_url() ); ?>" target="_blank">Website</a>
+                                                    <?php
+                                                    $docs_link = esc_url( add_query_arg( array(
+                                                            'utm_source'   => 'settings-page',
+                                                            'utm_medium'   => 'infobox-resources',
+                                                            'utm_campaign' => 'Affiliate Coupons',
+                                                        ), AFFCOUPS_DOCS_URL )
+                                                    );
+                                                    ?>
+                                                    <a href="<?php echo $docs_link; ?>" target="_blank"><?php _e('Documentation', 'affiliate-coupons' ); ?></a>
                                                 </li>
                                                 <li>
-                                                    <a href="<?php echo esc_attr( affcoups_get_website_url( 'support' ) ); ?>" target="_blank">Support</a>
+                                                    <a href="<?php echo AFFCOUPS_WP_ORG_URL; ?>" target="_blank"><?php _e('Plugin Page', 'affiliate-coupons' ); ?></a>
                                                 </li>
                                                 <li>
-                                                    <a href="https://wordpress.org/plugins/affiliate-coupons/#developers" target="_blank">Changelog</a>
+                                                    <a href="https://affcoups/changelog/" target="_blank"><?php _e('Changelog', 'affiliate-coupons' ); ?></a>
                                                 </li>
-                                                <li><a href="https://twitter.com/affcoups" target="_blank">Follow us on
-                                                        Twitter</a></li>
+                                                <li>
+                                                    <a href="https://twitter.com/affcoups" target="_blank"><?php _e('Follow us on Twitter', 'affiliate-coupons' ); ?></a>
+                                                </li>
                                             </ul>
-                                            <p>Created & Maintained by <a href="https://twitter.com/flowdee">flowdee</a>
-                                            </p>
                                         </div>
                                     </div>
 
-                                    <!-- Newsletter -->
-									<?php
-									global $current_user;
+                                    <?php if ( ! affcoups_is_pro_version() ) { ?>
+                                        <div class="postbox">
+                                            <h3><span><?php _e('Upgrade to PRO Version', 'affiliate-coupons' ); ?></span></h3>
+                                            <div class="inside">
 
-									$user_email      = ( isset( $current_user->user_email ) ) ? $current_user->user_email : '';
-									$form_group_name = apply_filters( 'affcoups_sidebar_subscribe_form_group_name', 'group[12785][2]' );
-									?>
-                                    <div class="postbox">
-                                        <h3>
-                                            <span><?php esc_html_e( 'Latest News & Updates', 'affiliate-coupons' ); ?></span>
-                                        </h3>
-                                        <div class="inside">
-                                            <p><?php esc_html_e( 'Join our newsletter and we let you know about new releases, as well as important updates and upcoming deals.', 'affiliate-coupons' ); ?></p>
-                                            <!-- Begin MailChimp Signup Form -->
-                                            <div id="mc_embed_signup">
-                                                <form action="https://flowdee.us10.list-manage.com/subscribe/post?u=cc9fc194eb9ba7a4d8616c2cb&amp;id=a4798350bf" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                                                    <div id="mc_embed_signup_scroll">
+                                                <p><?php _e('The PRO version extends the plugin exclusively with a variety of different styles and some exclusively features.', 'affiliate-coupons'); ?></p>
 
-                                                        <div class="mc-field-group">
-                                                            <label for="mce-EMAIL"><?php esc_html_e( 'Email Address', 'affiliate-coupons' ); ?></label>
-                                                            <input type="email" value="<?php echo esc_attr( $user_email ); ?>" name="EMAIL" class="required email" id="mce-EMAIL">
-                                                        </div>
-                                                        <div id="mce-responses" class="clear">
-                                                            <div class="response" id="mce-error-response" style="display:none"></div>
-                                                            <div class="response" id="mce-success-response" style="display:none"></div>
-                                                        </div>
-                                                        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                                                        <div style="position: absolute; left: -5000px;" aria-hidden="true">
-                                                            <input type="text" name="b_cc9fc194eb9ba7a4d8616c2cb_a4798350bf" tabindex="-1" value="">
-                                                        </div>
-                                                        <input type="checkbox" id="group_cr" name="<?php echo esc_attr( $form_group_name ); ?>" value="1" checked="checked" style="display:none">
-                                                        <div class="clear">
-                                                            <p>
-                                                                <input type="submit" value="<?php esc_html_e( 'Subscribe', 'affiliate-coupons' ); ?>" name="subscribe" id="mc-embedded-subscribe" class="button">
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </form>
+                                                <ul>
+                                                    <li><span class="dashicons dashicons-star-filled"></span> <strong><?php _e('Click to reveal discount codes', 'affiliate-coupons'); ?></strong></li>
+                                                    <li><span class="dashicons dashicons-star-filled"></span> <strong><?php _e('Choose from different styles', 'affiliate-coupons'); ?></strong></li>
+                                                    <li><span class="dashicons dashicons-star-filled"></span> <strong><?php _e('Additional templates', 'affiliate-coupons'); ?></strong></li>
+                                                    <li><span class="dashicons dashicons-star-filled"></span> <strong><?php _e('Create custom templates', 'affiliate-coupons'); ?></strong></li>
+                                                    <li><span class="dashicons dashicons-star-filled"></span> <strong><?php _e('And more!', 'affiliate-coupons'); ?></strong></li>
+                                                </ul>
+
+                                                <p>
+                                                    <?php _e('We would be happy if you give it a chance!', 'affiliate-coupons'); ?>
+                                                </p>
+
+                                                <p>
+                                                    <?php $upgrade_link = affcoups_get_pro_version_url( 'settings-page', 'infobox-upgrade' ); ?>
+                                                    <a class="affcoups-settings-button affcoups-settings-button--block" target="_blank" href="<?php echo $upgrade_link; ?>" rel="nofollow"><?php _e('More details', 'affiliate-coupons'); ?></a>
+                                                </p>
                                             </div>
-
-                                            <!--End mc_embed_signup-->
                                         </div>
-                                    </div>
+                                    <?php } ?>
+                                    
                                 </div>
                                 <!-- /.meta-box-sortables -->
                             </div>

@@ -166,6 +166,11 @@ if( ! class_exists( 'Affiliate_Coupons' ) ) :
                 define( 'AFFCOUPS_DOCS_URL', 'https://affcoups.com/support/knb/' );
             }
 
+            // WordPress.org URL
+            if ( ! defined( 'AFFCOUPS_WP_ORG_URL' ) ) {
+                define( 'AFFCOUPS_WP_ORG_URL', 'https://wordpress.org/plugins/affiliate-coupons/');
+            }
+
             // Plugin prefix
             if ( ! defined( 'AFFCOUPS_PREFIX' ) ) {
                 define( 'AFFCOUPS_PREFIX', 'affcoups_' );
@@ -219,6 +224,7 @@ if( ! class_exists( 'Affiliate_Coupons' ) ) :
             require_once AFFCOUPS_PLUGIN_DIR . 'includes/shortcodes.php';
             require_once AFFCOUPS_PLUGIN_DIR . 'includes/template-functions.php';
             require_once AFFCOUPS_PLUGIN_DIR . 'includes/widgets.php';
+            require_once AFFCOUPS_PLUGIN_DIR . 'includes/pro-functions.php';
         }
 
         /**
