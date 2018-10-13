@@ -103,7 +103,7 @@ function affcoups_register_coupon_meta_boxes( $meta_boxes ) {
 		),
 	);
 
-	$fields = apply_filters( 'affcoups_coupon_details_meta_fields', $fields );
+	$fields = apply_filters( 'affcoups_coupon_meta_box_details_fields', $fields );
 
 	$meta_boxes[] = array(
 		'id'         => AFFCOUPS_PREFIX . 'coupon_details',

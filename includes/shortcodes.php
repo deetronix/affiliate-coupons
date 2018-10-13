@@ -114,6 +114,9 @@ function affcoups_add_shortcode( $atts, $content ) {
 
 	if ( $coupons ) {
 
+        //-- Apply filters
+        $coupons = apply_filters( 'affcoups_coupons', $coupons, $args );
+
 		//echo 'Coupons found: ' . $coupons->post_count . '<br>';
 
 		if ( affcoups_is_amp() ) {

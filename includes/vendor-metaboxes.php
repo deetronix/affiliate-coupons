@@ -42,7 +42,7 @@ function affcoups_register_vendor_meta_boxes( $meta_boxes ) {
 		),
 	);
 
-	$fields = apply_filters( 'affcoups_vendor_details_meta_fields', $fields );
+	$fields = apply_filters( 'affcoups_vendor_meta_box_details_fields', $fields );
 
 	$meta_boxes[] = array(
 		'id'         => AFFCOUPS_PREFIX . 'vendor_details',

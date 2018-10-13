@@ -216,7 +216,23 @@ function affcoups_get_coupons( $args = array(), $return_posts = false ) {
         }
     }
 
+    //-- Apply filters
+    $coupons = apply_filters( 'affcoups_get_coupons', $coupons );
+
     return $coupons;
+}
+
+/**
+ * Setup Coupon
+ *
+ * @param $coupon_post
+ * @return mixed
+ */
+function affcoups_setup_coupon( $coupon_post ) {
+
+    $classname = apply_filters( 'Affcoups_Coupon', 'affcoups_coupon_classname' );
+
+    return new $classname( $coupon_post );
 }
 
 /**

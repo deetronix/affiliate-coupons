@@ -814,7 +814,7 @@ function affcoups_do_settings_sections( $page ) {
 			$title = "<h3 class='hndle'>{$section['title']}</h3>\n";
 		}
 
-        if (!isset($wp_settings_fields) || !isset($wp_settings_fields[$page]) || ( !isset($wp_settings_fields[$page][$section['id']] ) && ! in_array( $section['id'], array( 'affcoups_quickstart', 'affcoups_help' ) ) ) )
+        if (!isset($wp_settings_fields) || !isset($wp_settings_fields[$page]) || ( !isset($wp_settings_fields[$page][$section['id']] ) && ! in_array( $section['id'], array( 'affcoups_help' ) ) ) )
             continue;
 
 		echo '<div class="postbox">';
