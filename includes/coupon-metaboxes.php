@@ -11,8 +11,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/*
- * Add Metaboxes
+/**
+ * Register coupon meta boxes
+ *
+ * @param $meta_boxes
+ * @return array|mixed
  */
 function affcoups_register_coupon_meta_boxes( $meta_boxes ) {
 
@@ -127,5 +130,4 @@ function affcoups_register_coupon_meta_boxes( $meta_boxes ) {
 
 	return $meta_boxes;
 }
-
 add_filter( 'rwmb_meta_boxes', 'affcoups_register_coupon_meta_boxes' );
