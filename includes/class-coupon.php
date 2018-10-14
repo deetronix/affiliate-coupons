@@ -17,7 +17,7 @@ if (!class_exists('Affcoups_Coupon')) {
          * Affcoups_Coupon constructor.
          * @param $post WP_Post or Post ID
          */
-        public function __construct( WP_Post $post ) {
+        public function __construct( $post ) {
 
             if ( is_numeric( $post ) )
                 $post = get_post( $post );
