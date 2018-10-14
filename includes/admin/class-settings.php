@@ -491,6 +491,8 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
             </p>
             <?php affcoups_the_pro_feature_note( __( 'More styles', 'affiliate-coupons' ), false ); ?>
             <?php
+
+            do_action( 'affcoups_settings_styles_render' );
         }
 
         /**
