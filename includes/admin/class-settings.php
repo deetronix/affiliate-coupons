@@ -172,7 +172,7 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
             do_action( 'affcoups_register_settings_end' );
 
             add_settings_section(
-                'affcoups_help',
+                'affcoups_section_help',
                 __( 'Help & Support', 'affiliate-coupons' ),
                 array( &$this, 'section_help_render' ),
                 'affcoups_settings'
@@ -204,116 +204,109 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
          */
 		function section_quickstart_render() {
 			?>
+            <p>
+                <strong><?php esc_html_e( 'First Steps', 'affiliate-coupons' ); ?></strong>
+            </p>
+            <ol>
+                <li><?php esc_html_e( 'Create vendors', 'affiliate-coupons' ); ?></li>
+                <li><?php esc_html_e( 'Create coupons', 'affiliate-coupons' ); ?></li>
+                <li><?php esc_html_e( 'Link coupons to vendors', 'affiliate-coupons' ); ?></li>
+                <li><?php esc_html_e( 'Assign categories and/or types to coupons if needed', 'affiliate-coupons' ); ?></li>
+                <li><?php esc_html_e( 'Display coupons inside your posts/pages by using shortcodes', 'affiliate-coupons' ); ?></li>
+            </ol>
 
-            <div class="postbox">
-                <h3 class='hndle'><?php esc_html_e( 'Quickstart Guide', 'affiliate-coupons' ); ?></h3>
-                <div class="inside">
-                    <p>
-                        <strong><?php esc_html_e( 'First Steps', 'affiliate-coupons' ); ?></strong>
-                    </p>
-                    <ol>
-                        <li><?php esc_html_e( 'Create vendors', 'affiliate-coupons' ); ?></li>
-                        <li><?php esc_html_e( 'Create coupons', 'affiliate-coupons' ); ?></li>
-                        <li><?php esc_html_e( 'Link coupons to vendors', 'affiliate-coupons' ); ?></li>
-                        <li><?php esc_html_e( 'Assign categories and/or types to coupons if needed', 'affiliate-coupons' ); ?></li>
-                        <li><?php esc_html_e( 'Display coupons inside your posts/pages by using shortcodes', 'affiliate-coupons' ); ?></li>
-                    </ol>
+            <p>
+                <strong><?php esc_html_e( 'Show all coupons', 'affiliate-coupons' ); ?></strong>
+            </p>
+            <p>
+                <code>[affcoups]</code>
+            </p>
 
-                    <p>
-                        <strong><?php esc_html_e( 'Show all coupons', 'affiliate-coupons' ); ?></strong>
-                    </p>
-                    <p>
-                        <code>[affcoups]</code>
-                    </p>
+            <p>
+                <strong><?php esc_html_e( 'Show single coupons', 'affiliate-coupons' ); ?></strong>
+            </p>
+            <p>
+                <code>[affcoups id="123"]</code> <?php esc_html_e( 'or', 'affiliate-coupons' ); ?> <code>[affcoups
+                    id="123,456,789"]</code>
+            </p>
 
-                    <p>
-                        <strong><?php esc_html_e( 'Show single coupons', 'affiliate-coupons' ); ?></strong>
-                    </p>
-                    <p>
-                        <code>[affcoups id="123"]</code> <?php esc_html_e( 'or', 'affiliate-coupons' ); ?> <code>[affcoups
-                            id="123,456,789"]</code>
-                    </p>
+            <p>
+                <strong><?php esc_html_e( 'Filter coupons', 'affiliate-coupons' ); ?></strong><br/>
+                <?php esc_html_e( 'By passing the id or slug (only if specified) you can filter the results individually.', 'affiliate-coupons' ); ?>
+            </p>
+            <ul>
+                <li>
+                    <?php esc_html_e( 'Filter by vendor:', 'affiliate-coupons' ); ?>
+                    <code>[affcoups vendor="123"]</code>
+                </li>
+                <li>
+                    <?php esc_html_e( 'Filter by category:', 'affiliate-coupons' ); ?>
+                    <code>[affcoups category="123"]</code> <?php esc_html_e( 'or', 'affiliate-coupons' ); ?>
+                    <code>[affcoups category="group-xyz"]</code>
+                </li>
+                <li>
+                    <?php esc_html_e( 'Filter by type:', 'affiliate-coupons' ); ?>
+                    <code>[affcoups type="123"]</code> <?php esc_html_e( 'or', 'affiliate-coupons' ); ?> <code>[affcoups
+                        type="type-xyz"]</code>
+                </li>
+            </ul>
+            <p>
+                <strong><?php esc_html_e( 'Show/hide expired coupons', 'affiliate-coupons' ); ?></strong><br/>
+                <?php esc_html_e( 'Contrary to the settings below you can show/hide expired for each shortcode individually.', 'affiliate-coupons' ); ?>
+            </p>
+            <p>
+                <code>[affcoups
+                    hideesc_html_expired="true"]</code> <?php esc_html_e( 'vs.', 'affiliate-coupons' ); ?>
+                <code>[affcoups hide_expired="false"]</code>
+            </p>
 
-                    <p>
-                        <strong><?php esc_html_e( 'Filter coupons', 'affiliate-coupons' ); ?></strong><br/>
-						<?php esc_html_e( 'By passing the id or slug (only if specified) you can filter the results individually.', 'affiliate-coupons' ); ?>
-                    </p>
-                    <ul>
-                        <li>
-							<?php esc_html_e( 'Filter by vendor:', 'affiliate-coupons' ); ?>
-                            <code>[affcoups vendor="123"]</code>
-                        </li>
-                        <li>
-							<?php esc_html_e( 'Filter by category:', 'affiliate-coupons' ); ?>
-                            <code>[affcoups category="123"]</code> <?php esc_html_e( 'or', 'affiliate-coupons' ); ?>
-                            <code>[affcoups category="group-xyz"]</code>
-                        </li>
-                        <li>
-							<?php esc_html_e( 'Filter by type:', 'affiliate-coupons' ); ?>
-                            <code>[affcoups type="123"]</code> <?php esc_html_e( 'or', 'affiliate-coupons' ); ?> <code>[affcoups
-                                type="type-xyz"]</code>
-                        </li>
-                    </ul>
-                    <p>
-                        <strong><?php esc_html_e( 'Show/hide expired coupons', 'affiliate-coupons' ); ?></strong><br/>
-						<?php esc_html_e( 'Contrary to the settings below you can show/hide expired for each shortcode individually.', 'affiliate-coupons' ); ?>
-                    </p>
-                    <p>
-                        <code>[affcoups
-                            hideesc_html_expired="true"]</code> <?php esc_html_e( 'vs.', 'affiliate-coupons' ); ?>
-                        <code>[affcoups hide_expired="false"]</code>
-                    </p>
+            <p>
+                <small><?php esc_html_e( 'All filter options above can be combined inside the same shortcode.', 'affiliate-coupons' ); ?></small>
+            </p>
 
-                    <p>
-                        <small><?php esc_html_e( 'All filter options above can be combined inside the same shortcode.', 'affiliate-coupons' ); ?></small>
-                    </p>
+            <p>
+                <strong><?php esc_html_e( 'Sorting coupons', 'affiliate-coupons' ); ?></strong>
+            </p>
+            <ul>
+                <li>
+                    <?php esc_html_e( 'Order:', 'affiliate-coupons' ); ?>
+                    <code>[affcoups order="asc"]</code> (asc, desc)
+                </li>
+                <li>
+                    <?php esc_html_e( 'Order by:', 'affiliate-coupons' ); ?>
+                    <code>[affcoups orderby="title"]</code> (name, date, random, title, description, discount,
+                    valid_from, valid_to)
+                </li>
+            </ul>
 
-                    <p>
-                        <strong><?php esc_html_e( 'Sorting coupons', 'affiliate-coupons' ); ?></strong>
-                    </p>
-                    <ul>
-                        <li>
-							<?php esc_html_e( 'Order:', 'affiliate-coupons' ); ?>
-                            <code>[affcoups order="asc"]</code> (asc, desc)
-                        </li>
-                        <li>
-							<?php esc_html_e( 'Order by:', 'affiliate-coupons' ); ?>
-                            <code>[affcoups orderby="title"]</code> (name, date, random, title, description, discount,
-                            valid_from, valid_to)
-                        </li>
-                    </ul>
+            <p>
+                <strong><?php esc_html_e( 'Templates', 'affiliate-coupons' ); ?></strong><br/>
+                <?php esc_html_e( 'You can easily select a template on a shortcode basis as follows:', 'affiliate-coupons' ); ?>
+            </p>
+            <p>
+                <code>[affcoups template="standard"]</code>
+            </p>
+            <p>
+                <?php esc_html_e( 'The following templates are available right now:', 'affiliate-coupons' ); ?>
+                <code>standard</code>, <code>grid</code>, <code>list</code> & <code>widget</code>
+            </p>
+            <p>
+                <?php esc_html_e( 'In order to display multiple coupons side by side, make use of the grid functionality:', 'affiliate-coupons' ); ?>
+            </p>
+            <p>
+                <code>[affcoups grid="2"]</code>, <code>[affcoups grid="3"]</code> etc.
+            </p>
+            <p>
+                <?php esc_html_e( 'When passing the grid size parameter, the plugin will automatically choose the grid template.', 'affiliate-coupons' ); ?>
+            </p>
 
-                    <p>
-                        <strong><?php esc_html_e( 'Templates', 'affiliate-coupons' ); ?></strong><br/>
-						<?php esc_html_e( 'You can easily select a template on a shortcode basis as follows:', 'affiliate-coupons' ); ?>
-                    </p>
-                    <p>
-                        <code>[affcoups template="standard"]</code>
-                    </p>
-                    <p>
-						<?php esc_html_e( 'The following templates are available right now:', 'affiliate-coupons' ); ?>
-                        <code>standard</code>, <code>grid</code>, <code>list</code> & <code>widget</code>
-                    </p>
-                    <p>
-						<?php esc_html_e( 'In order to display multiple coupons side by side, make use of the grid functionality:', 'affiliate-coupons' ); ?>
-                    </p>
-                    <p>
-                        <code>[affcoups grid="2"]</code>, <code>[affcoups grid="3"]</code> etc.
-                    </p>
-                    <p>
-						<?php esc_html_e( 'When passing the grid size parameter, the plugin will automatically choose the grid template.', 'affiliate-coupons' ); ?>
-                    </p>
+            <?php do_action( 'affcoups_settings_section_quickstart_render' ); ?>
 
-					<?php do_action( 'affcoups_settings_section_quickstart_render' ); ?>
-
-                    <p><?php printf( wp_kses( __( 'Please take a look into the <a href="%s">documentation</a> for more options.', 'affiliate-coupons' ), array(  'a' => array( 'href' => array() ) ) ), esc_url( add_query_arg( array(
-                            'utm_source'   => 'settings-page',
-                            'utm_medium'   => 'quickstart',
-                            'utm_campaign' => 'Affiliate Coupons',
-                        ), AFFCOUPS_DOCS_URL ) ) ); ?></p>
-                </div>
-            </div>
-
+            <p><?php printf( wp_kses( __( 'Please take a look into the <a href="%s">documentation</a> for more options.', 'affiliate-coupons' ), array(  'a' => array( 'href' => array() ) ) ), esc_url( add_query_arg( array(
+                    'utm_source'   => 'settings-page',
+                    'utm_medium'   => 'quickstart',
+                    'utm_campaign' => 'Affiliate Coupons',
+                ), AFFCOUPS_DOCS_URL ) ) ); ?></p>
 			<?php
 		}
 
@@ -817,7 +810,7 @@ function affcoups_do_settings_sections( $page ) {
 			$title = "<h3 class='hndle'>{$section['title']}</h3>\n";
 		}
 
-        if (!isset($wp_settings_fields) || !isset($wp_settings_fields[$page]) || ( !isset($wp_settings_fields[$page][$section['id']] ) && ! in_array( $section['id'], array( 'affcoups_help' ) ) ) )
+        if (!isset($wp_settings_fields) || !isset($wp_settings_fields[$page]) || ( !isset($wp_settings_fields[$page][$section['id']] ) && ! in_array( $section['id'], array( 'affcoups_section_quickstart', 'affcoups_section_help' ) ) ) )
             continue;
 
 		echo '<div class="postbox">';
