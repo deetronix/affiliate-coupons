@@ -764,6 +764,7 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
                                                     <li><span class="dashicons dashicons-star-filled"></span> <strong><?php _e('Click to reveal discount codes', 'affiliate-coupons'); ?></strong></li>
                                                     <li><span class="dashicons dashicons-star-filled"></span> <strong><?php _e('Choose from different styles', 'affiliate-coupons'); ?></strong></li>
                                                     <li><span class="dashicons dashicons-star-filled"></span> <strong><?php _e('Additional templates', 'affiliate-coupons'); ?></strong></li>
+                                                    <li><span class="dashicons dashicons-star-filled"></span> <strong><?php _e('Feature & highlight single coupons', 'affiliate-coupons'); ?></strong></li>
                                                     <li><span class="dashicons dashicons-star-filled"></span> <strong><?php _e('Create custom templates', 'affiliate-coupons'); ?></strong></li>
                                                     <li><span class="dashicons dashicons-star-filled"></span> <strong><?php _e('And more!', 'affiliate-coupons'); ?></strong></li>
                                                 </ul>
