@@ -468,37 +468,43 @@ if (!class_exists('Affcoups_Coupon')) {
 
         /**
          * Display coupon button
+         * @param array $args
          */
-        function the_button() {
+        function the_button( $args = array() ) {
+
+            $default_text = ( ! empty( $this->options['button_text'] ) ) ? esc_html( $this->options['button_text'] ) : __( 'Go to the deal', 'affiliate-coupons' );
+
+            $defaults = array(
+                'url' => $this->get_url(),
+                'text' => $default_text,
+                'title' => $default_text,
+                'target' => '_blank',
+                'rel' => 'nofollow',
+                'icon' => ( ! empty( $this->options['button_icon'] ) ) ? $this->options['button_icon'] : '',
+                'text_forced' => false
+            );
+
+            $button = wp_parse_args( $args, $defaults );
 
             global $affcoups_shortcode_atts;
 
             // Button text
             if ( ! empty( $affcoups_shortcode_atts['button_text'] ) ) {
-                $button_text = esc_html( $affcoups_shortcode_atts['button_text'] );
-            } else {
-                $button_text = ( ! empty( $this->options['button_text'] ) ) ? esc_html( $this->options['button_text'] ) : __( 'Go to the deal', 'affiliate-coupons' );
+                $button['text'] = esc_html( $affcoups_shortcode_atts['button_text'] );
+                $button['title'] = $button['text'];
             }
 
-            // Build button settings
-            $button = array(
-                'url'    => $this->get_url(),
-                'title'  => affcoups_cleanup_html_attribute( $button_text ),
-                'text'   => $button_text,
-                'target' => '_blank',
-                'rel'    => 'nofollow'
-            );
+            $button['title'] = affcoups_cleanup_html_attribute( $button['title'] );
 
-            $button = apply_filters( 'affcoups_button', $button, $this );
-
-            $button_icon = ( ! empty( $this->options['button_icon'] ) ) ? $this->options['button_icon'] : false;
+            // Hook
+            $button = apply_filters( 'affcoups_button_args', $button, $this );
 
             // Build HTML markup
             ob_start();
             ?>
             <a class="affcoups-coupon__button" href="<?php echo esc_attr( $button['url'] ); ?>" title="<?php echo esc_attr( $button['title'] ); ?>" rel="<?php echo esc_attr( $button['rel'] ); ?>" target="<?php echo esc_attr( $button['target'] ); ?>">
-                <?php if ( ! empty( $button_icon ) ) { ?>
-                    <span class="affcoups-icon-<?php echo esc_attr( $button_icon ); ?> affcoups-coupon__button-icon"></span>
+                <?php if ( ! empty( $button['icon'] ) ) { ?>
+                    <span class="affcoups-icon-<?php echo esc_attr( $button['icon'] ); ?> affcoups-coupon__button-icon"></span>
                 <?php } ?>
 
                 <span class="affcoups-coupon__button-text"><?php echo esc_attr( $button['text'] ); ?></span>
