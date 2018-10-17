@@ -11,8 +11,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Load Widgets
  */
-require_once AFFCOUPS_PLUGIN_DIR . 'includes/widgets/class.widget-single.php';
-require_once AFFCOUPS_PLUGIN_DIR . 'includes/widgets/class.widget-multiple.php';
+require_once AFFCOUPS_PLUGIN_DIR . 'includes/widgets/class-widget-single.php';
+require_once AFFCOUPS_PLUGIN_DIR . 'includes/widgets/class-widget-multiple.php';
 
 /**
  * Register Widgets

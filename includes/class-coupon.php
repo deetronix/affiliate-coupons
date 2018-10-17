@@ -105,40 +105,6 @@ if (!class_exists('Affcoups_Coupon')) {
         }
 
         /**
-         * Display the coupon image
-         */
-        function the_image() {
-
-            // Prepare image
-            $image     = $this->get_image();
-            $image_url = ( ! empty ( $image['url'] ) ) ? $image['url'] : AFFCOUPS_PLUGIN_URL . '/public/img/placeholder-thumb.png';
-            $image_alt = ( ! empty ( $image['alt'] ) ) ? $image['alt'] : $this->get_title();
-
-            // Build image
-            $image = '<img class="affcoups-coupon__image" src="' . $image_url . '" alt="' . $image_alt . '" />';
-
-            // Build thumbnail
-            $coupon_url = $this->get_url();
-
-            if ( ! empty( $coupon_url ) ) {
-
-                $coupon_title = $this->get_title();
-                $coupon_title = affcoups_cleanup_html_attribute( $coupon_title );
-
-                $thumbnail = '<a class="affcoups-coupon__thumbnail" href="' . $coupon_url . '" title="' . $coupon_title . '" target="_blank" rel="nofollow">';
-                $thumbnail .= $image;
-                $thumbnail .= '</a>';
-            } else {
-                $thumbnail = '<span class="affcoups-coupon__thumbnail">';
-                $thumbnail .= $image;
-                $thumbnail .= '</a>';
-            }
-
-            // Output
-            echo wp_kses_post( $thumbnail );
-        }
-
-        /**
          * Get coupon image
          *
          * @param null $size
@@ -185,6 +151,48 @@ if (!class_exists('Affcoups_Coupon')) {
         }
 
         /**
+         * Display the coupon image
+         */
+        function the_image() {
+
+            $image = $this->get_image();
+
+            $coupon_url = $this->get_url();
+            $coupon_title = $this->get_title();
+            $coupon_title = affcoups_cleanup_html_attribute( $coupon_title );
+
+            $image_args = array(
+                'src' => ( ! empty ( $image['url'] ) ) ? $image['url'] : AFFCOUPS_PLUGIN_URL . '/public/img/placeholder-thumb.png',
+                'alt' => ( ! empty ( $image['alt'] ) ) ? $image['alt'] : $this->get_title(),
+                'url' => ( ! empty( $coupon_url ) ) ? $coupon_url : '',
+                'title' => ( ! empty( $coupon_title ) ) ? $coupon_title : '',
+                'target' => '_blank',
+                'rel' => 'nofollow'
+            );
+
+            $image_args = apply_filters( 'affcoups_the_image_args', $image_args, $this );
+
+            // Build image
+            $image_html = '<img class="affcoups-coupon__image" src="' . esc_html( $image_args['src'] ) . '" alt="' . esc_html( $image_args['alt'] ) . '" />';
+
+            // Build thumbnail
+            if ( ! empty( $image_args['url'] ) ) {
+
+                $image_output = '<a class="affcoups-coupon__thumbnail" href="' . esc_html( $image_args['url'] ) . '" title="' . esc_html( $image_args['title'] ) . '" target="' . esc_html( $image_args['target'] ) . '" rel="' . esc_html( $image_args['rel'] ) . '">';
+
+                $image_output .= $image_html;
+                $image_output .= '</a>';
+            } else {
+                $image_output = '<span class="affcoups-coupon__thumbnail">';
+                $image_output .= $image_html;
+                $image_output .= '</a>';
+            }
+
+            // Output
+            echo wp_kses_post( $image_output );
+        }
+
+        /**
          * Get coupon title
          *
          * @return mixed|string
@@ -217,16 +225,17 @@ if (!class_exists('Affcoups_Coupon')) {
             // Coupon url
             $url = get_post_meta( $this->id, AFFCOUPS_PREFIX . 'coupon_url', true );
 
-            if ( ! empty( $url ) )
-                return $url;
-
             // Vendor url
-            $vendor_url = ( $this->vendor ) ? $this->vendor->get_url() : null;
+            if ( empty( $url ) ) {
+                $vendor_url = ( $this->vendor ) ? $this->vendor->get_url() : null;
 
-            if ( ! empty ( $vendor_url ) )
-                return $vendor_url;
+                if ( ! empty ( $vendor_url ) )
+                    $url = $vendor_url;
+            }
 
-            return null;
+            $url = apply_filters( 'affcoups_coupon_url', $url, $this );
+
+            return $url;
         }
 
         /**
