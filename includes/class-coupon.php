@@ -81,8 +81,11 @@ if (!class_exists('Affcoups_Coupon')) {
             // HTML ID
             //$output .= ' id="affcoups-course-' . $this->id . '"';
 
-            // Course ID
+            // Coupon ID
             $attributes['coupon-id'] = $this->id;
+
+            // Coupon Title
+            $attributes['coupon-title'] = $this->get_post_title();
 
             // Add more via filter
             $attributes = apply_filters( 'affcoups_coupon_container_attributes', $attributes, $this );
@@ -91,9 +94,12 @@ if (!class_exists('Affcoups_Coupon')) {
 
                 foreach ( $attributes as $key => $value ) {
 
+                    $value = strip_tags( $value );
+                    $value = str_replace('"', "'", $value );
+
                     // Add attribute to output
                     if ( ! empty ( $value ) )
-                        $output .= ' data-affcoups-' . $key . '="' . str_replace('"', "'", $value) . '"';
+                        $output .= ' data-affcoups-' . $key . '="' . $value . '"';
                 }
             }
 
@@ -212,6 +218,13 @@ if (!class_exists('Affcoups_Coupon')) {
                 return $vendor_title;
 
             // Fallback: Coupon post title
+            return get_the_title( $this->id );
+        }
+
+        /**
+         * Get coupon post title
+         */
+        function get_post_title() {
             return get_the_title( $this->id );
         }
 

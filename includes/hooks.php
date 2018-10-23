@@ -119,3 +119,24 @@ function affcoups_coupon_add_classes( $add_classes, $Coupon ) {
     return $add_classes;
 }
 add_filter( 'affcoups_coupon_add_classes', 'affcoups_coupon_add_classes', 10, 3 );
+
+/**
+ * Maybe output frontend variables
+ */
+function affcoups_frontend_variables() {
+
+    $vars = array();
+
+    $vars = apply_filters( 'affcoups_frontend_vars', $vars );
+
+    if ( ! is_array( $vars ) || sizeof( $vars ) === 0 )
+        return;
+    ?>
+    <script type="text/javascript">
+        /* <![CDATA[ */
+        var affcoups_vars = <?php echo json_encode( $vars ); ?>;
+        /* ]]> */
+    </script>
+    <?php
+}
+add_action( 'wp_footer', 'affcoups_frontend_variables' );

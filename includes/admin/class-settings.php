@@ -160,6 +160,8 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 				array( 'label_for' => 'affcoups_button_text' )
 			);
 
+            do_action( 'affcoups_register_settings_end' );
+
 			add_settings_field(
 				'affcoups_custom_css',
 				__( 'Custom CSS', 'affiliate-coupons' ),
@@ -168,8 +170,6 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 				'affcoups_section_general',
 				array( 'label_for' => 'affcoups_custom_css' )
 			);
-
-            do_action( 'affcoups_register_settings_end' );
 
             add_settings_section(
                 'affcoups_section_help',
