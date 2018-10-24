@@ -11,6 +11,33 @@ body.affcoups-admin h1.wp-heading-inline:before {
   background-position: center;
   vertical-align: -14%;
 }
+.affcoups-page .wrap > h2 {
+  position: relative;
+  margin: -10px -20px 13px -22px;
+  padding: 1em 1em 1em 2.7em;
+  background: #48627D;
+  color: #fff;
+}
+.affcoups-page .wrap > h2:before {
+  position: absolute;
+  top: 50%;
+  left: 22px;
+  content: "";
+  display: block;
+  height: 25px;
+  width: 25px;
+  margin: -12.5px 0 0;
+  background: url('../img/icon-page-title-inverted.png');
+  background-repeat: no-repeat;
+  -webkit-background-size: 25px 25px;
+  background-size: 25px;
+  background-position: center;
+}
+.affcoups-page .wrap > h2 small {
+  margin-left: 1em;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: .6em;
+}
 .affcoups-notice {
   padding-left: 44px;
   background-repeat: no-repeat;
@@ -30,33 +57,6 @@ body.affcoups-admin h1.wp-heading-inline:before {
   font-weight: bold;
   line-height: 20px;
   text-transform: uppercase;
-}
-.affcoups-settings .wrap > h2 {
-  position: relative;
-  margin: -10px -20px 13px -22px;
-  padding: 1em 1em 1em 2.7em;
-  background: #48627D;
-  color: #fff;
-}
-.affcoups-settings .wrap > h2:before {
-  position: absolute;
-  top: 50%;
-  left: 22px;
-  content: "";
-  display: block;
-  height: 25px;
-  width: 25px;
-  margin: -12.5px 0 0;
-  background: url('../img/icon-page-title-inverted.png');
-  background-repeat: no-repeat;
-  -webkit-background-size: 25px 25px;
-  background-size: 25px;
-  background-position: center;
-}
-.affcoups-settings .wrap > h2 small {
-  margin-left: 1em;
-  color: rgba(255, 255, 255, 0.8);
-  font-size: .6em;
 }
 .affcoups-settings .dashicons-star-filled {
   color: #F99F1B;
