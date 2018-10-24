@@ -124,6 +124,7 @@ function affcoups_get_coupons( $args = array(), $return_posts = false ) {
 
         if ( sizeof( $coupon_ids ) > 0 ) {
             $args['post__in'] = $coupon_ids;
+            $args['posts_per_page'] = sizeof( $coupon_ids );
         }
     }
 
@@ -208,10 +209,16 @@ function affcoups_get_coupons( $args = array(), $return_posts = false ) {
     //affcoups_debug( $args, 'affcoups_get_coupons $args' );
 
     // Fetch posts
-    $coupons_query = new WP_Query( $args );
-    $coupon_posts = ( isset( $coupons_query->posts ) ) ? array_merge_recursive( $coupon_pre_posts, $coupons_query->posts ) : null;
-    wp_reset_postdata();
+    if ( $args['posts_per_page'] === 0 ) {
+        $coupon_posts = $coupon_pre_posts;
+    } else {
+        $coupons_query = new WP_Query( $args );
+        //affcoups_debug( $coupons_query->posts, 'affcoups_get_coupons $coupons_query->posts' );
+        $coupon_posts = ( isset( $coupons_query->posts ) ) ? array_merge_recursive( $coupon_pre_posts, $coupons_query->posts ) : null;
+        wp_reset_postdata();
+    }
 
+    //affcoups_debug( $coupon_posts, 'affcoups_get_coupons $coupon_posts' );
     $coupon_posts = apply_filters( 'affcoups_get_coupons_posts', $coupon_posts, $args );
 
     if ( $return_posts )
