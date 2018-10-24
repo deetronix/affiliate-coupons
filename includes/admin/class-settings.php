@@ -621,6 +621,7 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
             $enabled = '<span style="color: green;"><strong><span class="dashicons dashicons-yes"></span> ' . __('Enabled', 'affiliate-coupons') . '</strong></span>';
             $disabled = '<span style="color: red;"><strong><span class="dashicons dashicons-no"></span> ' . __('Disabled', 'affiliate-coupons') . '</strong></span>';
 
+            $uninstall_on_delete = ( isset( $this->options['uninstall_on_delete'] ) && $this->options['uninstall_on_delete'] == '1' ) ? 1 : 0;
             ?>
             <p>
                 <?php _e( 'Here you can find additional information which may help in case you experience some issue with our plugin.', 'affiliate-coupons' ); ?>
@@ -663,6 +664,12 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
             <p>
                 <input type="hidden" id="affcoups-delete-log" name="affcoups_settings[delete_log]" value="0" />
                 <?php submit_button( 'Delete log', 'delete button-secondary', 'affcoups-delete-log-submit', false ); ?>
+            </p>
+
+            <h4 style="margin-bottom: -1em;"><?php _e('Other', 'affiliate-coupons' ); ?></h4>
+            <p>
+                <input type="checkbox" id="affcoups_uninstall_on_delete" name="affcoups_settings[uninstall_on_delete]" value="1" <?php echo( $uninstall_on_delete == 1 ? 'checked' : '' ); ?>>
+                <label for="affcoups_uninstall_on_delete"><?php esc_html_e( 'Remove all saved data for Affiliate Coupons when the plugin is deleted', 'affiliate-coupons' ); ?></label>
             </p>
             <?php
         }
