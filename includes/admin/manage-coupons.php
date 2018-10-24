@@ -20,8 +20,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function affcoups_coupon_extend_columns( $defaults ) {
 
-	$defaults['affcoups_coupon_thumb']      = __( 'Thumbnail', 'affiliate-coupons' );
-	$defaults['affcoups_coupon_shortcodes'] = __( 'Shortcodes', 'affiliate-coupons' );
+	$defaults['affcoups_coupon_thumb']      = __( 'Coupon Thumbnail', 'affiliate-coupons' );
+	$defaults['affcoups_coupon_details'] = __( 'Coupon Details', 'affiliate-coupons' );
 
 	return $defaults;
 }
@@ -47,12 +47,14 @@ function affcoups_coupon_extend_columns_content( $column_name, $postid ) {
 			<?php
 		}
 
-	} elseif ( 'affcoups_coupon_shortcodes' === $column_name ) {
+	} elseif ( 'affcoups_coupon_details' === $column_name ) {
 		?>
         <p>
-            <input type='text' onClick="this.select();" value='[affcoups id="<?php echo esc_attr( $postid ); ?>"]' readonly='readonly'/>
+            <strong><?php _e('Shortcode', 'affiliate-coupons' ); ?></strong><br />
+            <input type='text' onClick="this.select();" value='[affcoups id="<?php echo esc_attr( $postid ); ?>"]' readonly='readonly' style="display: block; width: 100%;" />
         </p>
 		<?php
+        do_action( 'affcoups_coupon_posts_details_column', $postid );
 	}
 }
 
