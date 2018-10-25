@@ -171,6 +171,19 @@ function affcoups_truncate_string( $str, $limit = 200, $pad = '...' ) {
 }
 
 /**
+ * Remove url parameter
+ *
+ * @param $url
+ * @return null|string|string[]
+ */
+function affcoups_remove_url_params( $url ) {
+
+    $url = preg_replace('/\\?.*/', '', $url);
+
+    return $url;
+}
+
+/**
  * Output data to a log for debugging reasons
  *
  * @param $string

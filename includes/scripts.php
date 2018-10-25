@@ -38,6 +38,10 @@ function affcoups_admin_scripts( $hook ) {
 		), AFFCOUPS_VERSION );
 		wp_enqueue_style( 'affcoups-admin-style', AFFCOUPS_PLUGIN_URL . 'public/css/admin' . $suffix . '.css', false, AFFCOUPS_VERSION );
 
+        wp_localize_script( 'affcoups-admin-script', 'affcoups_admin_post', array(
+            'ajax_url' => admin_url( 'admin-ajax.php' )
+        ));
+
 		do_action( 'affcoups_enqueue_admin_scripts' );
 	}
 }
@@ -57,6 +61,10 @@ function affcoups_scripts( $hook ) {
 
 	wp_enqueue_script( 'affcoups-script', AFFCOUPS_PLUGIN_URL . 'public/js/scripts' . $suffix . '.js', array( 'jquery' ), AFFCOUPS_VERSION, true );
 	wp_enqueue_style( 'affcoups-style', AFFCOUPS_PLUGIN_URL . 'public/css/styles' . $suffix . '.css', false, AFFCOUPS_VERSION );
+
+    wp_localize_script( 'affcoups-script', 'affcoups_post', array(
+        'ajax_url' => admin_url( 'admin-ajax.php' )
+    ));
 
 	do_action( 'affcoups_enqueue_scripts' );
 }

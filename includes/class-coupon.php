@@ -479,7 +479,7 @@ if (!class_exists('Affcoups_Coupon')) {
             if ( ! empty( $icon ) )
                 $classes .= ' affcoups-clipboard--icon';
             ?>
-            <div class="<?php echo esc_attr( $classes ); ?>" data-clipboard-text="<?php echo esc_attr( $code ); ?>" data-affcoups-clipboard-confirmation-text="<?php esc_attr_e( 'Copied!', 'affiliate-coupons' ); ?>">
+            <div class="<?php echo esc_attr( $classes ); ?>" data-affcoups-clipboard="true" data-clipboard-text="<?php echo esc_attr( $code ); ?>" data-affcoups-clipboard-confirmation-text="<?php esc_attr_e( 'Copied!', 'affiliate-coupons' ); ?>">
                 <?php if ( ! empty( $icon ) ) { ?>
                     <span class="affcoups-clipboard__icon affcoups-clipboard__icon--<?php echo esc_attr( $icon ); ?>"></span>
                 <?php } ?>

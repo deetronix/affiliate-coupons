@@ -20,8 +20,11 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function affcoups_coupon_extend_columns( $defaults ) {
 
-	$defaults['affcoups_coupon_thumb']      = __( 'Coupon Thumbnail', 'affiliate-coupons' );
-	$defaults['affcoups_coupon_details'] = __( 'Coupon Details', 'affiliate-coupons' );
+	$defaults['affcoups_coupon_thumb']      = __( 'Thumbnail', 'affiliate-coupons' );
+
+	$defaults = apply_filters( 'affcoups_coupon_posts_columns', $defaults );
+
+    $defaults['affcoups_coupon_shortcode'] = __( 'Shortcode', 'affiliate-coupons' );
 
 	return $defaults;
 }
@@ -43,19 +46,18 @@ function affcoups_coupon_extend_columns_content( $column_name, $postid ) {
 
 		if ( ! empty ( $image['url'] ) ) {
 			?>
-            <img src="<?php echo esc_attr( $image['url'] ); ?>" alt="thumbnail" style="display: inline-block; max-width: 144px; height: auto;"/>
+            <img src="<?php echo esc_attr( $image['url'] ); ?>" alt="thumbnail" style="display: inline-block; max-width: 125px; height: auto;"/>
 			<?php
 		}
 
-	} elseif ( 'affcoups_coupon_details' === $column_name ) {
+	} elseif ( 'affcoups_coupon_shortcode' === $column_name ) {
 		?>
         <p>
-            <strong><?php _e('Shortcode', 'affiliate-coupons' ); ?></strong><br />
             <input type='text' onClick="this.select();" value='[affcoups id="<?php echo esc_attr( $postid ); ?>"]' readonly='readonly' style="display: block; width: 100%;" />
         </p>
-		<?php
-        do_action( 'affcoups_coupon_posts_details_column', $postid );
+        <?php
 	}
-}
 
+    do_action( 'affcoups_coupon_posts_columns_content', $column_name, $postid );
+}
 add_action( 'manage_affcoups_coupon_posts_custom_column', 'affcoups_coupon_extend_columns_content', 10, 2 );
