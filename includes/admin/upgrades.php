@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function affcoups_plugin_upgrades() {
 
-    $version_installed = get_option( 'AFFCOUPS_VERSION', '' );
+    $version_installed = get_option( 'affcoups_version', '' );
 
     // Plugin already up2date
     if ( $version_installed === AFFCOUPS_VERSION )
@@ -25,9 +25,9 @@ function affcoups_plugin_upgrades() {
      * Loop updates
      ---------------------------------------------------------- */
 
-    // v1.5 (Removed MB plugin installation requirement)
+    // v2 (Removed MB plugin installation requirement)
     if ( empty ( $version_installed ) && is_plugin_active( 'meta-box/meta-box.php' ) )
-        affcoups_plugin_upgrade_v1_5();
+        affcoups_plugin_upgrade_pre_v2();
 
     if ( ! empty( $version_installed ) ) {
 
@@ -38,14 +38,14 @@ function affcoups_plugin_upgrades() {
     /* ---------------------------------------------------------- */
 
     // Update installed version
-    update_option( 'AFFCOUPS_VERSION', AFFCOUPS_VERSION );
+    update_option( 'affcoups_version', AFFCOUPS_VERSION );
 }
 add_action( 'admin_init', 'affcoups_plugin_upgrades' );
 
 /**
- * Version 1.5: Removed meta box plugin installation requirement
+ * Pre 2.0: Removed meta box plugin installation requirement
  */
-function affcoups_plugin_upgrade_v1_5() {
+function affcoups_plugin_upgrade_pre_v2() {
 
     // Add admin notice
     add_action( 'admin_notices', function() {
