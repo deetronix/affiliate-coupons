@@ -69,6 +69,13 @@ function affcoups_get_coupons( $args = array(), $return_posts = false ) {
         'relation' => 'AND'
     );
 
+    //-- Number
+    if ( ! empty( $args['number'] ) )
+        $args['posts_per_page'] = absint( $args['number'] );
+
+    if ( $args['posts_per_page'] < 1 )
+        $args['posts_per_page'] = 999999999999;
+
     //-- Order
     if ( ! empty( $args['affcoups_order'] ) ) {
 
@@ -113,18 +120,27 @@ function affcoups_get_coupons( $args = array(), $return_posts = false ) {
         } elseif ( 'valid_until' === $orderby ) {
             $args['orderby']  = 'meta_value_num';
             $args['meta_key'] = AFFCOUPS_PREFIX . 'coupon_valid_until';
-        }
 
+        } elseif ( 'none' === $orderby ) {
+            $args['orderby']  = 'none';
+        }
     }
 
     //-- ID
     if ( ! empty( $args['affcoups_coupon_id'] ) ) {
 
-        $coupon_ids = explode( ',', esc_html( $args['affcoups_coupon_id'] ) );
+        if ( is_array( $args['affcoups_coupon_id'] ) ) {
+            $coupon_ids = $args['affcoups_coupon_id'];
+        } else {
+            $coupon_ids = explode( ',', esc_html( $args['affcoups_coupon_id'] ) );
+        }
 
         if ( sizeof( $coupon_ids ) > 0 ) {
             $args['post__in'] = $coupon_ids;
             $args['posts_per_page'] = sizeof( $coupon_ids );
+
+            if ( 'none' === $args['orderby'] )
+                $args['orderby'] = 'post__in';
         }
     }
 
@@ -201,6 +217,8 @@ function affcoups_get_coupons( $args = array(), $return_posts = false ) {
     if ( sizeof( $tax_queries ) > 1 ) {
         $args['tax_query'] = $tax_queries;
     }
+
+    //affcoups_debug( $args, 'affcoups_get_coupons $args' );
 
     $coupon_pre_posts = apply_filters( 'affcoups_get_coupons_pre_posts', array(), $args );
     //affcoups_debug( $coupon_pre_posts, 'affcoups_get_coupons $coupon_pre_posts' );

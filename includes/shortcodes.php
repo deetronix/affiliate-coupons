@@ -103,7 +103,7 @@ function affcoups_add_shortcode( $atts, $content ) {
 		$args['affcoups_coupon_hide_expired'] = ( isset( $options['hide_expired_coupons'] ) && '1' === $options['hide_expired_coupons'] ) ? true : false;
 	}
 
-    $args = apply_filters( 'affcoups_shortcode_args', $args );
+    $args = apply_filters( 'affcoups_shortcode_args', $args, $atts );
 
 	//affcoups_debug( $args );
 
