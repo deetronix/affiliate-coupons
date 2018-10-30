@@ -47,6 +47,16 @@ function affcoups_convert_separated_strings_to_array( $string ) {
 	return $array;
 }
 
+function affcoups_array_insert_after($array, $findAfter, $key, $new)
+{
+    $pos = (int) array_search($findAfter, array_keys($array)) + 1;
+    return array_merge(
+        array_slice($array, 0, $pos),
+        array($key => $new),
+        array_slice($array, $pos)
+    );
+}
+
 /**
  * Get options
  *

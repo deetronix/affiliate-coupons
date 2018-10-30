@@ -118,6 +118,69 @@ body.affcoups-admin h1.wp-heading-inline:before {
   left: 0;
   z-index: 10;
 }
+.affcoups-settings-nav {
+  margin: -13px -20px 13px -22px;
+  padding: 0 1em 0 2.7em;
+  background: #35495d;
+  color: #fff;
+}
+.affcoups-settings-nav ul {
+  zoom: 1;
+  margin: 0 0 0 -20px;
+  padding: 0;
+  list-style: none;
+}
+.affcoups-settings-nav ul:before,
+.affcoups-settings-nav ul:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.affcoups-settings-nav ul:after {
+  clear: both;
+}
+.affcoups-settings-nav ul li {
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+.affcoups-settings-nav ul li a {
+  display: block;
+  padding: 0 20px;
+  color: #fff;
+  font-size: 13px;
+  line-height: 50px;
+  outline: none;
+  text-decoration: none;
+  vertical-align: middle;
+}
+.affcoups-settings-nav ul li a:visited {
+  color: #fff;
+}
+.affcoups-settings-nav ul li a:hover,
+.affcoups-settings-nav ul li a:focus,
+.affcoups-settings-nav ul li a:active {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #fff;
+  outline: none;
+}
+.affcoups-settings-nav ul li .dashicons {
+  font-size: 18px;
+  margin-right: 3px;
+  vertical-align: -22%;
+}
+.affcoups-settings-nav ul li:hover,
+.affcoups-settings-nav ul li.active {
+  background: #2c3c4c;
+}
+.affcoups-settings-content {
+  display: none;
+}
+.affcoups-settings-content.active {
+  display: block;
+}
 div[id*="affcoups"].widget .widget-title h3 {
   position: relative;
   padding-left: 38.75px;

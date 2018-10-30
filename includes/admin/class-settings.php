@@ -25,6 +25,13 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 		public $options;
 
         /**
+         * Active tab
+         *
+         * @var string
+         */
+		public $active_tab = '';
+
+        /**
          * Affcoups_Settings constructor.
          */
 		public function __construct() {
@@ -33,6 +40,8 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 
 			add_action( 'admin_menu', array( &$this, 'add_admin_menu' ) );
 			add_action( 'admin_init', array( &$this, 'init_settings' ) );
+
+			$this->init_active_tab();
 		}
 
         /**
@@ -49,135 +58,162 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 				'affcoups_settings', // Menu slug
 				array( &$this, 'options_page' ) // Callback
 			);
-
 		}
+
+        /**
+         * Init active settings tab
+         */
+		function init_active_tab() {
+
+		    if ( isset( $_GET['tab'] ) ) {
+		        $active_tab = $_GET['tab'];
+                //affcoups_debug_log( 'init_active_tab >> $_GET:  ' . $active_tab );
+            } else {
+                $active_tab = get_transient( 'affcoups_settings_active_tab' );
+                //affcoups_debug_log( 'init_active_tab >> transient:  ' . $active_tab );
+            }
+
+            //affcoups_debug_log( $active_tab );
+
+            $this->active_tab = ( ! empty( $active_tab ) ) ? $active_tab : 'quickstart';
+
+            //affcoups_debug_log( $this->active_tab );
+        }
+
+        /**
+         * Get registered settings
+         *
+         * @return array
+         */
+        function get_registered_settings() {
+
+            $settings = array(
+                /**
+                 * Filters the default "Quickstart" settings.
+                 *
+                 * @param array $settings
+                 */
+                'quickstart' => apply_filters( 'affcoups_settings_quickstart',
+                    array(
+                        'icon' => 'welcome-learn-more',
+                        'title' => __( 'Quickstart Guide', 'affiliate-coupons' ),
+                        'callback' => array( &$this, 'section_quickstart_render' ),
+                        'fields' => array()
+                    )
+                ),
+                /**
+                 * Filters the default "General" settings.
+                 *
+                 * @param array $settings
+                 */
+                'general' => apply_filters( 'affcoups_settings_general',
+                    array(
+                        'icon' => 'admin-generic',
+                        'title' => __( 'General', 'affiliate-coupons' ),
+                        'fields' => array(
+                            'order' => array(
+                                'title' => __( 'Sorting', 'affiliate-coupons' ),
+                                'callback' => array( &$this, 'order_render' )
+                            ),
+                            'templates' => array(
+                                'title' => __( 'Templates', 'affiliate-coupons' ),
+                                'callback' => array( &$this, 'templates_render' )
+                            ),
+                            'styles' => array(
+                                'title' => __( 'Styles', 'affiliate-coupons' ),
+                                'callback' => array( &$this, 'styles_render' )
+                            ),
+                            'description' => array(
+                                'title' => __( 'Description', 'affiliate-coupons' ),
+                                'callback' => array( &$this, 'description_render' )
+                            ),
+                            'discount' => array(
+                                'title' => __( 'Discount', 'affiliate-coupons' ),
+                                'callback' => array( &$this, 'discount_render' )
+                            ),
+                            'codes' => array(
+                                'title' => __( 'Codes', 'affiliate-coupons' ),
+                                'callback' => array( &$this, 'code_render' )
+                            ),
+                            'button' => array(
+                                'title' => __( 'Button', 'affiliate-coupons' ),
+                                'callback' => array( &$this, 'button_render' )
+                            ),
+                            'clipboard' => array(
+                                'title' => __( 'Clipboard', 'affiliate-coupons' ),
+                                'callback' => array( &$this, 'clipboard_render' )
+                            ),
+                            'dates' => array(
+                                'title' => __( 'Dates', 'affiliate-coupons' ),
+                                'callback' => array( &$this, 'dates_render' )
+                            ),
+                            'custom_css' => array(
+                                'title' => __( 'Custom CSS', 'affiliate-coupons' ),
+                                'callback' => array( &$this, 'custom_css_render' )
+                            )
+                        )
+                    )
+                ),
+                /**
+                 * Filters the default "Help" settings.
+                 *
+                 * @param array $settings
+                 */
+                'help' => apply_filters( 'affcoups_settings_quickstart',
+                    array(
+                        'icon' => 'sos',
+                        'title' => __( 'Help & Support', 'affiliate-coupons' ),
+                        'callback' => array( &$this, 'section_help_render' ),
+                        'fields' => array()
+                    )
+                ),
+            );
+
+            $settings = apply_filters( 'affcoups_settings', $settings );
+
+            return $settings;
+        }
 
         /**
          * Register settings
          */
 		function init_settings() {
 
+		    // Register setting
 			register_setting(
 				'affcoups_settings',
 				'affcoups_settings',
 				array( &$this, 'validate_input_callback' )
 			);
 
-			add_settings_section(
-				'affcoups_section_quickstart',
-				__( 'Quickstart Guide', 'affiliate-coupons' ),
-				array( &$this, 'section_quickstart_render' ),
-				'affcoups_settings'
-			);
+			// Define settings page slug
+            $settings_page = 'affcoups_settings';
 
-            do_action( 'affcoups_register_settings_start' );
+            // Register sections
+            foreach( $this->get_registered_settings() as $section_key => $section ) {
 
-			add_settings_section(
-				'affcoups_section_general',
-				__( 'General Settings', 'affiliate-coupons' ),
-				false,
-				'affcoups_settings'
-			);
+                add_settings_section(
+                    'affcoups_settings_' . $section_key,
+                    ( ! empty( $section['title'] ) ) ? $section['title'] : __return_null(),
+                    ( isset( $section['callback'] ) ) ? $section['callback'] : '__return_false',
+                    $settings_page
+                );
 
-			add_settings_field(
-				'affcoups_order',
-				__( 'Sorting', 'affiliate-coupons' ),
-				array( &$this, 'order_render' ),
-				'affcoups_settings',
-				'affcoups_section_general',
-				array( 'label_for' => 'affcoups_order' )
-			);
+                // Register fields
+                if ( isset( $section['fields'] ) && is_array( $section['fields'] ) ) {
 
-			add_settings_field(
-				'affcoups_templates',
-				__( 'Templates', 'affiliate-coupons' ),
-				array( &$this, 'templates_render' ),
-				'affcoups_settings',
-				'affcoups_section_general',
-				array( 'label_for' => 'affcoups_template' )
-			);
+                    foreach ( $section['fields'] as $field_key => $field ) {
 
-            add_settings_field(
-                'affcoups_styles',
-                __( 'Styles', 'affiliate-coupons' ),
-                array( &$this, 'styles_render' ),
-                'affcoups_settings',
-                'affcoups_section_general',
-                array( 'label_for' => 'affcoups_style' )
-            );
-
-			add_settings_field(
-				'affcoups_description',
-				__( 'Description', 'affiliate-coupons' ),
-				array( &$this, 'description_render' ),
-				'affcoups_settings',
-				'affcoups_section_general',
-				false
-			);
-
-			add_settings_field(
-				'affcoups_discount',
-				__( 'Discount', 'affiliate-coupons' ),
-				array( &$this, 'discount_render' ),
-				'affcoups_settings',
-				'affcoups_section_general',
-				false
-			);
-
-            add_settings_field(
-                'affcoups_codes',
-                __( 'Codes', 'affiliate-coupons' ),
-                array( &$this, 'code_render' ),
-                'affcoups_settings',
-                'affcoups_section_general',
-                array( 'label_for' => 'affcoups_code' )
-            );
-
-            add_settings_field(
-                'affcoups_clipboard',
-                __( 'Clipboard', 'affiliate-coupons' ),
-                array( &$this, 'clipboard_render' ),
-                'affcoups_settings',
-                'affcoups_section_general',
-                array( 'label_for' => 'affcoups_clipboard_icon' )
-            );
-
-            add_settings_field(
-                'affcoups_coupon_dates',
-                __( 'Dates', 'affiliate-coupons' ),
-                array( &$this, 'dates_render' ),
-                'affcoups_settings',
-                'affcoups_section_general',
-                array( 'label_for' => 'affcoups_hide_expired_coupons' )
-            );
-
-			add_settings_field(
-				'affcoups_button',
-				__( 'Button', 'affiliate-coupons' ),
-				array( &$this, 'button_render' ),
-				'affcoups_settings',
-				'affcoups_section_general',
-				array( 'label_for' => 'affcoups_button_text' )
-			);
-
-            do_action( 'affcoups_register_settings_end' );
-
-			add_settings_field(
-				'affcoups_custom_css',
-				__( 'Custom CSS', 'affiliate-coupons' ),
-				array( &$this, 'custom_css_render' ),
-				'affcoups_settings',
-				'affcoups_section_general',
-				array( 'label_for' => 'affcoups_custom_css' )
-			);
-
-            add_settings_section(
-                'affcoups_section_help',
-                __( 'Help & Support', 'affiliate-coupons' ),
-                array( &$this, 'section_help_render' ),
-                'affcoups_settings'
-            );
-
+                        add_settings_field(
+                            'affcoups_settings_' . $field_key,
+                            ( ! empty( $field['title'] ) ) ? $field['title'] : __return_null(),
+                            ( isset( $field['callback'] ) ) ? $field['callback'] : '__return_false',
+                            $settings_page,
+                            'affcoups_settings_' . $section_key
+                        );
+                    }
+                }
+            }
 		}
 
         /**
@@ -187,6 +223,14 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
          * @return mixed
          */
 		function validate_input_callback( $input ) {
+
+		    //affcoups_debug_log( $input );
+
+		    // Handle active tab
+            if ( ! empty( $input['active_tab'] ) ) {
+                set_transient( 'affcoups_settings_active_tab', $input['active_tab'], 20 ); // Remember for 20 seconds only
+                $input['active_tab'] = '';
+            }
 
             // Handle Delete Log Action
             if ( isset ( $input['delete_log'] ) && '1' === $input['delete_log'] ) {
@@ -203,6 +247,7 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
          * Render quickstart section
          */
 		function section_quickstart_render() {
+
 			?>
             <p>
                 <strong><?php esc_html_e( 'First Steps', 'affiliate-coupons' ); ?></strong>
@@ -699,20 +744,38 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
          * Output the options page HTML
          */
 		function options_page() {
+
 			?>
 
             <div class="affcoups affcoups-page affcoups-settings">
+
                 <div class="wrap">
-                    <h2 class="affcoups-page-headline"><?php _e( 'Affiliate Coupons', 'affiliate-coupons' ); ?><small><?php _e( 'Settings', 'affiliate-coupons' ); ?></h2>
+                    <h2 class="affcoups-page-headline"><?php _e( 'Affiliate Coupons', 'affiliate-coupons' ); ?><small><?php _e( 'Settings', 'affiliate-coupons' ); ?></small></h2>
+
+                    <div class="affcoups-settings-nav">
+
+                        <ul>
+                            <?php foreach ( $this->get_registered_settings() as $section_key => $section ) { ?>
+                                <li class="affcoups-settings-nav-item<?php if ( $section_key === $this->active_tab ) echo ' active'; ?>">
+                                    <a href="#" data-affcoups-settings-nav="<?php echo  esc_html( $section_key ); ?>">
+                                        <?php if ( ! empty( $section['icon'] ) ) { ?><span class="dashicons dashicons-<?php echo  esc_html( $section['icon'] ); ?>"></span><?php } ?>
+                                        <?php echo esc_html( $section['title'] ); ?>
+                                    </a>
+                                </li>
+                            <?php } ?>
+                        </ul>
+
+                    </div>
 
                     <div id="poststuff">
                         <div id="post-body" class="metabox-holder columns-2">
                             <div id="post-body-content">
                                 <div class="meta-box-sortables ui-sortable">
                                     <form action="options.php" method="post">
+                                        <input type="hidden" id="affcoups_settings_active_tab" name="affcoups_settings[active_tab]" value="<?php echo esc_html( $this->active_tab ); ?>" />
 										<?php
 										settings_fields( 'affcoups_settings' );
-										affcoups_do_settings_sections( 'affcoups_settings' );
+										$this->affcoups_do_settings_sections( 'affcoups_settings' );
 										?>
 
                                         <p><?php submit_button( 'Save Changes', 'button-primary', 'submit', false ); ?></p>
@@ -761,8 +824,8 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
                                                 <p><?php _e('The PRO version extends the plugin exclusively with a variety of different styles and some exclusively features.', 'affiliate-coupons'); ?></p>
 
                                                 <ul>
-                                                    <li><span class="dashicons dashicons-star-filled"></span> <strong><?php _e('View, copy & click statistics', 'affiliate-coupons'); ?></strong></li>
                                                     <li><span class="dashicons dashicons-star-filled"></span> <strong><?php _e('Click to reveal discount codes', 'affiliate-coupons'); ?></strong></li>
+                                                    <li><span class="dashicons dashicons-star-filled"></span> <strong><?php _e('View, copy & click statistics', 'affiliate-coupons'); ?></strong></li>
                                                     <li><span class="dashicons dashicons-star-filled"></span> <strong><?php _e('Choose from different styles', 'affiliate-coupons'); ?></strong></li>
                                                     <li><span class="dashicons dashicons-star-filled"></span> <strong><?php _e('Additional templates', 'affiliate-coupons'); ?></strong></li>
                                                     <li><span class="dashicons dashicons-star-filled"></span> <strong><?php _e('Feature & highlight single coupons', 'affiliate-coupons'); ?></strong></li>
@@ -794,47 +857,56 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
             </div>
 			<?php
 		}
-	}
-}
 
-/**
- * Custom settings section output
- *
- * Replacing: do_settings_sections('affcoups_settings');
- *
- * @param $page
- */
-function affcoups_do_settings_sections( $page ) {
+        /**
+         * Custom settings section output
+         *
+         * Replacing: do_settings_sections('affcoups_settings');
+         *
+         * @param $page
+         */
+        function affcoups_do_settings_sections( $page ) {
 
-	global $wp_settings_sections, $wp_settings_fields;
+            global $wp_settings_sections, $wp_settings_fields;
 
-	if ( ! isset( $wp_settings_sections[ $page ] ) ) {
-		return;
-	}
+            if ( ! isset( $wp_settings_sections[ $page ] ) ) {
+                return;
+            }
 
-	foreach ( (array) $wp_settings_sections[ $page ] as $section ) {
+            foreach ( (array) $wp_settings_sections[ $page ] as $section ) {
 
-		$title = '';
+                $section_key = str_replace('affcoups_settings_', '', $section['id'] );
 
-		if ( $section['title'] ) {
-			$title = "<h3 class='hndle'>{$section['title']}</h3>\n";
-		}
+                $title = '';
 
-        if (!isset($wp_settings_fields) || !isset($wp_settings_fields[$page]) || ( !isset($wp_settings_fields[$page][$section['id']] ) && ! in_array( $section['id'], array( 'affcoups_section_quickstart', 'affcoups_section_help' ) ) ) )
-            continue;
+                if ( $section['title'] ) {
+                    $title = "<h3 class='hndle'>{$section['title']}</h3>\n";
+                }
 
-		echo '<div class="postbox">';
-		echo  $title;
-		echo '<div class="inside">';
+                $content_classes = 'affcoups-settings-content';
 
-        if ( $section['callback'] ) {
-            call_user_func( $section['callback'], $section );
+                if ( $section_key === $this->active_tab )
+                    $content_classes .= ' active';
+
+                echo '<div data-affcoups-settings-content="' . $section_key . '" class="' . $content_classes . '">';
+
+                echo '<div class="postbox">';
+                echo  $title;
+                echo '<div class="inside">';
+
+                if ( $section['callback'] ) {
+                    call_user_func( $section['callback'], $section );
+                }
+
+                echo '<table class="form-table">';
+                do_settings_fields( $page, $section['id'] );
+                echo '</table>';
+
+                echo '</div>'; // .inside
+                echo '</div>'; // .postbox
+
+                echo '</div>'; // .affcoups-settings-content
+            }
         }
-
-		echo '<table class="form-table">';
-		do_settings_fields( $page, $section['id'] );
-		echo '</table>';
-		echo '</div>';
-		echo '</div>';
 	}
 }

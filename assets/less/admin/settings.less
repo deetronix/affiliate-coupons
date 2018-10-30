@@ -1,6 +1,7 @@
 @import "../common";
 
 @settings-header-icon-size: 25px;
+@settings-nav-inner-padding: 20px;
 
 //== Settings Page
 .affcoups-settings {
@@ -86,5 +87,72 @@
             left: 0;
             z-index: 10;
         }
+    }
+}
+
+.affcoups-settings-nav {
+    margin: -13px -20px 13px -22px;
+    padding: 0 1em 0 2.7em;
+
+    background: @color-primary-darken;
+    color: #fff;
+
+    ul {
+        .clearfix();
+
+        margin: 0 0 0 -@settings-nav-inner-padding;
+        padding: 0;
+
+        list-style: none;
+
+        li {
+            float: left;
+            margin: 0;
+            padding: 0;
+
+            a {
+                display: block;
+                padding: 0 @settings-nav-inner-padding;
+
+                color: #fff;
+                font-size: 13px;
+                line-height: 50px;
+                outline: none;
+                text-decoration: none;
+                vertical-align: middle;
+
+                &:visited {
+                    color: #fff;
+                }
+
+                &:hover,
+                &:focus,
+                &:active {
+                    box-shadow: none;
+                    color: #fff;
+                    outline: none;
+                }
+            }
+
+            .dashicons {
+                font-size: 18px;
+                margin-right: 3px;
+
+                vertical-align: -22%;
+            }
+
+            &:hover,
+            &.active {
+                background: @color-primary-darkest;
+            }
+        }
+    }
+}
+
+.affcoups-settings-content {
+    display: none;
+
+    &.active {
+        display: block;
     }
 }
