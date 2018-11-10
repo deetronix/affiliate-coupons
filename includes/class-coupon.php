@@ -9,6 +9,24 @@
 // Exit if accessed directly
 if (!defined('ABSPATH')) exit;
 
+/**
+ * Silent Wrapper for our extended class
+ */
+if ( ! class_exists('Affcoups_Coupon_Extended')) {
+
+    class Affcoups_Coupon_Extended
+    {
+        // General
+        public $options;
+
+        // Variables
+        public $post; // WP_Post
+        public $id;
+        public $vendor_id = 0;
+        public $vendor;
+    }
+}
+
 if (!class_exists('Affcoups_Coupon')) {
 
     class Affcoups_Coupon extends Affcoups_Coupon_Extended
@@ -540,23 +558,5 @@ if (!class_exists('Affcoups_Coupon')) {
             // Output HTML
             echo $button_html;
         }
-    }
-}
-
-/**
- * Silent Wrapper for our extended class
- */
-if ( ! class_exists('Affcoups_Coupon_Extended')) {
-
-    class Affcoups_Coupon_Extended
-    {
-        // General
-        public $options;
-
-        // Variables
-        public $post; // WP_Post
-        public $id;
-        public $vendor_id = 0;
-        public $vendor;
     }
 }
