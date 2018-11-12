@@ -1,10 +1,10 @@
 === Affiliate Coupons ===
-Contributors: flowdee, bentzibentz
+Contributors: flowdee
 Donate link: https://donate.flowdee.de
 Tags: affiliate, affiliates, coupon, coupons, deals, affiliate coupon, affiliate coupons, affiliate deals, dealz, vendors, affiliate marketing
 Requires at least: 3.0.1
-Tested up to: 4.9.6
-Stable tag: 1.4.1
+Tested up to: 4.9.8
+Stable tag: 1.5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -78,6 +78,18 @@ Yes of course.
 2. Settings
 
 == Changelog ==
+
+= Version 1.5.0 (11th November 2018) =
+* New: Redesigned & restructured settings page
+* New: Clipboard icon can now selected via settings (3 different icons and 2 colors are available to be chosen from)
+* New: Clipboard background & font colors can now be overwritten via settings
+* New: Added new button icon and 2 colors (black & white)
+* New: Added setting which allows you to hide coupon dates on the front end
+* Improvement: Removed third party plugin installation dependency
+* Improvement: Optimized coupons admin overview page
+* Improvement: Optimized templates & styles
+* Improvement: Added install & uninstall routines
+* WordPress v4.9.8 compatibility
 
 = Version 1.4.1 (18th June 2018) =
 * Improvement: Removed directly included metabox dependency and switched over to "TGM_Plugin_Activation" class instead
@@ -172,6 +184,18 @@ Yes of course.
 * Initial release
 
 == Upgrade Notice ==
+
+= Version 1.5.0 (11th November 2018) =
+* New: Redesigned & restructured settings page
+* New: Clipboard icon can now selected via settings (3 different icons and 2 colors are available to be chosen from)
+* New: Clipboard background & font colors can now be overwritten via settings
+* New: Added new button icon and 2 colors (black & white)
+* New: Added setting which allows you to hide coupon dates on the front end
+* Improvement: Removed third party plugin installation dependency
+* Improvement: Optimized coupons admin overview page
+* Improvement: Optimized templates & styles
+* Improvement: Added install & uninstall routines
+* WordPress v4.9.8 compatibility
 
 = Version 1.4.1 (18th June 2018) =
 * Improvement: Removed directly included metabox dependency and switched over to "TGM_Plugin_Activation" class instead
