@@ -35,6 +35,21 @@ Get more sales & earn more money with the best WordPress plugin for coupon codes
 *   Assign categories and/or types to coupons if needed
 *   Display coupons inside your posts/pages by using shortcodes
 
+= More features with the PRO version =
+
+The PRO version extends this plugins exclusively with our "click to reveal" feature and more:
+
+*   Click to reveal discount codes
+*   View, copy & click statistics
+*   Choose from different styles
+*   Additional templates
+*   Feature & highlight single coupons
+*   Popular coupons widget
+*   Event Tracking via Google & Piwik
+*   Create custom templates
+
+Details and upgrade can be found **[here](https://affcoups.com/features/)**.
+
 = Support =
 
 * Browse [issue tracker](https://github.com/flowdee/affiliate-coupons/issues) on GitHub
