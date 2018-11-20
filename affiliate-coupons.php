@@ -126,7 +126,7 @@ if( ! class_exists( 'Affiliate_Coupons' ) ) :
             ?>
             <div class="error">
                 <p>
-                    <?php sprintf( esc_html__( 'Your version of PHP is below the minimum version of PHP required by our Twitch plugin. Please contact your hosting company and request that your version will be upgraded to %1$s or later.', 'affiliate-coupons' ), '5.3' ); ?>
+                    <?php sprintf( esc_html__( 'Your version of PHP is below the minimum version of PHP required by our plugin. Please contact your hosting company and request that your version will be upgraded to %1$s or later.', 'affiliate-coupons' ), '5.3' ); ?>
                 </p>
             </div>
             <?php
