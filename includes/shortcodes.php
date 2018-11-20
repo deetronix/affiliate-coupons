@@ -141,6 +141,8 @@ function affcoups_add_shortcode( $atts, $content ) {
 				$template  = 'grid';
 				$grid_size = $grid;
 			}
+
+			//echo '$template_default: ' .  $template_default . ' - $template: ' . $template . ' - $grid_size_default: ' . $grid_size_default . ' - $grid_size: ' . $grid_size . '<br>';
 		}
 
 		// Store template variables

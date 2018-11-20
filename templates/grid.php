@@ -15,12 +15,12 @@ if ( ! isset( $coupons ) )
     return;
 
 // Default values
-if ( ! isset ( $grid ) )
-    $grid = '3';
+if ( ! isset ( $grid_size ) )
+    $grid_size = '3';
 ?>
 <?php affcoups_the_template_wrapper_start(); ?>
 
-    <div class="affcoups-coupons-grid affcoups-coupons-grid--col-<?php echo esc_attr( $grid ); ?>">
+    <div class="affcoups-coupons-grid affcoups-coupons-grid--col-<?php echo esc_attr( $grid_size ); ?>">
 
         <?php foreach( $coupons as $coupon ) { ?>
 
