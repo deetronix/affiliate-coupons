@@ -1,10 +1,10 @@
 === Affiliate Coupons ===
 Contributors: flowdee
 Donate link: https://donate.flowdee.de
-Tags: affiliate, affiliates, coupon, coupons, deals, affiliate coupon, affiliate coupons, affiliate deals, dealz, vendors, affiliate marketing
+Tags: affiliate, affiliates, coupon, coupons, deals, affiliate coupon, affiliate coupons, affiliate deals, dealz, vendors, affiliate marketing, coupons plugin
 Requires at least: 3.0.1
 Tested up to: 4.9.8
-Stable tag: 1.5.0
+Stable tag: 1.5.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -93,6 +93,12 @@ Yes of course.
 2. Settings
 
 == Changelog ==
+
+= Version 1.5.1 (20th November 2018) =
+* Improvement: Setting a coupon "valid from" date now uses 23:59 as default time
+* Improvement: Optimized loading of plugin core files
+* Fix: Grid size wasn't taken properly from plugin settings
+* Updated .pot file and removed unneeded translation strings
 
 = Version 1.5.0 (11th November 2018) =
 * New: Redesigned & restructured settings page
@@ -199,6 +205,12 @@ Yes of course.
 * Initial release
 
 == Upgrade Notice ==
+
+= Version 1.5.1 (20th November 2018) =
+* Improvement: Setting a coupon "valid from" date now uses 23:59 as default time
+* Improvement: Optimized loading of plugin core files
+* Fix: Grid size wasn't taken properly from plugin settings
+* Updated .pot file and removed unneeded translation strings
 
 = Version 1.5.0 (11th November 2018) =
 * New: Redesigned & restructured settings page

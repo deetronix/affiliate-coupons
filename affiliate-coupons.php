@@ -3,7 +3,7 @@
  * Plugin Name:     Affiliate Coupons
  * Plugin URI:      https://affcoups.com
  * Description:     Get more sales & earn more money with the best WordPress plugin for coupon codes & deals.
- * Version:         1.5.0
+ * Version:         1.5.1
  * Author:          Affiliate Coupons
  * Author URI:      https://affcoups.com
  * Text Domain:     affiliate-coupons
@@ -50,7 +50,7 @@ if( ! class_exists( 'Affiliate_Coupons' ) ) :
          * @since  1.0.0
          * @var    string
          */
-        private $version = '1.5.0';
+        private $version = '1.5.1';
 
         /**
          * Main Affiliate_Coupons Instance
