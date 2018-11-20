@@ -79,6 +79,9 @@ function affcoups_register_coupon_meta_boxes( $meta_boxes ) {
 				'changeYear'      => true,
 				'showButtonPanel' => true,
 				'showTimepicker'  => true,
+                // Define default time
+                'hour'            => 23,
+                'minute'          => 59
 			),
 		),
 		array(
