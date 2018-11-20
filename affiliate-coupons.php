@@ -79,9 +79,8 @@ if( ! class_exists( 'Affiliate_Coupons' ) ) :
 
                 self::$instance->setup_constants();
                 self::$instance->includes();
-
-                add_action( 'plugins_loaded', array( self::$instance, 'setup_objects' ), -1 );
-                add_action( 'plugins_loaded', array( self::$instance, 'load_textdomain' ) );
+                self::$instance->setup_objects();
+                self::$instance->load_textdomain();
             }
 
             return self::$instance;
@@ -131,7 +130,6 @@ if( ! class_exists( 'Affiliate_Coupons' ) ) :
             </div>
             <?php
         }
-
 
         /**
          * Setup plugin constants
@@ -312,4 +310,15 @@ endif; // End if class_exists check
 function Affiliate_Coupons() {
     return Affiliate_Coupons::instance();
 }
-Affiliate_Coupons();
+
+/**
+ * Init plugin
+ *
+ * @return bool
+ */
+function affcoups_load() {
+    Affiliate_Coupons();
+
+    return true;
+}
+add_action( 'plugins_loaded', 'affcoups_load', 10 );

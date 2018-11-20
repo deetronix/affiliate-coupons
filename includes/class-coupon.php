@@ -9,12 +9,9 @@
 // Exit if accessed directly
 if (!defined('ABSPATH')) exit;
 
-/**
- * Silent Wrapper for our extended class
- */
-if ( ! class_exists('Affcoups_Coupon_Extended')) {
+if (!class_exists('Affcoups_Coupon')) {
 
-    class Affcoups_Coupon_Extended
+    class Affcoups_Coupon
     {
         // General
         public $options;
@@ -24,16 +21,10 @@ if ( ! class_exists('Affcoups_Coupon_Extended')) {
         public $id;
         public $vendor_id = 0;
         public $vendor;
-    }
-}
 
-if (!class_exists('Affcoups_Coupon')) {
-
-    class Affcoups_Coupon extends Affcoups_Coupon_Extended
-    {
         /**
          * Affcoups_Coupon constructor.
-         * @param $post WP_Post or Post ID
+         * @param WP_Post or int $post
          */
         public function __construct( $post ) {
 
