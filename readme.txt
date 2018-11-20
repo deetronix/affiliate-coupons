@@ -48,7 +48,7 @@ The PRO version extends this plugins exclusively with our "click to reveal" feat
 *   Event Tracking via Google & Piwik
 *   Create custom templates
 
-Details and upgrade can be found **[here](https://affcoups.com/features/)**.
+Details and upgrade can be found **[here](https://affcoups.com/features/?utm_source=wordpress.org&utm_medium=textlink&utm_campaign=Affiliate%20Coupons&utm_content=pro-version-link)**.
 
 = Support =
 
