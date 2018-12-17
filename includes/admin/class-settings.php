@@ -264,7 +264,7 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
                 <strong><?php esc_html_e( 'Show all coupons', 'affiliate-coupons' ); ?></strong>
             </p>
             <p>
-                <code>[affcoups]</code>
+                <code>[affcoups]</code> <?php esc_html_e( 'or', 'affiliate-coupons' ); ?> <code>[affcoups max="10"]</code>
             </p>
 
             <p>
