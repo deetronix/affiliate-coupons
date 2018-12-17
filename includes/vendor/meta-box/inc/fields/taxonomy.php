@@ -28,10 +28,13 @@ class RWMB_Taxonomy_Field extends RWMB_Object_Choice_Field {
 		}
 
 		// Set default field args.
-		$field = wp_parse_args( $field, array(
-			'taxonomy'   => 'category',
-			'query_args' => array(),
-		) );
+		$field = wp_parse_args(
+			$field,
+			array(
+				'taxonomy'   => 'category',
+				'query_args' => array(),
+			)
+		);
 
 		// Force taxonomy to be an array.
 		$field['taxonomy'] = (array) $field['taxonomy'];
@@ -43,24 +46,32 @@ class RWMB_Taxonomy_Field extends RWMB_Object_Choice_Field {
 		 */
 		$placeholder = __( 'Select a term', 'meta-box' );
 		if ( 1 === count( $field['taxonomy'] ) ) {
-			$taxonomy = reset( $field['taxonomy'] );
+			$taxonomy        = reset( $field['taxonomy'] );
 			$taxonomy_object = get_taxonomy( $taxonomy );
 			if ( false !== $taxonomy_object ) {
 				// Translators: %s is the taxonomy singular label.
 				$placeholder = sprintf( __( 'Select a %s', 'meta-box' ), strtolower( $taxonomy_object->labels->singular_name ) );
 			}
 		}
-		$field = wp_parse_args( $field, array(
-			'placeholder' => $placeholder,
-		) );
+		$field = wp_parse_args(
+			$field,
+			array(
+				'placeholder' => $placeholder,
+			)
+		);
 
 		// Set default query args.
-		$field['query_args'] = wp_parse_args( $field['query_args'], array(
-			'hide_empty' => false,
-		) );
+		$field['query_args'] = wp_parse_args(
+			$field['query_args'],
+			array(
+				'hide_empty' => false,
+			)
+		);
 
-		// Prevent cloning for taxonomy field.
-		$field['clone'] = false;
+		// Prevent cloning for taxonomy field, not for child fields (taxonomy_advanced).
+		if ( 'taxonomy' == $field['type'] ) {
+			$field['clone'] = false;
+		}
 
 		$field = parent::normalize( $field );
 
@@ -74,22 +85,28 @@ class RWMB_Taxonomy_Field extends RWMB_Object_Choice_Field {
 	 * @return array        Field options array.
 	 */
 	public static function query( $field ) {
-		$args = wp_parse_args( $field['query_args'], array(
-			'taxonomy'               => $field['taxonomy'],
-			'hide_empty'             => false,
-			'count'                  => false,
-			'update_term_meta_cache' => false,
-		) );
+		$args  = wp_parse_args(
+			$field['query_args'],
+			array(
+				'taxonomy'               => $field['taxonomy'],
+				'hide_empty'             => false,
+				'count'                  => false,
+				'update_term_meta_cache' => false,
+			)
+		);
 		$terms = get_terms( $args );
 		if ( ! is_array( $terms ) ) {
 			return array();
 		}
 		$options = array();
 		foreach ( $terms as $term ) {
-			$options[ $term->term_id ] = array(
-				'value'  => $term->term_id,
-				'label'  => $term->name,
-				'parent' => $term->parent,
+			$options[ $term->term_id ] = array_merge(
+				array(
+					'value'  => $term->term_id,
+					'label'  => $term->name,
+					'parent' => $term->parent,
+				),
+				(array) $term
 			);
 		}
 		return $options;
@@ -129,9 +146,13 @@ class RWMB_Taxonomy_Field extends RWMB_Object_Choice_Field {
 			return '';
 		}
 
-		$meta = wp_get_object_terms( $object_id, $field['taxonomy'], array(
-			'orderby' => 'term_order',
-		) );
+		$meta = wp_get_object_terms(
+			$object_id,
+			$field['taxonomy'],
+			array(
+				'orderby' => 'term_order',
+			)
+		);
 		if ( is_wp_error( $meta ) ) {
 			return '';
 		}
@@ -154,9 +175,13 @@ class RWMB_Taxonomy_Field extends RWMB_Object_Choice_Field {
 		if ( ! $post_id ) {
 			$post_id = get_the_ID();
 		}
-		$value = wp_get_object_terms( $post_id, $field['taxonomy'], array(
-			'orderby' => 'term_order',
-		) );
+		$value = wp_get_object_terms(
+			$post_id,
+			$field['taxonomy'],
+			array(
+				'orderby' => 'term_order',
+			)
+		);
 
 		// Get single value if necessary.
 		if ( ! $field['clone'] && ! $field['multiple'] && is_array( $value ) ) {

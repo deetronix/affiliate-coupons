@@ -110,20 +110,20 @@ class RWMB_About {
 					<div id="post-body-content">
 						<div class="about-wrap">
 							<?php
-							include dirname(__FILE__) . '/sections/welcome.php';
-							include dirname(__FILE__) . '/sections/tabs.php';
-							include dirname(__FILE__) . '/sections/getting-started.php';
-							include dirname(__FILE__) . '/sections/extensions.php';
-							include dirname(__FILE__) . '/sections/support.php';
+							include dirname( __FILE__ ) . '/sections/welcome.php';
+							include dirname( __FILE__ ) . '/sections/tabs.php';
+							include dirname( __FILE__ ) . '/sections/getting-started.php';
+							include dirname( __FILE__ ) . '/sections/extensions.php';
+							include dirname( __FILE__ ) . '/sections/support.php';
 							do_action( 'rwmb_about_tabs_content' );
 							?>
 						</div>
 					</div>
 					<div id="postbox-container-1" class="postbox-container">
 						<?php
-						include dirname(__FILE__) . '/sections/newsletter.php';
+						include dirname( __FILE__ ) . '/sections/newsletter.php';
 						if ( ! $this->is_premium_user() ) {
-							include dirname(__FILE__) . '/sections/upgrade.php';
+							include dirname( __FILE__ ) . '/sections/upgrade.php';
 						}
 						?>
 					</div>

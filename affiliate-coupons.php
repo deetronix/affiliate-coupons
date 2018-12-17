@@ -185,7 +185,7 @@ if( ! class_exists( 'Affiliate_Coupons' ) ) :
         private function includes() {
 
             // Dependencies
-            require_once AFFCOUPS_PLUGIN_DIR . 'includes/bootstrap.php';
+            require_once AFFCOUPS_PLUGIN_DIR . 'includes/vendor/meta-box/meta-box.php';
 
             // Basic
             require_once AFFCOUPS_PLUGIN_DIR . 'includes/helper.php';

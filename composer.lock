@@ -1,0 +1,63 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "b9e5cfcbc468b82c7d6c7646d5c35a2a",
+    "packages": [
+        {
+            "name": "wpmetabox/meta-box",
+            "version": "4.15.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wpmetabox/meta-box.git",
+                "reference": "fc79796a1a5295ea26043bbecc96d214412f28f2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wpmetabox/meta-box/zipball/fc79796a1a5295ea26043bbecc96d214412f28f2",
+                "reference": "fc79796a1a5295ea26043bbecc96d214412f28f2",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "meta-box.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Tran Ngoc Tuan Anh",
+                    "email": "anhtnt@elightup.com",
+                    "homepage": "https://deluxeblogtips.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A powerful, professional developer toolkit to create custom meta boxes and custom fields for WordPress websites.",
+            "homepage": "https://metabox.io",
+            "keywords": [
+                "custom-field",
+                "meta-box",
+                "select2",
+                "ui",
+                "wordpress",
+                "wordpress-plugin",
+                "wp-admin"
+            ],
+            "time": "2018-12-12T10:35:33+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

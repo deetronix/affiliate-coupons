@@ -49,7 +49,7 @@ class RW_Meta_Box {
 	 * @param array $meta_box Meta box definition.
 	 */
 	public function __construct( $meta_box ) {
-		$meta_box = self::normalize( $meta_box );
+		$meta_box       = self::normalize( $meta_box );
 		$this->meta_box = $meta_box;
 
 		$storage = $this->get_storage();
@@ -347,15 +347,18 @@ class RW_Meta_Box {
 	 */
 	public static function normalize( $meta_box ) {
 		// Set default values for meta box.
-		$meta_box = wp_parse_args( $meta_box, array(
-			'id'             => sanitize_title( $meta_box['title'] ),
-			'context'        => 'normal',
-			'priority'       => 'high',
-			'post_types'     => 'post',
-			'autosave'       => false,
-			'default_hidden' => false,
-			'style'          => 'default',
-		) );
+		$meta_box = wp_parse_args(
+			$meta_box,
+			array(
+				'id'             => sanitize_title( $meta_box['title'] ),
+				'context'        => 'normal',
+				'priority'       => 'high',
+				'post_types'     => 'post',
+				'autosave'       => false,
+				'default_hidden' => false,
+				'style'          => 'default',
+			)
+		);
 
 		/**
 		 * Use 'post_types' for better understanding and fallback to 'pages' for previous versions.
@@ -409,6 +412,7 @@ class RW_Meta_Box {
 			if ( empty( $field['id'] ) ) {
 				continue;
 			}
+
 			$value = RWMB_Field::call( $field, 'raw_meta', $this->object_id );
 			if ( false === $value ) {
 				continue;
