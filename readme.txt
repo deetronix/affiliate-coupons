@@ -3,8 +3,8 @@ Contributors: flowdee
 Donate link: https://donate.flowdee.de
 Tags: affiliate, affiliates, coupon, coupons, deals, affiliate coupon, affiliate coupons, affiliate deals, dealz, vendors, affiliate marketing, coupons plugin
 Requires at least: 3.0.1
-Tested up to: 4.9.8
-Stable tag: 1.5.1
+Tested up to: 5.0.1
+Stable tag: 1.5.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -93,6 +93,12 @@ Yes of course.
 2. Settings
 
 == Changelog ==
+
+= Version 1.5.2 (17th December 2018) =
+* Improvement: Enabled new Gutenberg editor for coupon posts
+* Updated Quickstart Guide
+* Updated Meta Box dependency to latest v4.15.9
+* WordPress v5.0.1 compatibility
 
 = Version 1.5.1 (20th November 2018) =
 * Improvement: Setting a coupon "valid from" date now uses 23:59 as default time
@@ -205,6 +211,12 @@ Yes of course.
 * Initial release
 
 == Upgrade Notice ==
+
+= Version 1.5.2 (17th December 2018) =
+* Improvement: Enabled new Gutenberg editor for coupon posts
+* Updated Quickstart Guide
+* Updated Meta Box dependency to latest v4.15.9
+* WordPress v5.0.1 compatibility
 
 = Version 1.5.1 (20th November 2018) =
 * Improvement: Setting a coupon "valid from" date now uses 23:59 as default time
