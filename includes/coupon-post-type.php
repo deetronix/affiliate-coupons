@@ -73,6 +73,7 @@ function affcoups_register_coupon_post_type() {
 		'has_archive'         => false,
 		'exclude_from_search' => true,
 		'publicly_queryable'  => false,
+        'show_in_rest'        => true,
 		'rewrite'             => false,
 		'capability_type'     => 'page',
 	);
