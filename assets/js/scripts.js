@@ -3,7 +3,7 @@ jQuery(document).ready(function ($) {
     /**
      * Copy to clipboard
      */
-    var clipboard = new Clipboard(".affcoups-clipboard");
+    var clipboard = new ClipboardJS(".affcoups-clipboard");
 
     clipboard.on("success", function(e) {
 
