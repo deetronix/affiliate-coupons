@@ -12,6 +12,6 @@ Promote coupons and deals of products and earn money with affiliate referrals.
 
 ### Credits
 
-Affiliate Coupons was developed by [flowdee](http://flowdee.de/). 
+Affiliate Coupons was developed by [flowdee](https://twitter.com/flowdee). 
 
 You like my work? [Support me](https://donate.flowdee.de/) or not. I don't mind, as long as I was able to help you :wink:

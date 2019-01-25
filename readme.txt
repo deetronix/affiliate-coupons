@@ -3,8 +3,9 @@ Contributors: flowdee
 Donate link: https://donate.flowdee.de
 Tags: affiliate, affiliates, coupon, coupons, deals, affiliate coupon, affiliate coupons, affiliate deals, dealz, vendors, affiliate marketing, coupons plugin
 Requires at least: 3.0.1
-Tested up to: 5.0.1
-Stable tag: 1.5.2
+Requires PHP: 5.6.0
+Tested up to: 5.0.3
+Stable tag: 1.5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -93,6 +94,12 @@ Yes of course.
 2. Settings
 
 == Changelog ==
+
+= Version 1.5.3 (25th January 2018) =
+* Improvement: Optimized coupon code copy to clipboard handling
+* Fix: Coupon category and type metabox didn't show up in the sidebar of Gutenberg editor
+* Updated Clipboard.JS dependency to latest v2.0.4
+* WordPress v5.0.3 compatibility
 
 = Version 1.5.2 (17th December 2018) =
 * Improvement: Enabled new Gutenberg editor for coupon posts
@@ -211,6 +218,12 @@ Yes of course.
 * Initial release
 
 == Upgrade Notice ==
+
+= Version 1.5.3 (25th January 2018) =
+* Improvement: Optimized coupon code copy to clipboard handling
+* Fix: Coupon category and type metabox didn't show up in the sidebar of Gutenberg editor
+* Updated Clipboard.JS dependency to latest v2.0.4
+* WordPress v5.0.3 compatibility
 
 = Version 1.5.2 (17th December 2018) =
 * Improvement: Enabled new Gutenberg editor for coupon posts
