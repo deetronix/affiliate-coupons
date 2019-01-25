@@ -42,6 +42,7 @@ function affcoups_register_coupon_type_taxonomy() {
 	$args = array(
 		'labels'            => $labels,
 		'hierarchical'      => true,
+        'show_in_rest'      => true,
 		'public'            => false,
 		'show_ui'           => true,
 		'show_admin_column' => true,
