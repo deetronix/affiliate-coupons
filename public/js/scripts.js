@@ -404,11 +404,9 @@
         a.exports = c;
     } ]);
 }), jQuery(document).ready(function(a) {
-    var b = new ClipboardJS(".affcoups-clipboard");
-    b.on("success", function(a) {
-        a.clearSelection();
-    }), a(document).on("click", ".affcoups-clipboard", function(b) {
-        var c = a(this).find(".affcoups-clipboard__text"), d = c.html(), e = a(this).data("affcoups-clipboard-confirmation-text");
+    new ClipboardJS(".affcoups-clipboard");
+    a(document).on("click", ".affcoups-clipboard", function(b) {
+        var c = (a(this).data("affcoups-coupon-id"), a(this).find(".affcoups-clipboard__text")), d = c.html(), e = a(this).data("affcoups-clipboard-confirmation-text");
         c.html(e), setTimeout(function() {
             c.html(d);
         }, 2500);

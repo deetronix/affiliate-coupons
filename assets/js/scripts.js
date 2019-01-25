@@ -5,23 +5,31 @@ jQuery(document).ready(function ($) {
      */
     var clipboard = new ClipboardJS(".affcoups-clipboard");
 
+    /*
     clipboard.on("success", function(e) {
 
-        /*
-        console.info('Action:', e.action);
-        console.info('Text:', e.text);
-        console.info('Trigger:', e.trigger);
+        console.log('clipboard success');
 
+        //console.info('Action:', e.action);
+        //console.info('Text:', e.text);
+        //console.info('Trigger:', e.trigger);
         //console.log(e);
-         */
 
         e.clearSelection();
     });
+    */
 
     $(document).on( "click", ".affcoups-clipboard", function(e) {
 
+        var couponId = $(this).data('affcoups-coupon-id');
+
+        //console.log('couponId: ' + couponId);
+
         var textContainer = $(this).find('.affcoups-clipboard__text');
         var currentText = textContainer.html();
+
+        //copyToClipboard( currentText );
+        //Clipboard.copy(currentText );
 
         var confirmationLabel = $(this).data("affcoups-clipboard-confirmation-text");
 
