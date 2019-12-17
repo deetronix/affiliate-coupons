@@ -6,14 +6,14 @@ msgstr ""
 "Project-Id-Version: Affiliate Coupons\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/affiliate-"
 "coupons\n"
-"POT-Creation-Date: 2018-11-20 16:41+0100\n"
+"POT-Creation-Date: 2019-12-17 17:06+0100\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
 "Last-Translator: flowdee <coder@flowdee.de>\n"
-"Language-Team: Affiliatee Coupons <mail@affcoups.com>\n"
-"X-Generator: Poedit 2.2\n"
+"Language-Team: Affiliatee Coupons <support@affcoups.com>\n"
+"X-Generator: Poedit 2.2.4\n"
 "X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;"
 "_n_noop:1,2;_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;"
 "esc_attr_x:1,2c;esc_html_x:1,2c\n"
@@ -47,7 +47,7 @@ msgstr ""
 msgid "Affiliate Coupons - Settings"
 msgstr ""
 
-#: includes/admin/class-settings.php:56 includes/admin/class-settings.php:753
+#: includes/admin/class-settings.php:56 includes/admin/class-settings.php:773
 #: includes/admin/plugins.php:24
 msgid "Settings"
 msgstr ""
@@ -65,7 +65,7 @@ msgid "Sorting"
 msgstr ""
 
 #: includes/admin/class-settings.php:119
-#: includes/admin/class-settings.php:328
+#: includes/admin/class-settings.php:331
 msgid "Templates"
 msgstr ""
 
@@ -99,442 +99,458 @@ msgid "Dates"
 msgstr ""
 
 #: includes/admin/class-settings.php:151
+msgid "Credits"
+msgstr ""
+
+#: includes/admin/class-settings.php:155
 msgid "Custom CSS"
 msgstr ""
 
-#: includes/admin/class-settings.php:165
+#: includes/admin/class-settings.php:169
 msgid "Help & Support"
 msgstr ""
 
-#: includes/admin/class-settings.php:253
+#: includes/admin/class-settings.php:257
 msgid "First Steps"
 msgstr ""
 
-#: includes/admin/class-settings.php:256
+#: includes/admin/class-settings.php:260
 msgid "Create vendors"
 msgstr ""
 
-#: includes/admin/class-settings.php:257
+#: includes/admin/class-settings.php:261
 msgid "Create coupons"
 msgstr ""
 
-#: includes/admin/class-settings.php:258
+#: includes/admin/class-settings.php:262
 msgid "Link coupons to vendors"
 msgstr ""
 
-#: includes/admin/class-settings.php:259
+#: includes/admin/class-settings.php:263
 msgid "Assign categories and/or types to coupons if needed"
 msgstr ""
 
-#: includes/admin/class-settings.php:260
+#: includes/admin/class-settings.php:264
 msgid "Display coupons inside your posts/pages by using shortcodes"
 msgstr ""
 
-#: includes/admin/class-settings.php:264
+#: includes/admin/class-settings.php:268
 msgid "Show all coupons"
 msgstr ""
 
 #: includes/admin/class-settings.php:271
-msgid "Show single coupons"
-msgstr ""
-
-#: includes/admin/class-settings.php:274
-#: includes/admin/class-settings.php:289
-#: includes/admin/class-settings.php:294
+#: includes/admin/class-settings.php:278
+#: includes/admin/class-settings.php:293
+#: includes/admin/class-settings.php:298
 msgid "or"
 msgstr ""
 
-#: includes/admin/class-settings.php:279
+#: includes/admin/class-settings.php:275
+msgid "Show single coupons"
+msgstr ""
+
+#: includes/admin/class-settings.php:283
 msgid "Filter coupons"
 msgstr ""
 
-#: includes/admin/class-settings.php:280
+#: includes/admin/class-settings.php:284
 msgid ""
 "By passing the id or slug (only if specified) you can filter the results "
 "individually."
 msgstr ""
 
-#: includes/admin/class-settings.php:284
+#: includes/admin/class-settings.php:288
 msgid "Filter by vendor:"
 msgstr ""
 
-#: includes/admin/class-settings.php:288
+#: includes/admin/class-settings.php:292
 msgid "Filter by category:"
 msgstr ""
 
-#: includes/admin/class-settings.php:293
+#: includes/admin/class-settings.php:297
 msgid "Filter by type:"
 msgstr ""
 
-#: includes/admin/class-settings.php:299
+#: includes/admin/class-settings.php:303
 msgid "Show/hide expired coupons"
 msgstr ""
 
-#: includes/admin/class-settings.php:300
+#: includes/admin/class-settings.php:304
 msgid ""
 "Contrary to the settings below you can show/hide expired for each "
 "shortcode individually."
 msgstr ""
 
-#: includes/admin/class-settings.php:304
+#: includes/admin/class-settings.php:307
 msgid "vs."
 msgstr ""
 
-#: includes/admin/class-settings.php:309
+#: includes/admin/class-settings.php:312
 msgid "All filter options above can be combined inside the same shortcode."
 msgstr ""
 
-#: includes/admin/class-settings.php:313
+#: includes/admin/class-settings.php:316
 msgid "Sorting coupons"
 msgstr ""
 
-#: includes/admin/class-settings.php:317
+#: includes/admin/class-settings.php:320
 #: includes/widgets/class-widget-multiple.php:174
 msgid "Order:"
 msgstr ""
 
-#: includes/admin/class-settings.php:321
+#: includes/admin/class-settings.php:324
 #: includes/widgets/class-widget-multiple.php:158
 msgid "Order by:"
 msgstr ""
 
-#: includes/admin/class-settings.php:329
+#: includes/admin/class-settings.php:332
 msgid "You can easily select a template on a shortcode basis as follows:"
 msgstr ""
 
-#: includes/admin/class-settings.php:335
+#: includes/admin/class-settings.php:338
 msgid "The following templates are available right now:"
 msgstr ""
 
-#: includes/admin/class-settings.php:339
+#: includes/admin/class-settings.php:342
 msgid ""
 "In order to display multiple coupons side by side, make use of the grid "
 "functionality:"
 msgstr ""
 
-#: includes/admin/class-settings.php:345
+#: includes/admin/class-settings.php:348
 msgid ""
 "When passing the grid size parameter, the plugin will automatically choose "
 "the grid template."
 msgstr ""
 
-#: includes/admin/class-settings.php:350
+#: includes/admin/class-settings.php:353
 #, php-format
 msgid ""
 "Please take a look into the <a href=\"%s\">documentation</a> for more "
 "options."
 msgstr ""
 
-#: includes/admin/class-settings.php:364
+#: includes/admin/class-settings.php:367
 msgid "Show"
 msgstr ""
 
-#: includes/admin/class-settings.php:365
+#: includes/admin/class-settings.php:368
 msgid "Hide"
 msgstr ""
 
-#: includes/admin/class-settings.php:379
+#: includes/admin/class-settings.php:382
 msgid "Click to reveal"
 msgstr ""
 
-#: includes/admin/class-settings.php:389
-#: includes/admin/class-settings.php:583
+#: includes/admin/class-settings.php:392
+#: includes/admin/class-settings.php:586
 msgid "None"
 msgstr ""
 
-#: includes/admin/class-settings.php:390
+#: includes/admin/class-settings.php:393
 msgid "Cut"
 msgstr ""
 
-#: includes/admin/class-settings.php:391
+#: includes/admin/class-settings.php:394
 msgid "Cut (White)"
 msgstr ""
 
-#: includes/admin/class-settings.php:392
+#: includes/admin/class-settings.php:395
 msgid "Copy"
 msgstr ""
 
-#: includes/admin/class-settings.php:393
+#: includes/admin/class-settings.php:396
 msgid "Copy (White)"
 msgstr ""
 
-#: includes/admin/class-settings.php:394
+#: includes/admin/class-settings.php:397
 msgid "Paste"
 msgstr ""
 
-#: includes/admin/class-settings.php:395
+#: includes/admin/class-settings.php:398
 msgid "Paste (White)"
 msgstr ""
 
-#: includes/admin/class-settings.php:402
-#: includes/admin/class-settings.php:603
+#: includes/admin/class-settings.php:405
+#: includes/admin/class-settings.php:606
 msgid "Icon"
 msgstr ""
 
-#: includes/admin/class-settings.php:410
-#: includes/admin/class-settings.php:563
-#: includes/admin/class-settings.php:612
+#: includes/admin/class-settings.php:413
+#: includes/admin/class-settings.php:566
+#: includes/admin/class-settings.php:615
 msgid "Background Color"
 msgstr ""
 
-#: includes/admin/class-settings.php:414
-#: includes/admin/class-settings.php:567
-#: includes/admin/class-settings.php:616
+#: includes/admin/class-settings.php:417
+#: includes/admin/class-settings.php:570
+#: includes/admin/class-settings.php:619
 msgid "Text Color"
 msgstr ""
 
-#: includes/admin/class-settings.php:432
+#: includes/admin/class-settings.php:435
 msgid "Hide coupon dates on the front end"
 msgstr ""
 
-#: includes/admin/class-settings.php:436
+#: includes/admin/class-settings.php:439
 msgid "Hide coupons after they expired"
 msgstr ""
 
-#: includes/admin/class-settings.php:448
+#: includes/admin/class-settings.php:451
 msgid "Ascending "
 msgstr ""
 
-#: includes/admin/class-settings.php:449
+#: includes/admin/class-settings.php:452
 msgid "Descending"
 msgstr ""
 
-#: includes/admin/class-settings.php:456
+#: includes/admin/class-settings.php:459
 msgid "Order by"
 msgstr ""
 
-#: includes/admin/class-settings.php:465
+#: includes/admin/class-settings.php:468
 msgid "Order"
 msgstr ""
 
-#: includes/admin/class-settings.php:487
+#: includes/admin/class-settings.php:490
 msgid "Template"
 msgstr ""
 
-#: includes/admin/class-settings.php:496
+#: includes/admin/class-settings.php:499
 msgid ""
 "The default template which will be used for displaying coupons (widgets "
 "excepted)."
 msgstr ""
 
-#: includes/admin/class-settings.php:500
+#: includes/admin/class-settings.php:503
 msgid "Grid size"
 msgstr ""
 
-#: includes/admin/class-settings.php:505
+#: includes/admin/class-settings.php:508
 msgid ""
 "The default grid size which will be used for displaying coupons (widgets "
 "excepted)."
 msgstr ""
 
-#: includes/admin/class-settings.php:519
+#: includes/admin/class-settings.php:522
 msgid "Style"
 msgstr ""
 
-#: includes/admin/class-settings.php:528
+#: includes/admin/class-settings.php:531
 msgid ""
 "The default style which will be used for displaying coupons (widgets "
 "excepted)."
 msgstr ""
 
-#: includes/admin/class-settings.php:530
+#: includes/admin/class-settings.php:533
 msgid "More styles"
 msgstr ""
 
-#: includes/admin/class-settings.php:544
+#: includes/admin/class-settings.php:547
 msgid "Excerpt Length"
 msgstr ""
 
-#: includes/admin/class-settings.php:549
+#: includes/admin/class-settings.php:552
 msgid ""
 "Some templates are displaying an excerpt instead of the whole coupon "
 "description."
 msgstr ""
 
-#: includes/admin/class-settings.php:580 includes/class-coupon.php:506
+#: includes/admin/class-settings.php:583 includes/class-coupon.php:506
 msgid "Go to the deal"
 msgstr ""
 
-#: includes/admin/class-settings.php:584
+#: includes/admin/class-settings.php:587
 msgid "Thumbs up"
 msgstr ""
 
-#: includes/admin/class-settings.php:585
+#: includes/admin/class-settings.php:588
 msgid "Thumbs up (White)"
 msgstr ""
 
-#: includes/admin/class-settings.php:586
+#: includes/admin/class-settings.php:589
 msgid "Hand right"
 msgstr ""
 
-#: includes/admin/class-settings.php:587
+#: includes/admin/class-settings.php:590
 msgid "Hand right (White)"
 msgstr ""
 
-#: includes/admin/class-settings.php:588
+#: includes/admin/class-settings.php:591
 msgid "Gavel"
 msgstr ""
 
-#: includes/admin/class-settings.php:589
+#: includes/admin/class-settings.php:592
 msgid "Gavel (White)"
 msgstr ""
 
-#: includes/admin/class-settings.php:590
+#: includes/admin/class-settings.php:593
 msgid "Shopping cart"
 msgstr ""
 
-#: includes/admin/class-settings.php:591
+#: includes/admin/class-settings.php:594
 msgid "Shopping cart (White)"
 msgstr ""
 
-#: includes/admin/class-settings.php:598
+#: includes/admin/class-settings.php:601
 msgid "Text"
 msgstr ""
 
-#: includes/admin/class-settings.php:635
+#: includes/admin/class-settings.php:636
+msgid "I like the plugin and I want to support you"
+msgstr ""
+
+#: includes/admin/class-settings.php:639
+msgid ""
+"By activating the checkbox a small note will be displayed right after the "
+"coupons. This will let your site visitors know, that you are using our "
+"plugin."
+msgstr ""
+
+#: includes/admin/class-settings.php:655
 msgid "Output custom CSS styles"
 msgstr ""
 
-#: includes/admin/class-settings.php:640
+#: includes/admin/class-settings.php:660
 msgid ""
 "Please don't use the HTML style tag. Simply paste you CSS classes/"
 "definitions. For example:"
 msgstr ""
 
-#: includes/admin/class-settings.php:652
+#: includes/admin/class-settings.php:672
 msgid ""
 "In case you want to change the colors, you must pick a new color for all "
 "fields above."
 msgstr ""
 
-#: includes/admin/class-settings.php:666
+#: includes/admin/class-settings.php:686
 msgid "Enabled"
 msgstr ""
 
-#: includes/admin/class-settings.php:667
+#: includes/admin/class-settings.php:687
 msgid "Disabled"
 msgstr ""
 
-#: includes/admin/class-settings.php:672
+#: includes/admin/class-settings.php:692
 msgid ""
 "Here you can find additional information which may help in case you "
 "experience some issue with our plugin."
 msgstr ""
 
-#: includes/admin/class-settings.php:678
+#: includes/admin/class-settings.php:698
 msgid "Setting"
 msgstr ""
 
-#: includes/admin/class-settings.php:679
+#: includes/admin/class-settings.php:699
 msgid "Values"
 msgstr ""
 
-#: includes/admin/class-settings.php:692
+#: includes/admin/class-settings.php:712
 #, php-format
 msgid "PHP \"%1$s\" extension"
 msgstr ""
 
-#: includes/admin/class-settings.php:702
+#: includes/admin/class-settings.php:722
 msgid ""
 "In case one of the values above is <span style=\"color: red;"
 "\"><strong>red</strong></span>, please get in contact with your webhoster "
 "in order to enable the missing PHP extensions."
 msgstr ""
 
-#: includes/admin/class-settings.php:706
+#: includes/admin/class-settings.php:726
 msgid "Log file"
 msgstr ""
 
-#: includes/admin/class-settings.php:707
+#: includes/admin/class-settings.php:727
 msgid "No entries yet. "
 msgstr ""
 
-#: includes/admin/class-settings.php:714
+#: includes/admin/class-settings.php:734
 msgid "Other"
 msgstr ""
 
-#: includes/admin/class-settings.php:717
+#: includes/admin/class-settings.php:737
 msgid ""
 "Remove all saved data for Affiliate Coupons when the plugin is deleted"
 msgstr ""
 
-#: includes/admin/class-settings.php:753 includes/coupon-post-type.php:22
+#: includes/admin/class-settings.php:773 includes/coupon-post-type.php:22
 msgid "Affiliate Coupons"
 msgstr ""
 
-#: includes/admin/class-settings.php:793
+#: includes/admin/class-settings.php:813
 msgid ""
 "In order to make it as simple as possible for you, we created a detailed "
 "online documentation."
 msgstr ""
 
-#: includes/admin/class-settings.php:804
+#: includes/admin/class-settings.php:824
 msgid "Documentation"
 msgstr ""
 
-#: includes/admin/class-settings.php:807
+#: includes/admin/class-settings.php:827
 msgid "Plugin Page"
 msgstr ""
 
-#: includes/admin/class-settings.php:810
+#: includes/admin/class-settings.php:830
 msgid "Changelog"
 msgstr ""
 
-#: includes/admin/class-settings.php:813
+#: includes/admin/class-settings.php:833
 msgid "Follow us on Twitter"
 msgstr ""
 
-#: includes/admin/class-settings.php:821
+#: includes/admin/class-settings.php:841
 msgid "Upgrade to PRO Version"
 msgstr ""
 
-#: includes/admin/class-settings.php:824
+#: includes/admin/class-settings.php:844
 msgid ""
 "The PRO version extends the plugin exclusively with a variety of different "
 "styles and some exclusively features."
 msgstr ""
 
-#: includes/admin/class-settings.php:827
+#: includes/admin/class-settings.php:847
 msgid "Click to reveal discount codes"
 msgstr ""
 
-#: includes/admin/class-settings.php:828
+#: includes/admin/class-settings.php:848
 msgid "View, copy & click statistics"
 msgstr ""
 
-#: includes/admin/class-settings.php:829
+#: includes/admin/class-settings.php:849
 msgid "Choose from different styles"
 msgstr ""
 
-#: includes/admin/class-settings.php:830
+#: includes/admin/class-settings.php:850
 msgid "Additional templates"
 msgstr ""
 
-#: includes/admin/class-settings.php:831
+#: includes/admin/class-settings.php:851
 msgid "Feature & highlight single coupons"
 msgstr ""
 
-#: includes/admin/class-settings.php:832
+#: includes/admin/class-settings.php:852
 msgid "Popular coupons widget"
 msgstr ""
 
-#: includes/admin/class-settings.php:833
+#: includes/admin/class-settings.php:853
 msgid "Event Tracking via Google & Piwik"
 msgstr ""
 
-#: includes/admin/class-settings.php:834
+#: includes/admin/class-settings.php:854
 msgid "Create custom templates"
 msgstr ""
 
-#: includes/admin/class-settings.php:835
+#: includes/admin/class-settings.php:855
 msgid "And more!"
 msgstr ""
 
-#: includes/admin/class-settings.php:839
+#: includes/admin/class-settings.php:859
 msgid "We would be happy if you give it a chance!"
 msgstr ""
 
-#: includes/admin/class-settings.php:844
+#: includes/admin/class-settings.php:864
 msgid "More details"
 msgstr ""
 
@@ -959,6 +975,13 @@ msgstr ""
 msgid "Random"
 msgstr ""
 
+#: includes/hooks.php:164
+#, php-format
+msgid ""
+"Made with the <a href=\"%s\" target=\"_blank\" rel=\"nofollow\">Affiliate "
+"Coupons</a> WordPress plugin."
+msgstr ""
+
 #: includes/pro-functions.php:57
 #, php-format
 msgid ""
@@ -973,11 +996,11 @@ msgid ""
 "\">Affiliate Coupons (PRO)</a>"
 msgstr ""
 
-#: includes/shortcodes.php:179 includes/template-functions.php:47
+#: includes/shortcodes.php:182 includes/template-functions.php:47
 msgid "Template not found."
 msgstr ""
 
-#: includes/shortcodes.php:183
+#: includes/shortcodes.php:186
 msgid "No coupons found."
 msgstr ""
 

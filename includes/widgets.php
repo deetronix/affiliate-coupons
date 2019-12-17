@@ -42,7 +42,7 @@ function affcoups_widget_do_shortcode( $atts = array() ) {
 			$shortcode .= ' ' . $key . '="' . $value . '"';
 		}
 
-		$shortcode .= '/]';
+		$shortcode .= ' is_widget="true" /]';
 
 		// Execute Shortcode
 		echo do_shortcode( $shortcode );

@@ -147,6 +147,10 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
                                 'title' => __( 'Dates', 'affiliate-coupons' ),
                                 'callback' => array( &$this, 'dates_render' )
                             ),
+                            'credits' => array(
+                                'title' => __( 'Credits', 'affiliate-coupons' ),
+                                'callback' => array( &$this, 'credits_render' )
+                            ),
                             'custom_css' => array(
                                 'title' => __( 'Custom CSS', 'affiliate-coupons' ),
                                 'callback' => array( &$this, 'custom_css_render' )
@@ -619,6 +623,23 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 			<?php $this->the_color_picker_note(); ?>
 			<?php
 		}
+
+        /**
+         * Render credits settings
+         */
+        function credits_render() {
+
+            $show_credits = ( isset( $this->options['show_credits'] ) && $this->options['show_credits'] == '1' ) ? 1 : 0;
+            ?>
+            <p>
+                <input type="checkbox" id="affcoups_show_credits" name="affcoups_settings[show_credits]" value="1" <?php echo( $show_credits == 1 ? 'checked' : '' ); ?> />
+                <label for="affcoups_show_credits"><?php esc_html_e( 'I like the plugin and I want to support you', 'affiliate-coupons' ); ?></label>
+            </p>
+            <p class="desc">
+                <?php esc_html_e( 'By activating the checkbox a small note will be displayed right after the coupons. This will let your site visitors know, that you are using our plugin.', 'affiliate-coupons' ); ?>
+            </p>
+            <?php
+        }
 
         /**
          * Render custom CSS settings

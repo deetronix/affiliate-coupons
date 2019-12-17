@@ -140,3 +140,30 @@ function affcoups_frontend_variables() {
     <?php
 }
 add_action( 'wp_footer', 'affcoups_frontend_variables' );
+
+/**
+ * Maybe show plugin credits
+ *
+ * @param $output
+ * @param $is_widget
+ * @return string
+ */
+function affcoups_maybe_show_credits( $output, $is_widget ) {
+
+    $show_credits = affcoups_get_option( 'show_credits' );
+
+    if ( ! empty ( $show_credits ) && ! $is_widget ) {
+
+        $url = esc_url( add_query_arg( array(
+                'utm_source'   => get_bloginfo( 'title' ),
+                'utm_medium'   => 'credits-link',
+                'utm_campaign' => 'Affiliate Coupons',
+            ), 'https://affcoups.com' )
+        );
+
+        $output .= '<p class="affcoups-credits">' . sprintf( wp_kses( __( 'Made with the <a href="%s" target="_blank" rel="nofollow">Affiliate Coupons</a> WordPress plugin.', 'affiliate-coupons' ), array(  'a' => array( 'href' => array(), 'target' => '_blank', 'rel' => 'nofollow' ) ) ), esc_url( $url ) ) . '</p>';
+    }
+
+    return $output;
+}
+add_filter( 'affcoups_shortcode_output', 'affcoups_maybe_show_credits', 99, 2 );

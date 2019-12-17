@@ -44,11 +44,14 @@ function affcoups_add_shortcode( $atts, $content ) {
         'code'         => null,
 		'order'        => null,
 		'orderby'      => null,
+        'is_widget'    => false
 	), $atts ) );
 
 	global $affcoups_shortcode_atts;
 
 	$affcoups_shortcode_atts = $atts;
+
+	$is_widget = ( isset ( $atts['is_widget'] ) && 'true' == $atts['is_widget'] ) ? true : false;
 
 	// Prepare options
 	$options = affcoups_get_options();
@@ -183,13 +186,15 @@ function affcoups_add_shortcode( $atts, $content ) {
 		esc_html_e( 'No coupons found.', 'affiliate-coupons' );
 	}
 
-	$str = ob_get_clean();
+	$output = ob_get_clean();
+
+    $output = apply_filters( 'affcoups_shortcode_output', $output, $is_widget );
 
 	// Remove unwanted line breaks from output
-	$str = preg_replace( '/^\s+|\n|\r|\s+$/m', '', $str );
+    $output = preg_replace( '/^\s+|\n|\r|\s+$/m', '', $output );
 
 	// Return output
-	return $str;
+	return $output;
 }
 
 add_shortcode( 'affcoups', 'affcoups_add_shortcode' );
