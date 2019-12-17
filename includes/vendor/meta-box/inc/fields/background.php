@@ -2,7 +2,7 @@
 /**
  * The background field.
  *
- * @package Meta Box.
+ * @package Meta Box
  */
 
 /**
@@ -156,6 +156,9 @@ class RWMB_Background_Field extends RWMB_Field {
 	 * @return string
 	 */
 	public static function format_single_value( $field, $value, $args, $post_id ) {
+		if ( empty( $value ) ) {
+			return '';
+		}
 		$output = '';
 		$value  = array_filter( $value );
 		foreach ( $value as $key => $subvalue ) {
