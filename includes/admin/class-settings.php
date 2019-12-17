@@ -300,8 +300,7 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
                 <?php esc_html_e( 'Contrary to the settings below you can show/hide expired for each shortcode individually.', 'affiliate-coupons' ); ?>
             </p>
             <p>
-                <code>[affcoups
-                    hideesc_html_expired="true"]</code> <?php esc_html_e( 'vs.', 'affiliate-coupons' ); ?>
+                <code>[affcoups hide_expired="true"]</code> <?php esc_html_e( 'vs.', 'affiliate-coupons' ); ?> 
                 <code>[affcoups hide_expired="false"]</code>
             </p>
 
