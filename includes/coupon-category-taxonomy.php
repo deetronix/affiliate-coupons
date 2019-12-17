@@ -53,8 +53,6 @@ function affcoups_register_coupon_category_taxonomy() {
 
 	$args = apply_filters( 'affcoups_coupon_type_taxonomy_args', $args );
 
-	register_taxonomy( 'affcoups_coupon_category', array( 'affcoups_coupon' ), $args );
-
+	register_taxonomy( AFFCOUPS_COUPON_CATEGORY_TAXONOMY, array( AFFCOUPS_COUPON_POST_TYPE ), $args );
 }
-
 add_action( 'init', 'affcoups_register_coupon_category_taxonomy', 0 );

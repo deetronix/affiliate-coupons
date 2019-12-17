@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: Affiliate Coupons\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/affiliate-"
 "coupons\n"
-"POT-Creation-Date: 2019-12-17 17:34+0100\n"
+"POT-Creation-Date: 2019-12-17 18:31+0100\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -997,18 +997,26 @@ msgid ""
 "Coupons</a> WordPress plugin."
 msgstr ""
 
-#: includes/pro-functions.php:57
+#: includes/pro-functions.php:65
 #, php-format
 msgid ""
 " is available in <a href=\"%s\" target=\"_blank\" rel=\"nofollow"
 "\">Affiliate Coupons (PRO)</a>"
 msgstr ""
 
-#: includes/pro-functions.php:59
+#: includes/pro-functions.php:67
 #, php-format
 msgid ""
 " are available in <a href=\"%s\" target=\"_blank\" rel=\"nofollow"
 "\">Affiliate Coupons (PRO)</a>"
+msgstr ""
+
+#: includes/pro-functions.php:85
+#, php-format
+msgid ""
+"Do you already know the pro version of Affiliate Coupons? <a href=\"%s\" "
+"target=\"_blank\" rel=\"nofollow\">Discover all the additional features</"
+"a>."
 msgstr ""
 
 #: includes/shortcodes.php:189 includes/template-functions.php:47

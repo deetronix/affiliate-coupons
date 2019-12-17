@@ -80,9 +80,7 @@ function affcoups_register_coupon_post_type() {
 
 	$args = apply_filters( 'affcoups_coupon_post_type_args', $args );
 
-	register_post_type( 'affcoups_coupon', $args );
-
+	register_post_type( AFFCOUPS_COUPON_POST_TYPE, $args );
 }
-
 add_action( 'init', 'affcoups_register_coupon_post_type', 0 );
 

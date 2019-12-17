@@ -47,7 +47,7 @@ function affcoups_register_vendor_meta_boxes( $meta_boxes ) {
 	$meta_boxes[] = array(
 		'id'         => AFFCOUPS_PREFIX . 'vendor_details',
 		'title'      => __( 'Vendor: Details', 'affiliate-coupons' ),
-		'post_types' => array( 'affcoups_vendor' ),
+		'post_types' => array( AFFCOUPS_COUPON_VENDOR_POST_TYPE ),
 		'context'    => 'normal',
 		'priority'   => 'high',
 		'fields'     => $fields,

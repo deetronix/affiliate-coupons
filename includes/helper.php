@@ -132,6 +132,30 @@ function affcoups_is_plugin_admin_area() {
 }
 
 /**
+ * Check whether we are on our plugin coupons page or not
+ *
+ * @return bool
+ */
+function affcoups_is_plugin_admin_area_coupons() {
+
+    $screen = get_current_screen();
+
+    return ( isset ( $screen->post_type ) && AFFCOUPS_COUPON_POST_TYPE === $screen->post_type ) ? true : false;
+}
+
+/**
+ * Check whether we are on our plugin vendors page or not
+ *
+ * @return bool
+ */
+function affcoups_is_plugin_admin_area_vendors() {
+
+    $screen = get_current_screen();
+
+    return ( isset ( $screen->post_type ) && AFFCOUPS_COUPON_VENDOR_POST_TYPE === $screen->post_type ) ? true : false;
+}
+
+/**
  * Get website url
  *
  * @param $path

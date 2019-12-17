@@ -56,7 +56,7 @@ function affcoups_register_vendor_post_type() {
 		'hierarchical'        => false,
 		'public'              => false,
 		'show_ui'             => true,
-		'show_in_menu'        => 'edit.php?post_type=affcoups_coupon',
+		'show_in_menu'        => 'edit.php?post_type=' . AFFCOUPS_COUPON_POST_TYPE,
 		'menu_position'       => 25,
 		'menu_icon'           => false,
 		'show_in_admin_bar'   => false,
@@ -68,8 +68,6 @@ function affcoups_register_vendor_post_type() {
 		'rewrite'             => false,
 		'capability_type'     => 'page',
 	);
-	register_post_type( 'affcoups_vendor', $args );
-
+	register_post_type( AFFCOUPS_COUPON_VENDOR_POST_TYPE, $args );
 }
-
 add_action( 'init', 'affcoups_register_vendor_post_type', 0 );

@@ -173,6 +173,24 @@ if( ! class_exists( 'Affiliate_Coupons' ) ) :
             if ( ! defined( 'AFFCOUPS_PREFIX' ) ) {
                 define( 'AFFCOUPS_PREFIX', 'affcoups_' );
             }
+
+            // Post Types
+            if ( ! defined( 'AFFCOUPS_COUPON_POST_TYPE' ) ) {
+                define( 'AFFCOUPS_COUPON_POST_TYPE', 'affcoups_coupon' );
+            }
+
+            if ( ! defined( 'AFFCOUPS_COUPON_VENDOR_POST_TYPE' ) ) {
+                define( 'AFFCOUPS_COUPON_VENDOR_POST_TYPE', 'affcoups_vendor' );
+            }
+
+            // Taxonomies
+            if ( ! defined( 'AFFCOUPS_COUPON_CATEGORY_TAXONOMY' ) ) {
+                define( 'AFFCOUPS_COUPON_CATEGORY_TAXONOMY', 'affcoups_coupon_category' );
+            }
+
+            if ( ! defined( 'AFFCOUPS_COUPON_TYPE_TAXONOMY' ) ) {
+                define( 'AFFCOUPS_COUPON_TYPE_TAXONOMY', 'affcoups_coupon_type' );
+            }
         }
 
         /**

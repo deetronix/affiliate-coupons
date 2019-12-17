@@ -58,6 +58,23 @@ body.affcoups-admin h1.wp-heading-inline:before {
   line-height: 20px;
   text-transform: uppercase;
 }
+.affcoups-tablenav-note {
+  /*
+    padding-left: (@tablenav-note-icon-size * 1.5);
+
+    background-repeat: no-repeat;
+    background-image: url('../img/icon-notice.png');
+    background-size: @tablenav-note-icon-size @tablenav-note-icon-size;
+    background-position: left center;
+     */
+  line-height: 30px;
+  vertical-align: middle;
+}
+@media (max-width: 783px) {
+  .affcoups-tablenav-note {
+    display: none;
+  }
+}
 .affcoups-settings .dashicons-star-filled {
   color: #F99F1B;
 }

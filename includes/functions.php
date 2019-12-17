@@ -49,7 +49,7 @@ function affcoups_get_coupons( $args = array(), $return_posts = false ) {
     $coupons = array();
 
     $defaults = array(
-        'post_type'      => 'affcoups_coupon',
+        'post_type'      => AFFCOUPS_COUPON_POST_TYPE,
         'post_status'    => 'publish',
         'posts_per_page' => - 1,
         //'nopaging' => true,
@@ -397,7 +397,7 @@ function affcoups_get_vendors_list() {
 function affcoups_get_vendors() {
 
     $args = array(
-        'post_type'      => 'affcoups_vendor',
+        'post_type'      => AFFCOUPS_COUPON_VENDOR_POST_TYPE,
         'post_status'    => 'publish',
         'posts_per_page' => - 1,
         //'nopaging' => true,

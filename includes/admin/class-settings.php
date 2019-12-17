@@ -874,7 +874,7 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
                                                 </p>
 
                                                 <p>
-                                                    <?php $upgrade_link = affcoups_get_pro_version_url( 'settings-page', 'infobox-upgrade' ); ?>
+                                                    <?php $upgrade_link = affcoups_get_pro_version_url( 'features', 'settings-page', 'infobox-upgrade' ); ?>
                                                     <a class="affcoups-settings-button affcoups-settings-button--block" target="_blank" href="<?php echo $upgrade_link; ?>" rel="nofollow"><?php _e('More details', 'affiliate-coupons'); ?></a>
                                                 </p>
                                             </div>

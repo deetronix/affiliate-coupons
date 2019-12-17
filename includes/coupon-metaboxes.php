@@ -24,7 +24,7 @@ function affcoups_register_coupon_meta_boxes( $meta_boxes ) {
 			'name'        => esc_html__( 'Vendor', 'affiliate-coupons' ),
 			'id'          => AFFCOUPS_PREFIX . 'coupon_vendor',
 			'type'        => 'post',
-			'post_type'   => 'affcoups_vendor',
+			'post_type'   => AFFCOUPS_COUPON_VENDOR_POST_TYPE,
 			'field_type'  => 'select_advanced',
 			'placeholder' => esc_html__( 'Please select...', 'affiliate-coupons' ),
 			'query_args'  => array(
@@ -111,7 +111,7 @@ function affcoups_register_coupon_meta_boxes( $meta_boxes ) {
 	$meta_boxes[] = array(
 		'id'         => AFFCOUPS_PREFIX . 'coupon_details',
 		'title'      => __( 'Coupon: Details', 'affiliate-coupons' ),
-		'post_types' => array( 'affcoups_coupon' ),
+		'post_types' => array( AFFCOUPS_COUPON_POST_TYPE ),
 		'context'    => 'normal',
 		'priority'   => 'high',
 		'fields'     => $fields, /*

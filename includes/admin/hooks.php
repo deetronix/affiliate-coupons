@@ -76,7 +76,7 @@ function affcoups_admin_notices() {
 	if ( sizeof( $notices ) > 0 ) {
 		foreach ( $notices as $notice_id => $notice ) {
 
-			// Maybe showing the notice on AAWP related admin pages only
+			// Maybe showing the notice on related admin pages only
 			if ( isset( $notice['force'] ) && false === $notice['force'] && ! $is_plugin_area ) {
 				continue;
 			}
@@ -103,7 +103,6 @@ function affcoups_admin_notices() {
 		}
 	}
 }
-
 add_action( 'admin_notices', 'affcoups_admin_notices' );
 
 /**
@@ -123,3 +122,13 @@ function affcoups_admin_footer_text( $text ) {
 }
 
 add_filter( 'admin_footer_text', 'affcoups_admin_footer_text' );
+
+/**
+ * Maybe output the tablenav note
+ */
+add_action( 'manage_posts_extra_tablenav', function( $which ) {
+
+    if ( 'top' === $which && ( affcoups_is_plugin_admin_area_coupons() || affcoups_is_plugin_admin_area_vendors() ) )
+        affcoups_the_pro_features_tablenav_note();
+
+}, 99 );
