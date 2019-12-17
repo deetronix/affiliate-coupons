@@ -187,6 +187,27 @@ function affcoups_get_coupons( $args = array(), $return_posts = false ) {
     }
 
     //-- Expiration
+    if ( isset( $args['affcoups_coupon_hide_invalid'] ) && true === $args['affcoups_coupon_hide_invalid'] ) {
+
+        $meta_queries[] = array(
+            'relation' => 'OR',
+            // From date not set yet
+            array(
+                'key'     => AFFCOUPS_PREFIX . 'coupon_valid_from',
+                'value'   => '',
+                'compare' => 'NOT EXISTS',
+                'type'    => 'NUMERIC'
+            ),
+            // Not valid yet
+            array(
+                'key'     => AFFCOUPS_PREFIX . 'coupon_valid_from',
+                'value'   => time(),
+                'compare' => '<',
+                'type'    => 'NUMERIC'
+            )
+        );
+    }
+
     if ( isset( $args['affcoups_coupon_hide_expired'] ) && true === $args['affcoups_coupon_hide_expired'] ) {
 
         $meta_queries[] = array(

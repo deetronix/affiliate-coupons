@@ -37,8 +37,9 @@ function affcoups_add_shortcode( $atts, $content ) {
 		'vendor'       => null,
 		'max'          => null,
 		'grid'         => null,
-		'hide_expired' => null,
 		'hide_dates'   => null,
+        'hide_invalid' => null,
+        'hide_expired' => null,
 		'template'     => null,
         'style'        => null,
         'code'         => null,
@@ -100,6 +101,12 @@ function affcoups_add_shortcode( $atts, $content ) {
 	}
 
 	//-- Expiration
+    if ( ! empty( $hide_invalid ) ) {
+        $args['affcoups_coupon_hide_invalid'] = ( 'true' === $hide_invalid ) ? true : false;
+    } else {
+        $args['affcoups_coupon_hide_invalid'] = ( isset( $options['hide_invalid_coupons'] ) && '1' === $options['hide_invalid_coupons'] ) ? true : false;
+    }
+
 	if ( ! empty( $hide_expired ) ) {
 		$args['affcoups_coupon_hide_expired'] = ( 'true' === $hide_expired ) ? true : false;
 	} else {
