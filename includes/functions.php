@@ -117,7 +117,7 @@ function affcoups_get_coupons( $args = array(), $return_posts = false ) {
             $args['orderby']  = 'meta_value_num';
             $args['meta_key'] = AFFCOUPS_PREFIX . 'coupon_valid_from';
 
-        } elseif ( 'valid_until' === $orderby ) {
+        } elseif ( 'valid_until' === $orderby || 'valid_to' === $orderby ) {
             $args['orderby']  = 'meta_value_num';
             $args['meta_key'] = AFFCOUPS_PREFIX . 'coupon_valid_until';
 
@@ -454,7 +454,7 @@ function affcoups_get_orderby_options() {
         'description' => __( 'Description (Coupon)', 'affiliate-coupons' ),
         'discount'    => __( 'Discount (Coupon)', 'affiliate-coupons' ),
         'valid_from'  => __( 'Valid from date (Coupon)', 'affiliate-coupons' ),
-        'valid_to'    => __( 'Valid to date (Coupon)', 'affiliate-coupons' ),
+        'valid_until' => __( 'Valid until date (Coupon)', 'affiliate-coupons' ),
         'random'      => __( 'Random', 'affiliate-coupons' )
     );
 

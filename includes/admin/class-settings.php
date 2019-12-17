@@ -323,7 +323,7 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
                 <li>
                     <?php esc_html_e( 'Order by:', 'affiliate-coupons' ); ?>
                     <code>[affcoups orderby="title"]</code> (name, date, random, title, description, discount,
-                    valid_from, valid_to)
+                    valid_from, valid_until)
                 </li>
             </ul>
 
