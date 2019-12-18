@@ -211,14 +211,44 @@ function affcoups_get_coupons( $args = array(), $return_posts = false ) {
     if ( isset( $args['affcoups_coupon_hide_expired'] ) && true === $args['affcoups_coupon_hide_expired'] ) {
 
         $meta_queries[] = array(
+            array(
+                'key'     => AFFCOUPS_PREFIX . 'coupon_valid_until',
+                'compare' => 'EXISTS',
+            ),
+        );
+
+        $meta_queries[] = array(
             'relation' => 'OR',
             // Until date not set yet
+            /*
             array(
                 'key'     => AFFCOUPS_PREFIX . 'coupon_valid_until',
                 'value'   => '',
                 'compare' => 'NOT EXISTS',
-                'type'    => 'NUMERIC'
+            ),*/
+            /*
+            array(
+                'key'     => AFFCOUPS_PREFIX . 'coupon_valid_until',
+                'compare' => 'NOT EXISTS',
             ),
+            */
+            /*array(
+                'key'     => AFFCOUPS_PREFIX . 'coupon_valid_until',
+                'compare' => 'EXISTS',
+            ),*/
+            /*
+            array(
+                'key'     => AFFCOUPS_PREFIX . 'coupon_valid_until',
+                'value'   => '',
+                'compare' => '=',
+            ),
+            */
+            /*array(
+                'key'     => AFFCOUPS_PREFIX . 'coupon_valid_until',
+                'value'   => '',
+                'compare' => 'NOT EXISTS',
+                'type'    => 'NUMERIC'
+            ),*/
             // Already expired
             array(
                 'key'     => AFFCOUPS_PREFIX . 'coupon_valid_until',
@@ -239,7 +269,7 @@ function affcoups_get_coupons( $args = array(), $return_posts = false ) {
         $args['tax_query'] = $tax_queries;
     }
 
-    //affcoups_debug( $args, 'affcoups_get_coupons $args' );
+    affcoups_debug( $args, 'affcoups_get_coupons $args' );
 
     $coupon_pre_posts = apply_filters( 'affcoups_get_coupons_pre_posts', array(), $args );
     //affcoups_debug( $coupon_pre_posts, 'affcoups_get_coupons $coupon_pre_posts' );
@@ -272,6 +302,8 @@ function affcoups_get_coupons( $args = array(), $return_posts = false ) {
 
     //-- Apply filters
     $coupons = apply_filters( 'affcoups_get_coupons_objects', $coupons );
+
+    //affcoups_debug( $coupons, '$coupons' );
 
     return $coupons;
 }

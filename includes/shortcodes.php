@@ -115,7 +115,7 @@ function affcoups_add_shortcode( $atts, $content ) {
 
     $args = apply_filters( 'affcoups_shortcode_args', $args, $atts );
 
-	//affcoups_debug( $args );
+	affcoups_debug( $args );
 
 	//-- Get coupons
 	$coupons = affcoups_get_coupons( $args );

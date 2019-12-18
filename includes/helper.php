@@ -239,6 +239,10 @@ function affcoups_addlog( $string ) {
  */
 function affcoups_debug( $args, $title = false ) {
 
+    if ( ! affcoups_is_development() ) {
+        return;
+    }
+
 	if ( $title ) {
 		echo '<h3>' . esc_html( $title ) . '</h3>';
 	}
