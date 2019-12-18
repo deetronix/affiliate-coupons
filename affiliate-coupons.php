@@ -179,8 +179,8 @@ if( ! class_exists( 'Affiliate_Coupons' ) ) :
                 define( 'AFFCOUPS_COUPON_POST_TYPE', 'affcoups_coupon' );
             }
 
-            if ( ! defined( 'AFFCOUPS_COUPON_VENDOR_POST_TYPE' ) ) {
-                define( 'AFFCOUPS_COUPON_VENDOR_POST_TYPE', 'affcoups_vendor' );
+            if ( ! defined( 'AFFCOUPS_VENDOR_POST_TYPE' ) ) {
+                define( 'AFFCOUPS_VENDOR_POST_TYPE', 'affcoups_vendor' );
             }
 
             // Taxonomies

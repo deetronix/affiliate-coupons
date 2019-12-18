@@ -397,7 +397,7 @@ function affcoups_get_vendors_list() {
 function affcoups_get_vendors() {
 
     $args = array(
-        'post_type'      => AFFCOUPS_COUPON_VENDOR_POST_TYPE,
+        'post_type'      => AFFCOUPS_VENDOR_POST_TYPE,
         'post_status'    => 'publish',
         'posts_per_page' => - 1,
         //'nopaging' => true,

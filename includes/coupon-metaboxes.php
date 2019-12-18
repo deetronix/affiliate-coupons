@@ -24,7 +24,7 @@ function affcoups_register_coupon_meta_boxes( $meta_boxes ) {
 			'name'        => esc_html__( 'Vendor', 'affiliate-coupons' ),
 			'id'          => AFFCOUPS_PREFIX . 'coupon_vendor',
 			'type'        => 'post',
-			'post_type'   => AFFCOUPS_COUPON_VENDOR_POST_TYPE,
+			'post_type'   => AFFCOUPS_VENDOR_POST_TYPE,
 			'field_type'  => 'select_advanced',
 			'placeholder' => esc_html__( 'Please select...', 'affiliate-coupons' ),
 			'query_args'  => array(

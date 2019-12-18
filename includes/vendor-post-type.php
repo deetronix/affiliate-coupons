@@ -68,6 +68,6 @@ function affcoups_register_vendor_post_type() {
 		'rewrite'             => false,
 		'capability_type'     => 'page',
 	);
-	register_post_type( AFFCOUPS_COUPON_VENDOR_POST_TYPE, $args );
+	register_post_type( AFFCOUPS_VENDOR_POST_TYPE, $args );
 }
 add_action( 'init', 'affcoups_register_vendor_post_type', 0 );

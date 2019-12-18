@@ -152,7 +152,7 @@ function affcoups_is_plugin_admin_area_vendors() {
 
     $screen = get_current_screen();
 
-    return ( isset ( $screen->post_type ) && AFFCOUPS_COUPON_VENDOR_POST_TYPE === $screen->post_type ) ? true : false;
+    return ( isset ( $screen->post_type ) && AFFCOUPS_VENDOR_POST_TYPE === $screen->post_type ) ? true : false;
 }
 
 /**
