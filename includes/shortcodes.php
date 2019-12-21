@@ -66,6 +66,7 @@ function affcoups_add_shortcode( $atts, $content ) {
 
 	//-- Max
 	$args['posts_per_page'] = ( ! empty( $max ) && is_numeric( $max ) ) ? intval( $max ) : '-1';
+	$args['affcoups_max'] = ( ! empty( $max ) && is_numeric( $max ) ) ? intval( $max ) : 0;
 
 	//-- Order
 	if ( ! empty( $order ) ) {
@@ -115,7 +116,7 @@ function affcoups_add_shortcode( $atts, $content ) {
 
     $args = apply_filters( 'affcoups_shortcode_args', $args, $atts );
 
-	affcoups_debug( $args );
+	//affcoups_debug( $args );
 
 	//-- Get coupons
 	$coupons = affcoups_get_coupons( $args );

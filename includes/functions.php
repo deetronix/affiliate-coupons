@@ -48,10 +48,15 @@ function affcoups_get_coupons( $args = array(), $return_posts = false ) {
 
     $coupons = array();
 
+    $hide_invalid = ( isset( $args['affcoups_coupon_hide_invalid'] ) && true === $args['affcoups_coupon_hide_invalid'] ) ? true : false;
+    $hide_expired = ( isset( $args['affcoups_coupon_hide_expired'] ) && true === $args['affcoups_coupon_hide_expired'] ) ? true : false;
+
+    $max = ( isset( $args['affcoups_max'] ) && is_numeric( $args['affcoups_max'] ) ) ? $args['affcoups_max'] : 0;
+
     $defaults = array(
         'post_type'      => AFFCOUPS_COUPON_POST_TYPE,
         'post_status'    => 'publish',
-        'posts_per_page' => - 1,
+        'posts_per_page' => -1,
         //'nopaging' => true,
         'orderby'        => 'name',
         'order'          => 'ASC',
@@ -70,8 +75,8 @@ function affcoups_get_coupons( $args = array(), $return_posts = false ) {
     );
 
     //-- Number
-    if ( ! empty( $args['number'] ) )
-        $args['posts_per_page'] = absint( $args['number'] );
+    if ( ! empty ( $max ) && ( $hide_invalid || $hide_expired ) )
+        $args['posts_per_page'] = -1;
 
     if ( $args['posts_per_page'] < 1 )
         $args['posts_per_page'] = 999999999999;
@@ -189,6 +194,9 @@ function affcoups_get_coupons( $args = array(), $return_posts = false ) {
     //-- Expiration
     if ( isset( $args['affcoups_coupon_hide_invalid'] ) && true === $args['affcoups_coupon_hide_invalid'] ) {
 
+        $hide_invalid = true;
+
+        /*
         $meta_queries[] = array(
             'relation' => 'OR',
             // From date not set yet
@@ -206,17 +214,23 @@ function affcoups_get_coupons( $args = array(), $return_posts = false ) {
                 'type'    => 'NUMERIC'
             )
         );
+        */
     }
 
     if ( isset( $args['affcoups_coupon_hide_expired'] ) && true === $args['affcoups_coupon_hide_expired'] ) {
 
+        $hide_expired = true;
+
+        /*
         $meta_queries[] = array(
             array(
                 'key'     => AFFCOUPS_PREFIX . 'coupon_valid_until',
                 'compare' => 'EXISTS',
             ),
         );
+        */
 
+        /*
         $meta_queries[] = array(
             'relation' => 'OR',
             // Until date not set yet
@@ -250,13 +264,13 @@ function affcoups_get_coupons( $args = array(), $return_posts = false ) {
                 'type'    => 'NUMERIC'
             ),*/
             // Already expired
-            array(
+            /*array(
                 'key'     => AFFCOUPS_PREFIX . 'coupon_valid_until',
                 'value'   => time(),
                 'compare' => '>=',
                 'type'    => 'NUMERIC'
             )
-        );
+        );*/
     }
 
     // Set meta queries
@@ -269,7 +283,7 @@ function affcoups_get_coupons( $args = array(), $return_posts = false ) {
         $args['tax_query'] = $tax_queries;
     }
 
-    affcoups_debug( $args, 'affcoups_get_coupons $args' );
+    //affcoups_debug( $args, 'affcoups_get_coupons $args' );
 
     $coupon_pre_posts = apply_filters( 'affcoups_get_coupons_pre_posts', array(), $args );
     //affcoups_debug( $coupon_pre_posts, 'affcoups_get_coupons $coupon_pre_posts' );
@@ -289,6 +303,36 @@ function affcoups_get_coupons( $args = array(), $return_posts = false ) {
 
     //affcoups_debug( $coupon_posts, 'affcoups_get_coupons $coupon_posts' );
     $coupon_posts = apply_filters( 'affcoups_get_coupons_posts', $coupon_posts, $args );
+
+    /*
+     * Handle filtering coupons by invalid/expired dates
+     */
+    if ( $hide_invalid || $hide_expired ) {
+
+        foreach ( $coupon_posts as $coupon_key => $coupon_post ) {
+
+            if ( $hide_invalid ) {
+
+                $coupon_valid_from = get_post_meta( $coupon_post->ID, AFFCOUPS_PREFIX . 'coupon_valid_from', true );
+
+                if ( ! empty ( $coupon_valid_from ) && time() < $coupon_valid_from )
+                    unset ( $coupon_posts[$coupon_key] );
+            }
+
+            if ( $hide_expired ) {
+
+                $coupon_valid_until = get_post_meta( $coupon_post->ID, AFFCOUPS_PREFIX . 'coupon_valid_until', true );
+
+                if ( ! empty ( $coupon_valid_until ) && $coupon_valid_until < time() )
+                    unset ( $coupon_posts[$coupon_key] );
+            }
+        }
+
+        if ( ! empty ( $max ) && sizeof( $coupon_posts ) > $max )
+            $coupon_posts = array_slice( $coupon_posts, 0, $max );
+    }
+
+    //affcoups_debug( $coupon_posts );
 
     if ( $return_posts )
         return $coupon_posts;
