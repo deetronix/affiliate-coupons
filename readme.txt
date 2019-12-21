@@ -4,8 +4,8 @@ Donate link: https://donate.flowdee.de
 Tags: affiliate, affiliates, coupon, coupons, deals, affiliate coupon, affiliate coupons, affiliate deals, dealz, vendors, affiliate marketing, coupons plugin
 Requires at least: 3.0.1
 Requires PHP: 5.6.0
-Tested up to: 5.3.1
-Stable tag: 1.5.4
+Tested up to: 5.3.2
+Stable tag: 1.5.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -94,6 +94,10 @@ Yes of course.
 2. Settings
 
 == Changelog ==
+
+= Version 1.5.5 (21th December 2019) =
+* Fix: Hiding invalid and/or expired coupons didn't work as expected
+* WordPress v5.3.2 compatibility
 
 = Version 1.5.4 (17th December 2019) =
 * New: Added setting and shortcode attribute for hiding coupons which are not valid yet
@@ -226,6 +230,10 @@ Yes of course.
 * Initial release
 
 == Upgrade Notice ==
+
+= Version 1.5.5 (21th December 2019) =
+* Fix: Hiding invalid and/or expired coupons didn't work as expected
+* WordPress v5.3.2 compatibility
 
 = Version 1.5.4 (17th December 2019) =
 * New: Added setting and shortcode attribute for hiding coupons which are not valid yet
