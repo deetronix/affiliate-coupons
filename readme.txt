@@ -1,7 +1,7 @@
-=== Affiliate Coupons ===
+=== Affiliate Coupons - The #1 WordPress Coupon Plugin for Affiliate Marketers ===
 Contributors: flowdee
 Donate link: https://donate.flowdee.de
-Tags: affiliate, affiliates, coupon, coupons, deals, affiliate coupon, affiliate coupons, affiliate deals, dealz, vendors, affiliate marketing, coupons plugin
+Tags: affiliate coupons, coupon plugin, coupon, wp coupons, coupon reveal
 Requires at least: 3.0.1
 Requires PHP: 5.6.0
 Tested up to: 5.3.2
@@ -9,11 +9,11 @@ Stable tag: 1.5.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Get more sales & earn more money with the best WordPress plugin for coupon codes & deals.
+Earn more money with the best affiliate coupons plugin for WordPress.
 
 == Description ==
 
-Get more sales & earn more money with the best WordPress plugin for coupon codes & deals.
+Earn more money with the best Affiliate Coupons plugin for WordPress.
 
 = Features =
 
