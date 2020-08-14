@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "wpmetabox/meta-box",
-            "version": "5.2.4",
+            "version": "5.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/meta-box.git",
-                "reference": "df51eed6f6e2e09f7654546af84a819eb94b7aab"
+                "reference": "c176afe65361c2ada82240f3fe2e006c6af2fa10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/meta-box/zipball/df51eed6f6e2e09f7654546af84a819eb94b7aab",
-                "reference": "df51eed6f6e2e09f7654546af84a819eb94b7aab",
+                "url": "https://api.github.com/repos/wpmetabox/meta-box/zipball/c176afe65361c2ada82240f3fe2e006c6af2fa10",
+                "reference": "c176afe65361c2ada82240f3fe2e006c6af2fa10",
                 "shasum": ""
             },
             "type": "wordpress-plugin",
@@ -44,7 +44,7 @@
                 "wordpress-plugin",
                 "wp-admin"
             ],
-            "time": "2019-12-11T03:17:41+00:00"
+            "time": "2020-07-21T03:49:58+00:00"
         }
     ],
     "packages-dev": [],

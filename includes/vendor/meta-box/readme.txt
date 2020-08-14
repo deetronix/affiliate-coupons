@@ -1,11 +1,11 @@
 === Meta Box - WordPress Custom Fields Framework ===
-Contributors: metabox, rilwis, fitwp, f-j-kaiser, funkatronic, PerWiklander, ruanmer, Omnicia
+Contributors: elightup, metabox, rilwis, fitwp, f-j-kaiser, funkatronic, PerWiklander, ruanmer, Omnicia
 Donate link: https://metabox.io/pricing/
 Tags: meta-box, custom fields, custom field, meta, meta-boxes, admin, advanced, custom, edit, field, file, image, magic fields, matrix, more fields, Post, repeater, simple fields, text, textarea, type, cms, fields post
 Requires at least: 4.3
 Requires PHP: 5.3
-Tested up to: 5.3
-Stable tag: 5.2.4
+Tested up to: 5.4.2
+Stable tag: 5.3.3
 License: GPLv2 or later
 
 Meta Box plugin is a powerful, professional developer toolkit to create custom meta boxes and custom fields for WordPress.
@@ -166,6 +166,79 @@ To getting started with the plugin, please read the [Quick Start Guide](https://
 1. Post Taxonomy Fields
 
 == Changelog ==
+
+= 5.3.3 - 2020-07-21 =
+- Hide Go Pro link for premium users
+- Update intro and image for the Online Generator in the welcome page
+
+= 5.3.2 - 2020-07-03 =
+- Fix validation not working for media fields
+- Add "add_to" option for media fields to allow adding new images to the beginning/end of the list
+- Improve style for input & select on the sidebar
+- Improve style for mobiles
+
+= 5.3.1 - 2020-06-03 =
+- Fix validation not working for multiple forms (front end)
+- Fix PHP warning: Creating default object from empty value
+- Fix cloning, sorting wysiwyg field when users disable visual editor
+- Change color of switch based on admin color scheme
+
+= 5.3.0 - 2020-05-11 =
+- Add `rwmb_set_meta` function to set meta value.
+- Add Gutenberg compatibility for validation.
+- Fix wrong label output for switch when it's off.
+
+= 5.2.10 - 2020-04-17 =
+- Hotfix for getting meta value for checkbox list.
+
+= 5.2.9 - 2020-04-17 =
+- Fix cloning default value not working for some fields.
+
+= 5.2.8 - 2020-04-06 =
+
+**Added**
+
+- Add option open info window in Google Maps when loaded
+- Add `alpha_channel` & update style to background field
+- Add support for custom Ajax parameters for object fields.
+
+**Fixed**
+
+- Fix validation rules still applied for hidden fields
+- Fix `image_upload` field select files not working on iPhone
+- Fix fatal error with Frontend Submission & Elementor
+- Fix 'zoom' parameter not working for OSM field on the front end
+
+**Changed**
+
+- Remove languages folder. Load languages from translate.wordpress.org only
+
+= 5.2.7 - 2020-02-07 =
+
+- Fix warning in image field for metadata[‘sizes’].
+- Allow to quick define text fields with “name” attribute only.
+
+= 5.2.6 - 2020-02-03 =
+
+- Fix wrong tag when deploying
+
+= 5.2.5 - 2020-02-03 =
+
+**Fixed**
+
+- Fix CSS in about page and add MB Core to list of premium plugins
+- Fix edit icon not showing popup for image fields
+- Fix OpenStreetMap not loading properly in tabs
+
+**Changed**
+
+- Replace date() with gmdate()
+- Update style for input prepend/append for WordPress >= 5.3
+
+**Added**
+
+- Add custom trigger after validation for Tabs/Settings extensiosn to show error fields
+- Add URL to all sizes in the returned value of helper functions for images
 
 = 5.2.4 - 2019-12-11 =
 
