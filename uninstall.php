@@ -11,7 +11,7 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) exit;
 // Load core file
 include_once( 'affiliate-coupons.php' );
 
-$affcoups_options = affcoups_get_options();
+$affcoups_options = get_option( 'affcoups_settings', array() );
 
 if( isset( $affcoups_options['uninstall_on_delete'] ) && '1' == $affcoups_options['uninstall_on_delete'] ) {
 
