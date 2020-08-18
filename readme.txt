@@ -4,12 +4,12 @@ Donate link: https://donate.flowdee.de
 Tags: affiliate coupons, coupon plugin, coupon, wp coupons, coupon reveal
 Requires at least: 3.0.1
 Requires PHP: 5.6.0
-Tested up to: 5.3.2
-Stable tag: 1.5.5
+Tested up to: 5.5
+Stable tag: 1.5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Earn more money with the best affiliate coupons plugin for WordPress.
+The best WordPress coupon plugin which helps you to earn more more affiliate money!
 
 == Description ==
 
@@ -105,6 +105,11 @@ Affiliate Coupons is a fully GDPR compatible WordPress coupon plugin. We don’t
 2. Settings
 
 == Changelog ==
+
+= Version 1.5.6 (18th August 2020) =
+* Fix: Function "affcoups_get_options" was not available in uninstall.php
+* Updated dependency "Meta Box" to latest v5.3.3
+* WordPress v5.5 compatibility
 
 = Version 1.5.5 (21th December 2019) =
 * Fix: Hiding invalid and/or expired coupons didn't work as expected
