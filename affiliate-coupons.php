@@ -2,7 +2,7 @@
 /**
  * Plugin Name:     Affiliate Coupons
  * Plugin URI:      https://affcoups.com
- * Description:     The best WordPress coupon plugin which helps you to earn more more affiliate money!.
+ * Description:     The best WordPress coupon plugin which helps you to earn more affiliate money!
  * Version:         1.5.6
  * Author:          Affiliate Coupons
  * Author URI:      https://affcoups.com
