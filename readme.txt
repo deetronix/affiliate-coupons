@@ -13,20 +13,32 @@ Earn more money with the best affiliate coupons plugin for WordPress.
 
 == Description ==
 
-Earn more money with the best Affiliate Coupons plugin for WordPress.
+**Increase your revenue by promoting discount codes** - why Affiliate Coupons is your most intuitive coupon plugin
 
-= Features =
+*All you need from a coupon plugin. Features include:*
 
-*   Create vendors and predefine affiliate links
-*   Create coupons and link them to vendors
-*   Display coupons via shortcode on the frontend
-*   Multiple options in order to filter/sort your coupon presentations
-*   Configuration page for more options and customizations
-*   Prepared templates: Standard, Grid & List
-*   Widgets for displaying coupons in your sidebar
-*   Try out the **[online demo](https://affcoups.com/demo/?utm_source=wordpress.org&utm_medium=textlink&utm_campaign=Affiliate%20Coupons&utm_content=demo-link)**
-*   Overview of all available **[templates](https://affcoups.com/templates/?utm_source=wordpress.org&utm_medium=textlink&utm_campaign=Affiliate%20Coupons&utm_content=templates-link)**
-*   Regular updates and improvements: Go though the [changelog](https://wordpress.org/plugins/affiliate-coupons/#developers)
+- **Easily create vendors and links for affiliate coupons** - Design beautifully structured lists of coupons provided by your favorite merchants.
+- **Display coupons via shortcode** - Your frontend needs to look sharp. Affiliate Coupons presents WP coupons neatly with easy-to-manage shortcode.
+- **Filter your coupons** - Proudly display your best coupons front and centre. You can choose which affiliate coupons to promote to the top of your pages.
+- **Presentation options with coupon templates** - Choose between standard, grid or list templates for laying out your coupons to best suit your website. You can even [view our full template list](https://affcoups.com/templates/) right now.
+- **Central or sidebar? It’s up to you** - Enjoy our fully integrated widgets for displaying your affiliate coupons in the sidebar.
+- **Check our coupon plugin live demo out** - Take a look at our free [online demo](https://affcoups.com/demo/) of the Affiliate Coupons Plugin in action.
+- **Follow our changelog** - See exactly how we have been carrying out [regular enhancements](https://wordpress.org/plugins/affiliate-coupons/#developers) to maximize your coupon plugin success!
+
+All of these key features are **available in our free version of Affiliate Coupons**. That’s some crazy value!
+
+**You want more?** Dive into our Pro version of this coupon plugin for all the above AND additional features which make the plugin even more amazing!
+
+*Make more affiliate money with the Pro version and its following highlights:*
+
+- **Click-to-reveal discount codes** - This is the big one. With the Pro version of Affiliate Coupons, you can increase your affiliate earnings as soon as visitors click to reveal their discount coupons.
+- **Discover key coupon stats** - Keep track of your coupon plugin success by tracking view, copy and click statistics for all campaigns.
+- **Advanced styles and templates** - Experiment with more complex styles and templates that add extra revenue potential to your coupon page. You can even create your own custom templates.
+- **Highlight single coupons** - Make a show and dance of your best value coupon. With Pro, you can do more than just placing it at the top of your page.
+- **Widget for popular coupons** - Get an entire widget devoted to showcasing the most popular affiliate coupons on your website.
+- **Smart event tracking** - Google and Piwik do the hard work as they track how your customers interact with your coupons.
+
+Interested in bringing your coupon game to the next level? **[Check out Affiliate Coupons PRO](https://affcoups.com/features/?utm_source=wordpress.org&utm_medium=textlink&utm_campaign=Affiliate%20Coupons&utm_content=pro-version-link)**.
 
 = Quickstart Examples =
 
@@ -35,21 +47,6 @@ Earn more money with the best Affiliate Coupons plugin for WordPress.
 *   Link coupons to vendors
 *   Assign categories and/or types to coupons if needed
 *   Display coupons inside your posts/pages by using shortcodes
-
-= More features with the PRO version =
-
-The PRO version extends this plugins exclusively with our "click to reveal" feature and more:
-
-*   Click to reveal discount codes
-*   View, copy & click statistics
-*   Choose from different styles
-*   Additional templates
-*   Feature & highlight single coupons
-*   Popular coupons widget
-*   Event Tracking via Google & Piwik
-*   Create custom templates
-
-Details and upgrade can be found **[here](https://affcoups.com/features/?utm_source=wordpress.org&utm_medium=textlink&utm_campaign=Affiliate%20Coupons&utm_content=pro-version-link)**.
 
 = Support =
 
@@ -85,8 +82,22 @@ The installation and configuration of the plugin is as simple as it can be.
 == Frequently Asked Questions ==
 
 = Multisite supported? =
+Yes of course! Feel free to use our coupon plugin in a multisite installation.
 
-Yes of course.
+= Can I use Affiliate Coupons with any theme? =
+Due to our flexible shortcodes and templates, Affiliate Coupons can be used with any theme out there.
+
+= How many coupons can I create? =
+There’s no limit to the number of coupons you can have.
+
+= How many vendors can I create? =
+There’s no limit to the number of coupon vendors you can have.
+
+= Do you offer support? =
+Of course! Our caring developers and support team would be happy to assist you whenever you need our help.
+
+= Is Affiliate Coupons GDPR compatible? =
+Affiliate Coupons is a fully GDPR compatible WordPress coupon plugin. We don’t track or store any data ourselves.
 
 == Screenshots ==
 
