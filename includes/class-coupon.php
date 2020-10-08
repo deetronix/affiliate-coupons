@@ -283,14 +283,7 @@ if (!class_exists('Affcoups_Coupon')) {
             if ( ! isset( $this->post->post_content ) )
                 return null;
 
-            // Remove extra content added by "yet-another-stars-rating" plugin
-            if ( class_exists( 'YasrPublicFilters' ) ) {
-
-                remove_filter( 'the_content', array( 'YasrPublicFilters', 'autoInsert' ) );
-                remove_filter( 'the_content', array( 'YasrPublicFilters', 'addSchema' ) );
-            }
-
-            $post_content = apply_filters( 'the_content', $this->post->post_content );
+            $post_content = apply_filters( 'affcoups_the_content', $this->post->post_content );
             $post_content = str_replace( ']]>', ']]&gt;', $post_content );
 
             return $post_content;
