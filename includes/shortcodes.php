@@ -19,7 +19,7 @@ function affcoups_maybe_cleanup_shortcode_output( $content ) {
 	return $rep;
 }
 
-add_filter( 'the_content', 'affcoups_maybe_cleanup_shortcode_output' );
+add_filter( 'affcoups_the_content', 'affcoups_maybe_cleanup_shortcode_output' );
 
 /**
  * Basic shortcode

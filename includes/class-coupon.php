@@ -283,7 +283,7 @@ if (!class_exists('Affcoups_Coupon')) {
             if ( ! isset( $this->post->post_content ) )
                 return null;
 
-            $post_content = apply_filters( 'the_content', $this->post->post_content );
+            $post_content = apply_filters( 'affcoups_the_content', $this->post->post_content );
             $post_content = str_replace( ']]>', ']]&gt;', $post_content );
 
             return $post_content;
