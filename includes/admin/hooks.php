@@ -115,7 +115,7 @@ add_action( 'admin_notices', 'affcoups_admin_notices' );
 function affcoups_admin_footer_text( $text ) {
 
 	if ( affcoups_is_plugin_admin_area() ) {
-		$text = sprintf( 'If you enjoy using <strong>Affiliate Coupons</strong>, please <a href="%s" target="_blank">leave us a ★★★★★ rating</a>. A <strong style="text-decoration: underline;">huge</strong> thank you in advance, this helps a lot!', 'https://wordpress.org/support/view/plugin-reviews/affiliate-coupons?rate=5#postform' );
+		$text = sprintf( 'If you enjoy using <strong>Affiliate Coupons</strong>, please <a href="%s" target="_blank">leave us a ★★★★★ rating</a>. A <strong style="text-decoration: underline;">huge</strong> thank you in advance, this helps a lot!', 'https://wordpress.org/support/plugin/affiliate-coupons/reviews/?filter=5#new-post' );
 	};
 
 	return $text;

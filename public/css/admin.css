@@ -108,8 +108,21 @@ body.affcoups-admin h1.wp-heading-inline:before {
 .affcoups-settings .affcoups-settings-button:focus,
 .affcoups-settings .affcoups-settings-button:active {
   background-color: #fff;
-  color: #F99F1B;
+  color: #222;
   text-decoration: none;
+}
+.affcoups-settings .affcoups-settings-button--secondary {
+  background-color: #fff;
+  color: #222;
+}
+.affcoups-settings .affcoups-settings-button--secondary:visited {
+  color: #222;
+}
+.affcoups-settings .affcoups-settings-button--secondary:hover,
+.affcoups-settings .affcoups-settings-button--secondary:focus,
+.affcoups-settings .affcoups-settings-button--secondary:active {
+  background-color: #eee;
+  color: #222;
 }
 .affcoups-settings .affcoups-settings-button--block {
   display: block;

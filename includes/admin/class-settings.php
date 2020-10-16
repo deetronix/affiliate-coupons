@@ -822,31 +822,13 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
                                 <div class="meta-box-sortables">
                                     <!-- Resources & Support -->
                                     <div class="postbox">
-                                        <h3><span>Resources &amp; Support</span></h3>
+                                        <h3><span><span class="dashicons dashicons-star-filled"></span>&nbsp;<?php esc_html_e( 'Do You Enjoy our Plugin?', 'affiliate-coupons' ); ?></span></h3>
                                         <div class="inside">
-                                            <p><?php esc_html_e( 'In order to make it as simple as possible for you, we created a detailed online documentation.', 'affiliate-coupons' ); ?></p>
-                                            <ul>
-                                                <li>
-                                                    <?php
-                                                    $docs_link = esc_url( add_query_arg( array(
-                                                            'utm_source'   => 'settings-page',
-                                                            'utm_medium'   => 'infobox-resources',
-                                                            'utm_campaign' => 'Affiliate Coupons',
-                                                        ), AFFCOUPS_DOCS_URL )
-                                                    );
-                                                    ?>
-                                                    <a href="<?php echo $docs_link; ?>" target="_blank"><?php _e('Documentation', 'affiliate-coupons' ); ?></a>
-                                                </li>
-                                                <li>
-                                                    <a href="<?php echo AFFCOUPS_WP_ORG_URL; ?>" target="_blank"><?php _e('Plugin Page', 'affiliate-coupons' ); ?></a>
-                                                </li>
-                                                <li>
-                                                    <a href="https://affcoups/changelog/" target="_blank"><?php _e('Changelog', 'affiliate-coupons' ); ?></a>
-                                                </li>
-                                                <li>
-                                                    <a href="https://twitter.com/affcoups" target="_blank"><?php _e('Follow us on Twitter', 'affiliate-coupons' ); ?></a>
-                                                </li>
-                                            </ul>
+                                            <p><?php _e( 'It would be great if you <strong>do us a big favor and give us a review</strong> for our plugin.', 'affiliate-coupons' ); ?></p>
+                                            <p><?php esc_html_e( 'This will help us to make others aware of our plugin and we can continue to provide it with great features in long term.', 'affiliate-coupons' ); ?></p>
+                                            <p>
+                                                <a class="affcoups-settings-button affcoups-settings-button--secondary affcoups-settings-button--block" target="_blank" href="<?php echo esc_url( 'https://wordpress.org/support/plugin/affiliate-coupons/reviews/?filter=5#new-post' ); ?>" rel="nofollow"><?php _e('Submit a review', 'affiliate-coupons'); ?></a>
+                                            </p>
                                         </div>
                                     </div>
 
@@ -875,12 +857,12 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 
                                                 <p>
                                                     <?php $upgrade_link = affcoups_get_pro_version_url( 'features', 'settings-page', 'infobox-upgrade' ); ?>
-                                                    <a class="affcoups-settings-button affcoups-settings-button--block" target="_blank" href="<?php echo $upgrade_link; ?>" rel="nofollow"><?php _e('More details', 'affiliate-coupons'); ?></a>
+                                                    <a class="affcoups-settings-button affcoups-settings-button--block" target="_blank" href="<?php echo $upgrade_link; ?>" rel="nofollow"><?php _e('Upgrade to Pro Version', 'affiliate-coupons'); ?></a>
                                                 </p>
                                             </div>
                                         </div>
                                     <?php } ?>
-                                    
+
                                 </div>
                                 <!-- /.meta-box-sortables -->
                             </div>

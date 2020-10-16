@@ -43,243 +43,8 @@
             return b.d(c, "a", c), c;
         }, b.o = function(a, b) {
             return Object.prototype.hasOwnProperty.call(a, b);
-        }, b.p = "", b(b.s = 0);
-    }([ function(a, b, c) {
-        "use strict";
-        function d(a) {
-            return a && a.__esModule ? a : {
-                "default": a
-            };
-        }
-        function e(a, b) {
-            if (!(a instanceof b)) throw new TypeError("Cannot call a class as a function");
-        }
-        function f(a, b) {
-            if (!a) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-            return !b || "object" != typeof b && "function" != typeof b ? a : b;
-        }
-        function g(a, b) {
-            if ("function" != typeof b && null !== b) throw new TypeError("Super expression must either be null or a function, not " + typeof b);
-            a.prototype = Object.create(b && b.prototype, {
-                constructor: {
-                    value: a,
-                    enumerable: !1,
-                    writable: !0,
-                    configurable: !0
-                }
-            }), b && (Object.setPrototypeOf ? Object.setPrototypeOf(a, b) : a.__proto__ = b);
-        }
-        function h(a, b) {
-            var c = "data-clipboard-" + a;
-            if (b.hasAttribute(c)) return b.getAttribute(c);
-        }
-        var i = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(a) {
-            return typeof a;
-        } : function(a) {
-            return a && "function" == typeof Symbol && a.constructor === Symbol && a !== Symbol.prototype ? "symbol" : typeof a;
-        }, j = function() {
-            function a(a, b) {
-                for (var c = 0; c < b.length; c++) {
-                    var d = b[c];
-                    d.enumerable = d.enumerable || !1, d.configurable = !0, "value" in d && (d.writable = !0), 
-                    Object.defineProperty(a, d.key, d);
-                }
-            }
-            return function(b, c, d) {
-                return c && a(b.prototype, c), d && a(b, d), b;
-            };
-        }(), k = c(1), l = d(k), m = c(3), n = d(m), o = c(4), p = d(o), q = function(a) {
-            function b(a, c) {
-                e(this, b);
-                var d = f(this, (b.__proto__ || Object.getPrototypeOf(b)).call(this));
-                return d.resolveOptions(c), d.listenClick(a), d;
-            }
-            return g(b, a), j(b, [ {
-                key: "resolveOptions",
-                value: function() {
-                    var a = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
-                    this.action = "function" == typeof a.action ? a.action : this.defaultAction, this.target = "function" == typeof a.target ? a.target : this.defaultTarget, 
-                    this.text = "function" == typeof a.text ? a.text : this.defaultText, this.container = "object" === i(a.container) ? a.container : document.body;
-                }
-            }, {
-                key: "listenClick",
-                value: function(a) {
-                    var b = this;
-                    this.listener = (0, p["default"])(a, "click", function(a) {
-                        return b.onClick(a);
-                    });
-                }
-            }, {
-                key: "onClick",
-                value: function(a) {
-                    var b = a.delegateTarget || a.currentTarget;
-                    this.clipboardAction && (this.clipboardAction = null), this.clipboardAction = new l["default"]({
-                        action: this.action(b),
-                        target: this.target(b),
-                        text: this.text(b),
-                        container: this.container,
-                        trigger: b,
-                        emitter: this
-                    });
-                }
-            }, {
-                key: "defaultAction",
-                value: function(a) {
-                    return h("action", a);
-                }
-            }, {
-                key: "defaultTarget",
-                value: function(a) {
-                    var b = h("target", a);
-                    if (b) return document.querySelector(b);
-                }
-            }, {
-                key: "defaultText",
-                value: function(a) {
-                    return h("text", a);
-                }
-            }, {
-                key: "destroy",
-                value: function() {
-                    this.listener.destroy(), this.clipboardAction && (this.clipboardAction.destroy(), 
-                    this.clipboardAction = null);
-                }
-            } ], [ {
-                key: "isSupported",
-                value: function() {
-                    var a = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : [ "copy", "cut" ], b = "string" == typeof a ? [ a ] : a, c = !!document.queryCommandSupported;
-                    return b.forEach(function(a) {
-                        c = c && !!document.queryCommandSupported(a);
-                    }), c;
-                }
-            } ]), b;
-        }(n["default"]);
-        a.exports = q;
-    }, function(a, b, c) {
-        "use strict";
-        function d(a) {
-            return a && a.__esModule ? a : {
-                "default": a
-            };
-        }
-        function e(a, b) {
-            if (!(a instanceof b)) throw new TypeError("Cannot call a class as a function");
-        }
-        var f = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(a) {
-            return typeof a;
-        } : function(a) {
-            return a && "function" == typeof Symbol && a.constructor === Symbol && a !== Symbol.prototype ? "symbol" : typeof a;
-        }, g = function() {
-            function a(a, b) {
-                for (var c = 0; c < b.length; c++) {
-                    var d = b[c];
-                    d.enumerable = d.enumerable || !1, d.configurable = !0, "value" in d && (d.writable = !0), 
-                    Object.defineProperty(a, d.key, d);
-                }
-            }
-            return function(b, c, d) {
-                return c && a(b.prototype, c), d && a(b, d), b;
-            };
-        }(), h = c(2), i = d(h), j = function() {
-            function a(b) {
-                e(this, a), this.resolveOptions(b), this.initSelection();
-            }
-            return g(a, [ {
-                key: "resolveOptions",
-                value: function() {
-                    var a = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
-                    this.action = a.action, this.container = a.container, this.emitter = a.emitter, 
-                    this.target = a.target, this.text = a.text, this.trigger = a.trigger, this.selectedText = "";
-                }
-            }, {
-                key: "initSelection",
-                value: function() {
-                    this.text ? this.selectFake() : this.target && this.selectTarget();
-                }
-            }, {
-                key: "selectFake",
-                value: function() {
-                    var a = this, b = "rtl" == document.documentElement.getAttribute("dir");
-                    this.removeFake(), this.fakeHandlerCallback = function() {
-                        return a.removeFake();
-                    }, this.fakeHandler = this.container.addEventListener("click", this.fakeHandlerCallback) || !0, 
-                    this.fakeElem = document.createElement("textarea"), this.fakeElem.style.fontSize = "12pt", 
-                    this.fakeElem.style.border = "0", this.fakeElem.style.padding = "0", this.fakeElem.style.margin = "0", 
-                    this.fakeElem.style.position = "absolute", this.fakeElem.style[b ? "right" : "left"] = "-9999px";
-                    var c = window.pageYOffset || document.documentElement.scrollTop;
-                    this.fakeElem.style.top = c + "px", this.fakeElem.setAttribute("readonly", ""), 
-                    this.fakeElem.value = this.text, this.container.appendChild(this.fakeElem), this.selectedText = (0, 
-                    i["default"])(this.fakeElem), this.copyText();
-                }
-            }, {
-                key: "removeFake",
-                value: function() {
-                    this.fakeHandler && (this.container.removeEventListener("click", this.fakeHandlerCallback), 
-                    this.fakeHandler = null, this.fakeHandlerCallback = null), this.fakeElem && (this.container.removeChild(this.fakeElem), 
-                    this.fakeElem = null);
-                }
-            }, {
-                key: "selectTarget",
-                value: function() {
-                    this.selectedText = (0, i["default"])(this.target), this.copyText();
-                }
-            }, {
-                key: "copyText",
-                value: function() {
-                    var a = void 0;
-                    try {
-                        a = document.execCommand(this.action);
-                    } catch (b) {
-                        a = !1;
-                    }
-                    this.handleResult(a);
-                }
-            }, {
-                key: "handleResult",
-                value: function(a) {
-                    this.emitter.emit(a ? "success" : "error", {
-                        action: this.action,
-                        text: this.selectedText,
-                        trigger: this.trigger,
-                        clearSelection: this.clearSelection.bind(this)
-                    });
-                }
-            }, {
-                key: "clearSelection",
-                value: function() {
-                    this.trigger && this.trigger.focus(), window.getSelection().removeAllRanges();
-                }
-            }, {
-                key: "destroy",
-                value: function() {
-                    this.removeFake();
-                }
-            }, {
-                key: "action",
-                set: function() {
-                    var a = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "copy";
-                    if (this._action = a, "copy" !== this._action && "cut" !== this._action) throw new Error('Invalid "action" value, use either "copy" or "cut"');
-                },
-                get: function() {
-                    return this._action;
-                }
-            }, {
-                key: "target",
-                set: function(a) {
-                    if (void 0 !== a) {
-                        if (!a || "object" !== ("undefined" == typeof a ? "undefined" : f(a)) || 1 !== a.nodeType) throw new Error('Invalid "target" value, use a valid Element');
-                        if ("copy" === this.action && a.hasAttribute("disabled")) throw new Error('Invalid "target" attribute. Please use "readonly" instead of "disabled" attribute');
-                        if ("cut" === this.action && (a.hasAttribute("readonly") || a.hasAttribute("disabled"))) throw new Error('Invalid "target" attribute. You can\'t cut text from elements with "readonly" or "disabled" attributes');
-                        this._target = a;
-                    }
-                },
-                get: function() {
-                    return this._target;
-                }
-            } ]), a;
-        }();
-        a.exports = j;
-    }, function(a, b) {
+        }, b.p = "", b(b.s = 6);
+    }([ function(a, b) {
         function c(a) {
             var b;
             if ("SELECT" === a.nodeName) a.focus(), b = a.value; else if ("INPUT" === a.nodeName || "TEXTAREA" === a.nodeName) {
@@ -321,7 +86,7 @@
                 if (d && b) for (var f = 0, g = d.length; f < g; f++) d[f].fn !== b && d[f].fn._ !== b && e.push(d[f]);
                 return e.length ? c[a] = e : delete c[a], this;
             }
-        }, a.exports = c;
+        }, a.exports = c, a.exports.TinyEmitter = c;
     }, function(a, b, c) {
         function d(a, b, c) {
             if (!a && !b && !c) throw new Error("Missing required arguments");
@@ -353,7 +118,7 @@
         function g(a, b, c) {
             return i(document.body, a, b, c);
         }
-        var h = c(5), i = c(6);
+        var h = c(3), i = c(4);
         a.exports = d;
     }, function(a, b) {
         b.node = function(a) {
@@ -387,7 +152,7 @@
                 c.delegateTarget = g(c.target, b), c.delegateTarget && d.call(a, c);
             };
         }
-        var g = c(7);
+        var g = c(5);
         a.exports = e;
     }, function(a, b) {
         function c(a, b) {
@@ -402,7 +167,229 @@
             e.matches = e.matchesSelector || e.mozMatchesSelector || e.msMatchesSelector || e.oMatchesSelector || e.webkitMatchesSelector;
         }
         a.exports = c;
-    } ]);
+    }, function(a, b, c) {
+        "use strict";
+        function d(a, b) {
+            if (!(a instanceof b)) throw new TypeError("Cannot call a class as a function");
+        }
+        function e(a, b) {
+            if (!(a instanceof b)) throw new TypeError("Cannot call a class as a function");
+        }
+        function f(a, b) {
+            if (!a) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+            return !b || "object" != typeof b && "function" != typeof b ? a : b;
+        }
+        function g(a, b) {
+            if ("function" != typeof b && null !== b) throw new TypeError("Super expression must either be null or a function, not " + typeof b);
+            a.prototype = Object.create(b && b.prototype, {
+                constructor: {
+                    value: a,
+                    enumerable: !1,
+                    writable: !0,
+                    configurable: !0
+                }
+            }), b && (Object.setPrototypeOf ? Object.setPrototypeOf(a, b) : a.__proto__ = b);
+        }
+        function h(a, b) {
+            var c = "data-clipboard-" + a;
+            if (b.hasAttribute(c)) return b.getAttribute(c);
+        }
+        c.r(b);
+        var i = c(0), j = c.n(i), k = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(a) {
+            return typeof a;
+        } : function(a) {
+            return a && "function" == typeof Symbol && a.constructor === Symbol && a !== Symbol.prototype ? "symbol" : typeof a;
+        }, l = function() {
+            function a(a, b) {
+                for (var c = 0; c < b.length; c++) {
+                    var d = b[c];
+                    d.enumerable = d.enumerable || !1, d.configurable = !0, "value" in d && (d.writable = !0), 
+                    Object.defineProperty(a, d.key, d);
+                }
+            }
+            return function(b, c, d) {
+                return c && a(b.prototype, c), d && a(b, d), b;
+            };
+        }(), m = function() {
+            function a(b) {
+                d(this, a), this.resolveOptions(b), this.initSelection();
+            }
+            return l(a, [ {
+                key: "resolveOptions",
+                value: function() {
+                    var a = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
+                    this.action = a.action, this.container = a.container, this.emitter = a.emitter, 
+                    this.target = a.target, this.text = a.text, this.trigger = a.trigger, this.selectedText = "";
+                }
+            }, {
+                key: "initSelection",
+                value: function() {
+                    this.text ? this.selectFake() : this.target && this.selectTarget();
+                }
+            }, {
+                key: "selectFake",
+                value: function() {
+                    var a = this, b = "rtl" == document.documentElement.getAttribute("dir");
+                    this.removeFake(), this.fakeHandlerCallback = function() {
+                        return a.removeFake();
+                    }, this.fakeHandler = this.container.addEventListener("click", this.fakeHandlerCallback) || !0, 
+                    this.fakeElem = document.createElement("textarea"), this.fakeElem.style.fontSize = "12pt", 
+                    this.fakeElem.style.border = "0", this.fakeElem.style.padding = "0", this.fakeElem.style.margin = "0", 
+                    this.fakeElem.style.position = "absolute", this.fakeElem.style[b ? "right" : "left"] = "-9999px";
+                    var c = window.pageYOffset || document.documentElement.scrollTop;
+                    this.fakeElem.style.top = c + "px", this.fakeElem.setAttribute("readonly", ""), 
+                    this.fakeElem.value = this.text, this.container.appendChild(this.fakeElem), this.selectedText = j()(this.fakeElem), 
+                    this.copyText();
+                }
+            }, {
+                key: "removeFake",
+                value: function() {
+                    this.fakeHandler && (this.container.removeEventListener("click", this.fakeHandlerCallback), 
+                    this.fakeHandler = null, this.fakeHandlerCallback = null), this.fakeElem && (this.container.removeChild(this.fakeElem), 
+                    this.fakeElem = null);
+                }
+            }, {
+                key: "selectTarget",
+                value: function() {
+                    this.selectedText = j()(this.target), this.copyText();
+                }
+            }, {
+                key: "copyText",
+                value: function() {
+                    var a = void 0;
+                    try {
+                        a = document.execCommand(this.action);
+                    } catch (b) {
+                        a = !1;
+                    }
+                    this.handleResult(a);
+                }
+            }, {
+                key: "handleResult",
+                value: function(a) {
+                    this.emitter.emit(a ? "success" : "error", {
+                        action: this.action,
+                        text: this.selectedText,
+                        trigger: this.trigger,
+                        clearSelection: this.clearSelection.bind(this)
+                    });
+                }
+            }, {
+                key: "clearSelection",
+                value: function() {
+                    this.trigger && this.trigger.focus(), document.activeElement.blur(), window.getSelection().removeAllRanges();
+                }
+            }, {
+                key: "destroy",
+                value: function() {
+                    this.removeFake();
+                }
+            }, {
+                key: "action",
+                set: function() {
+                    var a = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "copy";
+                    if (this._action = a, "copy" !== this._action && "cut" !== this._action) throw new Error('Invalid "action" value, use either "copy" or "cut"');
+                },
+                get: function() {
+                    return this._action;
+                }
+            }, {
+                key: "target",
+                set: function(a) {
+                    if (void 0 !== a) {
+                        if (!a || "object" !== ("undefined" == typeof a ? "undefined" : k(a)) || 1 !== a.nodeType) throw new Error('Invalid "target" value, use a valid Element');
+                        if ("copy" === this.action && a.hasAttribute("disabled")) throw new Error('Invalid "target" attribute. Please use "readonly" instead of "disabled" attribute');
+                        if ("cut" === this.action && (a.hasAttribute("readonly") || a.hasAttribute("disabled"))) throw new Error('Invalid "target" attribute. You can\'t cut text from elements with "readonly" or "disabled" attributes');
+                        this._target = a;
+                    }
+                },
+                get: function() {
+                    return this._target;
+                }
+            } ]), a;
+        }(), n = m, o = c(1), p = c.n(o), q = c(2), r = c.n(q), s = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(a) {
+            return typeof a;
+        } : function(a) {
+            return a && "function" == typeof Symbol && a.constructor === Symbol && a !== Symbol.prototype ? "symbol" : typeof a;
+        }, t = function() {
+            function a(a, b) {
+                for (var c = 0; c < b.length; c++) {
+                    var d = b[c];
+                    d.enumerable = d.enumerable || !1, d.configurable = !0, "value" in d && (d.writable = !0), 
+                    Object.defineProperty(a, d.key, d);
+                }
+            }
+            return function(b, c, d) {
+                return c && a(b.prototype, c), d && a(b, d), b;
+            };
+        }(), u = function(a) {
+            function b(a, c) {
+                e(this, b);
+                var d = f(this, (b.__proto__ || Object.getPrototypeOf(b)).call(this));
+                return d.resolveOptions(c), d.listenClick(a), d;
+            }
+            return g(b, a), t(b, [ {
+                key: "resolveOptions",
+                value: function() {
+                    var a = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
+                    this.action = "function" == typeof a.action ? a.action : this.defaultAction, this.target = "function" == typeof a.target ? a.target : this.defaultTarget, 
+                    this.text = "function" == typeof a.text ? a.text : this.defaultText, this.container = "object" === s(a.container) ? a.container : document.body;
+                }
+            }, {
+                key: "listenClick",
+                value: function(a) {
+                    var b = this;
+                    this.listener = r()(a, "click", function(a) {
+                        return b.onClick(a);
+                    });
+                }
+            }, {
+                key: "onClick",
+                value: function(a) {
+                    var b = a.delegateTarget || a.currentTarget;
+                    this.clipboardAction && (this.clipboardAction = null), this.clipboardAction = new n({
+                        action: this.action(b),
+                        target: this.target(b),
+                        text: this.text(b),
+                        container: this.container,
+                        trigger: b,
+                        emitter: this
+                    });
+                }
+            }, {
+                key: "defaultAction",
+                value: function(a) {
+                    return h("action", a);
+                }
+            }, {
+                key: "defaultTarget",
+                value: function(a) {
+                    var b = h("target", a);
+                    if (b) return document.querySelector(b);
+                }
+            }, {
+                key: "defaultText",
+                value: function(a) {
+                    return h("text", a);
+                }
+            }, {
+                key: "destroy",
+                value: function() {
+                    this.listener.destroy(), this.clipboardAction && (this.clipboardAction.destroy(), 
+                    this.clipboardAction = null);
+                }
+            } ], [ {
+                key: "isSupported",
+                value: function() {
+                    var a = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : [ "copy", "cut" ], b = "string" == typeof a ? [ a ] : a, c = !!document.queryCommandSupported;
+                    return b.forEach(function(a) {
+                        c = c && !!document.queryCommandSupported(a);
+                    }), c;
+                }
+            } ]), b;
+        }(p.a);
+        b["default"] = u;
+    } ])["default"];
 }), jQuery(document).ready(function(a) {
     new ClipboardJS(".affcoups-clipboard");
     a(document).on("click", ".affcoups-clipboard", function(b) {
