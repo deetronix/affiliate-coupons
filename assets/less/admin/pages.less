@@ -24,15 +24,12 @@ body.affcoups-admin {
             vertical-align: -14%;
         }
     }
-}
 
-//== Settings Page
-.affcoups-page {
-
-    .wrap > h2 {
+    //== Settings Page Header
+    .affcoups-page-headline {
         position: relative;
 
-        margin: -10px -20px 13px -22px;
+        margin: 0 0 0 -20px;
         padding: 1em 1em 1em 2.7em;
 
         background: @color-primary;
@@ -63,7 +60,16 @@ body.affcoups-admin {
             font-size: .6em;
         }
     }
+
+    #wpbody-content {
+        div.notice, div.updated, div.error {
+            margin: 20px 20px 0 0;
+        }
+    }
 }
+
+//== Settings Page
+.affcoups-page {}
 
 // Elements
 @notice-border-width: 4px;

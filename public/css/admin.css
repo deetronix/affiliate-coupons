@@ -11,14 +11,14 @@ body.affcoups-admin h1.wp-heading-inline:before {
   background-position: center;
   vertical-align: -14%;
 }
-.affcoups-page .wrap > h2 {
+body.affcoups-admin .affcoups-page-headline {
   position: relative;
-  margin: -10px -20px 13px -22px;
+  margin: 0 0 0 -20px;
   padding: 1em 1em 1em 2.7em;
   background: #48627D;
   color: #fff;
 }
-.affcoups-page .wrap > h2:before {
+body.affcoups-admin .affcoups-page-headline:before {
   position: absolute;
   top: 50%;
   left: 22px;
@@ -33,10 +33,15 @@ body.affcoups-admin h1.wp-heading-inline:before {
   background-size: 25px;
   background-position: center;
 }
-.affcoups-page .wrap > h2 small {
+body.affcoups-admin .affcoups-page-headline small {
   margin-left: 1em;
   color: rgba(255, 255, 255, 0.8);
   font-size: .6em;
+}
+body.affcoups-admin #wpbody-content div.notice,
+body.affcoups-admin #wpbody-content div.updated,
+body.affcoups-admin #wpbody-content div.error {
+  margin: 20px 20px 0 0;
 }
 .affcoups-notice {
   padding-left: 44px;
@@ -149,7 +154,7 @@ body.affcoups-admin h1.wp-heading-inline:before {
   z-index: 10;
 }
 .affcoups-settings-nav {
-  margin: -13px -20px 13px -22px;
+  margin: 0 0 0 -20px;
   padding: 0 1em 0 2.7em;
   background: #35495d;
   color: #fff;

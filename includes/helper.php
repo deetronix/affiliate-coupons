@@ -156,6 +156,18 @@ function affcoups_is_plugin_admin_area_vendors() {
 }
 
 /**
+ * Check whether we are on our plugin settings page or not
+ *
+ * @return bool
+ */
+function affcoups_is_plugin_admin_area_settings() {
+
+    $screen = get_current_screen();
+
+    return ( strpos( $screen->id, 'affcoups_settings' ) !== false ) ? true : false;
+}
+
+/**
  * Get website url
  *
  * @param $path
