@@ -212,6 +212,7 @@ if( ! class_exists( 'Affiliate_Coupons' ) ) :
             // Admin only
             if ( is_admin() || ( defined( 'WP_CLI' ) && WP_CLI ) ) {
                 require_once AFFCOUPS_PLUGIN_DIR . 'includes/admin/plugins.php';
+                require_once AFFCOUPS_PLUGIN_DIR . 'includes/admin/class-pages.php';
                 require_once AFFCOUPS_PLUGIN_DIR . 'includes/admin/class-settings.php';
                 require_once AFFCOUPS_PLUGIN_DIR . 'includes/admin/manage-coupons.php';
                 require_once AFFCOUPS_PLUGIN_DIR . 'includes/admin/manage-vendors.php';

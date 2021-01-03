@@ -107,60 +107,64 @@
 }
 
 .affcoups-settings-nav {
-    margin: 0 0 0 -20px;
-    padding: 0 1em 0 2.7em;
-
-    background: @color-primary-darken;
-    color: #fff;
+//    margin: 0 0 0 -20px;
+//    padding: 0 1em 0 2.7em;
+//
+//    background: @color-primary-darken;
+//    color: #fff;
 
     ul {
-        .clearfix();
-
-        margin: 0 0 0 -@settings-nav-inner-padding;
-        padding: 0;
-
-        list-style: none;
+//        .clearfix();
+//
+//        margin: 0 0 0 -@settings-nav-inner-padding;
+//        padding: 0;
+//
+//        list-style: none;
 
         li {
-            float: left;
-            margin: 0;
-            padding: 0;
+//            float: left;
+//            margin: 0;
+//            padding: 0;
 
             a {
-                display: block;
-                padding: 0 @settings-nav-inner-padding;
+//                display: block;
+//                padding: 0 @settings-nav-inner-padding;
+//
+//                color: #fff;
+//                font-size: 13px;
+//                line-height: 50px;
+//                outline: none;
+//                text-decoration: none;
+//                vertical-align: middle;
+//
+//                &:visited {
+//                    color: #fff;
+//                }
 
-                color: #fff;
-                font-size: 13px;
-                line-height: 50px;
-                outline: none;
-                text-decoration: none;
-                vertical-align: middle;
-
-                &:visited {
-                    color: #fff;
-                }
+                border-bottom: 1px solid #e5e5e5;
 
                 &:hover,
                 &:focus,
-                &:active {
+                &:active,
+                &.active {
                     box-shadow: none;
-                    color: #fff;
+                    color: #000;
                     outline: none;
+                    background: #f1f1f1;
                 }
             }
-
-            .dashicons {
-                font-size: 18px;
-                margin-right: 3px;
-
-                vertical-align: -22%;
-            }
-
-            &:hover,
-            &.active {
-                background: @color-primary-darkest;
-            }
+//
+//            .dashicons {
+//                font-size: 18px;
+//                margin-right: 3px;
+//
+//                vertical-align: -22%;
+//            }
+//
+//            &:hover,
+//            &.active {
+//                background: @color-primary-darkest;
+//            }
         }
     }
 }

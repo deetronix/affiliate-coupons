@@ -39,8 +39,9 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 			$this->options = affcoups_get_options();
 
 			add_action( 'admin_menu', array( &$this, 'add_admin_menu' ) );
-            add_action( 'in_admin_header', array( &$this, 'render_header' ), 100 );
 			add_action( 'admin_init', array( &$this, 'init_settings' ) );
+
+			add_action( 'affcoups_admin_header_after', array( &$this, 'render_settings_nav' ) );
 
 			$this->init_active_tab();
 		}
@@ -50,10 +51,9 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
          */
 		function add_admin_menu() {
 
-		    // Source: https://codex.wordpress.org/Function_Reference/add_options_page
 			add_submenu_page(
 				'edit.php?post_type=affcoups_coupon',
-				__( 'Affiliate Coupons - Settings', 'affiliate-coupons' ), // Page title
+				__( 'Settings', 'affiliate-coupons' ), // Page title
 				__( 'Settings', 'affiliate-coupons' ), // Menu title
 				'manage_options', // Capabilities
 				'affcoups_settings', // Menu slug
@@ -64,36 +64,28 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
         /**
          * Render page header
          */
-        function render_header() {
-
-            if ( ! affcoups_is_plugin_admin_area() )
-                return;
+        function render_settings_nav() {
 
             if ( ! affcoups_is_plugin_admin_area_settings() )
                 return;
-
-            do_action( 'affcoups_admin_header_before' );
-
             ?>
-            <h2 class="affcoups-page-headline"><?php _e( 'Affiliate Coupons', 'affiliate-coupons' ); ?><small><?php _e( 'Settings', 'affiliate-coupons' ); ?></small></h2>
-
-            <div class="affcoups-settings-nav">
-
-                <ul>
-                    <?php foreach ( $this->get_registered_settings() as $section_key => $section ) { ?>
-                        <li class="affcoups-settings-nav-item<?php if ( $section_key === $this->active_tab ) echo ' active'; ?>">
-                            <a href="#" data-affcoups-settings-nav="<?php echo  esc_html( $section_key ); ?>">
-                                <?php if ( ! empty( $section['icon'] ) ) { ?><span class="dashicons dashicons-<?php echo  esc_html( $section['icon'] ); ?>"></span><?php } ?>
-                                <?php echo esc_html( $section['title'] ); ?>
-                            </a>
-                        </li>
-                    <?php } ?>
-                </ul>
-
-            </div>
+            <div class="wrap">
+                <div id="affcoups-admin-page">
+                    <div class="affcoups-settings-nav nav-tab-wrapper">
+                        <ul>
+                            <?php foreach ( $this->get_registered_settings() as $section_key => $section ) : ?>
+                                <li class="affcoups-settings-nav-item<?php if ( $section_key === $this->active_tab ) echo ' active'; ?>">
+                                    <a href="#" data-affcoups-settings-nav="<?php echo  esc_html( $section_key ); ?>" class="nav-tab<?php if ( $section_key === $this->active_tab ) echo ' active'; ?>">
+                                        <?php if ( ! empty( $section['icon'] ) ) { ?><span class="dashicons dashicons-<?php echo  esc_html( $section['icon'] ); ?>"></span><?php } ?>
+                                        <?php echo esc_html( $section['title'] ); ?>
+                                    </a>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                </div><!-- /.affcoups-admin-page -->
+            </div><!-- /.wrap -->
             <?php
-
-            do_action( 'affcoups_admin_header_after' );
         }
 
         /**

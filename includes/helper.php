@@ -132,6 +132,18 @@ function affcoups_is_plugin_admin_area() {
 }
 
 /**
+ * Check whether we are on the Single post add/edit screen
+ *
+ * @return bool
+ */
+function affcoups_is_single_screen() {
+
+    $screen = get_current_screen();
+
+    return ( isset ( $screen->base ) && 'post' === $screen->base ) ? true : false;
+}
+
+/**
  * Check whether we are on our plugin coupons page or not
  *
  * @return bool

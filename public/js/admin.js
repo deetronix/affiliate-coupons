@@ -7,7 +7,8 @@ jQuery(document).ready(function(a) {
             if (f) {
                 var g = a(".affcoups-settings-content");
                 if (g) {
-                    c.removeClass("active"), g.removeClass("active"), d.addClass("active"), f.addClass("active");
+                    a("[data-affcoups-settings-nav]").removeClass("active"), c.removeClass("active"), 
+                    g.removeClass("active"), a(this).addClass("active"), d.addClass("active"), f.addClass("active");
                     var h = a("#affcoups_settings_active_tab");
                     if (h && h.val(e), "undefined" != typeof history.pushState) {
                         var i = window.location.href, j = new URL(i);

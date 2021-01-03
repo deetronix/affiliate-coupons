@@ -35,10 +35,12 @@ jQuery(document).ready(function ($) {
             return;
 
         // Remove active class from all nav items and containers
+        $('[data-affcoups-settings-nav]').removeClass('active');
         navItems.removeClass('active');
         contentItems.removeClass('active');
 
         // Add active class to nav item and target container
+        $(this).addClass('active');
         navItem.addClass('active');
         content.addClass('active');
 

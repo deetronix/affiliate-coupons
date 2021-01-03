@@ -6,69 +6,87 @@
 
 body.affcoups-admin {
 
-    h1.wp-heading-inline {
-
-        &:before {
-
-            content: "";
-
-            display: inline-block;
-            height: @admin-icon-headlines-size;
-            width: @admin-icon-headlines-size;
-            margin: 0 10px 0 0;
-
-            background: url('../img/icon-page-title.png');
-            background-repeat: no-repeat;
-            background-size: @admin-icon-headlines-size;
-            background-position: center;
-            vertical-align: -14%;
-        }
+    .wp-heading-inline {
+        visibility: hidden !important;
     }
 
-    //== Settings Page Header
-    .affcoups-page-headline {
-        position: relative;
+    .wp-heading-inline + .page-title-action {
+        margin: 9px 0 5px;
+        float: left;
+    }
 
-        margin: 0 0 0 -20px;
-        padding: 1em 1em 1em 2.7em;
+    //== Page Header
+    @admin-header-inner-height: 60px;
 
-        background: @color-primary;
+    #affcoups-admin-header {
+        margin-left: -20px;
+        padding: 0 20px 0 22px;
+
+        background: #003096;
         color: #fff;
+        overflow: hidden;
+    }
 
-        &:before {
-            position: absolute;
-            top: 50%;
-            left: 22px;
+    #affcoups-admin-header-logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        float: left;
+        height: @admin-header-inner-height;
 
-            content: "";
-
-            display: block;
-            height: @settings-header-icon-size;
-            width: @settings-header-icon-size;
-            margin: -(@settings-header-icon-size / 2) 0 0;
-
-            background: url('../img/icon-page-title-inverted.png');
-            background-repeat: no-repeat;
-            background-size: @settings-header-icon-size;
-            background-position: center;
+        img {
+            display: inline-block;
+            height: 32px;
+            margin: 14px 0 14px 0;
+            width: auto;
         }
 
-        small {
-            margin-left: 1em;
-
-            color: fade(#fff, 80%);
-            font-size: .6em;
+        span {
+            margin: 8px 0 5px 10px;
+            font-size: 14px;
+            font-weight: bold;
         }
     }
 
-    #wpbody-content {
-        div.notice, div.updated, div.error {
-            margin: 20px 20px 0 0;
+    #affcoups-admin-header-links {
+        display: flex;
+        align-items: center;
+        float: right;
+        height: @admin-header-inner-height;
+        margin: 0 0 0 20px;
+
+        line-height: @admin-header-inner-height;
+
+        a {
+            display: inline-block;
+            margin: 0 0 0 20px;
+            padding: 8px 10px;
+
+            color: #fff;
+            font-size: 13px;
+            line-height: normal;
+            text-decoration: none;
+
+            .dashicons {
+                height: auto;
+                margin: 2px 6px 0 0;
+                width: auto;
+
+                font-size: 14px;
+            }
+        }
+    }
+
+    &.affcoups_coupon_page_affcoups_settings {
+        #wpbody-content {
+            div.notice, div.updated, div.error {
+                margin: 20px 18px 0 0;
+            }
         }
     }
 }
 
-//== Settings Page
+//== Settings Page Content
 .affcoups-page {}
 
 // Elements
