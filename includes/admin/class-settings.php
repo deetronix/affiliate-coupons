@@ -831,7 +831,7 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
                             <div id="postbox-container-1" class="postbox-container">
                                 <div class="meta-box-sortables">
                                     <!-- Resources & Support -->
-                                    <div class="postbox">
+                                    <div class="card">
                                         <h3><span><span class="dashicons dashicons-star-filled"></span>&nbsp;<?php esc_html_e( 'Do You Enjoy our Plugin?', 'affiliate-coupons' ); ?></span></h3>
                                         <div class="inside">
                                             <p><?php _e( 'It would be great if you <strong>do us a big favor and give us a review</strong> for our plugin.', 'affiliate-coupons' ); ?></p>
@@ -843,7 +843,7 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
                                     </div>
 
                                     <?php if ( ! affcoups_is_pro_version() ) { ?>
-                                        <div class="postbox">
+                                        <div class="card">
                                             <h3><span><?php _e('Upgrade to PRO Version', 'affiliate-coupons' ); ?></span></h3>
                                             <div class="inside">
 
@@ -903,12 +903,6 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 
                 $section_key = str_replace('affcoups_settings_', '', $section['id'] );
 
-                $title = '';
-
-                if ( $section['title'] ) {
-                    $title = "<h3 class='hndle'>{$section['title']}</h3>\n";
-                }
-
                 $content_classes = 'affcoups-settings-content';
 
                 if ( $section_key === $this->active_tab )
@@ -916,8 +910,12 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 
                 echo '<div data-affcoups-settings-content="' . $section_key . '" class="' . $content_classes . '">';
 
-                echo '<div class="postbox">';
-                echo  $title;
+                echo '<div class="card">';
+
+                if ( $section['title'] ) {
+                    echo "<h2 class='title'>{$section['title']}</h2>\n";
+                }
+
                 echo '<div class="inside">';
 
                 if ( $section['callback'] ) {
@@ -929,7 +927,7 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
                 echo '</table>';
 
                 echo '</div>'; // .inside
-                echo '</div>'; // .postbox
+                echo '</div>'; // .card
 
                 echo '</div>'; // .affcoups-settings-content
             }

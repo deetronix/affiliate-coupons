@@ -20,7 +20,7 @@
 
     .affcoups-settings-button {
         display: inline-block;
-        padding: 10px 20px;
+        padding: 10px 15px;
 
         box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
         background-color: @color-secondary;
@@ -173,5 +173,44 @@
 
     &.active {
         display: block;
+    }
+
+    .card {
+        max-width: none;
+        margin-top: 0;
+
+        .title {
+            font-size: 1.3em !important;
+            margin: 1em 0 !important;
+            padding: 0 !important;
+        }
+
+        .inside {
+            p {
+                margin: 1.3em 0;
+
+                strong {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+.postbox-container {
+    .card {
+        margin: 0 0 20px;
+
+        .inside {
+            p {
+                margin: 1.3em 0;
+            }
+
+            ul {
+                li {
+                    margin-bottom: 10px;
+                }
+            }
+        }
     }
 }

@@ -130,7 +130,7 @@ body.affcoups-admin.affcoups_coupon_page_affcoups_settings #wpbody-content div.e
 }
 .affcoups-settings .affcoups-settings-button {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 10px 15px;
   -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
   background-color: #F99F1B;
@@ -219,6 +219,30 @@ body.affcoups-admin.affcoups_coupon_page_affcoups_settings #wpbody-content div.e
 }
 .affcoups-settings-content.active {
   display: block;
+}
+.affcoups-settings-content .card {
+  max-width: none;
+  margin-top: 0;
+}
+.affcoups-settings-content .card .title {
+  font-size: 1.3em !important;
+  margin: 1em 0 !important;
+  padding: 0 !important;
+}
+.affcoups-settings-content .card .inside p {
+  margin: 1.3em 0;
+}
+.affcoups-settings-content .card .inside p strong {
+  font-size: 14px;
+}
+.postbox-container .card {
+  margin: 0 0 20px;
+}
+.postbox-container .card .inside p {
+  margin: 1.3em 0;
+}
+.postbox-container .card .inside ul li {
+  margin-bottom: 10px;
 }
 div[id*="affcoups"].widget .widget-title h3 {
   position: relative;
