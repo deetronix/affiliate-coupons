@@ -27,10 +27,7 @@ class Affcoups_Admin_Pages {
 
         global $title;
 
-        if ( ! affcoups_is_plugin_admin_area() )
-            return;
-
-        if ( affcoups_is_single_screen() )
+        if ( ! affcoups_is_plugin_admin_area() || affcoups_is_block_editor() )
             return;
 
         do_action( 'affcoups_admin_header_before' );

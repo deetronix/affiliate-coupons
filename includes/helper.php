@@ -132,15 +132,15 @@ function affcoups_is_plugin_admin_area() {
 }
 
 /**
- * Check whether we are on the Single post add/edit screen
+ * Check whether we are on a block editor page
  *
  * @return bool
  */
-function affcoups_is_single_screen() {
+function affcoups_is_block_editor() {
 
     $screen = get_current_screen();
 
-    return ( isset ( $screen->base ) && 'post' === $screen->base ) ? true : false;
+    return $screen->is_block_editor();
 }
 
 /**
