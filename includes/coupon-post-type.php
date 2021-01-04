@@ -66,7 +66,7 @@ function affcoups_register_coupon_post_type() {
 		'show_ui'             => true,
 		'show_in_menu'        => true,
 		'menu_position'       => 25,
-		'menu_icon'           => affcoups_get_assets_url() . 'img/icon-menu.svg',
+		'menu_icon'           => affcoups_get_assets_url() . 'img/icon-menu.png',
 		'show_in_admin_bar'   => true,
 		'show_in_nav_menus'   => false,
 		'can_export'          => true,
