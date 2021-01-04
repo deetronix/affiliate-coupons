@@ -156,7 +156,7 @@ body.affcoups-admin.affcoups_coupon_page_affcoups_settings #wpbody-content div.e
   text-decoration: none;
 }
 .affcoups-settings .affcoups-settings-button--secondary {
-  background-color: #fff;
+  background-color: #F99F1B;
   color: #222;
 }
 .affcoups-settings .affcoups-settings-button--secondary:visited {
@@ -165,7 +165,7 @@ body.affcoups-admin.affcoups_coupon_page_affcoups_settings #wpbody-content div.e
 .affcoups-settings .affcoups-settings-button--secondary:hover,
 .affcoups-settings .affcoups-settings-button--secondary:focus,
 .affcoups-settings .affcoups-settings-button--secondary:active {
-  background-color: #eee;
+  background-color: #e68a00;
   color: #222;
 }
 .affcoups-settings .affcoups-settings-button--block {
