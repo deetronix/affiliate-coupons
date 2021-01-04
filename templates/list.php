@@ -15,7 +15,7 @@ if ( ! isset( $coupons ) )
     return;
 
 ?>
-<?php affcoups_the_template_wrapper_start(); ?>
+<?php affcoups_tpl_the_wrapper_start(); ?>
 
     <div class="affcoups-coupons-list">
 
@@ -79,4 +79,4 @@ if ( ! isset( $coupons ) )
 
     </div>
 
-<?php affcoups_the_template_wrapper_end(); ?>
+<?php affcoups_tpl_the_wrapper_end(); ?>

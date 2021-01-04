@@ -51,7 +51,7 @@ function affcoups_get_template( $template, $wrap = false ) {
 /**
  * Output template wrapper start html
  */
-function affcoups_the_template_wrapper_start() {
+function affcoups_tpl_the_wrapper_start() {
 
 	global $affcoups_template_args;
 
@@ -63,11 +63,112 @@ function affcoups_the_template_wrapper_start() {
 /**
  * Output template wrapper end html
  */
-function affcoups_the_template_wrapper_end() {
+function affcoups_tpl_the_wrapper_end() {
 
 	global $affcoups_template_args;
 
 	?>
     </div><!-- /.affcoups -->
 	<?php
+}
+
+/**
+ * Output the coupon image markup
+ *
+ * @param Affcoups_Coupon $coupon
+ */
+function affcoups_tpl_the_coupon_image( $coupon ) {
+
+    $coupon->the_image();
+}
+
+/**
+ * Output the coupon discount markup
+ *
+ * @param Affcoups_Coupon $coupon
+ */
+function affcoups_tpl_the_coupon_discount( $coupon ) {
+
+    if ( $coupon->get_discount() ) { ?>
+        <span class="affcoups-coupon__discount"><?php echo esc_attr( $coupon->get_discount() ); ?></span>
+    <?php
+    }
+}
+
+/**
+ * Output the coupon title markup
+ *
+ * @param Affcoups_Coupon $coupon
+ */
+function affcoups_tpl_the_coupon_title( $coupon ) {
+
+    ?>
+    <span class="affcoups-coupon__title"><?php echo esc_attr( $coupon->get_title() ); ?></span>
+    <?php
+}
+
+/**
+ * Output the coupon types markup
+ *
+ * @param Affcoups_Coupon $coupon
+ */
+function affcoups_tpl_the_coupon_types( $coupon ) {
+
+    if ( $coupon->get_types() ) { ?>
+        <div class="affcoups-coupon__types">
+            <?php $coupon->the_types(); ?>
+        </div>
+    <?php }
+}
+
+/**
+ * Output the coupon description markup
+ *
+ * @param Affcoups_Coupon $coupon
+ */
+function affcoups_tpl_the_coupon_description( $coupon ) {
+
+    ?>
+    <div class="affcoups-coupon__description">
+        <?php echo wp_kses_post( $coupon->get_description() ); ?>
+    </div>
+    <?php
+}
+
+/**
+ * Output the coupon code markup
+ *
+ * @param Affcoups_Coupon $coupon
+ */
+function affcoups_tpl_the_coupon_code( $coupon ) {
+
+    if ( $coupon->show_code() ) { ?>
+        <div class="affcoups-coupon__code">
+            <?php $coupon->the_code(); ?>
+        </div>
+    <?php }
+}
+
+/**
+ * Output the coupon valid dates markup
+ *
+ * @param Affcoups_Coupon $coupon
+ */
+function affcoups_tpl_the_coupon_valid_dates( $coupon ) {
+
+    if ( $coupon->show_valid_dates() ) { ?>
+        <div class="affcoups-coupon__valid-dates">
+            <?php $coupon->the_valid_dates(); ?>
+        </div>
+    <?php }
+}
+
+/**
+ * Output the coupon button markup
+ *
+ * @param Affcoups_Coupon $coupon
+ */
+function affcoups_tpl_the_coupon_button( $coupon ) {
+
+    $coupon->the_button();
 }
