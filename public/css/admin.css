@@ -205,6 +205,15 @@ body.affcoups-admin.affcoups_coupon_page_affcoups_settings #wpbody-content div.e
   outline: none;
   background: #f1f1f1;
 }
+.affcoups-settings-nav ul li .dashicons {
+  font-size: 18px;
+  margin-right: 3px;
+  vertical-align: middle;
+}
+.affcoups-settings-nav ul li:hover,
+.affcoups-settings-nav ul li.active {
+  background: #2c3c4c;
+}
 .affcoups-settings-content {
   display: none;
 }
