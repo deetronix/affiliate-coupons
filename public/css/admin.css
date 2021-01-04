@@ -68,6 +68,15 @@ body.affcoups-admin #affcoups-admin-header-links a .dashicons {
   width: auto;
   font-size: 14px;
 }
+body.affcoups-admin #affcoups-admin-header-notice {
+  float: right;
+  line-height: 60px;
+}
+body.affcoups-admin #affcoups-admin-header-notice a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: underline;
+}
 body.affcoups-admin.affcoups_coupon_page_affcoups_settings #wpbody-content div.notice,
 body.affcoups-admin.affcoups_coupon_page_affcoups_settings #wpbody-content div.updated,
 body.affcoups-admin.affcoups_coupon_page_affcoups_settings #wpbody-content div.error {

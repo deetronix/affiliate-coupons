@@ -23,4 +23,7 @@ $is_pro = affcoups_is_pro_version();
         <a href="https://affcoups.com/docs/" target="_blank"><i class='dashicons dashicons-text-page'></i><?php _e( 'Documentation', 'affiliate-coupons' ); ?></a>
     </div>
 
+    <div id="affcoups-admin-header-notice">
+        <?php _e( 'Looking to speed up WordPress? Check out our <a href="https://woorkup.com/speed-up-wordpress/?utm_source=perfmatters&utm_medium=banner&utm_campaign=header-cta" title="WordPress Optimization Guide" target="_blank">complete optimization guide</a>.', 'affiliate-coupons' ); ?>
+    </div>
 </div>
