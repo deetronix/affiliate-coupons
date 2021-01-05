@@ -33,6 +33,7 @@ if ( ! isset( $coupons ) )
                     <?php affcoups_tpl_the_coupon_types( $coupon ); ?>
                     <?php affcoups_tpl_the_coupon_description( $coupon ); ?>
                     <?php affcoups_tpl_the_coupon_code( $coupon ); ?>
+                    <?php affcoups_tpl_the_coupon_valid_dates( $coupon ); ?>
                 </div>
 
                 <div class="affcoups-coupon__footer">
