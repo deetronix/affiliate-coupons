@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "wpmetabox/meta-box",
-            "version": "5.3.3",
+            "version": "5.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/meta-box.git",
-                "reference": "c176afe65361c2ada82240f3fe2e006c6af2fa10"
+                "reference": "bf68fd25f311c2a1a13e89b8bf92008cbb56a1db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/meta-box/zipball/c176afe65361c2ada82240f3fe2e006c6af2fa10",
-                "reference": "c176afe65361c2ada82240f3fe2e006c6af2fa10",
+                "url": "https://api.github.com/repos/wpmetabox/meta-box/zipball/bf68fd25f311c2a1a13e89b8bf92008cbb56a1db",
+                "reference": "bf68fd25f311c2a1a13e89b8bf92008cbb56a1db",
                 "shasum": ""
             },
             "type": "wordpress-plugin",
@@ -44,7 +44,11 @@
                 "wordpress-plugin",
                 "wp-admin"
             ],
-            "time": "2020-07-21T03:49:58+00:00"
+            "support": {
+                "issues": "https://github.com/wpmetabox/meta-box/issues",
+                "source": "https://github.com/wpmetabox/meta-box/tree/5.3.6"
+            },
+            "time": "2020-12-29T10:45:03+00:00"
         }
     ],
     "packages-dev": [],
@@ -54,5 +58,6 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
 }

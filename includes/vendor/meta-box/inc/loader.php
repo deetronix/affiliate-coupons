@@ -18,7 +18,7 @@ class RWMB_Loader {
 	 */
 	protected function constants() {
 		// Script version, used to add version for scripts and styles.
-		define( 'RWMB_VER', '5.3.3' );
+		define( 'RWMB_VER', '5.3.6' );
 
 		list( $path, $url ) = self::get_path( dirname( dirname( __FILE__ ) ) );
 
@@ -113,6 +113,8 @@ class RWMB_Loader {
 		if ( is_admin() ) {
 			$about = new RWMB_About( $update_checker );
 			$about->init();
+
+			new RWMB_Dashboard( 'http://feeds.feedburner.com/metaboxio', 'https://metabox.io/blog/', 'Meta Box' );
 		}
 
 		// Public functions.
