@@ -387,12 +387,22 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 
             <?php do_action( 'affcoups_settings_section_quickstart_render' ); ?>
 
-            <p><?php printf( wp_kses( __( 'Please take a look into the <a href="%s">documentation</a> for more options.', 'affiliate-coupons' ), array(  'a' => array( 'href' => array() ) ) ), esc_url( add_query_arg( array(
-                    'utm_source'   => 'settings-page',
-                    'utm_medium'   => 'quickstart',
-                    'utm_campaign' => 'Affiliate Coupons',
-                ), AFFCOUPS_DOCS_URL ) ) ); ?></p>
-			<?php
+            <p><?php
+                printf( wp_kses( __( 'Please take a look into the <a href="%s" target="_blank">documentation</a> for more options.', 'affiliate-coupons' ), array(
+                            'a' => array(
+                                'href' => array(),
+                                'target' => array()
+                            )
+                        )
+                    ), esc_url( add_query_arg( array(
+                        'utm_source'   => 'settings-page',
+                        'utm_medium'   => 'quickstart',
+                        'utm_campaign' => 'Affiliate Coupons',
+                        ), 'https://affcoups.com/docs/' )
+                    )
+                );
+            ?></p>
+            <?php
 		}
 
         /**
