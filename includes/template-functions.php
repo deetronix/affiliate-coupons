@@ -50,6 +50,10 @@ function affcoups_get_template( $template, $wrap = false ) {
 
 /**
  * Output template wrapper start html
+ *
+ * @depreacted
+ *
+ * Html wrapper was moved into the templates directly
  */
 function affcoups_tpl_the_wrapper_start() {
 
@@ -62,6 +66,10 @@ function affcoups_tpl_the_wrapper_start() {
 
 /**
  * Output template wrapper end html
+ *
+ * @depreacted
+ *
+ * Html wrapper was moved into the templates directly
  */
 function affcoups_tpl_the_wrapper_end() {
 

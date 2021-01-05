@@ -18,7 +18,7 @@ if ( ! isset( $coupons ) )
 if ( ! isset ( $grid_size ) )
     $grid_size = '3';
 ?>
-<?php affcoups_tpl_the_wrapper_start(); ?>
+<div class="affcoups">
 
     <div class="affcoups-coupons-grid affcoups-coupons-grid--col-<?php echo esc_attr( $grid_size ); ?>">
 
@@ -78,4 +78,4 @@ if ( ! isset ( $grid_size ) )
 
     </div>
 
-<?php affcoups_tpl_the_wrapper_end(); ?>
+</div><!-- /.affcoups -->
