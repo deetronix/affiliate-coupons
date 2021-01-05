@@ -24,45 +24,20 @@ if ( ! isset( $coupons ) )
             <div class="<?php $coupon->the_classes('affcoups-coupon' ); ?>"<?php $coupon->the_container(); ?>>
 
                 <div class="affcoups-coupon__header">
-
-                    <?php $coupon->the_image(); ?>
-
-                    <?php if ( $coupon->get_discount() ) { ?>
-                        <span class="affcoups-coupon__discount"><?php echo esc_attr( $coupon->get_discount() ); ?></span>
-                    <?php } ?>
-
+                    <?php affcoups_tpl_the_coupon_image( $coupon ); ?>
+                    <?php affcoups_tpl_the_coupon_discount( $coupon ); ?>
                 </div>
 
                 <div class="affcoups-coupon__content">
-
-                    <span class="affcoups-coupon__title"><?php echo esc_attr( $coupon->get_title() ); ?></span>
-
-                    <?php if ( $coupon->get_types() ) { ?>
-                        <div class="affcoups-coupon__types">
-                            <?php $coupon->the_types(); ?>
-                        </div>
-                    <?php } ?>
-
-                    <div class="affcoups-coupon__description">
-                        <?php echo wp_kses_post( $coupon->get_description() ); ?>
-                    </div>
-
-                    <?php if ( $coupon->show_code() ) { ?>
-                        <div class="affcoups-coupon__code">
-                            <?php $coupon->the_code(); ?>
-                        </div>
-                    <?php } ?>
-
-                    <?php if ( $coupon->show_valid_dates() ) { ?>
-                        <div class="affcoups-coupon__valid-dates">
-                            <?php $coupon->the_valid_dates(); ?>
-                        </div>
-                    <?php } ?>
-
+                    <?php affcoups_tpl_the_coupon_title( $coupon ); ?>
+                    <?php affcoups_tpl_the_coupon_types( $coupon ); ?>
+                    <?php affcoups_tpl_the_coupon_description( $coupon ); ?>
+                    <?php affcoups_tpl_the_coupon_code( $coupon ); ?>
+                    <?php affcoups_tpl_the_coupon_valid_dates( $coupon ); ?>
                 </div>
 
                 <div class="affcoups-coupon__footer">
-                    <?php $coupon->the_button(); ?>
+                    <?php affcoups_tpl_the_coupon_button( $coupon ); ?>
                 </div>
 
             </div>

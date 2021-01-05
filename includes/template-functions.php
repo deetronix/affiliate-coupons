@@ -144,6 +144,26 @@ function affcoups_tpl_the_coupon_description( $coupon ) {
 }
 
 /**
+ * Output the coupon description with excerpt markup
+ *
+ * @param Affcoups_Coupon $coupon
+ */
+function affcoups_tpl_the_coupon_description_with_excerpt( $coupon ) {
+
+    ?>
+    <div class="affcoups-coupon__description">
+        <div class="affcoups-coupon__description-excerpt">
+            <?php $coupon->the_excerpt(); ?>
+        </div>
+        <div class="affcoups-coupon__description-full">
+            <?php echo wp_kses_post( $coupon->get_description() ); ?>
+            <a href="#" class="affcoups-toggle-desc" data-blub="true" data-affcoups-toggle-desc="true"><?php _e('Show Less', 'affiliate-coupons' ); ?></a>
+        </div>
+    </div>
+    <?php
+}
+
+/**
  * Output the coupon code markup
  *
  * @param Affcoups_Coupon $coupon
