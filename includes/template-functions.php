@@ -195,8 +195,9 @@ function affcoups_tpl_the_coupon_valid_dates( $coupon ) {
  * Output the coupon button markup
  *
  * @param Affcoups_Coupon $coupon
+ * @param array $args
  */
-function affcoups_tpl_the_coupon_button( $coupon ) {
+function affcoups_tpl_the_coupon_button( $coupon, $args = array() ) {
 
-    $coupon->the_button();
+    $coupon->the_button( $args );
 }
