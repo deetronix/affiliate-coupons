@@ -1,0 +1,13 @@
+.babelrc
+.eslintrc
+.github
+.git
+.gitattributes
+.gitignore
+composer.lock
+package-lock.json
+package.json
+Thumbs.db
+webpack.common.js
+webpack.config.prod.js
+wordpress-org/
