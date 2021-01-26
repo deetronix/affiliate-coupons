@@ -1,5 +1,5 @@
 {
   "require": {
-    "wpmetabox/meta-box": "5.*"
+    "wpmetabox/meta-box": "^5.3.7"
   }
 }
