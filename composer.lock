@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "114037161e612a70fabb587d3720a1dc",
+    "content-hash": "9da69122a0165dec2fb35a1606241a01",
     "packages": [
         {
             "name": "wpmetabox/meta-box",
-            "version": "5.3.6",
+            "version": "5.3.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/meta-box.git",
-                "reference": "bf68fd25f311c2a1a13e89b8bf92008cbb56a1db"
+                "reference": "d9fd98cf3300dd37e35cbd2ad77021315e792d7c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/meta-box/zipball/bf68fd25f311c2a1a13e89b8bf92008cbb56a1db",
-                "reference": "bf68fd25f311c2a1a13e89b8bf92008cbb56a1db",
+                "url": "https://api.github.com/repos/wpmetabox/meta-box/zipball/d9fd98cf3300dd37e35cbd2ad77021315e792d7c",
+                "reference": "d9fd98cf3300dd37e35cbd2ad77021315e792d7c",
                 "shasum": ""
             },
             "type": "wordpress-plugin",
@@ -46,9 +46,9 @@
             ],
             "support": {
                 "issues": "https://github.com/wpmetabox/meta-box/issues",
-                "source": "https://github.com/wpmetabox/meta-box/tree/5.3.6"
+                "source": "https://github.com/wpmetabox/meta-box/tree/5.3.7"
             },
-            "time": "2020-12-29T10:45:03+00:00"
+            "time": "2021-01-11T10:41:39+00:00"
         }
     ],
     "packages-dev": [],
