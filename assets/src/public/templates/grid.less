@@ -1,22 +1,28 @@
-@import (reference) "../../../../node_modules/dotsunited-equal-height-blocks/lib/mixins";
-@import (reference) "../../../../node_modules/gee.less/gee";
 @import "../../shared/common";
 @import (reference) "standard";
 
+@template-grid-gap: 2%; // The final gap between 2 items with be this value *2
+@template-grid-col-deduct: (@template-grid-gap * 2); // We have to multiple it with 2, because the gap will be on the left and right of an item
+
 //== Grid
 .affcoups-coupons-grid {
-    .gee-grid(@gutter);
-
-    @media (min-width: (@breakpoint-mobile + 1px)) {
-        .dotsunited-equal-height-blocks-container();
-    }
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: start;
+    margin: 0 -@template-grid-gap;
 }
 
 .affcoups-coupons-grid__item {
-    .gee-unit(12, 12, @gutter);
+    width: 100%;
+    margin: 0 @template-grid-gap;
 
+    // Handling equal heights of items.
     @media (min-width: (@breakpoint-mobile + 1px)) {
-        .dotsunited-equal-height-blocks-item-wrapper();
+        display: flex;
+
+        > * {
+            max-width: 100%;
+        }
     }
 }
 
@@ -24,63 +30,63 @@
     .affcoups-coupons-grid--col-2 {
 
         .affcoups-coupons-grid__item {
-            .gee-unit-width(12/2, 12, @gutter);
+            width: ((100% / 2) - @template-grid-col-deduct);
         }
     }
 
     .affcoups-coupons-grid--col-3 {
 
         .affcoups-coupons-grid__item {
-            .gee-unit-width(12/3, 12, @gutter);
+            width: ((100% / 3) - @template-grid-col-deduct);
         }
     }
 
     .affcoups-coupons-grid--col-4 {
 
         .affcoups-coupons-grid__item {
-            .gee-unit-width(12/4, 12, @gutter);
+            width: ((100% / 4) - @template-grid-col-deduct);
         }
     }
 
     .affcoups-coupons-grid--col-5 {
 
         .affcoups-coupons-grid__item {
-            .gee-unit-width(12/5, 12, @gutter);
+            width: ((100% / 5) - @template-grid-col-deduct);
         }
     }
 
     .affcoups-coupons-grid--col-6 {
 
         .affcoups-coupons-grid__item {
-            .gee-unit-width(12/6, 12, @gutter);
+            width: ((100% / 6) - @template-grid-col-deduct);
         }
     }
 
     .affcoups-coupons-grid--col-7 {
 
         .affcoups-coupons-grid__item {
-            .gee-unit-width(12/7, 12, @gutter);
+            width: ((100% / 7) - @template-grid-col-deduct);
         }
     }
 
     .affcoups-coupons-grid--col-8 {
 
         .affcoups-coupons-grid__item {
-            .gee-unit-width(12/8, 12, @gutter);
+            width: ((100% / 8) - @template-grid-col-deduct);
         }
     }
 
     .affcoups-coupons-grid--col-9 {
 
         .affcoups-coupons-grid__item {
-            .gee-unit-width(12/9, 12, @gutter);
+            width: ((100% / 9) - @template-grid-col-deduct);
         }
     }
 
     .affcoups-coupons-grid--col-10 {
 
         .affcoups-coupons-grid__item {
-            .gee-unit-width(12/10, 12, @gutter);
+            width: ((100% / 10) - @template-grid-col-deduct);
         }
     }
 }
@@ -90,7 +96,7 @@
     .affcoups-coupons-grid--col-9{
 
         .affcoups-coupons-grid__item {
-            .gee-unit-width(12/3, 12, @gutter);
+            width: ((100% / 3) - @template-grid-col-deduct);
         }
     }
 }
@@ -99,7 +105,7 @@
     .affcoups-coupons-grid--col-8 {
 
         .affcoups-coupons-grid__item {
-            .gee-unit-width(12/4, 12, @gutter);
+            width: ((100% / 4) - @template-grid-col-deduct);
         }
     }
 }
@@ -108,7 +114,7 @@
     .affcoups-coupons-grid--col-10 {
 
         .affcoups-coupons-grid__item {
-            .gee-unit-width(12/5, 12, @gutter);
+            width: ((100% / 5) - @template-grid-col-deduct);
         }
     }
 }
@@ -124,7 +130,7 @@
     .affcoups-coupons-grid--col-10 {
 
         .affcoups-coupons-grid__item {
-            .gee-unit-width(12/2, 12, @gutter);
+            width: ((100% / 2) - @template-grid-col-deduct);
         }
     }
 }

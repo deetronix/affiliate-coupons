@@ -2,6 +2,12 @@
   "name": "affiliate-coupons",
   "version": "1.6.0",
   "description": "Affiliate Coupons WordPress Plugin",
+  "author": "Affiliate Coupons",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/flowdee/affiliate-coupons"
+  },
   "scripts": {
     "development": "mix",
     "watch": "mix watch",
@@ -10,8 +16,6 @@
     "production": "mix --production",
     "prod": "npm run production"
   },
-  "author": "Affiliate Coupons",
-  "license": "MIT",
   "pot": {
     "type": "wp-plugin",
     "textdomain": "affiliate-coupons",
@@ -24,9 +28,7 @@
   },
   "dependencies": {
     "clipboard": "^2.0.6",
-    "core-js": "^3.8.3",
-    "dotsunited-equal-height-blocks": "3.1.0",
-    "gee.less": "3.0.0"
+    "core-js": "^3.8.3"
   },
   "devDependencies": {
     "laravel-mix": "^6.0.10",
