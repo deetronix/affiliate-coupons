@@ -1,0 +1,34 @@
+/*!
+  * Plugin:	Affiliate Coupons
+  * URL:	https://affcoups.com
+  * Name:	main.css
+  */
+
+//== Dependencies
+@import "../shared/common";
+
+.affcoups {
+    .border-box();
+
+    // Elements
+    @import "elements/button";
+    @import "elements/clipboard";
+    @import "elements/icons";
+
+    // Basic layout
+    @import "templates/_shared";
+
+    // Templates
+    @import "templates/standard";
+    @import "templates/grid";
+    @import "templates/list";
+    @import "templates/widget";
+
+    // Styles
+    @import "styles/standard";
+}
+
+p.affcoups-credits {
+    font-size: .8em;
+    font-style: italic;
+}

@@ -80,7 +80,7 @@ function affcoups_get_amp_styles() {
 	}
 
 	if ( empty( $amp_styles ) ) {
-		$amp_styles = affcoups_asset_embed( AFFCOUPS_PLUGIN_URL . 'assets/dist/amp.css' );
+		$amp_styles = affcoups_asset_embed( AFFCOUPS_PLUGIN_URL . 'assets/dist/css/amp.css' );
 
 		set_transient( 'affcoups_amp_styles', $amp_styles, 60 * 60 * 24 * 7 );
 	}

@@ -1,4 +1,4 @@
-@import "../../common";
+@import "../../shared/common";
 @import (reference) "../elements/button";
 
 @template-standard-inner-padding: 20px;
@@ -10,7 +10,7 @@
 
 //== Standard Template Mixin
 .template-standard-layout() {
-    
+
     .affcoups-coupon {
         max-width: 400px;
         margin: 0 auto 30px auto;
@@ -29,16 +29,16 @@
             margin: 0 0 30px 30px;
         }
     }
-    
+
     .affcoups-coupon__header {
-    
+
     }
-    
+
     .affcoups-coupon__thumbnail {
         display: block;
         margin: 0;
         padding: 0;
-        
+
         font-size: 0;
         vertical-align: top;
     }
@@ -47,20 +47,20 @@
         border-bottom-right-radius: 0;
         border-bottom-left-radius: 0;
     }
-    
+
     .affcoups-coupon__discount {
         position: absolute;
         top: @template-standard-inner-padding;
         left: 0;
     }
-    
+
     .affcoups-coupon__content {
         padding: @template-standard-inner-padding;
 
         font-size: 15px;
         line-height: 1.6;
     }
-    
+
     .affcoups-coupon__title {
         margin: 0;
         padding: 0;
@@ -68,54 +68,54 @@
         font-size: 20px;
         line-height: 26px;
     }
-    
+
     .affcoups-coupon__types {
         margin-top: -5px;
         margin-bottom: 5px;
-        
+
         span {
             font-size: 14px;
             font-weight: bold;
         }
-        
+
         span + span {
             margin-left: 10px;
         }
     }
-    
+
     .affcoups-coupon__description {
         margin: 10px 0 0;
-        
+
         font-size: 16px;
-        
+
         & > *:first-child {
             margin-top: 0;
         }
-        
+
         & > *:last-child {
             margin-bottom: 0;
         }
     }
-    
+
     .affcoups-coupon__code {
         margin-top: 15px;
     }
-    
+
     .affcoups-coupon__valid-dates {
         display: block;
         margin: 5px 0 0;
-        
+
         font-size: 13px;
         text-align: center;
     }
-    
+
     .affcoups-coupon__footer {
         position: absolute;
         bottom: @template-standard-inner-padding;
         left: @template-standard-inner-padding;
         right: @template-standard-inner-padding;
     }
-    
+
     a.affcoups-coupon__button {
         display: block;
         width: 100%;

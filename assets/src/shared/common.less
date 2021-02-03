@@ -1,0 +1,80 @@
+// Units
+@gutter: 3%;
+@spacing: 20px;
+@animation-ease: ease;
+@animation-time: .3s;
+@border-radius: 3px; //4px;
+
+// Colors
+@color-primary: #48627D;
+@color-primary-darken: darken(@color-primary, 10%);
+@color-primary-darkest: darken(@color-primary, 15%);
+@color-secondary: #F99F1B;
+
+@color-success: #5cb85c;
+@color-info: #5bc0de;
+@color-warning: #f0ad4e;
+@color-error: #d9534f;
+
+@color-font: rgba(0, 0, 0, 0.87);
+@color-font-light:rgba(0, 0, 0, 0.54);
+
+@color-border: #ebebeb;
+
+@color-green-bg: #69f0ae;
+@color-green-font: #222;
+@color-yellow: #ffecb3;
+@color-yellow-font: #222;
+
+@color-button-bg: @color-green-bg;
+@color-button: @color-green-font;
+@color-discount-bg: @color-green-bg;
+@color-discount: @color-green-font;
+
+// Breakpoints
+@breakpoint-large: 1024px;
+@breakpoint-default: 768px;
+@breakpoint-mobile: 480px;
+
+//== Helper
+.img-responsive() {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.border-box() {
+    box-sizing: border-box;
+    *,
+    *:before,
+    *:after {
+        box-sizing: border-box;
+    }
+}
+
+.box-shadow() {
+    //box-shadow: 0 1px 12px -4px rgba(0,0,0,0.2);
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),0px 1px 1px 0px rgba(0, 0, 0, 0.14),0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+}
+
+// Clearfix
+// Source: http://nicolasgallagher.com/micro-clearfix-hack/
+//
+// For modern browsers
+// 1. The space content is one way to avoid an Opera bug when the
+// contenteditable attribute is included anywhere else in the document.
+// Otherwise it causes space to appear at the top and bottom of elements
+// that are clearfixed.
+// 2. The use of `table` rather than `block` is only necessary if using
+// `:before` to contain the top-margins of child elements.
+.clearfix() {
+    zoom: 1;
+    &:before,
+    &:after {
+        content: " "; /* 1 */
+        display: table; /* 2 */
+    }
+    &:after {
+        clear: both;
+    }
+}

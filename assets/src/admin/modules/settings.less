@@ -1,0 +1,216 @@
+@import "../../shared/common";
+
+@settings-header-icon-size: 25px;
+@settings-nav-inner-padding: 20px;
+
+//== Settings Page
+.affcoups-settings {
+
+    .dashicons-star-filled {
+        color: @color-secondary;
+    }
+
+    .dashicons-megaphone {
+        color: @color-secondary;
+    }
+
+    .affcoups-pro-feature {
+        margin-top: .7em;
+    }
+
+    .affcoups-settings-button {
+        display: inline-block;
+        padding: 10px 15px;
+
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+        background-color: @color-secondary;
+        border-radius: 3px;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 700;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: all .5s ease-in-out;
+
+        &:visited {
+            color: #fff;
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: #fff;
+            color: #222;
+            text-decoration: none;
+        }
+    }
+
+    .affcoups-settings-button--secondary {
+        background-color: @color-secondary;
+        color: #222;
+
+        &:visited {
+            color: #222;
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: #e68a00;
+            color: #222;
+        }
+    }
+
+    .affcoups-settings-button--block {
+        display: block;
+    }
+
+    //== Table
+    .form-table {
+
+        td {
+
+            & > h4:first-child {
+                margin-top: 7px;
+            }
+
+            h4 {
+                margin: 10px 0 4px;
+
+                color: #666;
+            }
+
+            p.desc {
+                color: #777;
+                font-size: .85em;
+                font-style: italic;
+            }
+        }
+    }
+
+    //== Color Picker
+    .wp-picker-container {
+        position: relative;
+
+        .wp-color-result {
+
+        }
+
+        .wp-picker-holder {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 10;
+        }
+    }
+}
+
+.affcoups-settings-nav {
+//    margin: 0 0 0 -20px;
+//    padding: 0 1em 0 2.7em;
+//
+//    background: @color-primary-darken;
+//    color: #fff;
+
+    ul {
+//        .clearfix();
+//
+//        margin: 0 0 0 -@settings-nav-inner-padding;
+//        padding: 0;
+//
+//        list-style: none;
+
+        li {
+//            float: left;
+//            margin: 0;
+//            padding: 0;
+
+            a {
+//                display: block;
+//                padding: 0 @settings-nav-inner-padding;
+//
+//                color: #fff;
+//                font-size: 13px;
+//                line-height: 50px;
+//                outline: none;
+//                text-decoration: none;
+//                vertical-align: middle;
+//
+//                &:visited {
+//                    color: #fff;
+//                }
+
+                border-bottom: 1px solid #e5e5e5;
+
+                &:hover,
+                &:focus,
+                &:active,
+                &.active {
+                    box-shadow: none;
+                    color: #000;
+                    outline: none;
+                    background: #f1f1f1;
+                }
+            }
+
+            .dashicons {
+                font-size: 18px;
+                margin-right: 3px;
+                vertical-align: middle;
+            }
+
+            &:hover,
+            &.active {
+                background: @color-primary-darkest;
+            }
+        }
+    }
+}
+
+.affcoups-settings-content {
+    display: none;
+
+    &.active {
+        display: block;
+    }
+
+    .card {
+        max-width: none;
+        margin-top: 0;
+
+        .title {
+            font-size: 1.3em !important;
+            margin: 1em 0 !important;
+            padding: 0 !important;
+        }
+
+        .inside {
+            p {
+                margin: 1.3em 0;
+
+                strong {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+.postbox-container {
+    .card {
+        margin: 0 0 20px;
+
+        .inside {
+            p {
+                margin: 1.3em 0;
+            }
+
+            ul {
+                li {
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+}

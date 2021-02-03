@@ -1,4 +1,4 @@
-@import "../../common";
+@import "../../shared/common";
 
 @list-template-breakpoint: @breakpoint-mobile;
 @list-template-inner-padding: 15px;
@@ -6,30 +6,30 @@
 
 //== List
 .affcoups-coupons-list {
-    
+
     .affcoups-coupon {
         .clearfix();
-        
+
         margin: 0 0 30px;
         padding: @list-template-inner-padding;
     }
-    
+
     // Contents
     .affcoups-coupon--code {
-    
+
         @media(min-width: (@list-template-breakpoint + 1px)) {
-    
+
             .affcoups-coupon__header,
             .affcoups-coupon__content {
                 margin-top: 2%;
             }
-    
+
             .affcoups-coupon__footer {
                 margin-top: 0;
             }
         }
     }
-    
+
     // Header
     .affcoups-coupon__discount {
         position: absolute;
@@ -39,46 +39,46 @@
 
         font-size: 14px;
     }
-    
+
     .affcoups-coupon__header {
-    
+
         @media(min-width: (@list-template-breakpoint + 1px)) {
             float: left;
             width: 20%;
         }
     }
-    
+
     .affcoups-coupon__thumbnail {
         display: block;
         margin: 0;
         padding: 0;
-        
+
         font-size: 0;
         vertical-align: top;
     }
-    
+
     img.affcoups-coupon__image {
 
     }
-    
+
     .affcoups-coupon__types {
         text-align: left;
-        
+
         span {
             font-size: 13px;
             font-weight: bold;
         }
-        
+
         span + span {
             margin-left: 10px;
         }
     }
-    
+
     // Content
     .affcoups-coupon__content {
         margin-top: @list-template-spacing;
         padding: 0;
-        
+
         @media(min-width: (@list-template-breakpoint + 1px)) {
             float: left;
             margin-top: 0;
@@ -86,7 +86,7 @@
             width: 50%;
         }
     }
-    
+
     .affcoups-coupon__title {
         margin: 2px 0 0 0;
         padding: 0;
@@ -94,60 +94,60 @@
         font-size: 18px;
         line-height: 20px;
     }
-    
+
     .affcoups-coupon__description {
         margin: 8px 0 0;
-        
+
         font-size: 15px;
-        
+
         & > *:first-child {
             margin-top: 0;
         }
-        
+
         & > *:last-child {
             margin-bottom: 0;
         }
     }
-    
+
     .affcoups-coupon__description-excerpt {
         display: block;
     }
-    
+
     .affcoups-coupon__description-full {
         display: none;
     }
-    
+
     .affcoups-coupon__description--full {
-    
+
         .affcoups-coupon__description-excerpt {
             display: none;
         }
-    
+
         .affcoups-coupon__description-full {
             display: block;
         }
     }
-    
+
     // Footer
     .affcoups-coupon__footer {
         margin-top: @list-template-spacing;
-    
+
         @media(min-width: (@list-template-breakpoint + 1px)) {
             float: left;
             margin-top: 1%;
             width: 30%;
         }
     }
-    
+
     .affcoups-coupon__button {
         display: block;
         width: 100%;
     }
-    
+
     .affcoups-coupon__valid-dates {
         display: block;
         margin: 5px 0 0;
-        
+
         font-size: 13px;
         text-align: center;
     }
