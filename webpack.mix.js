@@ -1,6 +1,12 @@
 let mix = require('laravel-mix');
 
 mix
+    // Override the underlying webpack configuration directly.
+    .webpackConfig({
+        externals: {
+            jquery: 'jQuery',
+        }
+    })
     // Configure options.
     .options({
         processCssUrls: false, // Don't perform any css url rewriting by default
