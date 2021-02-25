@@ -20,6 +20,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function affcoups_coupon_extend_columns( $defaults ) {
 
+    $defaults['affcoups_coupon_vendor'] = __( 'Vendor', 'affiliate-coupons' );
+
 	$defaults['affcoups_coupon_thumb']      = __( 'Thumbnail', 'affiliate-coupons' );
 
 	$defaults = apply_filters( 'affcoups_coupon_posts_columns', $defaults );
@@ -39,7 +41,15 @@ add_filter( 'manage_affcoups_coupon_posts_columns', 'affcoups_coupon_extend_colu
  */
 function affcoups_coupon_extend_columns_content( $column_name, $postid ) {
 
-	if ( 'affcoups_coupon_thumb' === $column_name ) {
+    if ( 'affcoups_coupon_vendor' === $column_name ) {
+
+        // alternative approach for vendor id:
+        //echo get_post_meta( $postid, AFFCOUPS_PREFIX . 'coupon_vendor', true );
+
+        $Coupon = new Affcoups_Coupon( $postid );
+        echo ( ! empty( $Coupon->vendor_id ) ) ? $Coupon->vendor_id : '&mdash;';
+
+    } elseif ( 'affcoups_coupon_thumb' === $column_name ) {
 
 	    $Coupon = new Affcoups_Coupon( $postid );
 		$image = $Coupon->get_image( 'small' );
