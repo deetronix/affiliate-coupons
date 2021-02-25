@@ -6,9 +6,6 @@ jQuery(document).ready(function ($) {
     $(".affcoups-input-colorpicker").wpColorPicker();
 
     /**
-     * Settings: Nav
-     */
-    /**
      * Coupons Overview: Reset Stats
      */
     $('[data-affcoups-settings-nav]').on( "click", function( event ) {
@@ -72,5 +69,12 @@ jQuery(document).ready(function ($) {
     $( document ).on( 'click', '#affcoups-delete-log-submit', function(event) {
         $('#affcoups-delete-log').val('1');
     });
+
+    /**
+     * Settings: Move wp admin notices above the Settings Nav
+     */
+    setTimeout( function() {
+        $('#wpbody-content > .affcoups-settings .affcoups-settings-content > .card > .error, .notice').insertBefore( $( '#affcoups-admin-page' ) );
+    }, 10 );
 
 });
