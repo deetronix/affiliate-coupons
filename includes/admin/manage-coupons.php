@@ -20,15 +20,16 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function affcoups_coupon_extend_columns( $defaults ) {
 
+    /**
+     * @Todo: maybe insert 'Vendor' between 'Categories' and 'Date' columns ?
+     *  @see affcoups_array_insert_after()
+     */
     $defaults['affcoups_coupon_vendor'] = __( 'Vendor', 'affiliate-coupons' );
 
-	$defaults['affcoups_coupon_thumb']      = __( 'Thumbnail', 'affiliate-coupons' );
-
-	$defaults = apply_filters( 'affcoups_coupon_posts_columns', $defaults );
-
+	$defaults['affcoups_coupon_thumb'] = __( 'Thumbnail', 'affiliate-coupons' );
     $defaults['affcoups_coupon_shortcode'] = __( 'Shortcode', 'affiliate-coupons' );
 
-	return $defaults;
+    return apply_filters( 'affcoups_coupon_posts_columns', $defaults );
 }
 
 add_filter( 'manage_affcoups_coupon_posts_columns', 'affcoups_coupon_extend_columns', 10 );

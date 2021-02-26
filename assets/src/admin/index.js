@@ -1,3 +1,10 @@
+/**
+ * Controls
+ * Coupons Overview: Reset Stats
+ * Settings: Delete Log
+ * Settings: Move wp admin notices above the Settings Nav
+ * Settings: Handle "review request" admin notice buttons click
+ */
 jQuery(document).ready(function ($) {
 
     /**
@@ -77,4 +84,47 @@ jQuery(document).ready(function ($) {
         $('#wpbody-content > .affcoups-settings .affcoups-settings-content > .card > .error, .notice').insertBefore( $( '#affcoups-admin-page' ) );
     }, 10 );
 
+    /**
+     * Settings: Handle "review request" admin notice buttons click
+     */
+    $('.affcoups-notice-btn').on( 'click', function(event) {
+
+        var
+            nonce,
+            action = $(this).data('action'),
+            $this = $(this);
+
+        if ( ! action )
+            return;
+
+        if ( 'affcoups_remove_review_request' === action ) {
+            nonce = affcoups_admin_post.nonce.remove_review_request;
+
+        } else if ( 'affcoups_hide_review_request' === action ) {
+            nonce = affcoups_admin_post.nonce.hide_review_request;
+        }
+
+        $.ajax({
+            type: "POST",
+            dataType: 'JSON',
+            url: affcoups_admin_post.ajax_url,
+            data: {
+                action: action,
+                _wpnonce: nonce
+            },
+        })
+        .done(function(response) {
+
+            if (response.error) {
+                console.log( 'response.error:' );
+                console.log( response.error );
+                return false;
+            }
+
+            $this.closest('.affcoups-notice').fadeOut('slow');
+        })
+        .fail(function(jqXHR, textStatus) {
+            console.log( "Request failed: " + textStatus );
+        });
+    });
 });

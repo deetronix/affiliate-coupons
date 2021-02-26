@@ -47,8 +47,7 @@ function affcoups_convert_separated_strings_to_array( $string ) {
 	return $array;
 }
 
-function affcoups_array_insert_after($array, $findAfter, $key, $new)
-{
+function affcoups_array_insert_after($array, $findAfter, $key, $new) {
     $pos = (int) array_search($findAfter, array_keys($array)) + 1;
     return array_merge(
         array_slice($array, 0, $pos),
@@ -69,15 +68,31 @@ function affcoups_get_options() {
 /**
  * Get single option
  *
- * @param $key
- * @param null $default
+ * @param   string $key
+ * @param   mixed $default
  *
- * @return null
+ * @return  mixed
  */
 function affcoups_get_option( $key, $default = null ) {
 	$options = affcoups_get_options();
 
 	return ( isset( $options[ $key ] ) ) ? $options[ $key ] : $default;
+}
+
+/**
+ * Set or Update single option
+ *
+ * @param   string $key
+ * @param   mixed $value
+ *
+ * @return  void
+ */
+function affcoups_update_option( $key, $value ) {
+	$options = affcoups_get_options();
+
+    $options[$key] = $value;
+
+	update_option( 'affcoups_settings', $options );
 }
 
 /**

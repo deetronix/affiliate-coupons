@@ -36,7 +36,11 @@ function affcoups_admin_scripts( $hook ) {
 		wp_enqueue_style( 'affcoups-admin', AFFCOUPS_PLUGIN_URL . 'assets/dist/css/admin.css', false, AFFCOUPS_VERSION );
 
         wp_localize_script( 'affcoups-admin', 'affcoups_admin_post', array(
-            'ajax_url' => admin_url( 'admin-ajax.php' )
+            'ajax_url' => admin_url( 'admin-ajax.php' ),
+            'nonce' => array(
+                'remove_review_request' => wp_create_nonce( 'remove_review_request' ),
+                'hide_review_request'   => wp_create_nonce( 'hide_review_request' ),
+            )
         ));
 
 		do_action( 'affcoups_enqueue_admin_scripts' );
