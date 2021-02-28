@@ -110,9 +110,23 @@ function affcoups_tpl_the_coupon_discount( $coupon ) {
  */
 function affcoups_tpl_the_coupon_title( $coupon ) {
 
-    ?>
-    <span class="affcoups-coupon__title"><?php echo esc_attr( $coupon->get_title() ); ?></span>
-    <?php
+    $coupon_title = $coupon->get_title();
+    $coupon_title = affcoups_cleanup_html_attribute( $coupon_title );
+
+    $coupon_url = esc_url( $coupon->get_url() );
+
+    $options = affcoups_get_options();
+    $linked_title = ( isset( $options['linked_title'] ) && '1' === $options['linked_title'] ) ? true : false;
+
+    if ( $linked_title && ! empty( $coupon_url ) ) {
+        ?>
+        <a class="affcoups-coupon__title" href="<?php echo $coupon_url; ?>" title="<?php echo $coupon_title; ?>" target="_blank" rel="nofollow"><?php echo $coupon_title; ?></a>
+        <?php
+    } else {
+        ?>
+        <span class="affcoups-coupon__title"><?php echo $coupon_title; ?></span>
+        <?php
+    }
 }
 
 /**

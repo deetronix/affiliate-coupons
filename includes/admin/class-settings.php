@@ -151,6 +151,10 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
                                 'title' => __( 'Styles', 'affiliate-coupons' ),
                                 'callback' => array( &$this, 'styles_render' )
                             ),
+                            'linked_title' => array(
+                                'title' => __( 'Title', 'affiliate-coupons' ),
+                                'callback' => array( &$this, 'title_render' )
+                            ),
                             'description' => array(
                                 'title' => __( 'Description', 'affiliate-coupons' ),
                                 'callback' => array( &$this, 'description_render' )
@@ -586,6 +590,20 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
             <?php
 
             do_action( 'affcoups_settings_styles_render' );
+        }
+
+        /**
+         * Render title settings
+         */
+		function title_render() {
+
+            $linked_title = ( isset( $this->options['linked_title'] ) && $this->options['linked_title'] == '1' ) ? 1 : 0;
+            ?>
+            <p>
+                <input type="checkbox" id="affcoups_linked_title" name="affcoups_settings[linked_title]" value="1" <?php echo( $linked_title == 1 ? 'checked' : '' ); ?>>
+                <label for="affcoups_linked_title"><?php esc_html_e( 'Wrap Coupon Title with a Link', 'affiliate-coupons' ); ?></label>
+            </p>
+            <?php
         }
 
         /**

@@ -193,14 +193,14 @@ if (!class_exists('Affcoups_Coupon')) {
             // Build thumbnail
             if ( ! empty( $image_args['url'] ) ) {
 
-                $image_output = '<a class="affcoups-coupon__thumbnail" href="' . esc_html( $image_args['url'] ) . '" title="' . esc_html( $image_args['title'] ) . '" target="' . esc_html( $image_args['target'] ) . '" rel="' . esc_html( $image_args['rel'] ) . '">';
+                $image_output = '<a class="affcoups-coupon__thumbnail" href="' . esc_url( $image_args['url'] ) . '" title="' . esc_html( $image_args['title'] ) . '" target="' . esc_html( $image_args['target'] ) . '" rel="' . esc_html( $image_args['rel'] ) . '">';
 
                 $image_output .= $image_html;
                 $image_output .= '</a>';
             } else {
                 $image_output = '<span class="affcoups-coupon__thumbnail">';
                 $image_output .= $image_html;
-                $image_output .= '</a>';
+                $image_output .= '</span>';
             }
 
             // Output
@@ -533,7 +533,8 @@ if (!class_exists('Affcoups_Coupon')) {
             // Build HTML markup
             ob_start();
             ?>
-            <a class="affcoups-coupon__button" href="<?php echo esc_attr( $button['url'] ); ?>" title="<?php echo esc_attr( $button['title'] ); ?>" rel="<?php echo esc_attr( $button['rel'] ); ?>" target="<?php echo esc_attr( $button['target'] ); ?>">
+            <a class="affcoups-coupon__button" href="<?php echo esc_url( $button['url'] ); ?>" title="<?php echo esc_attr( $button['title'] ); ?>" rel="<?php echo esc_attr( $button['rel'] ); ?>"
+               target="<?php echo esc_attr( $button['target'] ); ?>">
                 <?php if ( ! empty( $button['icon'] ) ) { ?>
                     <span class="affcoups-icon-<?php echo esc_attr( $button['icon'] ); ?> affcoups-coupon__button-icon"></span>
                 <?php } ?>
