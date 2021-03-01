@@ -50,6 +50,7 @@ function affcoups_delete_options() {
         'affcoups_is_installed',
         'affcoups_version',
         'affcoups_settings',
+        'affcoups_review_request_suppressed',
         'affcoups_log'
     );
 
