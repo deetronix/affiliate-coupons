@@ -71,7 +71,8 @@ function affcoups_admin_notices() {
 	);
 	*/
 
-    $is_review_suppressed = affcoups_get_option( 'review_request_suppressed' );
+    // affcoups_review_request_suppressed
+    $is_review_suppressed = get_option( 'affcoups_review_request_suppressed' );
 
     if ( empty( $is_review_suppressed ) ) {
 
@@ -197,7 +198,7 @@ function affcoups_review_request_action() {
 
     if ( 'affcoups_remove_review_request' === $action ) {
 
-        affcoups_update_option( 'review_request_suppressed', 1 );
+        update_option( 'affcoups_review_request_suppressed', 1 );
 
     } else if( 'affcoups_hide_review_request' === $action ) {
 
