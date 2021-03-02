@@ -102,15 +102,39 @@ body.affcoups-admin {
 
 // Elements
 @notice-border-width: 4px;
-@notice-icon-size: 20px;
+@notice-label-height: 20px;
 
 .affcoups-notice {
-    padding-left: (@notice-icon-size * 2) + @notice-border-width;
+    position: relative;
 
-    background-repeat: no-repeat;
-    background-image: url('../../../img/icon-notice.png');
-    background-size: @notice-icon-size @notice-icon-size;
-    background-position: ((@notice-icon-size / 2) + 4px) center;
+    &:after {
+        position: absolute;
+        bottom: -@notice-label-height;
+        left: -@notice-border-width;
+
+        display: none; // hide for now.
+        height: @notice-label-height;
+        padding: @notice-border-width;
+        width: auto;
+
+        background: @color-secondary;
+        color: #222;
+        content: "Affiliate Coupons";
+        font-size: 12px;
+        line-height: @notice-label-height;
+    }
+}
+
+#affcoups-notice-review {
+
+    ul {
+        margin-bottom: 0;
+
+        li {
+            display: inline-block;
+            margin-right: 1em;
+        }
+    }
 }
 
 .affcoups-pro-feature {

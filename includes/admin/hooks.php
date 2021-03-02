@@ -96,6 +96,7 @@ function affcoups_admin_notices() {
             );
 
             $notices[] = array(
+                'id' => 'review',
                 'type' => 'info',
                 'dismiss' => true,
                 'message' => $review_notice
