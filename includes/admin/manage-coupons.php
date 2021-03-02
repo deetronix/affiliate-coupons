@@ -45,10 +45,14 @@ function affcoups_coupon_extend_columns_content( $column_name, $postid ) {
     if ( 'affcoups_coupon_vendor' === $column_name ) {
 
         // alternative approach for vendor id:
-        //echo get_post_meta( $postid, AFFCOUPS_PREFIX . 'coupon_vendor', true );
+        $vendor_id = get_post_meta( $postid, AFFCOUPS_PREFIX . 'coupon_vendor', true );
+        $Vendor = ( ! empty ( $vendor_id ) ) ? new Affcoups_Vendor( $vendor_id ) : null;
 
-        $Coupon = new Affcoups_Coupon( $postid );
-        echo ( ! empty( $Coupon->vendor_id ) ) ? $Coupon->vendor_id : '&mdash;';
+        if ( ! empty ( $Vendor ) && ! empty( $vendor_title = $Vendor->get_title() ) ) {
+            echo '<a href="' . esc_url( admin_url( 'edit.php?s=' . esc_attr( $vendor_title ) . '&post_status=all&post_type=affcoups_coupon' ) ) . '">' . esc_html( $vendor_title ) . '</a>';
+        } else {
+            echo '&mdash;';
+        }
 
     } elseif ( 'affcoups_coupon_thumb' === $column_name ) {
 
