@@ -4,8 +4,8 @@ Donate link: https://donate.flowdee.de
 Tags: affiliate coupons, coupon plugin, coupon, wp coupons, coupon reveal
 Requires at least: 3.0.1
 Requires PHP: 5.6.0
-Tested up to: 5.6.0
-Stable tag: 1.6.0
+Tested up to: 5.6.2
+Stable tag: 1.6.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -105,6 +105,13 @@ Affiliate Coupons is a fully GDPR compatible WordPress coupon plugin. We don’t
 2. Settings
 
 == Changelog ==
+
+= Version 1.6.1 (2nd March 2021) =
+* New: Added setting to link coupon titles
+* New: Added "Vendor" column to the admin coupons overview page
+* Fix: Admin notices were positioned incorrectly on the settings page
+* Updated translations .pot file
+* WordPress v5.6.2 compatibility
 
 = Version 1.6.0 (12th January 2021) =
 * Tweak: Refactored admin pages and applied new branding
