@@ -151,7 +151,7 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
                                 'title' => __( 'Styles', 'affiliate-coupons' ),
                                 'callback' => array( &$this, 'styles_render' )
                             ),
-                            'linked_title' => array(
+                            'title_linked' => array(
                                 'title' => __( 'Title', 'affiliate-coupons' ),
                                 'callback' => array( &$this, 'title_render' )
                             ),
@@ -598,11 +598,11 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
          */
 		function title_render() {
 
-            $linked_title = ( isset( $this->options['linked_title'] ) && $this->options['linked_title'] == '1' ) ? 1 : 0;
+            $title_linked = ( isset( $this->options['title_linked'] ) && $this->options['title_linked'] == '1' ) ? 1 : 0;
             ?>
             <p>
-                <input type="checkbox" id="affcoups_linked_title" name="affcoups_settings[linked_title]" value="1" <?php echo( $linked_title == 1 ? 'checked' : '' ); ?>>
-                <label for="affcoups_linked_title"><?php esc_html_e( 'Wrap Coupon Title with a Link', 'affiliate-coupons' ); ?></label>
+                <input type="checkbox" id="affcoups_title_linked" name="affcoups_settings[title_linked]" value="1" <?php echo( $title_linked == 1 ? 'checked' : '' ); ?>>
+                <label for="affcoups_title_linked"><?php esc_html_e( 'Activate to redirect the page visitor to the corresponding URL when clicking on the coupon title', 'affiliate-coupons' ); ?></label>
             </p>
             <?php
         }

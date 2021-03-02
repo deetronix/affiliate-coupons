@@ -116,9 +116,9 @@ function affcoups_tpl_the_coupon_title( $coupon ) {
     $coupon_url = esc_url( $coupon->get_url() );
 
     $options = affcoups_get_options();
-    $linked_title = ( isset( $options['linked_title'] ) && '1' === $options['linked_title'] ) ? true : false;
+    $title_linked = ( isset( $options['title_linked'] ) && '1' === $options['title_linked'] ) ? true : false;
 
-    if ( $linked_title && ! empty( $coupon_url ) ) {
+    if ( $title_linked && ! empty( $coupon_url ) ) {
         ?>
         <a class="affcoups-coupon__title" href="<?php echo $coupon_url; ?>" title="<?php echo $coupon_title; ?>" target="_blank" rel="nofollow"><?php echo $coupon_title; ?></a>
         <?php
