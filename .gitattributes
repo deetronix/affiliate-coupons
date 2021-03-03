@@ -4,7 +4,7 @@
 /.wordpress-org export-ignore
 /.github export-ignore
 
-/assets/ export-ignore
+/assets/src/ export-ignore
 /build/ export-ignore
 /tests/ export-ignore
 
