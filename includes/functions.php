@@ -46,12 +46,12 @@ function affcoups_get_coupon_post_type_slug() {
  */
 function affcoups_get_coupons( $args = array(), $return_posts = false ) {
 
+    //affcoups_debug_log( __FUNCTION__ );
+
+    //affcoups_debug_log( '$args:' );
+    //affcoups_debug_log( $args );
+
     $coupons = array();
-
-    $hide_invalid = ( isset( $args['affcoups_coupon_hide_invalid'] ) && true === $args['affcoups_coupon_hide_invalid'] ) ? true : false;
-    $hide_expired = ( isset( $args['affcoups_coupon_hide_expired'] ) && true === $args['affcoups_coupon_hide_expired'] ) ? true : false;
-
-    $max = ( isset( $args['affcoups_max'] ) && is_numeric( $args['affcoups_max'] ) ) ? $args['affcoups_max'] : 0;
 
     $defaults = array(
         'post_type'      => AFFCOUPS_COUPON_POST_TYPE,
@@ -74,8 +74,24 @@ function affcoups_get_coupons( $args = array(), $return_posts = false ) {
         'relation' => 'AND'
     );
 
+    $max = ( isset( $args['affcoups_max'] ) && is_numeric( $args['affcoups_max'] ) ) ? $args['affcoups_max'] : 0;
+
+    // Invalid dates
+    $hide_invalid = ( isset( $args['affcoups_coupon_hide_invalid'] ) && true === $args['affcoups_coupon_hide_invalid'] ) ? true : false;
+
+    // Expired dates
+    if ( isset( $args['affcoups_coupon_expired'] ) ) {
+
+        if ( 1 === $args['affcoups_coupon_expired'] ) {
+            $expired = true;
+
+        } elseif ( 0 === $args['affcoups_coupon_expired'] ) {
+            $expired = false;
+        }
+    }
+
     //-- Number
-    if ( ! empty ( $max ) && ( $hide_invalid || $hide_expired ) )
+    if ( ! empty ( $max ) && ( $hide_invalid || isset( $expired ) ) )
         $args['posts_per_page'] = -1;
 
     if ( $args['posts_per_page'] < 1 )
@@ -191,87 +207,77 @@ function affcoups_get_coupons( $args = array(), $return_posts = false ) {
         );
     }
 
-    //-- Expiration
-    if ( isset( $args['affcoups_coupon_hide_invalid'] ) && true === $args['affcoups_coupon_hide_invalid'] ) {
+//    //-- Expiration
+//    if ( $hide_invalid ) {
+//        /*
+//        $meta_queries[] = array(
+//            'relation' => 'OR',
+//            // From date not set yet
+//            array(
+//                'key'     => AFFCOUPS_PREFIX . 'coupon_valid_from',
+//                'value'   => '',
+//                'compare' => 'NOT EXISTS',
+//                'type'    => 'NUMERIC'
+//            ),
+//            // Not valid yet
+//            array(
+//                'key'     => AFFCOUPS_PREFIX . 'coupon_valid_from',
+//                'value'   => time(),
+//                'compare' => '<',
+//                'type'    => 'NUMERIC'
+//            )
+//        );
+//        */
+//    }
 
-        $hide_invalid = true;
-
-        /*
-        $meta_queries[] = array(
-            'relation' => 'OR',
-            // From date not set yet
-            array(
-                'key'     => AFFCOUPS_PREFIX . 'coupon_valid_from',
-                'value'   => '',
-                'compare' => 'NOT EXISTS',
-                'type'    => 'NUMERIC'
-            ),
-            // Not valid yet
-            array(
-                'key'     => AFFCOUPS_PREFIX . 'coupon_valid_from',
-                'value'   => time(),
-                'compare' => '<',
-                'type'    => 'NUMERIC'
-            )
-        );
-        */
-    }
-
-    if ( isset( $args['affcoups_coupon_hide_expired'] ) && true === $args['affcoups_coupon_hide_expired'] ) {
-
-        $hide_expired = true;
-
-        /*
-        $meta_queries[] = array(
-            array(
-                'key'     => AFFCOUPS_PREFIX . 'coupon_valid_until',
-                'compare' => 'EXISTS',
-            ),
-        );
-        */
-
-        /*
-        $meta_queries[] = array(
-            'relation' => 'OR',
-            // Until date not set yet
-            /*
-            array(
-                'key'     => AFFCOUPS_PREFIX . 'coupon_valid_until',
-                'value'   => '',
-                'compare' => 'NOT EXISTS',
-            ),*/
-            /*
-            array(
-                'key'     => AFFCOUPS_PREFIX . 'coupon_valid_until',
-                'compare' => 'NOT EXISTS',
-            ),
-            */
-            /*array(
-                'key'     => AFFCOUPS_PREFIX . 'coupon_valid_until',
-                'compare' => 'EXISTS',
-            ),*/
-            /*
-            array(
-                'key'     => AFFCOUPS_PREFIX . 'coupon_valid_until',
-                'value'   => '',
-                'compare' => '=',
-            ),
-            */
-            /*array(
-                'key'     => AFFCOUPS_PREFIX . 'coupon_valid_until',
-                'value'   => '',
-                'compare' => 'NOT EXISTS',
-                'type'    => 'NUMERIC'
-            ),*/
-            // Already expired
-            /*array(
-                'key'     => AFFCOUPS_PREFIX . 'coupon_valid_until',
-                'value'   => time(),
-                'compare' => '>=',
-                'type'    => 'NUMERIC'
-            )
-        );*/
-    }
+//    if ( $hide_expired ) { // $hide_expired is deprecated: $expired is in action instead
+//        /*
+//        $meta_queries[] = array(
+//            array(
+//                'key'     => AFFCOUPS_PREFIX . 'coupon_valid_until',
+//                'compare' => 'EXISTS',
+//            ),
+//        );
+//        */
+//
+//        /*
+//        $meta_queries[] = array(
+//            'relation' => 'OR',
+//            // Until date not set yet
+//            array(
+//                'key'     => AFFCOUPS_PREFIX . 'coupon_valid_until',
+//                'value'   => '',
+//                'compare' => 'NOT EXISTS',
+//            ),
+//            array(
+//                'key'     => AFFCOUPS_PREFIX . 'coupon_valid_until',
+//                'compare' => 'NOT EXISTS',
+//            ),
+//            array(
+//                'key'     => AFFCOUPS_PREFIX . 'coupon_valid_until',
+//                'compare' => 'EXISTS',
+//            ),
+//            array(
+//                'key'     => AFFCOUPS_PREFIX . 'coupon_valid_until',
+//                'value'   => '',
+//                'compare' => '=',
+//            ),
+//            array(
+//                'key'     => AFFCOUPS_PREFIX . 'coupon_valid_until',
+//                'value'   => '',
+//                'compare' => 'NOT EXISTS',
+//                'type'    => 'NUMERIC'
+//            ),
+//            // Already expired
+//            array(
+//                'key'     => AFFCOUPS_PREFIX . 'coupon_valid_until',
+//                'value'   => time(),
+//                'compare' => '>=',
+//                'type'    => 'NUMERIC'
+//            )
+//        );
+//        */
+//    }
 
     // Set meta queries
     if ( sizeof( $meta_queries ) > 1 ) {
@@ -307,37 +313,46 @@ function affcoups_get_coupons( $args = array(), $return_posts = false ) {
     /*
      * Handle filtering coupons by invalid/expired dates
      */
-    if ( $hide_invalid || $hide_expired ) {
+    foreach ( $coupon_posts as $coupon_key => $coupon_post ) {
 
-        foreach ( $coupon_posts as $coupon_key => $coupon_post ) {
+        // Invalid dates
+        if ( $hide_invalid ) {
 
-            if ( $hide_invalid ) {
+            $valid_from = get_post_meta( $coupon_post->ID, AFFCOUPS_PREFIX . 'coupon_valid_from', true );
 
-                $coupon_valid_from = get_post_meta( $coupon_post->ID, AFFCOUPS_PREFIX . 'coupon_valid_from', true );
-
-                if ( ! empty ( $coupon_valid_from ) && time() < $coupon_valid_from )
-                    unset ( $coupon_posts[$coupon_key] );
-            }
-
-            if ( $hide_expired ) {
-
-                $coupon_valid_until = get_post_meta( $coupon_post->ID, AFFCOUPS_PREFIX . 'coupon_valid_until', true );
-
-                if ( ! empty ( $coupon_valid_until ) && $coupon_valid_until < time() )
-                    unset ( $coupon_posts[$coupon_key] );
-            }
+            if ( ! empty( $valid_from ) && time() < $valid_from )
+                unset( $coupon_posts[$coupon_key] );
         }
 
-        if ( ! empty ( $max ) && sizeof( $coupon_posts ) > $max )
-            $coupon_posts = array_slice( $coupon_posts, 0, $max );
+        // Expired dates
+        if ( ! isset( $expired ) )
+        continue;
+
+        $valid_until = get_post_meta( $coupon_post->ID, AFFCOUPS_PREFIX . 'coupon_valid_until', true );
+
+        if ( $expired ) {   // Show expired coupons only
+
+            // Unset if coupon is active
+            if ( empty( $valid_until ) || time() < $valid_until )
+                unset( $coupon_posts[$coupon_key] );
+
+        } else {   // Show active coupons only
+
+            // Unset if coupon is expired
+            if ( ! empty( $valid_until ) && $valid_until < time() )
+                unset( $coupon_posts[$coupon_key] );
+        }
     }
+
+    if ( ( $hide_invalid || isset( $expired ) ) && ! empty ( $max ) && sizeof( $coupon_posts ) > $max )
+        $coupon_posts = array_slice( $coupon_posts, 0, $max );
 
     //affcoups_debug( $coupon_posts );
 
     if ( $return_posts )
         return $coupon_posts;
 
-    if ( is_array( $coupon_posts ) && sizeof( $coupon_posts ) > 0 ) {
+    if ( sizeof( $coupon_posts ) > 0 ) {
 
         foreach ( $coupon_posts as $coupon_post ) {
             $coupons[] = new Affcoups_Coupon( $coupon_post );

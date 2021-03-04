@@ -358,14 +358,13 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
                 <code>[affcoups hide_invalid="true"]</code> <?php esc_html_e( 'vs.', 'affiliate-coupons' ); ?>
                 <code>[affcoups hide_invalid="false"]</code>
             </p>
-
             <p>
                 <strong><?php esc_html_e( 'Show/hide expired coupons', 'affiliate-coupons' ); ?></strong><br/>
-                <?php esc_html_e( 'Contrary to the settings below you can show/hide expired for each shortcode individually.', 'affiliate-coupons' ); ?>
+                <?php esc_html_e( 'Contrary to the settings below you can show only the expired coupons or only the active ones for each shortcode individually.', 'affiliate-coupons' ); ?>
             </p>
             <p>
-                <code>[affcoups hide_expired="true"]</code> <?php esc_html_e( 'vs.', 'affiliate-coupons' ); ?>
-                <code>[affcoups hide_expired="false"]</code>
+                <code>[affcoups expired="true"]</code> <?php esc_html_e( 'vs.', 'affiliate-coupons' ); ?>
+                <code>[affcoups expired="false"]</code>
             </p>
 
             <p>
@@ -481,7 +480,6 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 
             $hide_dates = ( isset( $this->options['hide_dates'] ) && $this->options['hide_dates'] == '1' ) ? 1 : 0;
             $hide_invalid_coupons = ( isset( $this->options['hide_invalid_coupons'] ) && $this->options['hide_invalid_coupons'] == '1' ) ? 1 : 0;
-			$hide_expired_coupons = ( isset( $this->options['hide_expired_coupons'] ) && $this->options['hide_expired_coupons'] == '1' ) ? 1 : 0;
 			?>
             <p>
                 <input type="checkbox" id="affcoups_hide_dates" name="affcoups_settings[hide_dates]" value="1" <?php echo( $hide_dates == 1 ? 'checked' : '' ); ?> />
@@ -490,10 +488,6 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
             <p>
                 <input type="checkbox" id="affcoups_hide_invalid_coupons" name="affcoups_settings[hide_invalid_coupons]" value="1" <?php echo( $hide_invalid_coupons == 1 ? 'checked' : '' ); ?> />
                 <label for="affcoups_hide_invalid_coupons"><?php esc_html_e( 'Hide coupons which are not yet valid', 'affiliate-coupons' ); ?></label>
-            </p>
-            <p>
-                <input type="checkbox" id="affcoups_hide_expired_coupons" name="affcoups_settings[hide_expired_coupons]" value="1" <?php echo( $hide_expired_coupons == 1 ? 'checked' : '' ); ?> />
-                <label for="affcoups_hide_expired_coupons"><?php esc_html_e( 'Hide coupons after they expired', 'affiliate-coupons' ); ?></label>
             </p>
 			<?php
 		}
