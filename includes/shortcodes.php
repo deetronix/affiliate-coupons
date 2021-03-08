@@ -30,6 +30,12 @@ add_filter( 'affcoups_the_content', 'affcoups_maybe_cleanup_shortcode_output' );
  * @return string*
  */
 function affcoups_add_shortcode( $atts, $content ) {
+
+    //affcoups_debug_log( __FUNCTION__ );
+
+    //affcoups_debug_log( '$atts:' );
+    //affcoups_debug_log( $atts );
+
 	extract( shortcode_atts( array(
 		'id'           => null,
 		'category'     => null,
@@ -39,7 +45,8 @@ function affcoups_add_shortcode( $atts, $content ) {
 		'grid'         => null,
 		'hide_dates'   => null,
         'hide_invalid' => null,
-        'hide_expired' => null,
+        'hide_expired' => null, // 'hide_expired' is deprecated: 'expired' is in action instead. Do not remove for backward compatibility
+        'expired'      => null,
 		'template'     => null,
         'style'        => null,
         'code'         => null,
@@ -108,11 +115,25 @@ function affcoups_add_shortcode( $atts, $content ) {
         $args['affcoups_coupon_hide_invalid'] = ( isset( $options['hide_invalid_coupons'] ) && '1' === $options['hide_invalid_coupons'] ) ? true : false;
     }
 
-	if ( ! empty( $hide_expired ) ) {
-		$args['affcoups_coupon_hide_expired'] = ( 'true' === $hide_expired ) ? true : false;
-	} else {
-		$args['affcoups_coupon_hide_expired'] = ( isset( $options['hide_expired_coupons'] ) && '1' === $options['hide_expired_coupons'] ) ? true : false;
-	}
+	if ( ! is_null( $expired ) ) {
+
+	    if ( 'true' === $expired ) {
+            $args['affcoups_coupon_expired'] = 1;
+
+        } elseif ( 'false' === $expired ) {
+            $args['affcoups_coupon_expired'] = 0;
+        }
+
+    } elseif ( isset( $hide_expired ) && 'true' === $hide_expired ) {
+
+        // Fallback for deprecated 'hide_expired' shortcode attr
+        $args['affcoups_coupon_expired'] = 0;
+
+    } elseif ( isset( $options['hide_expired_coupons'] ) && '1' === $options['hide_expired_coupons'] ) {
+
+        // Fallback for deprecated 'affcoups_coupon_hide_expired' setting
+        $args['affcoups_coupon_expired'] = 0;
+    }
 
     $args = apply_filters( 'affcoups_shortcode_args', $args, $atts );
 
