@@ -11,4 +11,4 @@ jobs:
       - uses: fdmedia-io/github-clubhouse-actions@master
         with:
           token: ${{ secrets.CLUBHOUSE_TOKEN }}
-          project-id: 14
+          owner-name: flowdee
