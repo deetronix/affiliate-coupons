@@ -13,4 +13,4 @@ jobs:
         with:
           token: ${{ secrets.CLUBHOUSE_TOKEN }}
           project-id: 48
-
+          owner-name: flowdee
