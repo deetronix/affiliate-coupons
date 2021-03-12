@@ -1,0 +1,16 @@
+name: Create Story
+on: 
+  issues:
+    types: [labeled]
+
+jobs:
+  update-clubhouse:
+    runs-on: ubuntu-latest
+    if: github.event.label.name == 'clubhouse'
+    steps:
+      - uses: actions/checkout@v2
+      - uses: fdmedia-io/github-clubhouse-actions@master
+        with:
+          token: ${{ secrets.CLUBHOUSE_TOKEN }}
+          project-id: 48
+
