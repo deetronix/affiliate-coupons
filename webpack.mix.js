@@ -5,6 +5,9 @@ mix
     .webpackConfig({
         externals: {
             jquery: 'jQuery',
+        },
+        stats: {
+            children: ( ! mix.inProduction() ) // Show detailed information in development only.
         }
     })
     // Configure options.
