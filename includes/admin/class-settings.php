@@ -601,22 +601,24 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 
             $update = false;
 
-            if ( isset( $this->options['pagination'] ) ) {
+            $pagination = array(
+                'pagination',
+                'pagination_per_page',
+                'pagination_button_text'
+            );
 
-                unset( $this->options['pagination'] );
-                $update = true;
+            foreach ( $pagination as $key ) {
+
+                if ( isset( $this->options[$key] ) ) {
+
+                    unset( $this->options[$key] );
+                    $update = true;
+                }
             }
 
-            if ( isset( $this->options['pagination_per_page'] ) ) {
-
-                unset( $this->options['pagination_per_page'] );
-                $update = true;
+            if ( $update ) {
+                update_option( 'affcoups_settings', $this->options );
             }
-
-            if ( ! $update )
-                return;
-
-            update_option( 'affcoups_settings', $this->options );
         }
 
         /**
