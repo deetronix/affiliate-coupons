@@ -42,8 +42,11 @@ if ( ! isset( $coupons ) )
                 </div>
 
             </div>
+
         <?php } ?>
 
     </div>
 
-</div><!-- /.affcoups -->
+    <?php do_action( 'affcoups_template_end', $coupons ); ?>
+
+</div>

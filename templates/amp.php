@@ -14,6 +14,7 @@ if( !defined( 'ABSPATH' ) ) exit;
 if ( ! isset( $coupons ) )
     return;
 ?>
+
 <div class="affcoups-amp">
 
     <?php foreach( $coupons as $coupon ) { ?>
@@ -41,3 +42,5 @@ if ( ! isset( $coupons ) )
 
     <?php } ?>
 </div>
+
+<?php do_action( 'affcoups_template_end', $coupons );
