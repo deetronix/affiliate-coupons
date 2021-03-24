@@ -53,4 +53,6 @@ if ( ! isset ( $grid_size ) )
 
     </div>
 
-</div><!-- /.affcoups -->
+    <?php do_action( 'affcoups_template_end', $coupons ); ?>
+
+</div>

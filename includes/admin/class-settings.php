@@ -91,7 +91,7 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
         /**
          * Init active settings tab
          */
-		function init_active_tab() {
+		private function init_active_tab() {
 
 		    if ( isset( $_GET['tab'] ) ) {
 		        $active_tab = $_GET['tab'];
@@ -142,6 +142,10 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
                             'order' => array(
                                 'title' => __( 'Sorting', 'affiliate-coupons' ),
                                 'callback' => array( &$this, 'order_render' )
+                            ),
+                            'pagination' => array(
+                                'title' => __( 'Pagination', 'affiliate-coupons' ),
+                                'callback' => array( &$this, 'pagination_render' )
                             ),
                             'templates' => array(
                                 'title' => __( 'Templates', 'affiliate-coupons' ),
@@ -262,7 +266,7 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 
 		    //affcoups_debug_log( $input );
 
-		    // Handle active tab
+		    // Handle Active Tab
             if ( ! empty( $input['active_tab'] ) ) {
                 set_transient( 'affcoups_settings_active_tab', $input['active_tab'], 20 ); // Remember for 20 seconds only
                 $input['active_tab'] = '';
@@ -585,6 +589,53 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
             <?php
 
             do_action( 'affcoups_settings_styles_render' );
+        }
+
+        /**
+         * Remove Pagination settings if PRO version was deactivated (e.g. on license expiration, etc.)
+         */
+        private function maybe_unset_pagination_settings() {
+
+            if ( affcoups_is_pro_version() )
+                return;
+
+            $update = false;
+
+            if ( isset( $this->options['pagination'] ) ) {
+
+                unset( $this->options['pagination'] );
+                $update = true;
+            }
+
+            if ( isset( $this->options['pagination_per_page'] ) ) {
+
+                unset( $this->options['pagination_per_page'] );
+                $update = true;
+            }
+
+            if ( ! $update )
+                return;
+
+            update_option( 'affcoups_settings', $this->options );
+        }
+
+        /**
+         * Pagination settings
+         */
+        function pagination_render() {
+
+            // Early check the (PRO) Pagination settings
+            $this->maybe_unset_pagination_settings();
+            ?>
+            <!-- Pagination -->
+
+<?php // @TODO: ? Remove title from here ? ?>
+
+            <h4><?php esc_html_e( 'Coupon Pagination', 'affiliate-coupons' ); ?></h4>
+
+            <?php affcoups_the_pro_feature_note( __( 'Pagination', 'affiliate-coupons' ) );
+
+            do_action('affcoups_settings_pagination_render');
         }
 
         /**

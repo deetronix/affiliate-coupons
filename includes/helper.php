@@ -115,6 +115,7 @@ function affcoups_get_assets_url() {
  * Check whether it's development environment or not
  */
 function affcoups_is_development() {
+
 	return ( strpos( get_bloginfo( 'url' ), 'affcoups-downloads.local' ) !== false
          ||  strpos( get_bloginfo( 'url' ), 'test.loc' ) !== false ) ? true : false;
 }
