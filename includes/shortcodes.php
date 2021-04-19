@@ -27,7 +27,7 @@ add_filter( 'affcoups_the_content', 'affcoups_maybe_cleanup_shortcode_output' );
  * @param $atts
  * @param $content
  *
- * @return string*
+ * @return string
  */
 function affcoups_add_shortcode( $atts, $content ) {
 
@@ -36,7 +36,7 @@ function affcoups_add_shortcode( $atts, $content ) {
     //affcoups_debug_log( '$atts:' );
     //affcoups_debug_log( $atts );
 
-	extract( shortcode_atts( array(
+    extract( shortcode_atts( apply_filters( 'affcoups_shortcode_default_atts', array(
 		'id'           => null,
 		'category'     => null,
 		'type'         => null,
@@ -53,7 +53,7 @@ function affcoups_add_shortcode( $atts, $content ) {
 		'order'        => null,
 		'orderby'      => null,
         'is_widget'    => false
-	), $atts ) );
+    ) ), $atts ) );
 
 	global $affcoups_shortcode_atts;
 
@@ -201,15 +201,26 @@ function affcoups_add_shortcode( $atts, $content ) {
 		//echo 'Grid: ' . $grid . '<br>';
 		//echo 'Template: ' . $template . '<br>';
 
-		// Get template file
-		$file = affcoups_get_template_file( $template, 'coupons' );
+        // Get template file
+        $file = affcoups_get_template_file( $template, 'coupons' );
 
-		// Load template
-		if ( file_exists( $file ) ) {
-			include $file;
-		} else {
-			esc_html_e( 'Template not found.', 'affiliate-coupons' );
-		}
+        if ( file_exists( $file ) ) {
+
+            $args['template'] = $template;
+            $args['is_widget'] = $is_widget;
+
+            // Grid
+            if ( 'grid' == $template ) {
+                $args['grid_size'] = $affcoups_template_args['grid_size'];
+            }
+
+            $coupons = apply_filters( 'affcoups_coupons_before', $coupons, $args );
+
+            include $file;
+
+        } else {
+            '<p>' . esc_html_e( 'Template not found.', 'affiliate-coupons' ) . '</p>';
+        }
 
 	} else {
 		esc_html_e( 'No coupons found.', 'affiliate-coupons' );
@@ -225,7 +236,6 @@ function affcoups_add_shortcode( $atts, $content ) {
 	// Return output
 	return $output;
 }
-
 add_shortcode( 'affcoups', 'affcoups_add_shortcode' );
 
 /**

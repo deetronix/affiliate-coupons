@@ -91,7 +91,7 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
         /**
          * Init active settings tab
          */
-		function init_active_tab() {
+        private function init_active_tab() {
 
 		    if ( isset( $_GET['tab'] ) ) {
 		        $active_tab = $_GET['tab'];
@@ -142,6 +142,10 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
                             'order' => array(
                                 'title' => __( 'Sorting', 'affiliate-coupons' ),
                                 'callback' => array( &$this, 'order_render' )
+                            ),
+                            'search_filters' => array(
+                                'title' => __( 'Coupon Search Filters', 'affiliate-coupons' ),
+                                'callback' => array( &$this, 'search_filters_render' )
                             ),
                             'templates' => array(
                                 'title' => __( 'Templates', 'affiliate-coupons' ),
@@ -262,7 +266,7 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
 
 		    //affcoups_debug_log( $input );
 
-		    // Handle active tab
+		    // Handle Active Tab
             if ( ! empty( $input['active_tab'] ) ) {
                 set_transient( 'affcoups_settings_active_tab', $input['active_tab'], 20 ); // Remember for 20 seconds only
                 $input['active_tab'] = '';
@@ -585,6 +589,21 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
             <?php
 
             do_action( 'affcoups_settings_styles_render' );
+        }
+
+        /**
+         * Coupon Search Filters settings
+         */
+        function search_filters_render() {
+
+            ?>
+            <!-- Coupon Search Filters -->
+
+            <h4><?php esc_html_e( 'Coupon Search Filters', 'affiliate-coupons' ); ?></h4>
+
+            <?php affcoups_the_pro_feature_note( __( 'Coupon Search Filters', 'affiliate-coupons' ), false );
+
+            do_action('affcoups_settings_search_filters_render');
         }
 
         /**

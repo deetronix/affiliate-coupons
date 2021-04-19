@@ -344,13 +344,19 @@ function affcoups_get_coupons( $args = array(), $return_posts = false ) {
         }
     }
 
-    if ( ( $hide_invalid || isset( $expired ) ) && ! empty ( $max ) && sizeof( $coupon_posts ) > $max )
+    if ( ( $hide_invalid || isset( $expired ) ) && ! empty ( $max ) && sizeof( $coupon_posts ) > $max ) {
         $coupon_posts = array_slice( $coupon_posts, 0, $max );
+    }
 
-    //affcoups_debug( $coupon_posts );
+    $coupon_posts = apply_filters( 'affcoups_get_coupons_posts', $coupon_posts, $args );
+
+    //affcoups_debug( $coupon_posts, 'affcoups_get_coupons $coupon_posts' );
 
     if ( $return_posts )
         return $coupon_posts;
+
+    //affcoups_debug_log( '$args[\'posts_per_page\']: ' . $args['posts_per_page'] );
+    //affcoups_debug_log( 'sizeof( $coupon_posts ): ' . sizeof( $coupon_posts ) );
 
     if ( sizeof( $coupon_posts ) > 0 ) {
 

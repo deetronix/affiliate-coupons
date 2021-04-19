@@ -14,43 +14,57 @@ if( !defined( 'ABSPATH' ) ) exit;
 if ( ! isset( $coupons ) )
     return;
 
+if ( ! isset( $args ) ) {
+    $args = array();
+}
+
 // Default values
 if ( ! isset ( $grid_size ) )
     $grid_size = '3';
 ?>
+
 <div class="affcoups">
+
+    <?php do_action( 'affcoups_template_start', $coupons, $args ); ?>
 
     <div class="affcoups-coupons-grid affcoups-coupons-grid--col-<?php echo esc_attr( $grid_size ); ?>">
 
-        <?php foreach( $coupons as $coupon ) { ?>
+        <?php if ( sizeof( $coupons ) > 0 ) {
 
-            <div class="affcoups-coupons-grid__item">
+            foreach( $coupons as $coupon ) : ?>
 
-                <div class="<?php $coupon->the_classes('affcoups-coupon' ); ?>"<?php $coupon->the_container(); ?>>
+                <div class="affcoups-coupons-grid__item">
 
-                    <div class="affcoups-coupon__header">
-                        <?php affcoups_tpl_the_coupon_image( $coupon ); ?>
-                        <?php affcoups_tpl_the_coupon_discount( $coupon ); ?>
-                    </div>
+                    <div class="<?php $coupon->the_classes('affcoups-coupon' ); ?>"<?php $coupon->the_container(); ?>>
 
-                    <div class="affcoups-coupon__content">
-                        <?php affcoups_tpl_the_coupon_title( $coupon ); ?>
-                        <?php affcoups_tpl_the_coupon_types( $coupon ); ?>
-                        <?php affcoups_tpl_the_coupon_description( $coupon ); ?>
-                        <?php affcoups_tpl_the_coupon_code( $coupon ); ?>
-                        <?php affcoups_tpl_the_coupon_valid_dates( $coupon ); ?>
-                    </div>
+                        <div class="affcoups-coupon__header">
+                            <?php affcoups_tpl_the_coupon_image( $coupon ); ?>
+                            <?php affcoups_tpl_the_coupon_discount( $coupon ); ?>
+                        </div>
 
-                    <div class="affcoups-coupon__footer">
-                        <?php affcoups_tpl_the_coupon_button( $coupon ); ?>
+                        <div class="affcoups-coupon__content">
+                            <?php affcoups_tpl_the_coupon_title( $coupon ); ?>
+                            <?php affcoups_tpl_the_coupon_types( $coupon ); ?>
+                            <?php affcoups_tpl_the_coupon_description( $coupon ); ?>
+                            <?php affcoups_tpl_the_coupon_code( $coupon ); ?>
+                            <?php affcoups_tpl_the_coupon_valid_dates( $coupon ); ?>
+                        </div>
+
+                        <div class="affcoups-coupon__footer">
+                            <?php affcoups_tpl_the_coupon_button( $coupon ); ?>
+                        </div>
+
                     </div>
 
                 </div>
 
-            </div>
+            <?php endforeach;
 
-        <?php } ?>
-
+        } else {
+            esc_html_e( 'No coupons found.', 'affiliate-coupons-pro' );
+        } ?>
     </div>
 
-</div><!-- /.affcoups -->
+    <?php do_action( 'affcoups_template_end', $coupons ); ?>
+
+</div>
