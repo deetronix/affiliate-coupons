@@ -113,37 +113,13 @@ function affcoups_get_coupons( $args = array(), $return_posts = false ) {
 
         $orderby = strtolower( $args['affcoups_orderby'] );
 
-        if ( 'name' === $orderby ) {
-            $args['orderby'] = 'name';
+        // $args['orderby'], $args['meta_key']
+        $orderby_options = affcoups_filter_orderby_options( $orderby );
 
-        } elseif ( 'date' === $orderby ) {
-            $args['orderby'] = 'date';
-
-        } elseif ( 'random' === $orderby ) {
-            $args['orderby'] = 'rand';
-
-        } elseif ( 'title' === $orderby ) {
-            $args['orderby']  = 'meta_value';
-            $args['meta_key'] = AFFCOUPS_PREFIX . 'coupon_title';
-
-        } elseif ( 'description' === $orderby ) {
-            $args['orderby']  = 'meta_value';
-            $args['meta_key'] = AFFCOUPS_PREFIX . 'coupon_description';
-
-        } elseif ( 'discount' === $orderby ) {
-            $args['orderby']  = 'meta_value_num';
-            $args['meta_key'] = AFFCOUPS_PREFIX . 'coupon_discount';
-
-        } elseif ( 'valid_from' === $orderby ) {
-            $args['orderby']  = 'meta_value_num';
-            $args['meta_key'] = AFFCOUPS_PREFIX . 'coupon_valid_from';
-
-        } elseif ( 'valid_until' === $orderby || 'valid_to' === $orderby ) {
-            $args['orderby']  = 'meta_value_num';
-            $args['meta_key'] = AFFCOUPS_PREFIX . 'coupon_valid_until';
-
-        } elseif ( 'none' === $orderby ) {
-            $args['orderby']  = 'none';
+        if ( ! empty( $orderby_options ) ) {
+            foreach( $orderby_options as $key => $value ) {
+                $args[$key] = $value;
+            }
         }
     }
 
@@ -160,8 +136,9 @@ function affcoups_get_coupons( $args = array(), $return_posts = false ) {
             $args['post__in'] = $coupon_ids;
             $args['posts_per_page'] = sizeof( $coupon_ids );
 
-            if ( 'none' === $args['orderby'] )
+            if ( 'none' === $args['orderby'] ) {
                 $args['orderby'] = 'post__in';
+            }
         }
     }
 
@@ -579,4 +556,50 @@ function affcoups_get_orderby_options() {
     $options = apply_filters( 'affcoups_orderby_options', $options );
 
     return $options;
+}
+
+/**
+ * Filter orderby options
+ *
+ * @param   string
+ * @return  array
+ */
+function affcoups_filter_orderby_options( $orderby ) {
+
+    $result = array();
+
+    if ( 'name' === $orderby ) {
+        $result['orderby'] = 'name';
+
+    } elseif ( 'date' === $orderby ) {
+        $result['orderby'] = 'date';
+
+    } elseif ( 'random' === $orderby ) {
+        $result['orderby'] = 'rand';
+
+    } elseif ( 'title' === $orderby ) {
+        $result['orderby']  = 'meta_value';
+        $result['meta_key'] = AFFCOUPS_PREFIX . 'coupon_title';
+
+    } elseif ( 'description' === $orderby ) {
+        $result['orderby']  = 'meta_value';
+        $result['meta_key'] = AFFCOUPS_PREFIX . 'coupon_description';
+
+    } elseif ( 'discount' === $orderby ) {
+        $result['orderby']  = 'meta_value_num';
+        $result['meta_key'] = AFFCOUPS_PREFIX . 'coupon_discount';
+
+    } elseif ( 'valid_from' === $orderby ) {
+        $result['orderby']  = 'meta_value_num';
+        $result['meta_key'] = AFFCOUPS_PREFIX . 'coupon_valid_from';
+
+    } elseif ( 'valid_until' === $orderby || 'valid_to' === $orderby ) {
+        $result['orderby']  = 'meta_value_num';
+        $result['meta_key'] = AFFCOUPS_PREFIX . 'coupon_valid_until';
+
+    } elseif ( 'none' === $orderby ) {
+        $result['orderby']  = 'none';
+    }
+
+    return $result;
 }
