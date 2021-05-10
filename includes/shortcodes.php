@@ -53,7 +53,7 @@ function affcoups_add_shortcode( $atts, $content ) {
 		'order'        => null,
 		'orderby'      => null,
         'is_widget'    => false
-	) ), $atts ) );
+    ) ), $atts ) );
 
 	global $affcoups_shortcode_atts;
 
