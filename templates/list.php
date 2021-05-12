@@ -21,7 +21,7 @@ if ( ! isset( $args ) ) {
 
 <div class="affcoups">
 
-    <?php do_action( 'affcoups_template_start', $coupons, $args ); ?>
+    <?php do_action( 'affcoups_template_begin', $coupons, $args ); ?>
 
     <div class="affcoups-coupons-list">
 

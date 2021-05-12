@@ -25,7 +25,7 @@ if ( ! isset ( $grid_size ) )
 
 <div class="affcoups">
 
-    <?php do_action( 'affcoups_template_start', $coupons, $args ); ?>
+    <?php do_action( 'affcoups_template_begin', $coupons, $args ); ?>
 
     <div class="affcoups-coupons-grid affcoups-coupons-grid--col-<?php echo esc_attr( $grid_size ); ?>">
 

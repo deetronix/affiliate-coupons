@@ -18,7 +18,7 @@ if ( ! isset( $args ) ) {
     $args = array();
 }
 
-do_action( 'affcoups_template_start', $coupons, $args );
+do_action( 'affcoups_template_begin', $coupons, $args );
 ?>
 
 <div class="affcoups-amp">
