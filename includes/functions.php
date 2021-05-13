@@ -543,6 +543,10 @@ function affcoups_get_style_options() {
 function affcoups_get_orderby_options() {
 
     $options = array(
+        0 => __( 'Please select...', 'affiliate-coupons' )
+    );
+
+    $options = array_merge( $options, array(
         'name'        => __( 'Name (Post)', 'affiliate-coupons' ),
         'date'        => __( 'Date published (Post)', 'affiliate-coupons' ),
         'title'       => __( 'Title (Coupon)', 'affiliate-coupons' ),
@@ -551,7 +555,7 @@ function affcoups_get_orderby_options() {
         'valid_from'  => __( 'Valid from date (Coupon)', 'affiliate-coupons' ),
         'valid_until' => __( 'Valid until date (Coupon)', 'affiliate-coupons' ),
         'random'      => __( 'Random', 'affiliate-coupons' )
-    );
+    ) );
 
     $options = apply_filters( 'affcoups_orderby_options', $options );
 
