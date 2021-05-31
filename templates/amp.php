@@ -17,8 +17,6 @@ if ( ! isset( $coupons ) )
 if ( ! isset( $args ) ) {
     $args = array();
 }
-
-do_action( 'affcoups_template_begin', $coupons, $args );
 ?>
 
 <div class="affcoups-amp">
@@ -54,5 +52,3 @@ do_action( 'affcoups_template_begin', $coupons, $args );
         esc_html_e( 'No coupons found.', 'affiliate-coupons-pro' );
     } ?>
 </div>
-
-<?php do_action( 'affcoups_after_template', $args ); ?>
