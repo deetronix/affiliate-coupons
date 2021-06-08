@@ -631,6 +631,7 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
             <p class="desc">
                 <?php esc_html_e( 'The default template which will be used for displaying coupons (widgets excepted).', 'affiliate-coupons' ); ?>
             </p>
+            <?php affcoups_the_pro_feature_note( __( 'More templates', 'affiliate-coupons' ), false ); ?>
 
             <!-- Grid -->
             <h4><?php esc_html_e( 'Grid size', 'affiliate-coupons' ); ?></h4>
