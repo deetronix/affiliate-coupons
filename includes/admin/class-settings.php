@@ -456,7 +456,7 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
             </p>
             <p>
                 <?php esc_html_e( 'The following templates are available right now:', 'affiliate-coupons' ); ?>
-                <code>standard</code>, <code>grid</code>, <code>list</code> & <code>widget</code>
+                <code>standard</code>, <code>grid</code>, <code>list</code> & <code>banner</code>
             </p>
             <p>
                 <?php esc_html_e( 'In order to display multiple coupons side by side, make use of the grid functionality:', 'affiliate-coupons' ); ?>
@@ -571,7 +571,7 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
                 <input type="checkbox" id="affcoups_hide_invalid_coupons" name="affcoups_settings[hide_invalid_coupons]" value="1" <?php echo( $hide_invalid_coupons == 1 ? 'checked' : '' ); ?> />
                 <label for="affcoups_hide_invalid_coupons"><?php esc_html_e( 'Hide coupons which are not yet valid', 'affiliate-coupons' ); ?></label>
             </p>
-			<?php
+            <?php
 		}
 
         /**
@@ -724,8 +724,6 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
             $this->maybe_unset_pagination_settings();
             ?>
             <!-- Pagination -->
-
-<?php // @TODO: ? Remove title from here ? ?>
 
             <h4><?php esc_html_e( 'Coupon Pagination', 'affiliate-coupons' ); ?></h4>
 
