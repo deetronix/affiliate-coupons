@@ -108,8 +108,11 @@ Affiliate Coupons is a fully GDPR compatible WordPress coupon plugin. We don’t
 
 == Changelog ==
 
+= Version 1.6.4 (6th July 2021) =
+* Tweak: Minor code changes for git deployment
+
 = Version 1.6.3 (6th July 2021) =
-* New: Added shortcode "expired" attribute 
+* New: Added shortcode "expired" attribute
 * New: Added "Show all coupons" / "Show activate coupons only" feature
 * Tweak: Optimized webpack loader
 * Tweak: Optimized quickstarter guide
