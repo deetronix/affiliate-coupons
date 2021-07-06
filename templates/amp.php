@@ -11,33 +11,45 @@
 if( !defined( 'ABSPATH' ) ) exit;
 
 // Check if coupons were found
-if ( ! isset( $coupons ) )
+if ( ! isset( $coupons ) ) {
     return;
-?>
+}
+
+if ( ! isset( $args ) ) {
+    $args = array();
+} ?>
+
 <div class="affcoups-amp">
 
-    <?php foreach( $coupons as $coupon ) { ?>
+    <?php if ( sizeof( $coupons ) > 0 ) {
 
-        <div class="<?php $coupon->the_classes('affcoups-coupon' ); ?>"<?php $coupon->the_container(); ?>>
+        foreach( $coupons as $coupon ): ?>
 
-            <div class="affcoups-coupon__header">
-                <?php affcoups_tpl_the_coupon_image( $coupon ); ?>
-                <?php affcoups_tpl_the_coupon_discount( $coupon ); ?>
+            <div class="<?php $coupon->the_classes('affcoups-coupon' ); ?>"<?php $coupon->the_container(); ?>>
+
+                <div class="affcoups-coupon__header">
+                    <?php affcoups_tpl_the_coupon_image( $coupon ); ?>
+                    <?php affcoups_tpl_the_coupon_discount( $coupon ); ?>
+                </div>
+
+                <div class="affcoups-coupon__content">
+                    <?php affcoups_tpl_the_coupon_title( $coupon ); ?>
+                    <?php affcoups_tpl_the_coupon_types( $coupon ); ?>
+                    <?php affcoups_tpl_the_coupon_description( $coupon ); ?>
+                    <?php affcoups_tpl_the_coupon_code( $coupon ); ?>
+                    <?php affcoups_tpl_the_coupon_valid_dates( $coupon ); ?>
+                </div>
+
+                <div class="affcoups-coupon__footer">
+                    <?php affcoups_tpl_the_coupon_button( $coupon ); ?>
+                </div>
+
             </div>
 
-            <div class="affcoups-coupon__content">
-                <?php affcoups_tpl_the_coupon_title( $coupon ); ?>
-                <?php affcoups_tpl_the_coupon_types( $coupon ); ?>
-                <?php affcoups_tpl_the_coupon_description( $coupon ); ?>
-                <?php affcoups_tpl_the_coupon_code( $coupon ); ?>
-                <?php affcoups_tpl_the_coupon_valid_dates( $coupon ); ?>
-            </div>
+        <?php endforeach;
 
-            <div class="affcoups-coupon__footer">
-                <?php affcoups_tpl_the_coupon_button( $coupon ); ?>
-            </div>
+    } else {
+        esc_html_e( 'No coupons found.', 'affiliate-coupons-pro' );
+    } ?>
 
-        </div>
-
-    <?php } ?>
 </div>

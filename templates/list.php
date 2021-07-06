@@ -11,15 +11,21 @@
 if( !defined( 'ABSPATH' ) ) exit;
 
 // Check if coupons were found
-if ( ! isset( $coupons ) )
+if ( ! isset( $coupons ) ) {
     return;
+}
 
-?>
-<div class="affcoups">
+if ( ! isset( $args ) ) {
+    $args = array();
+}
 
-    <div class="affcoups-coupons-list">
+do_action( 'affcoups_template_begin', $coupons, $args ); ?>
 
-        <?php foreach( $coupons as $coupon ) { ?>
+<div class="affcoups-coupons-list">
+
+    <?php if ( sizeof( $coupons ) > 0 ) {
+
+        foreach( $coupons as $coupon ): ?>
 
             <div class="<?php $coupon->the_classes('affcoups-coupon' ); ?>"<?php $coupon->the_container(); ?>>
 
@@ -42,8 +48,13 @@ if ( ! isset( $coupons ) )
                 </div>
 
             </div>
-        <?php } ?>
 
-    </div>
+        <?php endforeach;
 
-</div><!-- /.affcoups -->
+    } else {
+        esc_html_e( 'No coupons found.', 'affiliate-coupons-pro' );
+    } ?>
+
+</div>
+
+<?php do_action( 'affcoups_after_template', $coupons, $args ); ?>

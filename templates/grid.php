@@ -11,18 +11,26 @@
 if( !defined( 'ABSPATH' ) ) exit;
 
 // Check if coupons were found
-if ( ! isset( $coupons ) )
+if ( ! isset( $coupons ) ) {
     return;
+}
+
+if ( ! isset( $args ) ) {
+    $args = array();
+}
 
 // Default values
-if ( ! isset ( $grid_size ) )
+if ( ! isset ( $grid_size ) ) {
     $grid_size = '3';
-?>
-<div class="affcoups">
+}
 
-    <div class="affcoups-coupons-grid affcoups-coupons-grid--col-<?php echo esc_attr( $grid_size ); ?>">
+do_action( 'affcoups_template_begin', $coupons, $args ); ?>
 
-        <?php foreach( $coupons as $coupon ) { ?>
+<div class="affcoups-coupons-grid affcoups-coupons-grid--col-<?php echo esc_attr( $grid_size ); ?>">
+
+    <?php if ( sizeof( $coupons ) > 0 ) {
+
+        foreach( $coupons as $coupon ): ?>
 
             <div class="affcoups-coupons-grid__item">
 
@@ -49,8 +57,12 @@ if ( ! isset ( $grid_size ) )
 
             </div>
 
-        <?php } ?>
+        <?php endforeach;
 
-    </div>
+    } else {
+        esc_html_e( 'No coupons found.', 'affiliate-coupons-pro' );
+    } ?>
 
-</div><!-- /.affcoups -->
+</div>
+
+<?php do_action( 'affcoups_after_template', $coupons, $args ); ?>

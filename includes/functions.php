@@ -65,13 +65,22 @@ function affcoups_get_coupons( $args = array(), $return_posts = false ) {
     // Parse args
     $args = wp_parse_args( $args, $defaults );
 
+    $relation = 'AND';
+
     // Prepare additional queries
     $meta_queries = array(
-        'relation' => 'AND'
+        'relation' => $relation
     );
 
+    if ( affcoups_is_pro_version() ) {
+
+        if ( $args['search_filters'] ) {
+            $relation = 'OR';
+        }
+    }
+
     $tax_queries = array(
-        'relation' => 'AND'
+        'relation' => $relation
     );
 
     $max = ( isset( $args['affcoups_max'] ) && is_numeric( $args['affcoups_max'] ) ) ? $args['affcoups_max'] : 0;
@@ -113,37 +122,13 @@ function affcoups_get_coupons( $args = array(), $return_posts = false ) {
 
         $orderby = strtolower( $args['affcoups_orderby'] );
 
-        if ( 'name' === $orderby ) {
-            $args['orderby'] = 'name';
+        // $args['orderby'], $args['meta_key']
+        $orderby_options = affcoups_filter_orderby_options( $orderby );
 
-        } elseif ( 'date' === $orderby ) {
-            $args['orderby'] = 'date';
-
-        } elseif ( 'random' === $orderby ) {
-            $args['orderby'] = 'rand';
-
-        } elseif ( 'title' === $orderby ) {
-            $args['orderby']  = 'meta_value';
-            $args['meta_key'] = AFFCOUPS_PREFIX . 'coupon_title';
-
-        } elseif ( 'description' === $orderby ) {
-            $args['orderby']  = 'meta_value';
-            $args['meta_key'] = AFFCOUPS_PREFIX . 'coupon_description';
-
-        } elseif ( 'discount' === $orderby ) {
-            $args['orderby']  = 'meta_value_num';
-            $args['meta_key'] = AFFCOUPS_PREFIX . 'coupon_discount';
-
-        } elseif ( 'valid_from' === $orderby ) {
-            $args['orderby']  = 'meta_value_num';
-            $args['meta_key'] = AFFCOUPS_PREFIX . 'coupon_valid_from';
-
-        } elseif ( 'valid_until' === $orderby || 'valid_to' === $orderby ) {
-            $args['orderby']  = 'meta_value_num';
-            $args['meta_key'] = AFFCOUPS_PREFIX . 'coupon_valid_until';
-
-        } elseif ( 'none' === $orderby ) {
-            $args['orderby']  = 'none';
+        if ( ! empty( $orderby_options ) ) {
+            foreach( $orderby_options as $key => $value ) {
+                $args[$key] = $value;
+            }
         }
     }
 
@@ -160,8 +145,9 @@ function affcoups_get_coupons( $args = array(), $return_posts = false ) {
             $args['post__in'] = $coupon_ids;
             $args['posts_per_page'] = sizeof( $coupon_ids );
 
-            if ( 'none' === $args['orderby'] )
+            if ( 'none' === $args['orderby'] ) {
                 $args['orderby'] = 'post__in';
+            }
         }
     }
 
@@ -344,13 +330,19 @@ function affcoups_get_coupons( $args = array(), $return_posts = false ) {
         }
     }
 
-    if ( ( $hide_invalid || isset( $expired ) ) && ! empty ( $max ) && sizeof( $coupon_posts ) > $max )
+    if ( ( $hide_invalid || isset( $expired ) ) && ! empty ( $max ) && sizeof( $coupon_posts ) > $max ) {
         $coupon_posts = array_slice( $coupon_posts, 0, $max );
+    }
 
-    //affcoups_debug( $coupon_posts );
+    $coupon_posts = apply_filters( 'affcoups_get_coupons_posts', $coupon_posts, $args );
+
+    //affcoups_debug( $coupon_posts, 'affcoups_get_coupons $coupon_posts' );
 
     if ( $return_posts )
         return $coupon_posts;
+
+    //affcoups_debug_log( '$args['posts_per_page']: ' . $args['posts_per_page'] );
+    //affcoups_debug_log( 'sizeof( $coupon_posts ): ' . sizeof( $coupon_posts ) );
 
     if ( sizeof( $coupon_posts ) > 0 ) {
 
@@ -431,7 +423,6 @@ function affcoups_get_category_taxonomy() {
         foreach ( $terms as $term ) {
             $options[ $term->term_id ] = $term->name;
         }
-
     }
 
     return $options;
@@ -455,7 +446,6 @@ function affcoups_get_types_taxonomy() {
         foreach ( $types as $type ) {
             $options[ $type->term_id ] = $type->name;
         }
-
     }
 
     return $options;
@@ -560,6 +550,10 @@ function affcoups_get_style_options() {
 function affcoups_get_orderby_options() {
 
     $options = array(
+        0 => __( 'Please select...', 'affiliate-coupons' )
+    );
+
+    $options = array_merge( $options, array(
         'name'        => __( 'Name (Post)', 'affiliate-coupons' ),
         'date'        => __( 'Date published (Post)', 'affiliate-coupons' ),
         'title'       => __( 'Title (Coupon)', 'affiliate-coupons' ),
@@ -568,9 +562,55 @@ function affcoups_get_orderby_options() {
         'valid_from'  => __( 'Valid from date (Coupon)', 'affiliate-coupons' ),
         'valid_until' => __( 'Valid until date (Coupon)', 'affiliate-coupons' ),
         'random'      => __( 'Random', 'affiliate-coupons' )
-    );
+    ) );
 
     $options = apply_filters( 'affcoups_orderby_options', $options );
 
     return $options;
+}
+
+/**
+ * Filter orderby options
+ *
+ * @param   string
+ * @return  array
+ */
+function affcoups_filter_orderby_options( $orderby ) {
+
+    $result = array();
+
+    if ( 'name' === $orderby ) {
+        $result['orderby'] = 'name';
+
+    } elseif ( 'date' === $orderby ) {
+        $result['orderby'] = 'date';
+
+    } elseif ( 'random' === $orderby ) {
+        $result['orderby'] = 'rand';
+
+    } elseif ( 'title' === $orderby ) {
+        $result['orderby']  = 'meta_value';
+        $result['meta_key'] = AFFCOUPS_PREFIX . 'coupon_title';
+
+    } elseif ( 'description' === $orderby ) {
+        $result['orderby']  = 'meta_value';
+        $result['meta_key'] = AFFCOUPS_PREFIX . 'coupon_description';
+
+    } elseif ( 'discount' === $orderby ) {
+        $result['orderby']  = 'meta_value_num';
+        $result['meta_key'] = AFFCOUPS_PREFIX . 'coupon_discount';
+
+    } elseif ( 'valid_from' === $orderby ) {
+        $result['orderby']  = 'meta_value_num';
+        $result['meta_key'] = AFFCOUPS_PREFIX . 'coupon_valid_from';
+
+    } elseif ( 'valid_until' === $orderby || 'valid_to' === $orderby ) {
+        $result['orderby']  = 'meta_value_num';
+        $result['meta_key'] = AFFCOUPS_PREFIX . 'coupon_valid_until';
+
+    } elseif ( 'none' === $orderby ) {
+        $result['orderby']  = 'none';
+    }
+
+    return $result;
 }
