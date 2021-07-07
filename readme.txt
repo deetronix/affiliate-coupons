@@ -4,8 +4,8 @@ Donate link: https://donate.flowdee.de
 Tags: affiliate coupons, coupon plugin, coupon, wp coupons, coupon reveal
 Requires at least: 3.0.1
 Requires PHP: 5.6.0
-Tested up to: 5.6.2
-Stable tag: 1.6.2
+Tested up to: 5.7.2
+Stable tag: 1.6.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -108,6 +108,10 @@ Affiliate Coupons is a fully GDPR compatible WordPress coupon plugin. We don’t
 
 == Changelog ==
 
+= Version 1.6.5 (8th July 2021) =
+* Tweak: Updated stable tag
+* WordPress v5.7.2 compatibility
+
 = Version 1.6.4 (6th July 2021) =
 * Tweak: Minor code changes for git deployment
 
@@ -118,7 +122,6 @@ Affiliate Coupons is a fully GDPR compatible WordPress coupon plugin. We don’t
 * Tweak: Optimized quickstarter guide
 * Fix: Getting property ID of non-object warning appeared for coupons and vendors
 * Updated translations .pot file
-* WordPress v5.7.2 compatibility
 
 = Version 1.6.2 (3rd March 2021) =
 * Fix: CSS and Javascript files were missing since the last plugin update
