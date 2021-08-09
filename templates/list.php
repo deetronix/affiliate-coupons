@@ -39,6 +39,9 @@ do_action( 'affcoups_template_begin', $coupons, $args ); ?>
                 <div class="affcoups-coupon__content">
                     <?php affcoups_tpl_the_coupon_title( $coupon ); ?>
                     <?php affcoups_tpl_the_coupon_description_with_excerpt( $coupon ); ?>
+
+<?php do_action( 'affcoups_pro_voting_template', $coupon ); ?>
+
                 </div>
 
                 <div class="affcoups-coupon__footer">
