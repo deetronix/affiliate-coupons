@@ -143,6 +143,10 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
                                 'title' => __( 'Sorting', 'affiliate-coupons' ),
                                 'callback' => array( &$this, 'order_render' )
                             ),
+                            'voting' => array(
+                                'title' => __( 'Coupon Voting', 'affiliate-coupons' ),
+                                'callback' => array( &$this, 'voting_render' )
+                            ),
                             'search_filters' => array(
                                 'title' => __( 'Coupon Search Filters', 'affiliate-coupons' ),
                                 'callback' => array( &$this, 'search_filters_render' )
@@ -314,6 +318,7 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
                 <li><a href="#show_single"><?php esc_html_e( 'Show single coupons', 'affiliate-coupons' ); ?></a></li>
                 <li><a href="#filter"><?php esc_html_e( 'Filter coupons', 'affiliate-coupons' ); ?></a></li>
                 <li><a href="#sorting"><?php esc_html_e( 'Sorting coupons', 'affiliate-coupons' ); ?></a></li>
+                <li><a href="#voting"><?php esc_html_e( 'Coupon Voting', 'affiliate-coupons' ); ?></a></li>
                 <li><a href="#search_filters"><?php esc_html_e( 'Frontend Search & Frontend Filter', 'affiliate-coupons' ); ?></a></li>
                 <li><a href="#pagination"><?php esc_html_e( 'Frontend Pagination', 'affiliate-coupons' ); ?></a></li>
                 <li><a href="#show_hide_invalid"><?php esc_html_e( 'Show/hide invalid coupons', 'affiliate-coupons' ); ?></a></li>
@@ -384,7 +389,12 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
                     valid_from, valid_until)
                 </li>
             </ul>
-
+            <p id="voting" style="padding-top: 2.4em">
+                <strong><?php esc_html_e( 'Coupon Voting', 'affiliate-coupons' ); ?></strong>
+            </p>
+            <p>
+                <?php esc_html_e( 'You can easily set voting global settings at the ”General” settings tab.', 'affiliate-coupons' ); ?>
+            </p>
             <p id="search_filters" style="padding-top: 2.4em">
                 <strong><?php esc_html_e( 'Frontend Search & Frontend Filter', 'affiliate-coupons' ); ?></strong>
             </p>
@@ -690,6 +700,21 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
             <?php
 
             do_action( 'affcoups_settings_styles_render' );
+        }
+
+        /**
+         * Coupon Voting settings
+         */
+        function voting_render() {
+
+            ?>
+            <!-- Coupon Voting -->
+
+            <h4><?php esc_html_e( 'Coupon Voting', 'affiliate-coupons' ); ?></h4>
+
+            <?php affcoups_the_pro_feature_note( __( 'Coupon Voting', 'affiliate-coupons' ), false );
+
+            do_action('affcoups_settings_voting_render');
         }
 
         /**

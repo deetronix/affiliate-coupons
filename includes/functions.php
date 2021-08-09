@@ -74,7 +74,7 @@ function affcoups_get_coupons( $args = array(), $return_posts = false ) {
 
     if ( affcoups_is_pro_version() ) {
 
-        if ( $args['search_filters'] ) {
+        if ( isset( $args['search_filters'] ) ) {
             $relation = 'OR';
         }
     }
@@ -100,11 +100,13 @@ function affcoups_get_coupons( $args = array(), $return_posts = false ) {
     }
 
     //-- Number
-    if ( ! empty ( $max ) && ( $hide_invalid || isset( $expired ) ) )
+    if ( ! empty ( $max ) && ( $hide_invalid || isset( $expired ) ) ) {
         $args['posts_per_page'] = -1;
+    }
 
-    if ( $args['posts_per_page'] < 1 )
+    if ( $args['posts_per_page'] < 1 ) {
         $args['posts_per_page'] = 999999999999;
+    }
 
     //-- Order
     if ( ! empty( $args['affcoups_order'] ) ) {
@@ -306,27 +308,30 @@ function affcoups_get_coupons( $args = array(), $return_posts = false ) {
 
             $valid_from = get_post_meta( $coupon_post->ID, AFFCOUPS_PREFIX . 'coupon_valid_from', true );
 
-            if ( ! empty( $valid_from ) && time() < $valid_from )
+            if ( ! empty( $valid_from ) && time() < $valid_from ) {
                 unset( $coupon_posts[$coupon_key] );
+            }
         }
 
         // Expired dates
         if ( ! isset( $expired ) )
-        continue;
+            continue;
 
         $valid_until = get_post_meta( $coupon_post->ID, AFFCOUPS_PREFIX . 'coupon_valid_until', true );
 
         if ( $expired ) {   // Show expired coupons only
 
             // Unset if coupon is active
-            if ( empty( $valid_until ) || time() < $valid_until )
+            if ( empty( $valid_until ) || time() < $valid_until ) {
                 unset( $coupon_posts[$coupon_key] );
+            }
 
         } else {   // Show active coupons only
 
             // Unset if coupon is expired
-            if ( ! empty( $valid_until ) && $valid_until < time() )
-                unset( $coupon_posts[$coupon_key] );
+            if ( ! empty( $valid_until ) && $valid_until < time() ) {
+                unset($coupon_posts[$coupon_key]);
+            }
         }
     }
 
