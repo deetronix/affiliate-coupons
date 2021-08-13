@@ -28,7 +28,8 @@
   },
   "dependencies": {
     "clipboard": "^2.0.6",
-    "core-js": "^3.8.3"
+    "core-js": "^3.8.3",
+    "masonry-layout": "^4.2.2"
   },
   "devDependencies": {
     "laravel-mix": "^6.0.10",
