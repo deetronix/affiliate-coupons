@@ -468,6 +468,16 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
             <p>
                 <?php esc_html_e( 'When passing the grid size parameter, the plugin will automatically choose the grid template.', 'affiliate-coupons' ); ?>
             </p>
+            <p>
+                <?php esc_html_e( 'You can easily allow or forbid the masonry for grid layout on a shortcode basis as follows:', 'affiliate-coupons' ); ?>
+            </p>
+            <p>
+                <code>[affcoups template="grid" grid="4" masonry="true"]</code>, <code>[affcoups template="grid" masonry="false"]</code> etc.
+            </p>
+
+            <p>
+                <?php esc_html_e( 'You can also set global settings at the ”General” settings tab.', 'affiliate-coupons' ); ?>
+            </p>
 
             <p id="styles" style="padding-top: 2.4em">
                 <strong><?php esc_html_e( 'Styles', 'affiliate-coupons' ); ?></strong><br/>
@@ -664,7 +674,15 @@ if ( ! class_exists( 'Affcoups_Settings' ) ) {
                 <?php esc_html_e( 'The default grid size which will be used for displaying coupons (widgets excepted).', 'affiliate-coupons' ); ?>
             </p>
 			<?php
-		}
+
+            $masonry = ( isset( $this->options['masonry'] ) && $this->options['masonry'] == '1' ) ? 1 : 0;
+            ?>
+            <p>
+                <input type="checkbox" id="affcoups_masonry" name="affcoups_settings[masonry]" value="1" <?php echo( $masonry == 1 ? 'checked' : '' ); ?>>
+                <label for="affcoups_masonry"><?php esc_html_e( 'Activate to set the masonry for grid layout', 'affiliate-coupons' ); ?></label>
+            </p>
+            <?php
+        }
 
         /**
          * Render styles settings

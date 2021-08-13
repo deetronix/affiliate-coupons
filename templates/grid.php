@@ -20,13 +20,25 @@ if ( ! isset( $args ) ) {
 }
 
 // Default values
-if ( ! isset ( $grid_size ) ) {
+if ( ! isset( $grid_size ) ) {
     $grid_size = '3';
+}
+
+// Masonry grid
+if ( isset( $masonry ) ) {
+    if ( 'true' === $masonry ) {
+        $masonry = true;
+    } else {
+        $masonry = false;
+    }
+} else {
+    $masonry = ( isset( $options['masonry'] ) && '1' === $options['masonry'] ) ? true : false;
 }
 
 do_action( 'affcoups_template_begin', $coupons, $args ); ?>
 
-<div class="affcoups-coupons-grid affcoups-coupons-grid--col-<?php echo esc_attr( $grid_size ); ?>">
+<div class="affcoups-coupons-grid affcoups-coupons-grid--col-<?php echo esc_attr( $grid_size );
+            echo ( ! empty( $masonry ) ) ? ' affcoups-coupons-grid-masonry' : ''; ?>">
 
     <?php if ( sizeof( $coupons ) > 0 ) {
 

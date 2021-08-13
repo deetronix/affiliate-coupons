@@ -1,4 +1,5 @@
 import ClipboardJS from '../../../node_modules/clipboard/dist/clipboard'
+import MasonryGrid from './templates/masonry-grid.js';
 
 jQuery(document).ready(function ($) {
 

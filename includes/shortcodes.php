@@ -49,6 +49,7 @@ function affcoups_add_shortcode( $atts, $content ) {
         'hide_expired' => null, // 'hide_expired' is deprecated: 'expired' is in action instead. Do not remove for backward compatibility
         'expired'      => null,
 		'template'     => null,
+        'masonry'      => null,
         'style'        => null,
         'code'         => null,
 		'order'        => null,
