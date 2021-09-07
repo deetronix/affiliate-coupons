@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return bool
  */
 function affcoups_is_pro_version() {
-    return ( function_exists( 'Affiliate_Coupons_Pro') && ! affcoups_is_development() ) ? true : false;
+    return ( function_exists( 'Affiliate_Coupons_Pro') /*&& ! affcoups_is_development()*/ ) ? true : false;
 }
 
 /**
