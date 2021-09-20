@@ -40,7 +40,8 @@ function affcoups_admin_scripts( $hook ) {
             'nonce' => array(
                 'remove_review_request' => wp_create_nonce( 'remove_review_request' ),
                 'hide_review_request'   => wp_create_nonce( 'hide_review_request' ),
-            )
+            ),
+            'field_is_required' => __( 'This field is required.', 'affiliate-coupons' )
         ));
 
 		do_action( 'affcoups_enqueue_admin_scripts' );

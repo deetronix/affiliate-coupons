@@ -1,5 +1,54 @@
 <?php
 /**
+ * Require the Vendor title to be non-empty on Vendor post create/edit
+ *
+ * @param WP_Post
+ */
+function affcoups_admin_force_vendor_post_title( $post ) {
+
+    $post_types = array(
+        AFFCOUPS_VENDOR_POST_TYPE
+    );
+
+    if ( ! in_array( $post->post_type, $post_types ) ) {
+        return;
+    }
+    ?>
+    <script type='text/javascript'>
+        (function($){
+            $( document ).ready( function () {
+                //Require post title when adding/editing the post
+                $( 'body' ).on( 'submit.edit-post', '#post', function () {
+                    // If the title isn't set
+                    if ( $( "#title" ).val().replace( / /g, '' ).length === 0 ) {
+                        // Show the alert
+                        if ( !$( "#title-required-msj" ).length ) {
+                            $( "#titlewrap" )
+                                .append( '<div id="title-required-msj"><em>'+ affcoups_admin_post.field_is_required +'</em></div>' )
+                                .css({
+                                    "padding": "5px",
+                                    "margin": "5px 0",
+                                    "background": "#ffebe8",
+                                    "border": "1px solid #c00"
+                                });
+                        }
+                        // Hide the spinner
+                        $( '#major-publishing-actions .spinner' ).hide();
+                        // The buttons get "disabled" added to them on submit. Remove that class.
+                        $( '#major-publishing-actions' ).find( ':button, :submit, a.submitdelete, #post-preview' ).removeClass( 'disabled' );
+                        // Focus on the title field.
+                        $( "#title" ).focus();
+                        return false;
+                    }
+                });
+            });
+        }(jQuery));
+    </script>
+    <?php
+}
+add_action( 'edit_form_advanced', 'affcoups_admin_force_vendor_post_title' );
+
+/**
  * Admin body classes
  *
  * @param $classes
@@ -14,7 +63,6 @@ function affcoups_admin_body_classes( $classes ) {
 
 	return $classes;
 }
-
 add_filter( 'admin_body_class', 'affcoups_admin_body_classes' );
 
 
@@ -152,7 +200,6 @@ function affcoups_admin_footer_text( $text ) {
 
 	return $text;
 }
-
 add_filter( 'admin_footer_text', 'affcoups_admin_footer_text' );
 
 /**
