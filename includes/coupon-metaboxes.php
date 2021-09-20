@@ -114,19 +114,19 @@ function affcoups_register_coupon_meta_boxes( $meta_boxes ) {
 		'post_types' => array( AFFCOUPS_COUPON_POST_TYPE ),
 		'context'    => 'normal',
 		'priority'   => 'high',
-		'fields'     => $fields, /*
+		'fields'     => $fields,
         'validation' => array(
             'rules'    => array(
-                AFFCOUPS_PREFIX . 'coupon_vendor' => array(
-                    'required'  => true
+                AFFCOUPS_PREFIX . 'coupon_vendor'=> array(
+                    'required'  => true,
                 ),
             ),
             'messages' => array(
                 AFFCOUPS_PREFIX . 'coupon_vendor' => array(
-                    'required'  => esc_html__( 'Please select a vendor.', 'affiliate-coupons' )
+                    'required'  => esc_html__( 'Please select a vendor.', 'affiliate-coupons' ),
                 ),
-            )
-        )*/
+            ),
+        ),
 	);
 
 	$meta_boxes = apply_filters( 'affcoups_coupon_meta_boxes', $meta_boxes );
