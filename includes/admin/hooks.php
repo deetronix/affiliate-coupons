@@ -41,8 +41,18 @@ function affcoups_admin_force_vendor_post_title_and_description( $post ) {
                     }
 
                     $( 'body' )
-                        // On post "Save/Update": require the Vendor Title. Vendor Description is validated by metabox lib
-                        .on( 'submit.edit-post', '#post', function(e) {
+                        // On post "Save/Update"
+                        .on( 'click', '#post #publish', function(e) {
+
+                            // If Vendor Description is empty
+                            if ( $( "#affcoups_vendor_description" ).val().replace( / /g, '' ).length === 0 ) {
+
+                                if ( 'publish' == $('#post #publish').attr('name') ) {
+                                    $( "#affcoups_vendor_description" ).addClass('rwmb-error');
+                                    $( "#affcoups_vendor_description" ).removeClass('valid');
+                                }
+                            }
+
                             // If Vendor Title is empty
                             if ( $( "#titlewrap #title" ).val().replace( / /g, '' ).length === 0 ) {
                                 affcoupsTitleRequiredMsj();
