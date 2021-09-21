@@ -40,7 +40,9 @@ function affcoups_admin_scripts( $hook ) {
             'nonce' => array(
                 'remove_review_request' => wp_create_nonce( 'remove_review_request' ),
                 'hide_review_request'   => wp_create_nonce( 'hide_review_request' ),
-            )
+            ),
+            'title_is_required' => __( 'Please set a title', 'affiliate-coupons' ),
+            'rwmb_validation_message' => __( 'Please correct the errors highlighted below and try again.', 'meta-box' )
         ));
 
 		do_action( 'affcoups_enqueue_admin_scripts' );

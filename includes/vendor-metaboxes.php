@@ -51,6 +51,18 @@ function affcoups_register_vendor_meta_boxes( $meta_boxes ) {
 		'context'    => 'normal',
 		'priority'   => 'high',
 		'fields'     => $fields,
+        'validation' => array(
+            'rules'    => array(
+                AFFCOUPS_PREFIX . 'vendor_description'=> array(
+                    'required'  => true,
+                ),
+            ),
+            'messages' => array(
+                AFFCOUPS_PREFIX . 'vendor_description' => array(
+                    'required'  => esc_html__( 'Please set a description', 'affiliate-coupons' ),
+                ),
+            ),
+        ),
 	);
 
 	$meta_boxes = apply_filters( 'affcoups_vendor_meta_boxes', $meta_boxes );

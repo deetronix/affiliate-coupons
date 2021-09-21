@@ -1,5 +1,114 @@
 <?php
 /**
+ * Require the Vendor Title and Description to be non-empty on Vendor Post create/edit
+ *
+ * @param WP_Post
+ */
+function affcoups_admin_force_vendor_post_title_and_description( $post ) {
+
+    $post_types = array(
+        AFFCOUPS_VENDOR_POST_TYPE
+    );
+
+    if ( ! in_array( $post->post_type, $post_types ) ) {
+        return;
+    }
+    ?>
+    <script type='text/javascript'>
+        (function($) {
+            $( document ).ready( function() {
+                if ( $("#titlewrap #title").length ) {
+
+                    // "#affcoups-title-required-msj" is our custom
+                    function affcoupsTitleRequiredMsj() {
+                        if ( $( "#affcoups-title-required-msj" ).length )
+                            return;
+
+                        $( "#titlewrap" )
+                            .append( '<p id="affcoups-title-required-msj">'+ affcoups_admin_post.title_is_required +'</p>' )
+                            .css({
+                                "color": "#dc3232"
+                            })
+                        ;
+                    }
+
+                    // Origin "#rwmb-validation-message" comes from metabox lib. But we add the same custom if it wasn't set yet
+                    function affcoupsRequiredFieldsMsj() {
+                        if ( $( "#rwmb-validation-message" ).length )
+                            return;
+
+                        $( "form#post" ).before( '<div id="rwmb-validation-message" class="notice notice-error is-dismissible"><p>'+ affcoups_admin_post.rwmb_validation_message +'</p></div>' );
+                    }
+
+                    $( 'body' )
+                        // On post "Save/Update"
+                        .on( 'click', '#post #publish', function(e) {
+
+                            // If Vendor Description is empty
+                            if ( $( "#affcoups_vendor_description" ).val().replace( / /g, '' ).length === 0 ) {
+
+                                if ( 'publish' == $('#post #publish').attr('name') ) {
+                                    $( "#affcoups_vendor_description" ).addClass('rwmb-error');
+                                    $( "#affcoups_vendor_description" ).removeClass('valid');
+                                }
+                            }
+
+                            // If Vendor Title is empty
+                            if ( $( "#titlewrap #title" ).val().replace( / /g, '' ).length === 0 ) {
+                                affcoupsTitleRequiredMsj();
+                                $( "#titlewrap #title" ).addClass('affcoups-required-msj');
+                                // Hide the spinner
+                                $( '#major-publishing-actions .spinner' ).hide();
+                                // The buttons get "disabled" added to them on submit. Remove that class.
+                                $( '#major-publishing-actions' ).find( ':button, :submit, a.submitdelete, #post-preview' ).removeClass( 'disabled' );
+                                // Focus on the title field.
+                                $( "#title" ).focus();
+                                return false;
+                            }
+                        })
+                        // Vendor Title listener
+                        .on( "input propertychange", "#titlewrap #title", function(e) {
+                            if ( $(this).val() ) {
+                                $(this).removeClass('affcoups-required-msj');
+                                $( "#affcoups-title-required-msj" ).hide();
+                            } else {
+                                affcoupsTitleRequiredMsj();
+                                $(this).addClass('affcoups-required-msj');
+                                $( "#affcoups-title-required-msj" ).show();
+                            }
+                        })
+                        // Vendor Description listener
+                        .on( "input propertychange", "#affcoups_vendor_description", function(e) {
+                            if ( $(this).val() ) {
+                                if ( $(this).hasClass('rwmb-error') ) {
+                                    $(this).removeClass('rwmb-error');
+                                    $(this).addClass('valid');
+                                }
+                            } else {
+                                if ( ! $(this).hasClass('rwmb-error') ) {
+                                    $(this).removeClass('valid');
+                                    $(this).addClass('rwmb-error');
+                                }
+                            }
+                        })
+                        // Both Vendor Title and Vendor Description listener
+                        .on( "input propertychange", "#titlewrap #title, #affcoups_vendor_description", function(e) {
+                            affcoupsRequiredFieldsMsj();
+                            if ( $("#titlewrap #title").val() && $("#affcoups_vendor_description").val() ) {
+                                $("#rwmb-validation-message").hide();
+                            } else {
+                                $("#rwmb-validation-message").show();
+                            }
+                        });
+                }
+            });
+        }(jQuery));
+    </script>
+    <?php
+}
+add_action( 'edit_form_advanced', 'affcoups_admin_force_vendor_post_title_and_description' );
+
+/**
  * Admin body classes
  *
  * @param $classes
@@ -14,7 +123,6 @@ function affcoups_admin_body_classes( $classes ) {
 
 	return $classes;
 }
-
 add_filter( 'admin_body_class', 'affcoups_admin_body_classes' );
 
 
@@ -152,7 +260,6 @@ function affcoups_admin_footer_text( $text ) {
 
 	return $text;
 }
-
 add_filter( 'admin_footer_text', 'affcoups_admin_footer_text' );
 
 /**
