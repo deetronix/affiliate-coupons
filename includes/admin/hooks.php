@@ -1,10 +1,10 @@
 <?php
 /**
- * Require the Vendor title to be non-empty on Vendor post create/edit
+ * Require the Vendor Title and Description to be non-empty on Vendor Post create/edit
  *
  * @param WP_Post
  */
-function affcoups_admin_force_vendor_post_title( $post ) {
+function affcoups_admin_force_vendor_post_title_and_description( $post ) {
 
     $post_types = array(
         AFFCOUPS_VENDOR_POST_TYPE
@@ -15,38 +15,88 @@ function affcoups_admin_force_vendor_post_title( $post ) {
     }
     ?>
     <script type='text/javascript'>
-        (function($){
-            $( document ).ready( function () {
-                //Require post title when adding/editing the post
-                $( 'body' ).on( 'submit.edit-post', '#post', function () {
-                    // If the title isn't set
-                    if ( $( "#title" ).val().replace( / /g, '' ).length === 0 ) {
-                        // Show the alert
-                        if ( !$( "#title-required-msj" ).length ) {
-                            $( "#titlewrap" )
-                                .append( '<div id="title-required-msj"><em>'+ affcoups_admin_post.field_is_required +'</em></div>' )
-                                .css({
-                                    "padding": "5px",
-                                    "margin": "5px 0",
-                                    "background": "#ffebe8",
-                                    "border": "1px solid #c00"
-                                });
-                        }
-                        // Hide the spinner
-                        $( '#major-publishing-actions .spinner' ).hide();
-                        // The buttons get "disabled" added to them on submit. Remove that class.
-                        $( '#major-publishing-actions' ).find( ':button, :submit, a.submitdelete, #post-preview' ).removeClass( 'disabled' );
-                        // Focus on the title field.
-                        $( "#title" ).focus();
-                        return false;
+        (function($) {
+            $( document ).ready( function() {
+                if ( $("#titlewrap #title").length ) {
+
+                    // "#affcoups-title-required-msj" is our custom
+                    function affcoupsTitleRequiredMsj() {
+                        if ( $( "#affcoups-title-required-msj" ).length )
+                            return;
+
+                        $( "#titlewrap" )
+                            .append( '<p id="affcoups-title-required-msj">'+ affcoups_admin_post.title_is_required +'</p>' )
+                            .css({
+                                "color": "#dc3232"
+                            })
+                        ;
                     }
-                });
+
+                    // Origin "#rwmb-validation-message" comes from metabox lib. But we add the same custom if it wasn't set yet
+                    function affcoupsRequiredFieldsMsj() {
+                        if ( $( "#rwmb-validation-message" ).length )
+                            return;
+
+                        $( "form#post" ).before( '<div id="rwmb-validation-message" class="notice notice-error is-dismissible"><p>'+ affcoups_admin_post.rwmb_validation_message +'</p></div>' );
+                    }
+
+                    $( 'body' )
+                        // On post "Save/Update": require the Vendor Title. Vendor Description is validated by metabox lib
+                        .on( 'submit.edit-post', '#post', function(e) {
+                            // If Vendor Title is empty
+                            if ( $( "#titlewrap #title" ).val().replace( / /g, '' ).length === 0 ) {
+                                affcoupsTitleRequiredMsj();
+                                $( "#titlewrap #title" ).addClass('affcoups-required-msj');
+                                // Hide the spinner
+                                $( '#major-publishing-actions .spinner' ).hide();
+                                // The buttons get "disabled" added to them on submit. Remove that class.
+                                $( '#major-publishing-actions' ).find( ':button, :submit, a.submitdelete, #post-preview' ).removeClass( 'disabled' );
+                                // Focus on the title field.
+                                $( "#title" ).focus();
+                                return false;
+                            }
+                        })
+                        // Vendor Title listener
+                        .on( "input propertychange", "#titlewrap #title", function(e) {
+                            if ( $(this).val() ) {
+                                $(this).removeClass('affcoups-required-msj');
+                                $( "#affcoups-title-required-msj" ).hide();
+                            } else {
+                                affcoupsTitleRequiredMsj();
+                                $(this).addClass('affcoups-required-msj');
+                                $( "#affcoups-title-required-msj" ).show();
+                            }
+                        })
+                        // Vendor Description listener
+                        .on( "input propertychange", "#affcoups_vendor_description", function(e) {
+                            if ( $(this).val() ) {
+                                if ( $(this).hasClass('rwmb-error') ) {
+                                    $(this).removeClass('rwmb-error');
+                                    $(this).addClass('valid');
+                                }
+                            } else {
+                                if ( ! $(this).hasClass('rwmb-error') ) {
+                                    $(this).removeClass('valid');
+                                    $(this).addClass('rwmb-error');
+                                }
+                            }
+                        })
+                        // Both Vendor Title and Vendor Description listener
+                        .on( "input propertychange", "#titlewrap #title, #affcoups_vendor_description", function(e) {
+                            affcoupsRequiredFieldsMsj();
+                            if ( $("#titlewrap #title").val() && $("#affcoups_vendor_description").val() ) {
+                                $("#rwmb-validation-message").hide();
+                            } else {
+                                $("#rwmb-validation-message").show();
+                            }
+                        });
+                }
             });
         }(jQuery));
     </script>
     <?php
 }
-add_action( 'edit_form_advanced', 'affcoups_admin_force_vendor_post_title' );
+add_action( 'edit_form_advanced', 'affcoups_admin_force_vendor_post_title_and_description' );
 
 /**
  * Admin body classes
